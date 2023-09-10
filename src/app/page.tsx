@@ -30,10 +30,11 @@ export default function Home() {
 			<div className='w-1/2 text-black pt-12'>
 				<h2 className='font-bold text-3xl border-b mb-4'>Upcoming Concerts</h2>
 				<div className='flex flex-col gap-6 w-full'>
-					{ concerts.map((concert) => (
+					{ concerts.map((concert, idx) => (
 						<ConcertListItem 
 							title={concert.title}
 							description={concert.description}
+							key={ `concert-item-${idx}` }
 						/> 
 					) )}
 				</div>
