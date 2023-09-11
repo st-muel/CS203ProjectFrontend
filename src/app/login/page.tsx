@@ -27,14 +27,14 @@ export default function Login() {
             <div className='flex flex-col items-center w-5/12'>
                 <div className='flex flex-col gap-6'>
                     <div>
-                        <div className='font-bold'>Email</div>
+                        <div className='font-bold text-white'>Email</div>
                         <input 
                             type='text' 
                             className='rounded-md w-80 py-2 px-4 text-black bg-white focus:outline-none focus:ring-2 focus:ring-purple-600'
                         />
                     </div>
                     <div>
-                        <div className='font-bold'>Password</div>
+                        <div className='font-bold text-white'>Password</div>
                         <input 
                             type='password'
                             className='rounded-md w-80 py-2 px-4 text-black bg-white focus:outline-none focus:ring-2 focus:ring-purple-600'
