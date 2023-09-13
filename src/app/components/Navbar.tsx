@@ -1,8 +1,18 @@
+'use client'
+
 import { FaCalendar, FaSearch } from "react-icons/fa";
+import SignInModal from "./SignInModal";
+import { useState } from "react";
 
 const Navbar = () => {
+    const [open, setOpen] = useState(false)
+
     return (
         <div className="flex items-center w-full h-24 bg-white px-24 justify-between">
+            <SignInModal 
+                open={open}
+                setOpen={setOpen}
+            />
             <div className="text-lg text-black">Ticketing Winners</div>
             <div className="relative">
                 <input 
@@ -35,12 +45,12 @@ const Navbar = () => {
                 </select>
             </div>
             <div>
-                <a
-                    href="/login"
+                <div
                     className="text-lg font-bold text-purple-600 px-8 py-4 rounded-full border border-gray-400 transition hover:bg-purple-600 hover:text-white hover:border-none"
+                    onClick={() => setOpen(true)}
                 >
                     Sign in
-                </a>
+                </div>
             </div>
         </div>
     )
