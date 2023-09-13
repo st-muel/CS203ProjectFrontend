@@ -1,40 +1,33 @@
-import { Modal } from "antd"
+import { Modal } from "antd";
+import SigninForm from "./signin-form";
+import { buttonVariants } from "./ui/button";
+import { rc } from "../lib/utils";
+import { useState } from "react";
 
 interface props {
-    open: boolean
-    setOpen: (open: boolean) => void
+  open: boolean;
+  setOpen: (open: boolean) => void;
 }
 
 const SignInModal = (props: props) => {
-    return (
-        <>
-            <Modal
-                footer={null}
-                style={{
-                    backgroundColor: "#17202E"
-                }}
-                bodyStyle={{
-                    backgroundColor: "#17202E"
-                }}
-                closable={false}
-                title={null}
-                open={props.open}
-                className="dark"
-                width={1000}
-            >
-                <div className="flex flex-col items-center justify-center w-[200px] h-[300px]">
-                    <input className="text" />
+  const handleCancel = () => {
+    props.setOpen(false);
+  };
 
-                    <button 
-                        className="text-white"
-                        onClick={() => props.setOpen(false)}
-                    >
-                        Close
-                    </button>
-                </div>
-            </Modal>
-        </>
-    )
-}
+  return (
+    <>
+      <Modal
+        footer={null}
+        closable={true}
+        onCancel={handleCancel}
+        title={null}
+        open={props.open}
+        className="shadow-md"
+      >
+        <SigninForm />
+      </Modal>
+    </>
+  );
+};
 
-export default SignInModal
+export default SignInModal;
