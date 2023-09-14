@@ -7,18 +7,22 @@ const concerts = [
 	{
 		title: 'The Weeknd After Hours Tour',
 		description: 'Come join us for a night of fun and music with The Weeknd! Come join us for a night of fun and music with The Weeknd! Come join us for a night of fun and music with The Weeknd! Come join us for a night of fun and music with The Weeknd!',
+		id: 1
 	},
 	{
 		title: 'The Weeknd After Hours Tour',
 		description: 'Come join us for a night of fun and music with The Weeknd! Come join us for a night of fun and music with The Weeknd! Come join us for a night of fun and music with The Weeknd! Come join us for a night of fun and music with The Weeknd!',
+		id: 1
 	},
 	{
 		title: 'The Weeknd After Hours Tour',
 		description: 'Come join us for a night of fun and music with The Weeknd! Come join us for a night of fun and music with The Weeknd! Come join us for a night of fun and music with The Weeknd! Come join us for a night of fun and music with The Weeknd!',
+		id: 1
 	},
 	{
 		title: 'The Weeknd After Hours Tour',
 		description: 'Come join us for a night of fun and music with The Weeknd! Come join us for a night of fun and music with The Weeknd! Come join us for a night of fun and music with The Weeknd! Come join us for a night of fun and music with The Weeknd!',
+		id: 1
 	}
 ]
 
@@ -34,6 +38,7 @@ export default function Home() {
 						<ConcertListItem 
 							title={concert.title}
 							description={concert.description}
+							id = {concert.id}
 							key={ `concert-item-${idx}` }
 						/> 
 					) )}
