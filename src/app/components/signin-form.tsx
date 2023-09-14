@@ -95,7 +95,7 @@ const SigninForm = () => {
         </div>
 
         <p className="mt-4 text-sm text-center text-gray-700">
-          Don't have an account?{" "}
+          Don&#39;t have an account?{" "}
           <Link
             href="/login"
             className="font-medium text-blue-600 hover:underline"

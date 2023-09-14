@@ -8,7 +8,7 @@ import ExploreCard from "../components/ExploreCard";
 import { exploreConcerts } from "../constants";
 
 const Explore = () => {
-  const [active, setActive] = useState("world-2");
+  const [active, setActive] = useState("concert-2");
   return (
     <section className={`${styles.paddings}`} id="explore">
       <motion.div

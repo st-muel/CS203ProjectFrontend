@@ -26,7 +26,6 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-
 /*pop up*/
 @layer base {
   th {
@@ -45,7 +44,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Eudoxus Sans", sans-serif;
+  /* font-family: "Eudoxus Sans", sans-serif; */
   scroll-behavior: smooth;
 }
 
