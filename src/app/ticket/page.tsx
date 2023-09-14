@@ -8,7 +8,7 @@ import { Carousel } from "../components/Carousel";
 export default function Home() {
   return (
     <main>
-      <div className="flex min-h-screen flex-col items-center bg-white">
+      <div className="flex min-h-screen flex-col items-center">
         <Navbar />
         <Carousel />
         <div className="w-1/2 text-black pt-12">

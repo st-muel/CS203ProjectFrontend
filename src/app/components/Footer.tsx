@@ -1,41 +1,46 @@
-const Footer = () => {
-    return (
-        <div className="p-14 bg-white text-[#1E1E1E]">
-            <div className="md:flex items-start justify-between">
-                <div className="left flex flex-col justify-between max-md:mb-10">
-                    <div className="">
-                        <img className="w-[200px] mb-3" src="/logo1.png" alt="" />
-                        <h1>The biggest, extraordinary and spread <br />out music festival all around the world</h1>
-                    </div>
-                    <p className="mt-20 max-md:hidden">2023 &copy; Ticket Maester</p>
-                </div>
-                <div>
-                    <div className="flex items-start space-x-12">
-                        <ul>
-                            <li className="text-xl font-semibold pb-5">Menu</li>
-                            <li>Home</li>
-                            <li>Performance</li>
-                            <li>Booking</li>
-                            <li>Store</li>
-                            <li>About Us</li>
-                        </ul>
-                        <ul>
-                            <li className="text-xl font-semibold pb-5">Help</li>
-                            <li>Privacy & Policy</li>
-                            <li>Term of Use</li>
-                        </ul>
-                        <ul>
-                            <li className="text-xl font-semibold pb-5">Social</li>
-                            <li>Facebook</li>
-                            <li>Twitter</li>
-                            <li>Instagram</li>
-                            <li>Youtube</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
-}
+"use client";
+import { motion } from "framer-motion";
+import { socials } from "../constants";
+import { footerVariants } from "../utils/motion";
+import styles from "../styles";
 
-export default Footer
+const Footer = () => (
+  <motion.footer
+    variants={footerVariants}
+    initial="hidden"
+    whileInView="show"
+    className={`${styles.paddings} py-8 relative`}
+  >
+    <div className="footer-gradient" />
+    <div className={`${styles.innerWidth} mx-auto flex flex-col gap-8`}>
+      <div className="flex items-center justify-between flex-wrap gap-5">
+        <h4 className="font-bold md:text-[64px] text-[44px] text-white">
+          Ticket Winners
+        </h4>
+        <div className="flex gap-4 pt-10">
+          {socials.map((social) => (
+            <img
+              src={social.url}
+              alt={social.name}
+              key={social.name}
+              className="w-[44px] h-[24px] object-contain cursor-pointer"
+            />
+          ))}
+        </div>
+      </div>
+      <div className="flex flex-col">
+        <div className="mb-[50px] h-[2px] bg-white opacity-10" />
+        <div className="flex items-center justify-between flex-wrap gap-4">
+          <h4 className="text-[14px] text-white">
+            Purchase Policy | Privacy Policy | Cookies | Cookie Settings
+          </h4>
+          <p className="font-normal text-[14px] text-white opacity-50">
+            Copyright © 2023 TicketWinners. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </div>
+  </motion.footer>
+);
+
+export default Footer;
