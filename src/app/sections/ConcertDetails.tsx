@@ -1,14 +1,18 @@
 "use client";
+
+import { rc } from "../lib/utils";
+
 import { motion } from "framer-motion";
 import { useState } from "react";
 import styles from "../styles";
-import { staggerContainer, fadeIn } from "../utils/motion";
+import { staggerContainer, fadeIn, slideIn } from "../utils/motion";
 import {
   DescriptionText,
   SubTitleText,
   TitleText,
   TypingText,
 } from "../components/CustomText";
+import { buttonVariants } from "../components/ui/button";
 
 const ConcertDetails = () => {
   const [active, setActive] = useState("concert-2");
@@ -62,6 +66,21 @@ const ConcertDetails = () => {
               }
             />
           </motion.div>
+          <div className="flex-[0.25] w-32 rounded-lg flex justify-end">
+            <motion.div
+              variants={fadeIn("down", "tween", 0.2, 1)}
+              className="relative mt-[30px] justify-end"
+            >
+              <div className="content-start grid grid-cols-1 gap-10">
+                <div className={rc(buttonVariants({ variant: "default" }), "")}>
+                  View Seatmap
+                </div>
+                <div className={rc(buttonVariants({ variant: "default" }), "")}>
+                  Buy Tickets
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </motion.div>
     </section>

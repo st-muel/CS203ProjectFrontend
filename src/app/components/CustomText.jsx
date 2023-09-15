@@ -30,7 +30,7 @@ export const SubTitleText = ({ title, textStyles }) => (
     variants={textVariant2}
     initial="hidden"
     whileInView="show"
-    className={`mt-[8px] font-bold md:text-[44px] text-[24px] text-whitem ${textStyles}`}
+    className={`mt-[8px] font-bold md:text-[44px] text-[24px] text-white ${textStyles}`}
   >
     {title}
   </motion.h2>
