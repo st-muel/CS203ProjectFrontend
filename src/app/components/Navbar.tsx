@@ -8,9 +8,11 @@ import { rc } from "../lib/utils";
 import { motion } from "framer-motion";
 import styles from "../styles";
 import { navVariants } from "../utils/motion";
+import { signOut, useSession } from "next-auth/react";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const { data: session } = useSession();
 
   return (
     <div>
@@ -39,12 +41,24 @@ const Navbar = () => {
             className="w-[24px] h-[24px] object-contain"
           /> */}
           <div>
-            <div
-              className={rc(buttonVariants({ variant: "default" }))}
-              onClick={() => setOpen(true)}
-            >
-              Sign in
-            </div>
+            {session?.user ? (
+              <>
+                <p> {session.user.name}</p>
+                <button
+                  className={rc(buttonVariants({ variant: "default" }))}
+                  onClick={() => signOut()}
+                >
+                  Sign Out
+                </button>
+              </>
+            ) : (
+              <div
+                className={rc(buttonVariants({ variant: "default" }))}
+                onClick={() => setOpen(true)}
+              >
+                Sign in
+              </div>
+            )}
           </div>
         </div>
       </motion.nav>

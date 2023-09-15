@@ -3,7 +3,7 @@
 import clsx from "clsx";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { toast } from "sonner";
 import Loading from "./ui/loading";
 import { buttonVariants, Button } from "./ui/button";
@@ -13,20 +13,33 @@ import { RotateCcw } from "lucide-react";
 import Link from "next/link";
 
 const SigninForm = () => {
+  const username = useRef("");
+  const pass = useRef("");
+  const onSubmit = async () => {
+    const result = await signIn("credentials", {
+      username: username.current,
+      password: pass.current,
+      redirect: true,
+      callbackUrl: "/",
+    });
+  };
   return (
     <div className="relative flex flex-col items-center justify-center overflow-hidden">
       <div className="w-full p-6 bg-white rounded-md shadow-md lg:max-w-xl">
         <h1 className="text-3xl font-bold text-center text-gray-700">Logo</h1>
         <form className="mt-6">
           <div className="mb-4">
-            <label
-              htmlFor="email"
+          <label
+              htmlFor="Username"
               className="block text-sm font-semibold text-gray-800"
             >
-              Email
+              Username
             </label>
             <input
-              type="email"
+              type="text"
+              onChange={(e) => {
+                username.current = e.target.value;
+              }}
               className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md focus:border-gray-400 focus:ring-gray-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
@@ -39,6 +52,9 @@ const SigninForm = () => {
             </label>
             <input
               type="password"
+              onChange={(e) => {
+                pass.current = e.target.value;
+              }}
               className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md focus:border-gray-400 focus:ring-gray-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
@@ -53,6 +69,7 @@ const SigninForm = () => {
               className={rc(
                 buttonVariants({ variant: "default", size: "autosize" })
               )}
+              onClick={onSubmit}
             >
               Sign In
             </div>

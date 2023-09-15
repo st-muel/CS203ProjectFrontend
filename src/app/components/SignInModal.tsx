@@ -1,8 +1,5 @@
 import { Modal } from "antd";
-import SigninForm from "./signin-form";
-import { buttonVariants } from "./ui/button";
-import { rc } from "../lib/utils";
-import { useState } from "react";
+import SigninForm from "./SignInForm";
 
 interface props {
   open: boolean;

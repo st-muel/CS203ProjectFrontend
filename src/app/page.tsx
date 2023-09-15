@@ -1,13 +1,11 @@
-import Image from "next/image";
-import Navbar from "./components/Navbar";
+"use client";
+
 import Footer from "./components/Footer";
-import Book from "./components/Book";
-import Hero from "./sections/Hero";
+import Navbar from "./components/Navbar";
 import About from "./sections/About";
 import Explore from "./sections/Explore";
+import Hero from "./sections/Hero";
 import Insights from "./sections/Insights";
-import ConcertListItem from "./components/ConcertListItem";
-import { Carousel } from "./components/Carousel";
 
 const concerts = [
   {
