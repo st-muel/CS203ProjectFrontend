@@ -3,6 +3,9 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Book from "./components/Book";
 import Hero from "./sections/Hero";
+import About from "./sections/About";
+import Explore from "./sections/Explore";
+import Insights from "./sections/Insights";
 import ConcertListItem from "./components/ConcertListItem";
 import { Carousel } from "./components/Carousel";
 
@@ -32,26 +35,20 @@ const concerts = [
 export default function Home() {
   return (
     <main>
-      <div className="flex min-h-screen flex-col items-center bg-white">
+      <div className="bg-primary-black overflow-hidden">
         <Navbar />
-        <Carousel />
-        <div className="w-1/2 text-black pt-12">
-          <h2 className="font-bold text-3xl border-b mb-4">
-            Upcoming Concerts
-          </h2>
-          <div className="flex flex-col gap-6 w-full">
-            {concerts.map((concert, idx) => (
-              <ConcertListItem
-                title={concert.title}
-                description={concert.description}
-                key={`concert-item-${idx}`}
-              />
-            ))}
-          </div>
+        <Hero />
+        <div>
+          <About />
+          <div className="gradient-03 z-0" />
+          <Explore />
+        </div>
+        <div className="relative">
+          <Insights />
+          <div className="gradient-04 z-0" />
+          <Footer />
         </div>
       </div>
-      <Book />
-      <Footer />
     </main>
   );
 }
