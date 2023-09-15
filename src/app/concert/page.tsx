@@ -14,7 +14,7 @@ export default function Home() {
         <div>
           <Carousel />
           <div className="gradient-03 z-0" />
-          <Navbar />
+          {/* <Navbar /> */}
         </div>
         <div className="relative">
           <ConcertDetails />

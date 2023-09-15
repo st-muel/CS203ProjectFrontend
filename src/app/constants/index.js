@@ -69,19 +69,19 @@ export const pricingDetails = [
     imgUrl: "/date.svg",
     title: "Start Date",
     subtitle:
-      "10 August 2023",
+      ["10 August 2023"]
   },
   {
     imgUrl: "/ticket.svg",
     title: "Standard",
     subtitle:
-      "Cat 1: $55 Cat 2: $48 Cat 3: $32",
+    ["Cat 1: $55", "Cat 2: $48", "Cat 3: $32"]
   },
   {
     imgUrl: "/note.svg",
     title: "Note",
     subtitle:
-      "Limited to 20 tickets per transaction.",
+    ["Limited to 20 tickets per transaction."]
   },
 ];
 

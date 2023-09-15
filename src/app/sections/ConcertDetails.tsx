@@ -43,14 +43,14 @@ const ConcertDetails = () => {
                   you, featuring the sensational Singaporean artist, Alfred Sun,
                   and the mesmerizing dance choreographer from China, Orangie,
                   whose captivating moves and boundless talent will leave you in
-                  awe. And to crank up the excitement even more, we've got the
+                  awe. And to crank up the excitement even more, we&#39;ve got the
                   esteemed radio DJ Hazelle Teo from YES933FM, whose magnetic
                   energy will light up the party as the ultimate MC! This grand
                   spectacle involves over 200 tireless talents who have poured
                   their hearts into crafting the show of a lifetime. These
                   extraordinary individuals worked hand in hand with creative
                   and gifted dance and music instructors, taking you on a
-                  captivating journey through their artistry. You'll be left
+                  captivating journey through their artistry. You&#39;ll be left
                   breathless with every move, note, and beat as they showcase
                   their passion and skill on stage. At Art Republic, we dare to
                   dream without bounds. Looking ahead, VIBES will evolve into a
@@ -58,7 +58,7 @@ const ConcertDetails = () => {
                   rappers, and celebrated entertainers from across the globe.
                   The promise of an even more dynamic and mesmerizing
                   extravaganza will leave you craving for more. The stage is
-                  set, and the anticipation is mounting! Don't miss this
+                  set, and the anticipation is mounting! Don&#39;t miss this
                   opportunity to experience the magic firsthand. Secure your
                   tickets for VIBES now! We eagerly await your presence. See you
                   there!
