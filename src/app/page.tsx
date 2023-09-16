@@ -3,9 +3,9 @@
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import About from "./sections/About";
-import Explore from "./sections/Explore";
 import Hero from "./sections/Hero";
 import Insights from "./sections/Insights";
+import TopPicks from "./sections/TopPicks";
 
 const concerts = [
   {
@@ -39,7 +39,7 @@ export default function Home() {
         <div>
           <About />
           <div className="gradient-03 z-0" />
-          <Explore />
+          <TopPicks />
         </div>
         <div className="relative">
           <Insights />

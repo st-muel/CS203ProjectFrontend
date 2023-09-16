@@ -16,20 +16,20 @@ import Link from "next/link";
 const navItems = [
   {
     path: "/",
-    name: "About",
+    name: "Home",
   },
   {
-    path: "/concert",
+    path: "/explore",
     name: "Explore",
   },
   {
     path: "/login",
     name: "Venues",
   },
-  // {
-  //   path: "/concert",
-  //   name: "Contact Us",
-  // },
+  {
+    path: "/concert",
+    name: "Concert",
+  },
 ];
 
 const Navbar = () => {
@@ -59,7 +59,7 @@ const Navbar = () => {
             className="w-[24px] h-[24px] object-contain"
           /> */}
           <div className="p-[0.4rem] rounded-lg sticky top-4 z-[100] bg-stone-900/50 backdrop-blur-md">
-            <nav className="flex gap-2 relative justify-start w-full z-[100]  rounded-lg">
+            <nav className="flex gap-2 relative justify-start w-full z-[100] rounded-lg">
               {navItems.map((item, index) => {
                 const isActive = item.path === pathname;
 
@@ -85,10 +85,10 @@ const Navbar = () => {
                         }}
                         transition={{
                           type: "spring",
-                          bounce: 0.1,
+                          bounce: 0.05,
                           stiffness: 130,
                           damping: 20,
-                          duration: 0.3,
+                          duration: 0.1,
                         }}
                       />
                     )}
@@ -114,10 +114,10 @@ const Navbar = () => {
                 <div className="flex space-x-[15px]">
                   <a
                     href="/login"
-                    className="relative inline-flex items-center justify-start px-6 py-2 overflow-hidden font-medium transition-all bg-white rounded hover:bg-white group"
+                    className="relative inline-flex items-center justify-start px-6 py-2 overflow-hidden font-medium transition-all bg-stone-900/50 rounded hover:bg-white group"
                   >
-                    <span className="w-48 h-48 rounded rotate-[-40deg] bg-purple-600 absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-24 group-hover:translate-x-0"></span>
-                    <span className="relative w-full text-left text-black transition-colors duration-300 ease-in-out group-hover:text-white">
+                    <span className="w-48 h-48 rounded rotate-[-40deg] bg-purple-500 absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-24 group-hover:translate-x-0"></span>
+                    <span className="relative w-full text-left text-white transition-colors duration-300 ease-in-out group-hover:text-white">
                       Sign Up
                     </span>
                   </a>
@@ -125,7 +125,7 @@ const Navbar = () => {
                     onClick={() => setOpen(true)}
                     className="relative inline-flex items-center justify-start px-6 py-2 overflow-hidden font-medium transition-all bg-white rounded hover:bg-white group"
                   >
-                    <span className="w-48 h-48 rounded rotate-[-40deg] bg-purple-600 absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>
+                    <span className="w-48 h-48 rounded rotate-[-40deg] bg-purple-500 absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>
                     <span className="relative w-full text-left text-black transition-colors duration-300 ease-in-out group-hover:text-white">
                       Login
                     </span>
@@ -137,46 +137,6 @@ const Navbar = () => {
         </div>
       </motion.nav>
     </div>
-    // <div className="flex items-center w-full h-24 bg-white px-24 justify-between">
-    //   <SignInModal open={open} setOpen={setOpen} />
-    //   <div className="text-lg text-black">Ticketing Winners</div>
-    //   <div className="relative">
-    //     <input
-    //       className="bg-[#EEEEEE] h-14 w-[500px] rounded-full px-8 text-sm outline-none text-black"
-    //       type="text"
-    //       placeholder="Events, artist or team"
-    //     />
-    //     <FaSearch className="absolute top-1/2 -translate-y-1/2 right-7 text-gray-400" />
-    //   </div>
-    //   <div className="relative text-sm">
-    //     <select className="h-12 rounded-lg pl-14 pr-2 outline-none text-gray-700">
-    //       <option value="" disabled selected>
-    //         All dates
-    //       </option>
-    //       <option>1st Oct 2023</option>
-    //     </select>
-    //     <FaCalendar className="absolute top-1/2 -translate-y-1/2 left-7 text-gray-700" />
-    //   </div>
-    //   <div className="text-sm">
-    //     <select
-    //       className="h-12 rounded-lg pr-3 outline-none text-gray-700"
-    //       placeholder="Choose your location"
-    //     >
-    //       <option value="" disabled selected>
-    //         Choose your location
-    //       </option>
-    //       <option>Singapore</option>
-    //     </select>
-    //   </div>
-    //   <div>
-    //     <div
-    //       className={rc(buttonVariants({ variant: "default" }))}
-    //       onClick={() => setOpen(true)}
-    //     >
-    //       Sign in
-    //     </div>
-    //   </div>
-    // </div>
   );
 };
 

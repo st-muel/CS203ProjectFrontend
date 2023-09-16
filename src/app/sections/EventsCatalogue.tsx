@@ -1,14 +1,12 @@
 "use client";
 import { motion } from "framer-motion";
-import { useState } from "react";
 import styles from "../styles";
 import { staggerContainer } from "../utils/motion";
 import { TitleText, TypingText } from "../components/CustomText";
 import ExploreCard from "../components/ExploreCard";
-import { exploreConcerts } from "../constants";
+import { eventCatalogue } from "../constants";
 
-const Explore = () => {
-  const [active, setActive] = useState("concert-5");
+const Events = () => {
   return (
     <section className={`${styles.paddings}`} id="explore">
       <motion.div
@@ -16,18 +14,15 @@ const Explore = () => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: false, amount: 0.25 }}
-        className={`${styles.innerWidth} mx-auto flex flex-col`}
+        className="mx-auto flex flex-col"
       >
-        <TypingText title="| Concerts" textStyles="text-center" />
-        <TitleText title={<>Top Picks</>} textStyles="text-center" />
-        <div className="mt-[50px] flex lg:flex-row flex-col min-h-[70vh] gap-5">
-          {exploreConcerts.map((concert, index) => (
+        <TypingText title="| Explore" textStyles="text-center" />
+        <TitleText title={<>Events Catalogue</>} textStyles="text-center" />
+        <div className="justify-items-center flex lg:flex-row flex-col grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4 pt-20 pb-10 lg:pt-40 lg:pb-20">
+          {eventCatalogue.map((concert) => (
             <ExploreCard
               key={concert.id}
               {...concert}
-              index={index}
-              active={active}
-              handleClick={setActive}
             />
           ))}
         </div>
@@ -36,4 +31,4 @@ const Explore = () => {
   );
 };
 
-export default Explore;
+export default Events;
