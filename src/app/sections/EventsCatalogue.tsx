@@ -19,8 +19,8 @@ const Events = () => {
         <TypingText title="| Explore" textStyles="text-center" />
         <TitleText title={<>Events Catalogue</>} textStyles="text-center" />
         <div className="mx-auto flex justify-items-center flex lg:flex-row flex-col grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 pt-20 pb-10 lg:pt-40 lg:pb-20">
-          {eventCatalogue.map((concert) => (
-            <ExploreCard key={concert.id} {...concert} />
+          {eventCatalogue.map((concert, index) => (
+            <ExploreCard key={concert.id} index={index} {...concert} />
           ))}
         </div>
       </motion.div>
