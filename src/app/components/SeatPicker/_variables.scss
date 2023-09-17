@@ -1,0 +1,132 @@
+$color-primary: #4FC3F7;
+$color-secondary: #03A9F4;
+$color-tertiary: #4CAF50;
+$color-loading:rgba(240,240,240,0.9);
+$color-seat-reserved: #E0E0E0;
+$color-seat-number: #fff;
+$color-row-number: #9E9E9E;
+$color-row-selection: #F5F5F5;
+
+.blank {
+    height: 28px;
+    width: 28px;
+  }
+
+.loader {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    background: rgba(240,240,240,0.9);
+    z-index: "2";
+    justify-content: center;
+    align-items: center;
+  }
+
+.seat-content {
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+
+  .seat-picker {
+    display: flex;
+    flex-direction: column;
+  
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+  
+    & > *:not(:last-child){
+      margin-bottom: 2px;
+    }
+  
+    &__row{
+      display: flex;
+      align-items: center;
+      justify-items: center;
+  
+      & > *:not(:last-child){
+        margin-right: 2px;
+      }
+  
+      &__number {
+        font-weight: normal;
+        height: 28px;
+        width: 28px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: $color-row-number;
+      }
+  
+      &--enabled{
+        &:hover {
+          background-color: $color-row-selection;
+        }
+      }
+      
+      &--selected{
+        background-color: $color-row-selection;
+      }
+  
+      &--enabled:hover > &__number{
+        font-weight: 600;
+      }
+  
+      &--selected > &__number{
+        font-weight: 600;
+      }
+    }
+  }
+
+.seat {
+    background-color: $color-primary;
+    height: 28px;
+    width: 28px;
+    color: $color-seat-number;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    &__number{
+      font-size: 10px
+    }
+  
+    &--north{
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+  
+    &--south {
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+  
+    &--east {
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+    }
+  
+    &--west {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+  
+    &--enabled {
+      cursor: pointer;
+      &:hover { background-color: $color-secondary; }
+    }
+  
+    &--selected {
+      cursor: pointer;
+      background-color: $color-tertiary;
+    }
+  
+    &--reserved {
+      cursor: not-allowed;
+      background-color: $color-seat-reserved;
+    }
+  }

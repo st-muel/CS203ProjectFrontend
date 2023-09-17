@@ -1,0 +1,84 @@
+.trapezoid {
+	border-bottom: 50px solid #555;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+	height: 0;
+	width: 125px;
+}
+
+.transparentrectangle {
+    height: 50px;
+    width: 100px;
+    background-color: rgba(0,0,0,0);
+}
+
+.stage {
+    height: 30px;
+    width: 400px;
+    background-color: #555;
+}
+
+.seatingfront {
+	border-top: 200px solid rgb(244 63 94);
+	border-left: 100px solid transparent;
+	border-right: 100px solid transparent;
+	height: 0;
+	width: 400px;
+}
+
+.seatingfront:hover {
+	border-top: 200px solid rgb(251 113 133);
+	border-left: 100px solid transparent;
+	border-right: 100px solid transparent;
+	height: 0;
+	width: 400px;
+}
+
+.seatingleft {
+	width: 100px;
+	height: 200px;
+	transform: skew(25deg);
+	background: rgb(34 197 94);
+	float: right;
+	position: relative;
+	top: 80px; left: 30px; 
+}
+
+.seatingright {
+	width: 100px;
+	height: 200px;
+	transform: skew(155deg);
+	background: rgb(34 197 94);
+	float: right;
+	position: relative;
+	top: 80px; right: 350px; 
+}
+
+.seatingback{
+	height: 50px;
+    width: 200px;
+    background-color: rgb(59 130 246);
+	position: relative;
+	top: 30px; left: 100px;
+}
+
+.triangle-down {
+	width: 0;
+	height: 0;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+	border-top: 50px solid #555;
+}
+
+.parallelogram {
+	width: 100px;
+	height: 50px;
+	transform: skew(20deg);
+	background: #555;
+}
+
+/* -webkit-transform: perspective(600px) rotateX(60deg);
+-moz-transform: perspective(600px) rotateX(60deg);
+-ms-transform: perspective(600px) rotateX(60deg);
+-o-transform: perspective(600px) rotateX(60deg);
+transform: perspective(600px) rotateX(60deg); */
