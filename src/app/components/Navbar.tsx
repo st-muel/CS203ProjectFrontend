@@ -13,6 +13,8 @@ import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { useAtom } from "jotai"
 import { userAtom } from "../jotai"
+import axios from "axios"
+import { notification } from "antd"
 
 const navItems = [
 	{
@@ -40,8 +42,19 @@ const Navbar = () => {
 	let pathname = usePathname() || "/"
 	const [hoveredPath, setHoveredPath] = useState(pathname)
 
-	const signOut = () => {
-		setUser(null)
+	const signOut = async () => {
+		const res = await axios.get(
+			"http://localhost:8080/api/auth/signout",
+		)
+
+		if (res.status == 200) {
+			setUser(null)
+		} else {
+			notification.error({
+				message: "Error",
+				description: "There was an error signing out",
+			})
+		}
 	}
 
 	return (
