@@ -1,28 +1,43 @@
 "use client";
 
-import clsx from "clsx";
-import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { useRef, useState } from "react";
-import { toast } from "sonner";
-import Loading from "./ui/loading";
-import { buttonVariants, Button } from "./ui/button";
+import { useRef } from "react";
 import { rc } from "../lib/utils";
-import { RotateCcw } from "lucide-react";
+import { buttonVariants } from "./ui/button";
 
+import axios from "axios";
 import Link from "next/link";
+import { useSetAtom } from "jotai";
+import { userAtom } from "../jotai";
 
-const SigninForm = () => {
+interface props {
+	setOpen: (open: boolean) => void;
+}
+
+const SigninForm = (props: props) => {
+	const setUser = useSetAtom(userAtom)
+
 	const username = useRef("");
 	const pass = useRef("");
 	
 	const onSubmit = async () => {
-		const result = await signIn("credentials", {
-			username: username.current,
-			password: pass.current,
-			redirect: true,
-			callbackUrl: "/",
-		});
+		const res = await axios.post(
+			"http://localhost:8080/api/auth/signin",
+			{ 
+				username: username.current, 
+				password: pass.current 
+			},
+			{
+				headers: {
+					"Content-Type": "application/json",
+					Accept: "application/json",
+				},
+			}
+		)
+
+		if (res.status == 200) {
+			setUser(res.data)
+			props.setOpen(false)
+		}
 	};
 	return (
 		<div className="relative flex flex-col items-center justify-center overflow-hidden">
