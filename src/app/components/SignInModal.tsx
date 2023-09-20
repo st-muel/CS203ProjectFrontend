@@ -21,7 +21,7 @@ const SignInModal = (props: props) => {
         open={props.open}
         className="shadow-md"
       >
-        <SigninForm />
+        <SigninForm setOpen={props.setOpen} />
       </Modal>
     </>
   );
