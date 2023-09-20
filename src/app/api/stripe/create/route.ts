@@ -1,15 +1,12 @@
 import { stripe } from "@/app/service/stripe"
-import { getServerSession } from "next-auth"
+import axios from "axios"
 import { NextResponse } from "next/server"
-import { authOptions } from "../../auth/[...nextauth]/route"
 
 export async function POST(req: Request) {
     try {
-        const session = await getServerSession(authOptions)
-        if (!session || !session.user || !(session.user.id)) {
-            return NextResponse.redirect('/?error=You must be signed in to make a purchase', { status: 401 })
-        }
-        
+        const res = await axios.get("http://localhost:8080/api/auth/verify")
+        const userId = res.data.id
+
         const body = await req.json()
         const seats = body.seats as string[]
 
@@ -32,7 +29,7 @@ export async function POST(req: Request) {
             line_items: line_items,
             mode: 'payment',
             metadata: {
-                userId: session.user.id
+                userId: userId
             },
             success_url: 'https://app.netrunner.tax/subscribe',
             cancel_url: 'https://app.netrunner.tax/subscribe',
@@ -40,7 +37,6 @@ export async function POST(req: Request) {
 
         return NextResponse.json({ sessionId: stripeSession.id }, { status: 200 })
     } catch (e: any) {
-        console.log(e)
         return NextResponse.json({message: e.message}, { status: 400 })
     }
 }
