@@ -1,7 +1,4 @@
-"use client";
-
 import "./globals.css";
-import { SessionProvider } from "next-auth/react";
 import { Inter } from "next/font/google";
 import { ReactNode } from "react";
 // import Navbar from "./components/Navbar";
@@ -17,10 +14,8 @@ export default function RootLayout({ children, session }: Props) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <SessionProvider session={session}>
-            {/* <Navbar /> */}
-            {children}
-        </SessionProvider>
+          {/* <Navbar /> */}
+          {children}
       </body>
     </html>
   );
