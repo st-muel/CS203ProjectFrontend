@@ -9,6 +9,7 @@ import SeatSelector from "../components/SeatSelector";
 import Seatmap from "../components/Seatmap";
 import { useEffect, useState } from "react";
 import { TableTickets } from "../components/TableTickets";
+import Legend from "../components/Legend";
 
 interface Props {
   id: number
@@ -26,10 +27,9 @@ export default function Home() {
       <div className="bg-primary-black overflow-hidden">
         <Navbar />
         <div>
-          {/* <ChooseSections /> */}
-
-          <div className="flex justify-center items-center h-screen bg-white mx-auto">
+          <div className="flex flex-row justify-center items-center bg-white">
             <Seatmap setSection={setSection} />
+            <Legend />
           </div>
 
           { section && (
