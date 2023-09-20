@@ -108,7 +108,7 @@ const Navbar = () => {
 						<div>
 							{user ? (
 								<>
-									<p>{user}</p>
+									<p>{user.sub}</p>
 									<button className={rc(buttonVariants({ variant: "default" }))} onClick={() => signOut()}>
 										Logout
 									</button>

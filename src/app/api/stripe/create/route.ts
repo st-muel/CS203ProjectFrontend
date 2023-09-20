@@ -1,13 +1,12 @@
 import { stripe } from "@/app/service/stripe"
 import axios from "axios"
 import { NextResponse } from "next/server"
+const jwt = require('jsonwebtoken')
 
 export async function POST(req: Request) {
     try {
-        const authTokenCookie = req.headers
-
-        const res = await axios.get("http://localhost:8080/api/auth/verify")
-        const userId = res.data.id
+        const jwtToken = req.headers.get('authorization')
+        const user = jwt.decode(jwtToken, process.env.JWT_SECRET_KEY)
 
         const body = await req.json()
         const seats = body.seats as string[]
@@ -31,7 +30,7 @@ export async function POST(req: Request) {
             line_items: line_items,
             mode: 'payment',
             metadata: {
-                userId: userId
+                user: user.sub
             },
             success_url: 'https://app.netrunner.tax/subscribe',
             cancel_url: 'https://app.netrunner.tax/subscribe',

@@ -9,7 +9,7 @@ export const userAtom = atom(
             const user = jwt.decode(get(jwtTokenAtom))
             return user
         } catch (e) {
-            return ""
+            return null
         }
     }
 )
