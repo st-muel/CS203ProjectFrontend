@@ -15,7 +15,7 @@ const ChooseSeats = () => {
         try {
             setLoading(true)
 
-            const stripe = (await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string) as Stripe)
+            const stripe = (await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string)) as Stripe
             const res = await axios.post('/api/stripe/create', {
 				seats: selectedSeats
 			})
@@ -151,6 +151,7 @@ const ChooseSeats = () => {
 	];
 	const price = 30;
 	const totalprice = price * selected.length;
+
 	const addSeatCallback = ({ row, number, id }, addCb) => {
 		setSelected((prevItems) => [...prevItems, number]);
 		const newTooltip = `tooltip for id-${id} added by callback`;
@@ -185,7 +186,7 @@ const ChooseSeats = () => {
 				<>
 					<div className="seat-price">
 						<div className="seat-select">
-							<h1 className="seats-select">SEAT: {selected.toString}</h1>
+							<h1 className="seats-select">SEAT: {selected.toString()}</h1>
 						</div>
 						<div className="totalprice">
 							<h1 className="price">
