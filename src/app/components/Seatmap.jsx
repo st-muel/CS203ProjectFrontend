@@ -117,7 +117,7 @@ const seatmap = () => {
         <svg
           id="field_324"
           className="hover:brightness-110"
-          // onClick={(e) => handleClick(e)}
+          onClick={(e) => handleClick(e)}
         >
           <svg>
             <polygon

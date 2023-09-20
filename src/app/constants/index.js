@@ -45,6 +45,63 @@ export const exchangeRefundPolicy = [
   "We would like to caution members of the public against purchasing tickets from unauthorized sellers or 3rd party websites. By purchasing tickets through these non-authorized points of sale, buyers take on the risk that the validity of the tickets cannot be guaranteed, with no refunds possible.⁠",
 ];
 
+export const legendDetails = [
+  {
+    id: "1",
+    name: "FREE-TY QUEEN PACKAGE (STANDING)*",
+    price: "$348",
+    color: "bg-amber-400"
+  },
+  {
+    id: "2",
+    name: "FREE-TY NEVERLAND PACKAGE (STANDING)*",
+    price: "$348",
+    color: "bg-amber-400"
+  },
+  {
+    id: "3",
+    name: "CAT 1 STANDING",
+    price: "$288",
+    color: "bg-amber-400"
+  },
+  {
+    id: "4",
+    name: "CAT 2",
+    price: "$288",
+    color: "bg-amber-400"
+  },
+  {
+    id: "5",
+    name: "CAT 3",
+    price: "$248",
+    color: "bg-amber-400"
+  },
+  {
+    id: "6",
+    name: "CAT 4",
+    price: "$204",
+    color: "bg-amber-400"
+  },
+  {
+    id: "7",
+    name: "CAT 5",
+    price: "$178",
+    color: "bg-amber-400"
+  },
+  {
+    id: "8",
+    name: "CAT 6 (RESTRICTED VIEW)",
+    price: "$248",
+    color: "bg-amber-400"
+  },
+  {
+    id: "9",
+    name: "CAT 7 (RESTRICTED VIEW)",
+    price: "$178",
+    color: "bg-amber-400"
+  },
+];
+
 export const pricingDetails = [
   {
     imgUrl: "/date.svg",
