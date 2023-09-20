@@ -43,13 +43,13 @@ const Navbar = () => {
 	const [hoveredPath, setHoveredPath] = useState(pathname)
 
 	const signOut = async () => {
-		const res = await axios.get(
-			"http://localhost:8080/api/auth/signout",
-		)
-
-		if (res.status == 200) {
+		try {
+			const res = await axios.get(
+				"http://localhost:8080/api/auth/signout",
+			)
 			setUser(null)
-		} else {
+			
+		} catch (e) {
 			notification.error({
 				message: "Error",
 				description: "There was an error signing out",
