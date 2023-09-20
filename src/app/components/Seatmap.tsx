@@ -1,4 +1,14 @@
-const seatmap = () => {
+'use client'
+import hihi from "./table";
+
+import ChooseSeats from "./ChooseSeats";
+
+interface props {
+  setSection: (section: string) => void
+}
+
+const seatmap = (props: props) => {
+  
   return (
     <svg height="959" width="1062.3" className="">
       <svg
@@ -1153,7 +1163,7 @@ const seatmap = () => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_230" className="hover:brightness-110">
+        <svg id="field_230" className="hover:brightness-110" onClick = {(e) => props.setSection("230")}>
           <svg>
             <polygon
               fill="#96cae2"
@@ -5007,6 +5017,9 @@ const seatmap = () => {
       </svg>
     </svg>
   );
+
 };
+
+
 
 export default seatmap;
