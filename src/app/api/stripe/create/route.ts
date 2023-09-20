@@ -4,6 +4,8 @@ import { NextResponse } from "next/server"
 
 export async function POST(req: Request) {
     try {
+        const authTokenCookie = req.headers
+
         const res = await axios.get("http://localhost:8080/api/auth/verify")
         const userId = res.data.id
 

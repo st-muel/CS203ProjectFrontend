@@ -11,10 +11,9 @@ import { navVariants } from "../utils/motion"
 
 import { usePathname } from "next/navigation"
 import Link from "next/link"
-import { useAtom } from "jotai"
-import { userAtom } from "../jotai"
-import axios from "axios"
+import { useAtom, useAtomValue } from "jotai"
 import { notification } from "antd"
+import { jwtTokenAtom, userAtom } from "../jotai"
 
 const navItems = [
 	{
@@ -36,7 +35,8 @@ const navItems = [
 ]
 
 const Navbar = () => {
-	const [user, setUser] = useAtom(userAtom)
+	const [jwtToken, setJwtToken] = useAtom(jwtTokenAtom)
+	const user = useAtomValue(userAtom)
 	const [open, setOpen] = useState(false)
 
 	let pathname = usePathname() || "/"
@@ -44,11 +44,7 @@ const Navbar = () => {
 
 	const signOut = async () => {
 		try {
-			const res = await axios.get(
-				"http://localhost:8080/api/auth/signout",
-			)
-			setUser(null)
-			
+			setJwtToken("")
 		} catch (e) {
 			notification.error({
 				message: "Error",
@@ -112,7 +108,7 @@ const Navbar = () => {
 						<div>
 							{user ? (
 								<>
-									<p> {user.username}</p>
+									<p>{user}</p>
 									<button className={rc(buttonVariants({ variant: "default" }))} onClick={() => signOut()}>
 										Logout
 									</button>

@@ -1,21 +1,20 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { rc } from "../lib/utils";
 import { buttonVariants } from "./ui/button";
-
 import axios from "axios";
 import Link from "next/link";
 import { useSetAtom } from "jotai";
-import { userAtom } from "../jotai";
 import { notification } from "antd";
+import { jwtTokenAtom } from "../jotai";
 
 interface props {
 	setOpen: (open: boolean) => void;
 }
 
 const SigninForm = (props: props) => {
-	const setUser = useSetAtom(userAtom)
+	const setJwtToken = useSetAtom(jwtTokenAtom)
 
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
@@ -36,7 +35,7 @@ const SigninForm = (props: props) => {
 				}
 			)
 
-			setUser(res.data)
+			setJwtToken(res.data.token)
 			props.setOpen(false)
 		} catch (e) {
 			setUsername("")
