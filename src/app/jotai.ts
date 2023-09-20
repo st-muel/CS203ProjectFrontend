@@ -1,6 +1,3 @@
-import { atom } from 'jotai'
-import { getCookie } from './utils/common'
+import { atomWithStorage } from 'jotai/utils'
 
-const userCookie = getCookie('user')
-const user = userCookie ? JSON.parse(userCookie) : null
-export const userAtom = atom(user)
+export const userAtom = atomWithStorage<User | null>('user', null)
