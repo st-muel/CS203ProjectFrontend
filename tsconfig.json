@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/CustomText.jsx", "src/app/sections/Hero.tsx", "src/app/components/About.tsx", "src/app/components/ExploreCard.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/CustomText.jsx", "src/app/sections/Hero.tsx", "src/app/components/About.tsx", "src/app/components/ExploreCard.jsx", "src/app/components/Legend.jsx"],
   "exclude": ["node_modules"]
 }

@@ -1,9 +1,11 @@
+'use client'
+
+import handleClick from "./testclick";
+
 const seatmap = () => {
   return (
     <svg height="959" width="1062.3" className="">
-      <svg
-        id="FOH"
-      >
+      <svg id="FOH">
         <svg>
           <polygon points="709.2,249.4 710.4,257.2 684.3,275.5 683.1,267.7 		"></polygon>
         </svg>
@@ -111,10 +113,12 @@ const seatmap = () => {
           ></polygon>
         </svg>
       </svg>
-      <svg
-        id="sections"
-      >
-        <svg id="field_324" className="hover:brightness-110">
+      <svg id="sections">
+        <svg
+          id="field_324"
+          className="hover:brightness-110"
+          // onClick={(e) => handleClick(e)}
+        >
           <svg>
             <polygon
               fill="#add8a1"
