@@ -1,5 +1,4 @@
 'use client'
-import hihi from "./table";
 
 import ChooseSeats from "./ChooseSeats";
 
@@ -10,7 +9,7 @@ interface props {
 const seatmap = (props: props) => {
   
   return (
-    <svg height="959" width="1062.3" className="">
+    <svg height="700" width="1062.3" className="">
       <svg
         id="FOH"
       >
@@ -124,7 +123,7 @@ const seatmap = (props: props) => {
       <svg
         id="sections"
       >
-        <svg id="field_324" className="hover:brightness-110">
+        <svg id="field_324" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#add8a1"
@@ -162,7 +161,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_328" className="hover:brightness-110">
+        <svg id="field_328" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#f0c1e9"
@@ -212,7 +211,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_225" className="hover:brightness-110">
+        <svg id="field_225" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#eba5a5"
@@ -286,7 +285,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_226" className="hover:brightness-110">
+        <svg id="field_226" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#eba5a5"
@@ -349,7 +348,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_224" className="hover:brightness-110">
+        <svg id="field_224" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#97d0e9"
@@ -387,7 +386,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_227" className="hover:brightness-110">
+        <svg id="field_227" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#96cae2"
@@ -451,7 +450,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_323" className="hover:brightness-110">
+        <svg id="field_323" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#add8a1"
@@ -489,7 +488,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_223" className="hover:brightness-110">
+        <svg id="field_223" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#97cfe8"
@@ -553,7 +552,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_322" className="hover:brightness-110">
+        <svg id="field_322" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#add8a1"
@@ -591,7 +590,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_222" className="hover:brightness-110">
+        <svg id="field_222" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#97cfe8"
@@ -655,7 +654,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_221" className="hover:brightness-110">
+        <svg id="field_221" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#97cfe8"
@@ -719,7 +718,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_320" className="hover:brightness-110">
+        <svg id="field_320" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#add8a1"
@@ -757,7 +756,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_220" className="hover:brightness-110">
+        <svg id="field_220" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#97cfe8"
@@ -821,7 +820,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_319" className="hover:brightness-110">
+        <svg id="field_319" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#add8a1"
@@ -859,7 +858,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_219" className="hover:brightness-110">
+        <svg id="field_219" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#97cfe8"
@@ -935,7 +934,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_318" className="hover:brightness-110">
+        <svg id="field_318" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#acd8a0"
@@ -973,7 +972,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_228" className="hover:brightness-110">
+        <svg id="field_228" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#96cae2"
@@ -1037,7 +1036,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_329" className="hover:brightness-110">
+        <svg id="field_329" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#f0c1e9"
@@ -1087,7 +1086,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_229" className="hover:brightness-110">
+        <svg id="field_229" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#96cae2"
@@ -1163,7 +1162,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_230" className="hover:brightness-110" onClick = {(e) => props.setSection("230")}>
+        <svg id="field_230" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#96cae2"
@@ -1322,7 +1321,7 @@ const seatmap = (props: props) => {
             ></path>
           </svg>
         </svg>
-        <svg id="field_PEND_NEVERLAND" className="hover:brightness-110">
+        <svg id="field_PEND_NEVERLAND" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#eec590"
@@ -1386,7 +1385,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_PEND_LOVE" className="hover:brightness-110">
+        <svg id="field_PEND_LOVE" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#c2e1ee"
@@ -1474,7 +1473,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_PEND_QUEEN" className="hover:brightness-110">
+        <svg id="field_PEND_QUEEN" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#ec7ff2"
@@ -1598,7 +1597,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_PENC_NEVERLAND" className="hover:brightness-110">
+        <svg id="field_PENC_NEVERLAND" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#eec590"
@@ -1662,7 +1661,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_PENC_LOVE" className="hover:brightness-110">
+        <svg id="field_PENC_LOVE" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#c3e3f1"
@@ -1738,7 +1737,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_PENC_QUEEN" className="hover:brightness-110">
+        <svg id="field_PENC_QUEEN" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#ec7ff2"
@@ -1800,7 +1799,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_218" className="hover:brightness-110">
+        <svg id="field_218" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#97cee6"
@@ -1864,7 +1863,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_217" className="hover:brightness-110">
+        <svg id="field_217" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#efa7a7"
@@ -1914,7 +1913,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_216" className="hover:brightness-110">
+        <svg id="field_216" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#eca6a6"
@@ -1966,7 +1965,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_215" className="hover:brightness-110">
+        <svg id="field_215" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#96cae2"
@@ -2029,7 +2028,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_330" className="hover:brightness-110">
+        <svg id="field_330" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#f0c1e9"
@@ -2079,7 +2078,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_331" className="hover:brightness-110">
+        <svg id="field_331" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#f0c1e9"
@@ -2129,7 +2128,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_332" className="hover:brightness-110">
+        <svg id="field_332" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#f0c1e9"
@@ -2179,7 +2178,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_333" className="hover:brightness-110">
+        <svg id="field_333" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#94f0de"
@@ -2229,7 +2228,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_214" className="hover:brightness-110">
+        <svg id="field_214" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#96cae2"
@@ -2292,7 +2291,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_314" className="hover:brightness-110">
+        <svg id="field_314" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#f4c4ed"
@@ -2354,7 +2353,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_213" className="hover:brightness-110">
+        <svg id="field_213" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#96cae2"
@@ -2418,7 +2417,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_313" className="hover:brightness-110">
+        <svg id="field_313" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#f0c1e9"
@@ -2480,7 +2479,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_212" className="hover:brightness-110">
+        <svg id="field_212" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#96cae2"
@@ -2568,7 +2567,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_312" className="hover:brightness-110">
+        <svg id="field_312" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#f0c1e9"
@@ -2632,7 +2631,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_PENA" className="hover:brightness-110">
+        <svg id="field_PENA" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#f1ee9d"
@@ -2696,7 +2695,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_211" className="hover:brightness-110">
+        <svg id="field_211" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#96cae2"
@@ -2784,7 +2783,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_311" className="hover:brightness-110">
+        <svg id="field_311" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#f0c1e9"
@@ -2847,7 +2846,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_PENA_NEVERLAND" className="hover:brightness-110">
+        <svg id="field_PENA_NEVERLAND" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#eec590"
@@ -2911,7 +2910,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_PENA_LOVE" className="hover:brightness-110">
+        <svg id="field_PENA_LOVE" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#c3e3f1"
@@ -2987,7 +2986,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_PENA_QUEEN" className="hover:brightness-110">
+        <svg id="field_PENA_QUEEN" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}> 
           <svg>
             <polygon
               fill="#f37ffa"
@@ -3025,7 +3024,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_210" className="hover:brightness-110">
+        <svg id="field_210" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#96cae2"
@@ -3113,7 +3112,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_310" className="hover:brightness-110">
+        <svg id="field_310" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#f0c1e9"
@@ -3177,7 +3176,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_209" className="hover:brightness-110">
+        <svg id="field_209" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#c4b5f2"
@@ -3241,7 +3240,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_309" className="hover:brightness-110">
+        <svg id="field_309" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#94f0de"
@@ -3303,7 +3302,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_231" className="hover:brightness-110">
+        <svg id="field_231" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#96cae2"
@@ -3391,7 +3390,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_232" className="hover:brightness-110">
+        <svg id="field_232" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#96cae2"
@@ -3479,7 +3478,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_233" className="hover:brightness-110">
+        <svg id="field_233" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#c4b5f2"
@@ -3543,7 +3542,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_PENB" className="hover:brightness-110">
+        <svg id="field_PENB" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#edeb9c"
@@ -3607,7 +3606,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_PENB_NEVERLAND" className="hover:brightness-110">
+        <svg id="field_PENB_NEVERLAND" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#ebc390"
@@ -3683,7 +3682,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_PENB_LOVE" className="hover:brightness-110">
+        <svg id="field_PENB_LOVE" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#c3e3f1"
@@ -3759,7 +3758,7 @@ const seatmap = (props: props) => {
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_PENB_QUEEN" className="hover:brightness-110">
+        <svg id="field_PENB_QUEEN" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#f37ffa"

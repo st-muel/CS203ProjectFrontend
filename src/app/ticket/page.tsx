@@ -15,7 +15,6 @@ interface Props {
   id: number
 }
 export default function Home() {
-  const [isChosen, setIsChosen] = useState(false);
   const [section, setSection] = useState("");
   
   useEffect(() => {
@@ -34,7 +33,7 @@ export default function Home() {
 
           { section && (
             
-            <div className="text-black text-lg">{ section }</div>
+            <div className="flex flex-row justify-center items-center bg-white"> <TableTickets section = {section.split("_")[1]}/></div>
           ) }
 {/* 
           <ChooseSections /> */}
