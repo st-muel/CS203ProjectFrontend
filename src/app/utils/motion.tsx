@@ -19,7 +19,12 @@ export const navVariants = {
   },
 };
 
-export const slideIn = (direction: string, type: string, delay: number, duration: number) => ({
+export const slideIn = (
+  direction: string,
+  type: string,
+  delay: number,
+  duration: number
+) => ({
   hidden: {
     x: direction === "left" ? "-100%" : direction === "right" ? "100%" : 0,
     y: direction === "up" ? "100%" : direction === "down" ? "100%" : 0,
@@ -55,8 +60,6 @@ export const staggerContainer = {
     },
   },
 };
-
-
 
 export const textVariant = (delay: number) => ({
   hidden: {
@@ -99,7 +102,12 @@ export const textVariant2 = {
   },
 };
 
-export const fadeIn = (direction: string, type: string, delay: number, duration: number) => ({
+export const fadeIn = (
+  direction: string,
+  type: string,
+  delay: number,
+  duration: number
+) => ({
   hidden: {
     x: direction === "left" ? 100 : direction === "right" ? -100 : 0,
     y: direction === "up" ? 100 : direction === "down" ? -100 : 0,

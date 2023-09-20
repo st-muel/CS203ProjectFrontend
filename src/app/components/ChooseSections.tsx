@@ -6,7 +6,7 @@ import { SectionPopup } from './SectionPopup';
 export const ChooseSections = () => {
 
     return(
-            <div className="grid grid-cols-3 gap-4 content-center">
+            <div className="mx-auto grid grid-cols-3 gap-4 content-center">
             <div></div>
             <div>
                 <div className='transparentrectangle'></div>
