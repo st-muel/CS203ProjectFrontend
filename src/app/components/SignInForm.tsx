@@ -8,6 +8,7 @@ import axios from "axios";
 import Link from "next/link";
 import { useSetAtom } from "jotai";
 import { userAtom } from "../jotai";
+import { notification } from "antd";
 
 interface props {
 	setOpen: (open: boolean) => void;
@@ -37,6 +38,14 @@ const SigninForm = (props: props) => {
 		if (res.status == 200) {
 			setUser(res.data)
 			props.setOpen(false)
+		} else {
+			username.current = ""
+			pass.current = ""
+			
+			notification.error({
+				message: "Error",
+				description: "Invalid username or password",
+			})
 		}
 	};
 	return (
