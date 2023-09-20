@@ -3,50 +3,23 @@ import { motion } from "framer-motion";
 import styles from "../styles";
 import { fadeIn } from "../utils/motion";
 
-const ExploreCard = ({
-  key,
-  id,
-  imgUrl,
-  title,
-  index,
-  active,
-  handleClick,
-}) => (
+const ExploreCard = ({ key, id, imgUrl, title, loc, index, date }) => (
   <motion.div
     variants={fadeIn("right", "spring", index * 0.5, 1.75)}
-    className={`relative ${
-      active === id ? "lg:flex-[3.5] flex-[10]" : "lg:flex-[0.5] flex-[2]"
-    } flex items-center justify-center min-w-[170px] h-[700px] transition-[flex] duration-[0.7s] ease-out-flex cursor-pointer`}
-    onClick={() => handleClick(id)}
+    className="flex md:flex-row flex-col gap-2"
   >
-    <img
-      src={imgUrl}
-      alt={title}
-      className="absolute w-full h-full object-cover rounded-[24px]"
-    />
-    {active !== id ? (
-      <h3 className="font-semibold sm:text-[26px] text-[18px] text-white absolute z-0 lg:bottom-20 lg:rotate-[-90deg] lg:origin-[0,0]">
-        {title}
-      </h3>
-    ) : (
-      <div className="absolute bottom-0 p-8 justify-start w-full flex-col bg-[rgba(0,0,0,0.5)] rounded-b-[24px]">
-        {/* <div
-          className={`${styles.flexCenter} w-[60px] h-[60px] rounded-[24px] glassmorphism mb-[16px]`}
-        >
-          <img
-            src="/headset.svg"
-            alt="headset"
-            className="w-1/2 h-1/2 object-contain"
-          />
-        </div> */}
-        <p className="font-normal text-[16px] leading-[20px] text-white uppercase">
-          date??
-        </p>
-        <h2 className="mt-[24px] font-semibold sm:text-[30px] text-[24px] text-white">
-          {title}
-        </h2>
+    <div className="rounded overflow-hidden shadow-lg">
+      <img
+        className="object-contain h-48 w-96 md:object-scale-down bg-stone-600"
+        src={imgUrl}
+        alt=""
+      ></img>
+      <div className="px-6 py-4 bg-stone-900/50">
+        <div class="font-bold text-xl mb-2">{title}</div>
+        <p class="text-gray-500 text-base">{loc}</p>
+        <p class="text-gray-500 text-base">{date}</p>
       </div>
-    )}
+    </div>
   </motion.div>
 );
 

@@ -41,7 +41,7 @@ export const DescriptionText = ({ description, textStyles }) => (
     variants={textVariant2}
     initial="hidden"
     whileInView="show"
-    className={`mt-[8px] text-[14px] text-whitem ${textStyles}`}
+    className={`mt-[8px] text-[14px] text-white ${textStyles}`}
   >
     {description}
   </motion.h2>

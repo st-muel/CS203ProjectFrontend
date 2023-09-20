@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import styles from "../styles";
-import { staggerContainer, fadeIn, planetVariants } from "../utils/motion";
+import { staggerContainer, fadeIn } from "../utils/motion";
 import { SubTitleText, TypingText } from "../components/CustomText";
 import StartSteps from "../components/StartingSteps";
 import { exchangeRefundPolicy } from "../constants/index";

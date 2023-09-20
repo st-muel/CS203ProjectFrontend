@@ -10,51 +10,32 @@ export const exploreConcerts = [
     id: "concert-2",
     imgUrl: "/dean-lewis.jpg",
     title: "Dean Lewis",
+    loc: "University Cultural Centre Ho Bee Auditorium",
+    date: "23 Sep 2023 (Sat.)"
   },
   {
     id: "concert-3",
     imgUrl: "/blackpink.jpg",
     title: "Black Pink",
+    loc: "University Cultural Centre Ho Bee Auditorium",
+    date: "23 Sep 2023 (Sat.)"
   },
   {
     id: "concert-4",
     imgUrl: "/coldplay.jpeg",
     title: "Coldplay",
+    loc: "University Cultural Centre Ho Bee Auditorium",
+    date: "23 Sep 2023 (Sat.)"
   },
   {
     id: "concert-5",
     imgUrl: "iu.jpeg",
     title: "IU",
+    loc: "University Cultural Centre Ho Bee Auditorium",
+    date: "23 Sep 2023 (Sat.)"
   },
 ];
 
-// export const concertDetails = [
-//   {
-//     id: "concert-1",
-//     imgUrl: "/taylor-swift.jpg",
-//     title: "Taylor Swift",
-//   },
-//   {
-//     id: "concert-2",
-//     imgUrl: "/dean-lewis.jpg",
-//     title: "Dean Lewis",
-//   },
-//   {
-//     id: "concert-3",
-//     imgUrl: "/blackpink.jpg",
-//     title: "Black Pink",
-//   },
-//   {
-//     id: "concert-4",
-//     imgUrl: "/coldplay.jpeg",
-//     title: "Coldplay",
-//   },
-//   {
-//     id: "concert-5",
-//     imgUrl: "iu.jpeg",
-//     title: "IU",
-//   },
-// ];
 
 export const exchangeRefundPolicy = [
   "The Organiser/Venue Owner reserves the right without refund or compensation to refuse admission/evict any person(s) whose conduct is disorderly or inappropriate or who poses a threat to security, or to the enjoyment of the Event by others.",
@@ -118,5 +99,43 @@ export const socials = [
   {
     name: "facebook",
     url: "/facebook.svg",
+  },
+];
+
+export const eventCatalogue = [
+  {
+    id: "concert-1",
+    imgUrl: "/taylor-swift.jpg",
+    title: "Taylor Swift",
+    loc: "University Cultural Centre Ho Bee Auditorium",
+    date: "23 Sep 2023 (Sat.)"
+  },
+  {
+    id: "concert-2",
+    imgUrl: "/dean-lewis.jpg",
+    title: "Dean Lewis",
+    loc: "University Cultural Centre Ho Bee Auditorium",
+    date: "23 Sep 2023 (Sat.)"
+  },
+  {
+    id: "concert-3",
+    imgUrl: "/blackpink.jpg",
+    title: "Black Pink",
+    loc: "University Cultural Centre Ho Bee Auditorium",
+    date: "23 Sep 2023 (Sat.)"
+  },
+  {
+    id: "concert-4",
+    imgUrl: "/coldplay.jpeg",
+    title: "Coldplay",
+    loc: "University Cultural Centre Ho Bee Auditorium",
+    date: "23 Sep 2023 (Sat.)"
+  },
+  {
+    id: "concert-5",
+    imgUrl: "iu.jpeg",
+    title: "IU",
+    loc: "University Cultural Centre Ho Bee Auditorium",
+    date: "23 Sep 2023 (Sat.)"
   },
 ];

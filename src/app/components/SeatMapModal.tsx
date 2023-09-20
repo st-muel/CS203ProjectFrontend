@@ -1,12 +1,11 @@
 import { Modal } from "antd";
-import SigninForm from "./SignInForm";
 
 interface props {
   open: boolean;
   setOpen: (open: boolean) => void;
 }
 
-const SignInModal = (props: props) => {
+const SeatMapModal = (props: props) => {
   const handleCancel = () => {
     props.setOpen(false);
   };
@@ -21,10 +20,11 @@ const SignInModal = (props: props) => {
         open={props.open}
         className="shadow-md"
       >
-        <SigninForm />
+        <img className="object-contain h-100 w-100 md:object-scale-down bg-stone-600"
+        src="/seatmap.jpeg"></img>
       </Modal>
     </>
   );
 };
 
-export default SignInModal;
+export default SeatMapModal;

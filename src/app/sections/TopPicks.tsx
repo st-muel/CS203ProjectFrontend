@@ -4,11 +4,11 @@ import { useState } from "react";
 import styles from "../styles";
 import { staggerContainer } from "../utils/motion";
 import { TitleText, TypingText } from "../components/CustomText";
-import ExploreCard from "../components/ExploreCard";
+import TopPickCards from "../components/TopPicksCard";
 import { exploreConcerts } from "../constants";
 
-const Explore = () => {
-  const [active, setActive] = useState("concert-2");
+const TopPicks = () => {
+  const [active, setActive] = useState("concert-5");
   return (
     <section className={`${styles.paddings}`} id="explore">
       <motion.div
@@ -22,7 +22,7 @@ const Explore = () => {
         <TitleText title={<>Top Picks</>} textStyles="text-center" />
         <div className="mt-[50px] flex lg:flex-row flex-col min-h-[70vh] gap-5">
           {exploreConcerts.map((concert, index) => (
-            <ExploreCard
+            <TopPickCards
               key={concert.id}
               {...concert}
               index={index}
@@ -36,4 +36,4 @@ const Explore = () => {
   );
 };
 
-export default Explore;
+export default TopPicks;
