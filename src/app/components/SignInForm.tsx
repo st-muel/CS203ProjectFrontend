@@ -21,27 +21,27 @@ const SigninForm = (props: props) => {
 	const pass = useRef("");
 	
 	const onSubmit = async () => {
-		const res = await axios.post(
-			"http://localhost:8080/api/auth/signin",
-			{ 
-				username: username.current, 
-				password: pass.current 
-			},
-			{
-				headers: {
-					"Content-Type": "application/json",
-					Accept: "application/json",
+		try {
+			const res = await axios.post(
+				"http://localhost:8080/api/auth/signin",
+				{ 
+					username: username.current, 
+					password: pass.current 
 				},
-			}
-		)
+				{
+					headers: {
+						"Content-Type": "application/json",
+						Accept: "application/json",
+					},
+				}
+			)
 
-		if (res.status == 200) {
 			setUser(res.data)
 			props.setOpen(false)
-		} else {
+		} catch (e) {
 			username.current = ""
 			pass.current = ""
-			
+
 			notification.error({
 				message: "Error",
 				description: "Invalid username or password",
