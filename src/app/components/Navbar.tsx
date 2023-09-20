@@ -13,7 +13,6 @@ import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { useAtom } from "jotai"
 import { userAtom } from "../jotai"
-import { removeCookie } from "../utils/common"
 
 const navItems = [
 	{
@@ -43,7 +42,6 @@ const Navbar = () => {
 
 	const signOut = () => {
 		setUser(null)
-		removeCookie("user")
 	}
 
 	return (

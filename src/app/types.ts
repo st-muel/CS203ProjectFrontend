@@ -1,5 +1,5 @@
 
-interface Session {
+interface User {
     id: string
     username: string
 }
