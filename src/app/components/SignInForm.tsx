@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { rc } from "../lib/utils";
 import { buttonVariants } from "./ui/button";
 
@@ -17,16 +17,16 @@ interface props {
 const SigninForm = (props: props) => {
 	const setUser = useSetAtom(userAtom)
 
-	const username = useRef("");
-	const pass = useRef("");
+	const [username, setUsername] = useState("");
+	const [password, setPassword] = useState("");
 	
 	const onSubmit = async () => {
 		try {
 			const res = await axios.post(
 				"http://localhost:8080/api/auth/signin",
 				{ 
-					username: username.current, 
-					password: pass.current 
+					username,
+					password
 				},
 				{
 					headers: {
@@ -39,8 +39,8 @@ const SigninForm = (props: props) => {
 			setUser(res.data)
 			props.setOpen(false)
 		} catch (e) {
-			username.current = ""
-			pass.current = ""
+			setUsername("")
+			setPassword("")
 
 			notification.error({
 				message: "Error",
@@ -62,8 +62,9 @@ const SigninForm = (props: props) => {
 						</label>
 						<input
 							type="text"
+							value={username}
 							onChange={(e) => {
-								username.current = e.target.value;
+								setUsername(e.target.value)
 							}}
 							className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md focus:border-gray-400 focus:ring-gray-300 focus:outline-none focus:ring focus:ring-opacity-40"
 						/>
@@ -77,8 +78,9 @@ const SigninForm = (props: props) => {
 						</label>
 						<input
 							type="password"
+							value={password}
 							onChange={(e) => {
-								pass.current = e.target.value;
+								setPassword(e.target.value)
 							}}
 							className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md focus:border-gray-400 focus:ring-gray-300 focus:outline-none focus:ring focus:ring-opacity-40"
 						/>
