@@ -102,7 +102,7 @@ const Navbar = () => {
             <div>
               {session?.user ? (
                 <>
-                  <p> {session.user.name}</p>
+                  <p> {session.user.username}</p>
                   <button
                     className={rc(buttonVariants({ variant: "default" }))}
                     onClick={() => signOut()}
