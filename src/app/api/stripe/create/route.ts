@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 
 export async function POST(req: Request) {
     try {
-        const jwtToken = req.headers.get('authorization')
+        const jwtToken = req.headers.get('authorization')?.replace('Bearer ', '')
         const user = jwt.decode(jwtToken, process.env.JWT_SECRET_KEY)
 
         const body = await req.json()
@@ -32,8 +32,8 @@ export async function POST(req: Request) {
             metadata: {
                 user: user.sub
             },
-            success_url: 'https://app.netrunner.tax/subscribe',
-            cancel_url: 'https://app.netrunner.tax/subscribe',
+            success_url: '',
+            cancel_url: '',
         })
 
         return NextResponse.json({ sessionId: stripeSession.id }, { status: 200 })
