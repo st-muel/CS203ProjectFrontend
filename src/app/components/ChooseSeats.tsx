@@ -6,19 +6,30 @@ import axios from "axios";
 import { useState } from "react";
 import { SeatPicker } from "../components/SeatPicker/SeatPicker";
 import "./Seats.css";
+import { useAtomValue } from "jotai";
+import { jwtTokenAtom } from "../jotai";
 
 const ChooseSeats = () => {
 	const [selected, setSelected] = useState([]);
 	const [loading, setLoading] = useState(false);
+	const jwtToken = useAtomValue(jwtTokenAtom)
 
 	const processStripeCheckout = async (selectedSeats: string[]) => {
         try {
             setLoading(true)
 
             const stripe = (await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string)) as Stripe
-            const res = await axios.post('/api/stripe/create', {
-				seats: selectedSeats
-			})
+            const res = await axios.post(
+				'/api/stripe/create', 
+				{
+					seats: selectedSeats
+				},
+				{
+					headers: {
+						Authorization: `Bearer ${jwtToken}`
+					}
+				}
+			)
             const sessionId = res.data.sessionId
 	
             stripe.redirectToCheckout({
