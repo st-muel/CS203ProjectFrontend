@@ -9,15 +9,8 @@ interface props {
 const seatmap = (props: props) => {
   
   return (
-<<<<<<< HEAD:src/app/components/Seatmap.jsx
     <svg height="600" width="1062.3" className="">
       <svg id="FOH">
-=======
-    <svg height="700" width="1062.3" className="">
-      <svg
-        id="FOH"
-      >
->>>>>>> origin/feat/seat-table:src/app/components/Seatmap.tsx
         <svg>
           <polygon points="709.2,249.4 710.4,257.2 684.3,275.5 683.1,267.7 		"></polygon>
         </svg>
@@ -125,19 +118,10 @@ const seatmap = (props: props) => {
           ></polygon>
         </svg>
       </svg>
-<<<<<<< HEAD:src/app/components/Seatmap.jsx
-      <svg id="sections">
-        <svg
-          id="field_324"
-          className="hover:brightness-110"
-          onClick={(e) => handleClick(e)}
-        >
-=======
       <svg
         id="sections"
       >
         <svg id="field_324" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
->>>>>>> origin/feat/seat-table:src/app/components/Seatmap.tsx
           <svg>
             <polygon
               fill="#add8a1"

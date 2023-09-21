@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Image from "next/image";
 import Navbar from "../components/Navbar";
@@ -13,21 +13,20 @@ import Legend from "../components/Legend";
 import styles from "../styles";
 
 interface Props {
-  id: number
+  id: number;
 }
 export default function Home() {
   const [section, setSection] = useState("");
-  
+
   useEffect(() => {
-    console.log(section)
-  }, [section])
+    console.log(section);
+  }, [section]);
 
   return (
     <main>
       <div className="bg-primary-black overflow-hidden">
         <Navbar />
-        {/* testing */}
-        <div className="bg-white pt-5">
+        <div className="bg-white py-6 sm:py-8 lg:py-12">
           <div
             className={`${styles.innerWidth} mx-auto flex md:flex-row flex-col gap-4 justify-center`}
           >
@@ -48,61 +47,42 @@ export default function Home() {
             </div>
           </div>
 
+          <div className={`${styles.innerWidth} mx-auto`}>
+            <div className="bg-white py-6 sm:py-8 lg:py-12">
+              <div className="mx-auto max-w-screen-2xl">
+                <div className="rounded-lg bg-gray-100 py-3 md:py-5 lg:py-7">
+                  {/* <p className="mb-2 text-center font-semibold text-indigo-500 md:mb-3 lg:text-lg">
+                    Introducing
+                  </p> */}
+
+                  <h2 className="text-center text-2xl font-bold text-indigo-500 lg:text-3xl">
+                    Choose Your Section
+                  </h2>
+
+                  {/* <p className="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">
+                    This is a section of some simple filler text, also known as
+                    placeholder text. It shares some characteristics of a real
+                    written text but is random or otherwise generated.
+                  </p> */}
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="flex flex-row justify-center items-center">
-            <Seatmap setSection={setSection} />
+            <a href="#ticketsection">
+              <Seatmap setSection={setSection} />
+            </a>
             <Legend />
           </div>
 
-          { section && (
-            
-            <div className="flex flex-row justify-center items-center bg-white"> <TableTickets section = {section.split("_")[1]}/></div>
-          ) }
-{/* 
-          <ChooseSections /> */}
-          {/* <div>
-            <div className="inline-flex items-center">
-              <span className="w-2 h-2 inline-block bg-gray-800 rounded-full mr-2 dark:bg-white"></span>
-              <span className="text-gray-600 dark:text-gray-400">Dark</span>
+          {section && (
+            <div className="bg-white" id="ticketsection">
+              {" "}
+              <TableTickets section={section.split("_")[1]} />
             </div>
-            <div className="inline-flex items-center">
-              <span className="w-2 h-2 inline-block bg-gray-500 rounded-full mr-2"></span>
-              <span className="text-gray-600 dark:text-gray-400">Gray</span>
-            </div>
-            <div className="inline-flex items-center">
-              <span className="w-2 h-2 inline-block bg-red-500 rounded-full mr-2"></span>
-              <span className="text-gray-600 dark:text-gray-400">Red</span>
-            </div>
-            <div className="inline-flex items-center">
-              <span className="w-2 h-2 inline-block bg-yellow-500 rounded-full mr-2"></span>
-              <span className="text-gray-600 dark:text-gray-400">Yellow</span>
-            </div>
-            <div className="inline-flex items-center">
-              <span className="w-2 h-2 inline-block bg-green-500 rounded-full mr-2"></span>
-              <span className="text-gray-600 dark:text-gray-400">Green</span>
-            </div>
-            <div className="inline-flex items-center">
-              <span className="w-2 h-2 inline-block bg-blue-500 rounded-full mr-2"></span>
-              <span className="text-gray-600 dark:text-gray-400">Blue</span>
-            </div>
-            <div className="inline-flex items-center">
-              <span className="w-2 h-2 inline-block bg-indigo-500 rounded-full mr-2"></span>
-              <span className="text-gray-600 dark:text-gray-400">Indigo</span>
-            </div>
-            <div className="inline-flex items-center">
-              <span className="w-2 h-2 inline-block bg-purple-500 rounded-full mr-2"></span>
-              <span className="text-gray-600 dark:text-gray-400">Purple</span>
-            </div>
-            <div className="inline-flex items-center">
-              <span className="w-2 h-2 inline-block bg-pink-500 rounded-full mr-2"></span>
-              <span className="text-gray-600 dark:text-gray-400">Pink</span>
-            </div>
-            <div className="inline-flex items-center">
-              <span className="w-2 h-2 inline-block bg-white rounded-full mr-2"></span>
-              <span className="text-gray-600 dark:text-gray-400">Light</span>
-            </div>
-        </div> */}
+          )}
         </div>
-        {/* <ChooseSections /> */}
         <Footer />
       </div>
     </main>
