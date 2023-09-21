@@ -4,7 +4,7 @@ import handleClick from "./testclick";
 
 const seatmap = () => {
   return (
-    <svg height="959" width="1062.3" className="">
+    <svg height="600" width="1062.3" className="">
       <svg id="FOH">
         <svg>
           <polygon points="709.2,249.4 710.4,257.2 684.3,275.5 683.1,267.7 		"></polygon>

@@ -4,38 +4,37 @@ export const exploreConcerts = [
     imgUrl: "/taylor-swift.jpg",
     title: "Taylor Swift",
     loc: "University Cultural Centre Ho Bee Auditorium",
-    date: "23 Sep 2023 (Sat.)"
+    date: "23 Sep 2023 (Sat.)",
   },
   {
     id: "concert-2",
     imgUrl: "/dean-lewis.jpg",
     title: "Dean Lewis",
     loc: "University Cultural Centre Ho Bee Auditorium",
-    date: "23 Sep 2023 (Sat.)"
+    date: "23 Sep 2023 (Sat.)",
   },
   {
     id: "concert-3",
     imgUrl: "/blackpink.jpg",
     title: "Black Pink",
     loc: "University Cultural Centre Ho Bee Auditorium",
-    date: "23 Sep 2023 (Sat.)"
+    date: "23 Sep 2023 (Sat.)",
   },
   {
     id: "concert-4",
     imgUrl: "/coldplay.jpeg",
     title: "Coldplay",
     loc: "University Cultural Centre Ho Bee Auditorium",
-    date: "23 Sep 2023 (Sat.)"
+    date: "23 Sep 2023 (Sat.)",
   },
   {
     id: "concert-5",
     imgUrl: "iu.jpeg",
     title: "IU",
     loc: "University Cultural Centre Ho Bee Auditorium",
-    date: "23 Sep 2023 (Sat.)"
+    date: "23 Sep 2023 (Sat.)",
   },
 ];
-
 
 export const exchangeRefundPolicy = [
   "The Organiser/Venue Owner reserves the right without refund or compensation to refuse admission/evict any person(s) whose conduct is disorderly or inappropriate or who poses a threat to security, or to the enjoyment of the Event by others.",
@@ -50,55 +49,61 @@ export const legendDetails = [
     id: "1",
     name: "FREE-TY QUEEN PACKAGE (STANDING)*",
     price: "$348",
-    color: "bg-amber-400"
+    color: "bg-fuchsia-600",
   },
   {
     id: "2",
-    name: "FREE-TY NEVERLAND PACKAGE (STANDING)*",
-    price: "$348",
-    color: "bg-amber-400"
+    name: "FREE-TY LOVE PACKAGE (STANDING)*",
+    price: "$328",
+    color: "bg-sky-300",
   },
   {
     id: "3",
-    name: "CAT 1 STANDING",
-    price: "$288",
-    color: "bg-amber-400"
+    name: "FREE-TY NEVERLAND PACKAGE (STANDING)*",
+    price: "$308",
+    color: "bg-amber-400",
   },
   {
     id: "4",
-    name: "CAT 2",
+    name: "CAT 1 STANDING",
     price: "$288",
-    color: "bg-amber-400"
+    color: "bg-yellow-300",
   },
   {
     id: "5",
-    name: "CAT 3",
-    price: "$248",
-    color: "bg-amber-400"
+    name: "CAT 2",
+    price: "$288",
+    color: "bg-sky-600",
   },
   {
     id: "6",
-    name: "CAT 4",
-    price: "$204",
-    color: "bg-amber-400"
+    name: "CAT 3",
+    price: "$248",
+    color: "bg-red-400",
   },
   {
     id: "7",
-    name: "CAT 5",
-    price: "$178",
-    color: "bg-amber-400"
+    name: "CAT 4",
+    price: "$204",
+    color: "bg-lime-400",
   },
   {
     id: "8",
+    name: "CAT 5",
+    price: "$178",
+    color: "bg-fuchsia-300",
+  },
+  {
+    id: "9",
     name: "CAT 6 (RESTRICTED VIEW)",
     price: "$248",
-    color: "bg-amber-400"
+    color: "bg-purple-400",
   },
   {
     id: "9",
     name: "CAT 7 (RESTRICTED VIEW)",
     price: "$178",
-    color: "bg-amber-400"
+    color: "bg-cyan-300",
   },
 ];
 
@@ -106,20 +111,17 @@ export const pricingDetails = [
   {
     imgUrl: "/date.svg",
     title: "Start Date",
-    subtitle:
-      ["10 August 2023"]
+    subtitle: ["10 August 2023"],
   },
   {
     imgUrl: "/ticket.svg",
     title: "Standard",
-    subtitle:
-    ["Cat 1: $55", "Cat 2: $48", "Cat 3: $32"]
+    subtitle: ["Cat 1: $55", "Cat 2: $48", "Cat 3: $32"],
   },
   {
     imgUrl: "/note.svg",
     title: "Note",
-    subtitle:
-    ["Limited to 20 tickets per transaction."]
+    subtitle: ["Limited to 20 tickets per transaction."],
   },
 ];
 
@@ -165,34 +167,34 @@ export const eventCatalogue = [
     imgUrl: "/taylor-swift.jpg",
     title: "Taylor Swift",
     loc: "University Cultural Centre Ho Bee Auditorium",
-    date: "23 Sep 2023 (Sat.)"
+    date: "23 Sep 2023 (Sat.)",
   },
   {
     id: "concert-2",
     imgUrl: "/dean-lewis.jpg",
     title: "Dean Lewis",
     loc: "University Cultural Centre Ho Bee Auditorium",
-    date: "23 Sep 2023 (Sat.)"
+    date: "23 Sep 2023 (Sat.)",
   },
   {
     id: "concert-3",
     imgUrl: "/blackpink.jpg",
     title: "Black Pink",
     loc: "University Cultural Centre Ho Bee Auditorium",
-    date: "23 Sep 2023 (Sat.)"
+    date: "23 Sep 2023 (Sat.)",
   },
   {
     id: "concert-4",
     imgUrl: "/coldplay.jpeg",
     title: "Coldplay",
     loc: "University Cultural Centre Ho Bee Auditorium",
-    date: "23 Sep 2023 (Sat.)"
+    date: "23 Sep 2023 (Sat.)",
   },
   {
     id: "concert-5",
     imgUrl: "iu.jpeg",
     title: "IU",
     loc: "University Cultural Centre Ho Bee Auditorium",
-    date: "23 Sep 2023 (Sat.)"
+    date: "23 Sep 2023 (Sat.)",
   },
 ];
