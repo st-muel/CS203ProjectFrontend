@@ -8,11 +8,15 @@ import {
   TypingText,
 } from "../components/CustomText";
 import StartSteps from "../components/StartingSteps";
-import { exchangeRefundPolicy, pricingDetails } from "../constants/index";
+import { PricingDetail } from "../concert/page";
 import { Subtitles } from "lucide-react";
 import NewFeatures from "../components/NewFeatures";
 
-const Pricing = () => (
+interface Props {
+  sectionPricingDetails: PricingDetail[];
+}
+
+const Pricing = ({sectionPricingDetails} : Props) => (
   <section className={`${styles.paddings} relative`}>
     <motion.div
       variants={staggerContainer}
@@ -28,7 +32,7 @@ const Pricing = () => (
         {/* <TypingText title="| Whats new?" textStyles="" /> */}
         <SubTitleText title={<>Ticket Pricing</>} textStyles="" />
         <div className="mt-[40px] flex flex-wrap justify-between gap-[24px]">
-          {pricingDetails.map((feature) => (
+          {sectionPricingDetails.map((feature) => (
             <NewFeatures key={feature.title} {...feature} />
           ))}
         </div>

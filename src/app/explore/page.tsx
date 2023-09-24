@@ -1,19 +1,33 @@
-import Image from "next/image";
-import Navbar from "../components/Navbar";
+import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Footer from "../components/Footer";
-import { Carousel } from "../components/Carousel";
-import ConcertDetails from "../sections/ConcertDetails";
-import Policy from "../sections/Policy";
-import Pricing from "../sections/Pricing";
-import Events from "../sections/EventsCatalogue";
+import Navbar from "../components/Navbar";
+import Events from "../sections/Events";
+import axios from "axios";
 
-export default function Home() {
+export interface EventCatalogue {
+  id: number;
+  title: string;
+  description: string;
+  artist: string;
+  concertImages: { id: number; name: string; filePath: string }[];
+  venue: { id: number; name: string };
+  earliestSession: { datetime: string };
+  latestSession: { datetime: string };
+}
+
+async function getEventCatalogues() {
+  return await axios.get("http://localhost:8080/api/concerts");
+}
+
+export default async function Home(){
+  const eventCataloguesData: EventCatalogue[] = await getEventCatalogues().then(res => res.data as EventCatalogue[]);
+
   return (
     <main>
       <div className="bg-primary-black overflow-hidden">
         <Navbar />
         <div>
-          <Events />
+          <Events eventCatalogues={eventCataloguesData} />
           <div className="gradient-03 z-0" />
           {/* <Navbar /> */}
         </div>

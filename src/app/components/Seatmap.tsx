@@ -1,12 +1,16 @@
-const seatmap = () => {
+'use client'
+
+import ChooseSeats from "./ChooseSeats";
+
+interface props {
+  setSection: (section: string) => void
+}
+
+const seatmap = (props: props) => {
+  
   return (
-    <svg height="846.4" width="" className="bg-white flex mx-auto justify-items-center justify-center items-center">
-      <svg
-        id="FOH"
-        height=""
-        width=""
-        className="bg-white h-screen flex mx-auto"
-      >
+    <svg height="600" width="1062.3" className="">
+      <svg id="FOH">
         <svg>
           <polygon points="709.2,249.4 710.4,257.2 684.3,275.5 683.1,267.7 		"></polygon>
         </svg>
@@ -22,105 +26,102 @@ const seatmap = () => {
           <polygon
             fill="#1D1A1B"
             points="796,140.2 805.2,145.1 804,145.9 791.6,145.7 798.8,149.6 797.6,150.4 788.5,145.4 789.6,144.6 
-802.2,144.9 794.9,141 		"
+			802.2,144.9 794.9,141 		"
           ></polygon>
         </svg>
         <svg>
           <polygon
             fill="#1D1A1B"
             points="832.3,114.8 841.4,119.7 840.3,120.5 836.5,118.4 831.6,121.9 835.4,123.9 834.3,124.7 
-825.1,119.8 826.3,119 830.6,121.3 835.4,117.9 831.2,115.6 		"
+			825.1,119.8 826.3,119 830.6,121.3 835.4,117.9 831.2,115.6 		"
           ></polygon>
         </svg>
         <svg>
           <polygon
             fill="#1D1A1B"
             points="823.6,120.9 824.6,121.4 821.8,123.4 829.9,127.8 828.8,128.6 820.7,124.2 817.9,126.1 
-816.8,125.6 		"
+			816.8,125.6 		"
           ></polygon>
         </svg>
         <svg>
           <path
             fill="#1D1A1B"
             d="M818.8,131.1l6.2,0.1l-1.4,1l-5.9-0.2l-1.7,1.2l3.5,1.9l-1.1,0.8l-9.1-4.9l3.3-2.3
-c2.2-1.5,4.3-1.5,5.9-0.6C819.9,128.8,820,129.9,818.8,131.1z M815,132.7l1.9-1.3c1.6-1.1,1.5-2,0.4-2.5c-1.2-0.6-2.6-0.4-3.8,0.5
-l-2,1.4L815,132.7"
+			c2.2-1.5,4.3-1.5,5.9-0.6C819.9,128.8,820,129.9,818.8,131.1z M815,132.7l1.9-1.3c1.6-1.1,1.5-2,0.4-2.5c-1.2-0.6-2.6-0.4-3.8,0.5
+			l-2,1.4L815,132.7"
           ></path>
         </svg>
         <svg>
           <path
             fill="#1D1A1B"
             d="M802.5,135.5c2.6-1.8,6.5-2.2,9.3-0.7s2.6,3.9,0,5.8c-2.7,1.9-6.6,2.2-9.3,0.8
-C799.8,139.8,799.8,137.4,802.5,135.5z M810.8,140c1.9-1.4,2-3.2-0.1-4.4c-2.1-1.1-5.1-0.9-7.1,0.5s-2,3.3,0.1,4.4
-S808.8,141.4,810.8,140"
+			C799.8,139.8,799.8,137.4,802.5,135.5z M810.8,140c1.9-1.4,2-3.2-0.1-4.4c-2.1-1.1-5.1-0.9-7.1,0.5s-2,3.3,0.1,4.4
+			S808.8,141.4,810.8,140"
           ></path>
         </svg>
         <svg>
           <polygon
             fill="#1D1A1B"
             points="770.1,521.2 771.2,521.7 766.6,524.9 769.7,526.6 773.4,524 774.4,524.5 770.7,527.1 773.7,528.8 
-778.5,525.4 779.6,525.9 773.6,530.1 764.4,525.2 		"
+			778.5,525.4 779.6,525.9 773.6,530.1 764.4,525.2 		"
           ></polygon>
         </svg>
         <svg>
           <path
             fill="#1D1A1B"
             d="M783.6,511.6c1-0.7,2.4-1.2,4-1.5l0.2,1c-1.4,0.2-2.5,0.6-3.2,1.1c-0.9,0.6-1.2,1.4-0.3,1.9s2,0.1,3.6-0.5
-c2.2-0.8,3.9-1.5,5.6-0.5c1.7,0.9,1.1,2.4-0.6,3.6c-1.2,0.8-2.8,1.4-4.7,1.5l-0.1-1c1.5,0,2.9-0.5,3.8-1.1
-c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.6-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C781.8,514.2,782,512.8,783.6,511.6z"
+			c2.2-0.8,3.9-1.5,5.6-0.5c1.7,0.9,1.1,2.4-0.6,3.6c-1.2,0.8-2.8,1.4-4.7,1.5l-0.1-1c1.5,0,2.9-0.5,3.8-1.1
+			c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.6-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C781.8,514.2,782,512.8,783.6,511.6z"
           ></path>
         </svg>
         <svg>
           <path
             fill="#1D1A1B"
             d="M776.1,517l12.7,2.5l-1.2,0.8l-3.1-0.6l-4.2,2.9l1.4,1.8l-1.2,0.8l-5.6-7.4L776.1,517z M779.7,521.8
-l3.4-2.4l-6.3-1.3l0,0L779.7,521.8"
+			l3.4-2.4l-6.3-1.3l0,0L779.7,521.8"
           ></path>
         </svg>
         <svg>
           <polygon
             fill="#1D1A1B"
             points="794.7,504 795.7,504.5 792.9,506.5 801,510.9 799.9,511.7 791.7,507.3 789,509.3 787.9,508.7 		
-"
+			"
           ></polygon>
         </svg>
         <svg>
           <polygon
             fill="#1D1A1B"
             points="183.9,199.5 190.1,206.5 189,207.3 179.3,204.8 184.6,210.4 183.5,211.2 171.4,208.3 172.6,207.4 
-182.3,209.8 177.1,204.3 178.3,203.5 187.7,206 182.7,200.4 		"
+			182.3,209.8 177.1,204.3 178.3,203.5 187.7,206 182.7,200.4 		"
           ></polygon>
         </svg>
         <svg>
           <path
             fill="#1D1A1B"
             d="M195.8,191.1c1-0.7,2.4-1.2,4-1.5l0.2,1c-1.4,0.2-2.5,0.6-3.2,1.1c-0.9,0.6-1.2,1.4-0.3,1.9s2,0.1,3.6-0.5
-c2.2-0.8,3.9-1.5,5.6-0.5c1.7,0.9,1.1,2.4-0.6,3.6c-1.2,0.8-2.8,1.4-4.7,1.5l-0.1-1c1.5,0,2.9-0.5,3.8-1.1
-c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193.6,194.2,192.2,195.8,191.1z"
+			c2.2-0.8,3.9-1.5,5.6-0.5c1.7,0.9,1.1,2.4-0.6,3.6c-1.2,0.8-2.8,1.4-4.7,1.5l-0.1-1c1.5,0,2.9-0.5,3.8-1.1
+			c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193.6,194.2,192.2,195.8,191.1z"
           ></path>
         </svg>
         <svg>
           <polygon
             fill="#1D1A1B"
             points="191.2,194.4 192.3,194.9 187.7,198.1 190.7,199.8 194.5,197.2 195.5,197.7 191.8,200.4 194.8,202 
-199.6,198.6 200.7,199.2 194.7,203.3 185.5,198.4 		"
+			199.6,198.6 200.7,199.2 194.7,203.3 185.5,198.4 		"
           ></polygon>
         </svg>
         <svg>
           <polygon
             fill="#1D1A1B"
             points="206.9,183.4 207.9,184 205.1,186 213.2,190.3 212.1,191.1 204,186.8 201.2,188.7 200.2,188.1 		
-"
+			"
           ></polygon>
         </svg>
       </svg>
       <svg
         id="sections"
-        height=""
-        width=""
-        className="bg-white h-screen flex mx-auto"
       >
-        <svg id="field_324" enable-background="new    " className="empty">
+        <svg id="field_324" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#add8a1"
@@ -158,7 +159,7 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_328" enable-background="new    " className="empty">
+        <svg id="field_328" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#f0c1e9"
@@ -208,7 +209,7 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_225" enable-background="new    " className="empty">
+        <svg id="field_225" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#eba5a5"
@@ -282,7 +283,7 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_226" className="empty">
+        <svg id="field_226" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#eba5a5"
@@ -317,7 +318,7 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#f3a8a8"
               points="457.1,103.1 521,86.6 525.7,98.3 543.6,140.8 519.3,147.8 523,163.3 511.5,165.3 477.8,126.6 			
-  "
+				"
             ></polygon>
           </svg>
           <svg>
@@ -345,7 +346,7 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_224" className="empty">
+        <svg id="field_224" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#97d0e9"
@@ -383,7 +384,7 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_227" className="empty">
+        <svg id="field_227" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#96cae2"
@@ -436,18 +437,18 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#97d0e9"
               points="454.9,157.3 425.1,141.1 412.4,134.3 451.3,106.9 460.3,116.3 481.5,138.5 509.1,167.2 
-  493.4,178.2 			"
+				493.4,178.2 			"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#97d0e9"
               points="451.3,107.3 460.1,116.5 481.3,138.7 508.7,167.2 493.4,177.9 455,157.1 425.2,140.9 
-  412.9,134.3 			"
+				412.9,134.3 			"
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_323" enable-background="new    " className="empty">
+        <svg id="field_323" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#add8a1"
@@ -485,7 +486,7 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_223" enable-background="new    " className="empty">
+        <svg id="field_223" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#97cfe8"
@@ -538,18 +539,18 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#97d0e9"
               points="601.4,159.3 626.8,141.5 643.1,130.1 680,104.2 712.6,121.9 675.5,147.8 659.3,159.2 634,176.9 
-        "
+							"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#97d0e9"
               points="680,104.5 712.1,121.9 675.3,147.6 659.1,159 634,176.6 601.9,159.3 627,141.7 643.3,130.3 			
-  "
+				"
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_322" enable-background="new    " className="empty">
+        <svg id="field_322" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#add8a1"
@@ -587,7 +588,7 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_222" enable-background="new    " className="empty">
+        <svg id="field_222" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#97cfe8"
@@ -640,18 +641,18 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#97d0e9"
               points="639.9,180.1 665.3,162.3 681.5,150.9 718.5,125.1 750.9,142.6 713.8,168.6 697.5,180 
-  672.2,197.6 			"
+				672.2,197.6 			"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#97d0e9"
               points="718.5,125.4 750.4,142.6 713.6,168.4 697.3,179.8 672.2,197.3 640.4,180.1 665.5,162.5 
-  681.7,151.1 			"
+				681.7,151.1 			"
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_221" enable-background="new    " className="empty">
+        <svg id="field_221" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#97cfe8"
@@ -704,18 +705,18 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#97d0e9"
               points="679.4,201.5 704.7,183.7 721,172.3 758,146.5 790.6,164.1 753.5,190.1 737.1,201.5 711.9,219.1 
-        "
+							"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#97d0e9"
               points="758,146.8 790.1,164.1 753.3,189.9 736.9,201.3 711.9,218.8 679.9,201.5 704.9,183.9 
-  721.2,172.5 			"
+				721.2,172.5 			"
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_320" enable-background="new    " className="empty">
+        <svg id="field_320" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#add8a1"
@@ -753,7 +754,7 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_220" enable-background="new    " className="empty">
+        <svg id="field_220" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#97cfe8"
@@ -806,18 +807,18 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#97d0e9"
               points="719.4,223.1 744.7,205.4 760.9,194.1 798,168.1 830.4,185.7 793.3,211.6 776.9,223.1 
-  751.8,240.7 			"
+				751.8,240.7 			"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#97d0e9"
               points="798,168.4 829.9,185.7 793.1,211.4 776.7,222.9 751.8,240.4 719.9,223.1 744.9,205.6 
-  761.1,194.3 			"
+				761.1,194.3 			"
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_319" enable-background="new    " className="empty">
+        <svg id="field_319" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#add8a1"
@@ -855,7 +856,7 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_219" enable-background="new    " className="empty">
+        <svg id="field_219" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#97cfe8"
@@ -920,18 +921,18 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#97d0e9"
               points="758.2,244.2 783.4,226.5 799.7,215.1 836.8,189.1 869,206.6 832,232.6 831.6,232.8 815.5,244.1 
-  790.4,261.6 			"
+				790.4,261.6 			"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#97d0e9"
               points="836.8,189.4 868.5,206.6 831.8,232.4 831.5,232.5 815.3,243.9 790.4,261.3 758.7,244.2 
-  783.6,226.7 799.9,215.3 			"
+				783.6,226.7 799.9,215.3 			"
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_318" enable-background="new    " className="empty">
+        <svg id="field_318" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#acd8a0"
@@ -969,7 +970,7 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_228" enable-background="new    " className="empty">
+        <svg id="field_228" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#96cae2"
@@ -1022,18 +1023,18 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#97d0e9"
               points="428.5,191.6 386,168.5 373.3,161.7 408.9,136.8 421.3,143.5 463.9,166.6 489.9,180.7 
-  454.3,205.6 			"
+				454.3,205.6 			"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#97d0e9"
               points="408.9,137.1 421.2,143.7 463.8,166.8 489.4,180.7 454.3,205.3 428.6,191.4 386.1,168.3 
-  373.8,161.7 			"
+				373.8,161.7 			"
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_329" enable-background="new    " className="empty">
+        <svg id="field_329" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#f0c1e9"
@@ -1083,7 +1084,7 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_229" enable-background="new    " className="empty">
+        <svg id="field_229" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#96cae2"
@@ -1148,18 +1149,18 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#97d0e9"
               points="389,219.1 346.5,196 333.7,189.2 367.9,165.3 380.3,172 420.7,193.9 422.9,195.1 449.1,209.3 
-  414.9,233.2 			"
+				414.9,233.2 			"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#97d0e9"
               points="367.9,165.6 380.2,172.2 420.6,194.1 422.8,195.3 448.6,209.3 414.9,232.9 389.1,218.9 
-  386.9,217.7 346.6,195.8 334.2,189.2 			"
+				386.9,217.7 346.6,195.8 334.2,189.2 			"
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_230" enable-background="new    " className="empty">
+        <svg id="field_230" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#96cae2"
@@ -1236,24 +1237,28 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#97d0e9"
               points="365.4,235.6 362.6,234.1 338.6,221.1 322.8,212.6 309.5,205.5 324.8,194.9 337.7,201.9 
-  353.6,210.4 377.6,223.3 380.4,224.9 406.5,238.9 391.2,249.6 			"
+				353.6,210.4 377.6,223.3 380.4,224.9 406.5,238.9 391.2,249.6 			"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#97d0e9"
               points="324.8,195.2 337.6,202.1 353.5,210.6 377.5,223.5 380.3,225.1 406,238.9 391.2,249.3 
-  365.5,235.4 362.7,233.9 338.7,220.9 322.9,212.4 310,205.5 			"
+				365.5,235.4 362.7,233.9 338.7,220.9 322.9,212.4 310,205.5 			"
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_PEND" enable-background="new    ">
+        <svg
+          id="field_PEND"
+          style={{ cursor: "pointer" }}
+          className="hover:brightness-110"
+        >
           <svg>
             <path
               fill="#E1DC3C"
               d="M582.5,235.7l-1.3-8.4l0.1-0.1c13.2-9.2,25.3-17.7,37-25.9l0.4-0.3l1.3,8.4l-0.1,0.1
-  c-6.1,4.3-12.3,8.6-18.5,12.9c-6.2,4.3-12.4,8.7-18.5,13L582.5,235.7z M581.8,227.5l1.1,7.2c6-4.2,12.1-8.5,18.1-12.7
-  c6.1-4.3,12.3-8.6,18.4-12.8l-1.1-7.2C606.8,210.1,594.9,218.5,581.8,227.5z"
+				c-6.1,4.3-12.3,8.6-18.5,12.9c-6.2,4.3-12.4,8.7-18.5,13L582.5,235.7z M581.8,227.5l1.1,7.2c6-4.2,12.1-8.5,18.1-12.7
+				c6.1-4.3,12.3-8.6,18.4-12.8l-1.1-7.2C606.8,210.1,594.9,218.5,581.8,227.5z"
             ></path>
           </svg>
           <svg>
@@ -1302,19 +1307,19 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <path
               fill="#E5E13D"
               d="M479,208.3l13.6-9.6c5.2-3.6,10.5-7.3,15.8-11.1c7.8-5.4,15.7-11,23.4-16.3c4.5-3.2,9.1-6.4,13.6-9.6
-  l0.1-0.1l73.6,39.8l-0.4,0.3c-6.1,4.3-12.3,8.6-18.5,12.9c-6,4.2-12.1,8.5-18.1,12.7c12.6,6.8,25.5,13.9,38.4,20.8l0.4,0.2
-  l-16.3,11.5l-13.2,9.3L479,208.3z"
+				l0.1-0.1l73.6,39.8l-0.4,0.3c-6.1,4.3-12.3,8.6-18.5,12.9c-6,4.2-12.1,8.5-18.1,12.7c12.6,6.8,25.5,13.9,38.4,20.8l0.4,0.2
+				l-16.3,11.5l-13.2,9.3L479,208.3z"
             ></path>
           </svg>
           <svg>
             <path
               fill="#E5E13D"
               d="M545.5,162l73,39.5c-12.3,8.6-24.7,17.3-37,25.9c12.9,7,25.8,14,38.8,21l-15.9,11.2l-13.1,9.2
-  l-111.8-60.5l13.1-9.2c5.3-3.7,10.6-7.4,15.9-11.2C520.9,179.3,533.2,170.6,545.5,162z"
+				l-111.8-60.5l13.1-9.2c5.3-3.7,10.6-7.4,15.9-11.2C520.9,179.3,533.2,170.6,545.5,162z"
             ></path>
           </svg>
         </svg>
-        <svg id="field_PEND_NEVERLAND" className="empty">
+        <svg id="field_PEND_NEVERLAND" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#eec590"
@@ -1355,14 +1360,14 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#f0c590"
               points="453.7,225.9 465,218 469.6,214.8 479.4,208 591.7,268.8 581.7,275.8 577.2,278.9 565.7,286.9 			
-  "
+				"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#f0c590"
               points="479.4,208.3 591.2,268.8 581.5,275.6 577,278.7 565.7,286.6 454.2,225.9 465.2,218.2 469.8,215 
-        "
+							"
             ></polygon>
           </svg>
           <svg>
@@ -1378,7 +1383,7 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_PEND_LOVE" className="empty">
+        <svg id="field_PEND_LOVE" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#c2e1ee"
@@ -1443,14 +1448,14 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#c4e4f2"
               points="428,243.9 433.7,240 434.7,239.3 438.2,236.8 454.2,225.6 566.2,286.6 550.8,297.4 549.6,297.5 
-  542.7,298.1 541.1,298.3 530.4,299.2 			"
+				542.7,298.1 541.1,298.3 530.4,299.2 			"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#c4e4f2"
               points="454.2,225.9 565.7,286.6 550.7,297.1 549.6,297.2 542.7,297.8 541.1,298 530.5,298.9 
-  428.5,243.9 433.9,240.2 434.9,239.5 438.4,237 			"
+				428.5,243.9 433.9,240.2 434.9,239.5 438.4,237 			"
             ></polygon>
           </svg>
           <svg>
@@ -1466,7 +1471,7 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_PEND_QUEEN" className="empty">
+        <svg id="field_PEND_QUEEN" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#ec7ff2"
@@ -1528,23 +1533,26 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             ></polygon>
           </svg>
         </svg>
-        {/* selected field */}
-        <svg id="field_PENC" className="selected" style={{ cursor: "pointer" }}>
+        <svg
+          id="field_PENC"
+          style={{ cursor: "pointer" }}
+          className="hover:brightness-110"
+        >
           <svg>
             <path
               fill="#f0ed9d"
               d="M739.9,339.7l-1.3-8.4l0.1-0.1c5.2-3.6,10.6-7.4,15.9-11.2c4.6-3.2,9.1-6.4,13.7-9.6
-  c7.6-5.4,15.5-10.9,23.3-16.3l0.4-0.3l1.3,8.4l-0.1,0.1c-6.1,4.3-12.3,8.6-18.5,12.9s-12.4,8.6-18.5,13l-0.1,0.1
-  c-5.2,3.6-10.5,7.4-15.8,11.1L739.9,339.7z M739.2,331.5l1.1,7.2c5.2-3.7,10.4-7.3,15.5-10.9l0.1-0.1c6.1-4.3,12.3-8.6,18.5-12.9
-  c6.1-4.3,12.3-8.6,18.4-12.8l-1.1-7.2c-7.7,5.3-15.5,10.8-23,16.1c-4.6,3.2-9.1,6.4-13.7,9.6
-  C749.7,324.2,744.4,327.9,739.2,331.5z"
+				c7.6-5.4,15.5-10.9,23.3-16.3l0.4-0.3l1.3,8.4l-0.1,0.1c-6.1,4.3-12.3,8.6-18.5,12.9s-12.4,8.6-18.5,13l-0.1,0.1
+				c-5.2,3.6-10.5,7.4-15.8,11.1L739.9,339.7z M739.2,331.5l1.1,7.2c5.2-3.7,10.4-7.3,15.5-10.9l0.1-0.1c6.1-4.3,12.3-8.6,18.5-12.9
+				c6.1-4.3,12.3-8.6,18.4-12.8l-1.1-7.2c-7.7,5.3-15.5,10.8-23,16.1c-4.6,3.2-9.1,6.4-13.7,9.6
+				C749.7,324.2,744.4,327.9,739.2,331.5z"
             ></path>
           </svg>
           <svg>
             <path
               fill="#f0ed9d"
               d="M791.8,294.3l1.2,7.8c-12.3,8.6-24.7,17.3-37,25.9c-5.3,3.7-10.6,7.4-15.9,11.2l-1.2-7.8
-  c5.3-3.7,10.6-7.4,15.9-11.2C767.1,311.6,779.4,302.9,791.8,294.3"
+				c5.3-3.7,10.6-7.4,15.9-11.2C767.1,311.6,779.4,302.9,791.8,294.3"
             ></path>
           </svg>
           <svg>
@@ -1563,15 +1571,15 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <path
               fill="#f2f09e"
               d="M613.5,280.1l13.5-9.5l16-11.3l0.5,0.3c12.5,6.8,25.4,13.8,38.3,20.7c6.1-4.3,12.2-8.6,18.4-12.9
-  s12.3-8.6,18.5-12.9l0.1-0.1l73.6,39.8l-0.4,0.3c-6.1,4.3-12.3,8.6-18.5,12.9s-12.4,8.7-18.5,13c-5.2,3.6-10.6,7.4-15.9,11.2
-  l-13.2,9.3L613.5,280.1z"
+				s12.3-8.6,18.5-12.9l0.1-0.1l73.6,39.8l-0.4,0.3c-6.1,4.3-12.3,8.6-18.5,12.9s-12.4,8.7-18.5,13c-5.2,3.6-10.6,7.4-15.9,11.2
+				l-13.2,9.3L613.5,280.1z"
             ></path>
           </svg>
           <svg>
             <path
               fill="#f2f09e"
               d="M643,259.7c12.9,7,25.8,14,38.8,21c12.3-8.6,24.7-17.3,37-25.9l73,39.5c-12.3,8.6-24.7,17.3-37,25.9
-  c-5.3,3.7-10.6,7.4-15.9,11.2l-13.1,9.2L614,280.1l13.1-9.2L643,259.7z"
+				c-5.3,3.7-10.6,7.4-15.9,11.2l-13.1,9.2L614,280.1l13.1-9.2L643,259.7z"
             ></path>
           </svg>
           <svg>
@@ -1587,7 +1595,7 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_PENC_NEVERLAND" className="empty">
+        <svg id="field_PENC_NEVERLAND" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#eec590"
@@ -1640,18 +1648,18 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#f0c590"
               points="588,297.9 599.5,289.8 604.1,286.6 613.9,279.8 726.2,340.6 716.2,347.6 711.7,350.7 
-  700.5,358.5 			"
+				700.5,358.5 			"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#f0c590"
               points="613.9,280.1 725.7,340.6 716,347.4 711.5,350.5 700.5,358.2 588.5,297.9 599.7,290 604.3,286.8 
-        "
+							"
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_PENC_LOVE" className="empty">
+        <svg id="field_PENC_LOVE" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#c3e3f1"
@@ -1716,18 +1724,18 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#c4e4f2"
               points="572.9,321.2 573,314.4 573,313.4 573.1,309.1 573.1,308.3 588.5,297.6 701,358.2 684.8,369.5 
-  681.3,372 680.3,372.7 674.7,376.5 			"
+				681.3,372 680.3,372.7 674.7,376.5 			"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#c4e4f2"
               points="588.5,297.9 700.5,358.2 684.6,369.3 681.1,371.8 680.1,372.5 674.7,376.2 573.2,321 
-  573.3,314.4 573.3,313.4 573.4,309.1 573.4,308.4 			"
+				573.3,314.4 573.3,313.4 573.4,309.1 573.4,308.4 			"
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_PENC_QUEEN" className="empty">
+        <svg id="field_PENC_QUEEN" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#ec7ff2"
@@ -1789,7 +1797,7 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_218" enable-background="new    " className="empty">
+        <svg id="field_218" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#97cee6"
@@ -1842,18 +1850,18 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#97d0e9"
               points="797.3,265.4 838.8,236.4 852.2,226.9 871.7,213.2 901.3,229.4 923,241 876.8,253.1 871.5,254.5 
-  807.9,271.1 			"
+				807.9,271.1 			"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#97d0e9"
               points="871.7,213.5 901.2,229.6 922.2,240.9 876.7,252.8 871.4,254.2 807.9,270.8 797.8,265.4 
-  839,236.6 852.4,227.1 			"
+				839,236.6 852.4,227.1 			"
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_217" className="empty">
+        <svg id="field_217" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#efa7a7"
@@ -1903,7 +1911,7 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_216" className="empty">
+        <svg id="field_216" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#eca6a6"
@@ -1920,14 +1928,14 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#f3a8a8"
               points="846.9,329.3 793.3,316.6 799,308.4 820.1,307.2 825.7,295.6 864.7,297.8 917.5,300.6 
-  898.7,341.4 			"
+				898.7,341.4 			"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#f3a8a8"
               points="799.2,308.7 820.3,307.5 825.9,295.9 864.7,298.1 917.1,300.9 898.5,341.1 847,329 793.8,316.4 
-        "
+							"
             ></polygon>
           </svg>
           <svg>
@@ -1955,7 +1963,7 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_215" className="empty">
+        <svg id="field_215" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#96cae2"
@@ -1990,7 +1998,7 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#97d0e9"
               points="788.7,320 840,333.2 879,343.3 893.3,347 855.9,373.2 844.8,367.2 814.8,350.9 775.1,329.4 			
-  "
+				"
             ></polygon>
           </svg>
           <svg>
@@ -2018,7 +2026,7 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_330" enable-background="new    " className="empty">
+        <svg id="field_330" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#f0c1e9"
@@ -2068,7 +2076,7 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_331" enable-background="new    " className="empty">
+        <svg id="field_331" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#f0c1e9"
@@ -2118,7 +2126,7 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_332" enable-background="new    " className="empty">
+        <svg id="field_332" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#f0c1e9"
@@ -2168,7 +2176,7 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_333" enable-background="new    " className="empty">
+        <svg id="field_333" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#94f0de"
@@ -2218,7 +2226,7 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_214" enable-background="new    " className="empty">
+        <svg id="field_214" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#96cae2"
@@ -2277,11 +2285,11 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#97d0e9"
               points="770,332.9 791.1,344.4 839.6,370.6 850.7,376.6 816.8,400.4 805.6,394.4 757.1,368.1 736,356.7 
-        "
+							"
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_314" enable-background="new    " className="empty">
+        <svg id="field_314" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#f4c4ed"
@@ -2343,7 +2351,7 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_213" enable-background="new    " className="empty">
+        <svg id="field_213" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#96cae2"
@@ -2396,18 +2404,18 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#97d0e9"
               points="764.7,423.1 716.1,396.8 694.7,385.3 728.9,361.4 750,372.9 798.6,399.2 810.1,405.4 
-  775.9,429.3 			"
+				775.9,429.3 			"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#97d0e9"
               points="728.9,361.7 749.9,373.1 798.5,399.4 809.6,405.4 775.9,429 764.8,422.9 716.2,396.6 
-  695.2,385.3 			"
+				695.2,385.3 			"
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_313" enable-background="new    " className="empty">
+        <svg id="field_313" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#f0c1e9"
@@ -2469,7 +2477,7 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_212" enable-background="new    " className="empty">
+        <svg id="field_212" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#96cae2"
@@ -2546,18 +2554,18 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#97d0e9"
               points="724.8,451 709.8,442.8 679.7,426.5 676.2,424.6 654.9,413.1 689.4,389.1 710.4,400.5 
-  713.8,402.2 743.9,418.6 759,426.8 770.6,433.1 736.1,457.1 			"
+				713.8,402.2 743.9,418.6 759,426.8 770.6,433.1 736.1,457.1 			"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#97d0e9"
               points="689.4,389.4 710.3,400.7 713.7,402.5 743.8,418.8 758.9,427 770.1,433.1 736.1,456.8 
-  724.9,450.8 709.9,442.6 679.8,426.3 676.3,424.4 655.4,413.1 			"
+				724.9,450.8 709.9,442.6 679.8,426.3 676.3,424.4 655.4,413.1 			"
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_312" enable-background="new    " className="empty">
+        <svg id="field_312" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#f0c1e9"
@@ -2610,18 +2618,18 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#f8c5f0"
               points="767.2,473.7 756.1,467.6 748.4,463.5 782.6,439.5 790,443.6 801.2,449.5 829,464.6 794.7,488.6 
-        "
+							"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#f8c5f0"
               points="782.6,439.8 789.9,443.8 801.1,449.8 828.5,464.6 794.7,488.3 767.3,473.5 756.2,467.4 
-  748.9,463.5 			"
+				748.9,463.5 			"
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_PENA" enable-background="new    " className="empty">
+        <svg id="field_PENA" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#f1ee9d"
@@ -2674,18 +2682,18 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#f2f09e"
               points="503.5,376.4 515,375.2 528.2,373.9 567.5,370 632.1,405.1 611.5,419.5 604.8,424.2 599.1,428.2 
-        "
+							"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#f2f09e"
               points="504.4,376.6 515,375.5 528.2,374.2 567.4,370.3 631.6,405.1 611.3,419.3 604.6,424 599.1,427.9 
-        "
+							"
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_211" enable-background="new    " className="empty">
+        <svg id="field_211" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#96cae2"
@@ -2762,18 +2770,18 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#97d0e9"
               points="684,479.5 639,455.2 635.4,453.4 614.2,441.8 648.8,417.5 669.8,428.9 673.3,430.8 703.4,447.1 
-  718.4,455.2 730,461.5 695.3,485.7 			"
+				718.4,455.2 730,461.5 695.3,485.7 			"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#97d0e9"
               points="648.8,417.8 669.7,429.1 673.2,431 703.3,447.3 718.3,455.4 729.5,461.5 695.3,485.4 
-  684.1,479.3 669.1,471.2 639.1,455 635.5,453.1 614.7,441.8 			"
+				684.1,479.3 669.1,471.2 639.1,455 635.5,453.1 614.7,441.8 			"
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_311" enable-background="new    " className="empty">
+        <svg id="field_311" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#f0c1e9"
@@ -2832,15 +2840,11 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#f8c5f0"
               points="742.3,468.1 749.6,472 760.7,478.1 788.1,492.9 754.1,516.7 726.7,501.9 715.6,495.9 
-  708.3,491.9 			"
+				708.3,491.9 			"
             ></polygon>
           </svg>
         </svg>
-        <svg
-          id="field_PENA_NEVERLAND"
-          enable-background="new    "
-          className="empty"
-        >
+        <svg id="field_PENA_NEVERLAND" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#eec590"
@@ -2893,18 +2897,18 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#f0c590"
               points="488.8,386.9 494.3,383 497.1,381.1 503.9,376.3 504.5,376.3 599.6,427.9 592.4,432.8 
-  589.6,434.8 584.2,438.6 			"
+				589.6,434.8 584.2,438.6 			"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#f0c590"
               points="504,376.6 504.4,376.6 599.1,427.9 592.2,432.6 589.4,434.6 584.2,438.3 489.3,386.9 
-  494.5,383.2 497.3,381.3 			"
+				494.5,383.2 497.3,381.3 			"
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_PENA_LOVE" enable-background="new    " className="empty">
+        <svg id="field_PENA_LOVE" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#c3e3f1"
@@ -2957,14 +2961,14 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#c4e4f2"
               points="473.3,397.7 477.5,394.8 479.6,393.4 483.7,390.5 489.3,386.6 584.7,438.3 579.2,442.2 
-  574.9,445.1 572.9,446.5 568.9,449.3 			"
+				574.9,445.1 572.9,446.5 568.9,449.3 			"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#c4e4f2"
               points="489.3,386.9 584.2,438.3 579,442 574.7,444.9 572.7,446.3 568.9,449 473.8,397.7 477.7,395 
-  479.8,393.6 483.9,390.7 			"
+				479.8,393.6 483.9,390.7 			"
             ></polygon>
           </svg>
           <svg>
@@ -2980,7 +2984,7 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_PENA_QUEEN" className="empty">
+        <svg id="field_PENA_QUEEN" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}> 
           <svg>
             <polygon
               fill="#f37ffa"
@@ -3018,7 +3022,7 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_210" enable-background="new    " className="empty">
+        <svg id="field_210" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#96cae2"
@@ -3095,18 +3099,18 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#97d0e9"
               points="643.3,507.9 628.5,499.9 598.6,483.7 594.6,481.5 573.5,470.1 607.4,446.4 628.3,457.8 
-  632.1,459.7 677,484.2 688.6,490.4 654.7,514.1 			"
+				632.1,459.7 677,484.2 688.6,490.4 654.7,514.1 			"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#97d0e9"
               points="607.4,446.7 628.2,458 632,460 662,476.3 676.9,484.4 688.1,490.4 654.7,513.8 643.4,507.7 
-  628.6,499.7 598.7,483.5 594.7,481.3 574,470.1 			"
+				628.6,499.7 598.7,483.5 594.7,481.3 574,470.1 			"
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_310" enable-background="new    " className="empty">
+        <svg id="field_310" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#f0c1e9"
@@ -3159,18 +3163,18 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#f8c5f0"
               points="686.3,530.3 675.1,524.3 667.4,520.1 701.2,496.6 708.6,500.5 719.7,506.7 747.5,521.7 
-  713.8,545.3 			"
+				713.8,545.3 			"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#f8c5f0"
               points="701.2,496.9 708.5,500.8 719.6,506.9 747,521.7 713.8,545 686.4,530.1 675.2,524.1 667.9,520.1 
-        "
+							"
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_209" enable-background="new    " className="empty">
+        <svg id="field_209" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#c4b5f2"
@@ -3223,18 +3227,18 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#c9b9fb"
               points="604.6,535 555.8,508.6 534.8,497.2 568.7,473.5 589.5,484.9 638.2,511.2 649.9,517.6 616,541.2 
-        "
+							"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#c9b9fb"
               points="568.7,473.8 589.4,485.1 638.1,511.4 649.4,517.6 616,540.9 604.7,534.8 555.9,508.4 
-  535.3,497.2 			"
+				535.3,497.2 			"
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_309" enable-background="new    " className="empty">
+        <svg id="field_309" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#94f0de"
@@ -3296,7 +3300,7 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_231" enable-background="new    " className="empty">
+        <svg id="field_231" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#96cae2"
@@ -3373,18 +3377,18 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#97d0e9"
               points="287,290.6 284.4,289.2 260,275.9 244.4,267.5 231.2,260.3 307,207.3 319.9,214.4 335.7,222.9 
-  359.7,235.9 362.5,237.4 388,251.2 312.4,304.4 			"
+				359.7,235.9 362.5,237.4 388,251.2 312.4,304.4 			"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#97d0e9"
               points="307,207.6 319.8,214.6 335.6,223.1 359.6,236.1 362.4,237.6 387.5,251.2 312.4,304.1 
-  287.1,290.4 284.5,289 260.1,275.7 244.5,267.3 231.7,260.3 			"
+				287.1,290.4 284.5,289 260.1,275.7 244.5,267.3 231.7,260.3 			"
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_232" enable-background="new    " className="empty">
+        <svg id="field_232" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#96cae2"
@@ -3461,18 +3465,18 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#97d0e9"
               points="267.5,304.4 265,303 240.4,289.9 224.8,281.3 212.2,274.5 229.2,262.7 241.6,269.4 257.1,277.8 
-  281.5,290.9 284,292.3 310.2,306.4 292.8,318.1 			"
+				281.5,290.9 284,292.3 310.2,306.4 292.8,318.1 			"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#97d0e9"
               points="229.2,263 241.5,269.6 257,278 281.4,291.1 283.9,292.5 309.7,306.4 292.8,317.8 267.6,304.2 
-  265.1,302.8 240.5,289.6 224.9,281.1 212.7,274.5 			"
+				265.1,302.8 240.5,289.6 224.9,281.1 212.7,274.5 			"
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_233" enable-background="new    " className="empty">
+        <svg id="field_233" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#c4b5f2"
@@ -3525,18 +3529,18 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#c9b9fb"
               points="226.5,332.9 184.2,310 171.2,303 209.1,276.5 221.8,283.4 264.1,306.3 290.1,320.4 252.2,346.9 
-        "
+							"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#c9b9fb"
               points="209.1,276.8 221.7,283.6 264,306.5 289.6,320.4 252.2,346.6 226.6,332.7 184.3,309.8 171.7,303 
-        "
+							"
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_PENB" enable-background="new    " className="empty">
+        <svg id="field_PENB" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#edeb9c"
@@ -3589,22 +3593,18 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#f2f09e"
               points="354.6,296.7 360.4,292.7 367.1,288 387.6,273.7 452.1,308.5 450.8,333.2 450.4,341.4 450,348.5 
-        "
+							"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#f2f09e"
               points="387.6,274 451.8,308.7 450.5,333.2 450.1,341.4 449.7,348 355.1,296.7 360.6,292.9 367.3,288.2 
-        "
+							"
             ></polygon>
           </svg>
         </svg>
-        <svg
-          id="field_PENB_NEVERLAND"
-          enable-background="new    "
-          className="empty"
-        >
+        <svg id="field_PENB_NEVERLAND" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#ebc390"
@@ -3669,18 +3669,18 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#f0c590"
               points="339.7,307.2 345.2,303.3 348,301.3 355.1,296.4 450,347.8 450,348.4 443.3,353.1 440.5,355.1 
-  435.1,358.9 			"
+				435.1,358.9 			"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#f0c590"
               points="355.1,296.7 449.7,348 449.7,348.3 443.1,352.9 440.3,354.9 435.1,358.6 340.2,307.2 
-  345.4,303.5 348.2,301.5 			"
+				345.4,303.5 348.2,301.5 			"
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_PENB_LOVE" enable-background="new    " className="empty">
+        <svg id="field_PENB_LOVE" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#c3e3f1"
@@ -3733,14 +3733,14 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             <polygon
               fill="#c4e4f2"
               points="324.4,317.9 328.5,315 330.5,313.6 334.7,310.6 340.2,306.9 435.6,358.6 429.9,362.5 
-  425.8,365.4 423.6,366.9 419.6,369.7 			"
+				425.8,365.4 423.6,366.9 419.6,369.7 			"
             ></polygon>
           </svg>
           <svg>
             <polygon
               fill="#c4e4f2"
               points="340.2,307.2 435.1,358.6 429.7,362.3 425.6,365.2 423.4,366.7 419.6,369.4 324.9,317.9 
-  328.7,315.2 330.7,313.8 334.9,310.8 			"
+				328.7,315.2 330.7,313.8 334.9,310.8 			"
             ></polygon>
           </svg>
           <svg>
@@ -3756,7 +3756,7 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
             ></polygon>
           </svg>
         </svg>
-        <svg id="field_PENB_QUEEN" className="empty">
+        <svg id="field_PENB_QUEEN" className="hover:brightness-110" onClick = {(e) => props.setSection(e.currentTarget.id)}>
           <svg>
             <polygon
               fill="#f37ffa"
@@ -3799,26 +3799,26 @@ c1.1-0.8,1.4-1.6,0.5-2.1c-1-0.5-2.1-0.1-3.8,0.5c-1.9,0.7-3.9,1.4-5.5,0.5C194,193
         <svg>
           <path
             d="M604.2,505.9c1.4-1,3.7-1.2,5.4-0.3c2.6,1.4,2.4,3.7,0.8,5.2l-1-0.2c1-1.1,1.4-2.5,0.3-3.6c-0.1,0.5-0.5,1.1-1.2,1.6
-c-1.3,0.9-3.1,1.1-4.5,0.4C602.6,508.2,602.7,506.9,604.2,505.9z M608.6,506.2L608.6,506.2c-1.2-0.7-2.7-0.6-3.6,0.1
-c-1,0.7-1,1.5-0.1,2s2,0.4,3-0.3C608.6,507.5,608.8,506.8,608.6,506.2"
+			c-1.3,0.9-3.1,1.1-4.5,0.4C602.6,508.2,602.7,506.9,604.2,505.9z M608.6,506.2L608.6,506.2c-1.2-0.7-2.7-0.6-3.6,0.1
+			c-1,0.7-1,1.5-0.1,2s2,0.4,3-0.3C608.6,507.5,608.8,506.8,608.6,506.2"
           ></path>
         </svg>
         <svg>
           <path
             d="M597.8,510.3c1.6-1.1,4-1.2,6.4,0.1c2.1,1.1,2.6,2.7,0.9,3.9c-1.6,1.1-4,1.2-6.4,0C596.6,513.1,596.1,511.5,597.8,510.3z
- M604.3,513.8c1.2-0.8,0.7-1.9-1-2.8c-1.8-1-3.6-1-4.7-0.3c-1.2,0.8-0.7,1.9,1,2.8C601.5,514.5,603.2,514.6,604.3,513.8"
+			 M604.3,513.8c1.2-0.8,0.7-1.9-1-2.8c-1.8-1-3.6-1-4.7-0.3c-1.2,0.8-0.7,1.9,1,2.8C601.5,514.5,603.2,514.6,604.3,513.8"
           ></path>
         </svg>
         <svg>
           <path
             d="M591.7,514.6c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.2,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C590.4,516.2,590.6,515.4,591.7,514.6z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C590.4,516.2,590.6,515.4,591.7,514.6z"
           ></path>
         </svg>
         <svg>
           <path
             d="M632,486.4c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.2,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C630.7,488,630.8,487.2,632,486.4z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C630.7,488,630.8,487.2,632,486.4z"
           ></path>
         </svg>
         <svg>
@@ -3827,10 +3827,10 @@ c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C
         <svg>
           <path
             d="M642,479.4c1.6-1.1,4-1.2,6.4,0.1c2.1,1.1,2.6,2.7,0.9,3.9c-1.6,1.1-4,1.2-6.4,0C640.8,482.1,640.3,480.6,642,479.4z
- M648.5,482.9c1.2-0.8,0.7-1.9-1-2.8c-1.8-1-3.6-1-4.7-0.3c-1.2,0.8-0.7,1.9,1,2.8C645.6,483.6,647.4,483.6,648.5,482.9"
+			 M648.5,482.9c1.2-0.8,0.7-1.9-1-2.8c-1.8-1-3.6-1-4.7-0.3c-1.2,0.8-0.7,1.9,1,2.8C645.6,483.6,647.4,483.6,648.5,482.9"
           ></path>
         </svg>
-        <svg enable-background="new    ">
+        <svg>
           <svg>
             <polygon points="684.1,450 691.3,453.8 690.4,454.5 684.3,451.2 683.9,452.8 682.8,452.7 683.4,450.5 			"></polygon>
           </svg>
@@ -3840,14 +3840,14 @@ c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C
           <svg>
             <path
               d="M674.3,456.8c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.2,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-  c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C673,458.4,673.2,457.5,674.3,456.8z"
+				c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C673,458.4,673.2,457.5,674.3,456.8z"
             ></path>
           </svg>
         </svg>
         <svg>
           <path
             d="M713.9,429.1c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.1,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C712.5,430.7,712.7,429.9,713.9,429.1z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C712.5,430.7,712.7,429.9,713.9,429.1z"
           ></path>
         </svg>
         <svg>
@@ -3856,30 +3856,30 @@ c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C
         <svg>
           <path
             d="M723.3,422.5c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.1,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C722,424.1,722.1,423.3,723.3,422.5z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C722,424.1,722.1,423.3,723.3,422.5z"
           ></path>
         </svg>
         <svg>
           <path
             d="M753,401.7c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.1,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C751.7,403.3,751.8,402.5,753,401.7z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C751.7,403.3,751.8,402.5,753,401.7z"
           ></path>
         </svg>
         <svg>
           <path
             d="M762.4,395.1c1.2-0.9,2.9-1.2,4.1-0.6c0.7,0.4,0.9,1,0.5,1.6l0,0c1.1-0.4,2.2-0.4,3.1,0.1c1.2,0.6,1,1.8-0.4,2.7
-c-1.2,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.8,0,2.6-0.6s1-1.3,0.2-1.8c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.8-0.4l0.7-0.5
-c0.9-0.7,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C761.1,396.6,761.3,395.8,762.4,395.1z"
+			c-1.2,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.8,0,2.6-0.6s1-1.3,0.2-1.8c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.8-0.4l0.7-0.5
+			c0.9-0.7,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C761.1,396.6,761.3,395.8,762.4,395.1z"
           ></path>
         </svg>
         <svg>
           <polygon points="758.8,397.7 765.9,401.5 765.1,402.2 759,398.9 758.6,400.5 757.5,400.4 758.1,398.2 		"></polygon>
         </svg>
-        <svg enable-background="new    ">
+        <svg>
           <svg>
             <path
               d="M810,368.1l1.1-0.7l0.8,0.4l-1.1,0.7l1.3,0.7l-0.9,0.6l-1.3-0.7l-3.4,2.4l-0.6-0.3l-1.7-5.3l0.8-0.5L810,368.1z
-   M809.2,368.8l-3.6-2l1.3,3.6L809.2,368.8"
+				 M809.2,368.8l-3.6-2l1.3,3.6L809.2,368.8"
             ></path>
           </svg>
           <svg>
@@ -3888,7 +3888,7 @@ c0.9-0.7,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C761.1,
           <svg>
             <path
               d="M793.5,373.3c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.2,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-  c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C792.2,374.9,792.4,374.1,793.5,373.3z"
+				c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C792.2,374.9,792.4,374.1,793.5,373.3z"
             ></path>
           </svg>
         </svg>
@@ -3898,22 +3898,22 @@ c0.9-0.7,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C761.1,
         <svg>
           <path
             d="M841.4,339.9l0.8,0.4l-3,2.1l1.9,1.2c0.3-0.3,0.6-0.7,0.9-0.9c1.3-0.9,3.2-1.2,4.6-0.4c1.4,0.7,1.3,2-0.2,3
-c-1,0.7-2.4,1.1-3.6,1.1l0.2-0.7c0.8,0.1,1.8-0.2,2.5-0.7c1-0.7,1.1-1.5,0.2-2c-1-0.5-2.3-0.3-3.2,0.4c-0.5,0.3-0.8,0.7-0.9,1.1
-l-0.7,0.3l-3.4-2.1L841.4,339.9z"
+			c-1,0.7-2.4,1.1-3.6,1.1l0.2-0.7c0.8,0.1,1.8-0.2,2.5-0.7c1-0.7,1.1-1.5,0.2-2c-1-0.5-2.3-0.3-3.2,0.4c-0.5,0.3-0.8,0.7-0.9,1.1
+			l-0.7,0.3l-3.4-2.1L841.4,339.9z"
           ></path>
         </svg>
         <svg>
           <path
             d="M829.6,348.1c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.2,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C828.3,349.7,828.4,348.9,829.6,348.1z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C828.3,349.7,828.4,348.9,829.6,348.1z"
           ></path>
         </svg>
-        <svg enable-background="new    ">
+        <svg>
           <svg>
             <path
               d="M868.3,312c1.3-0.9,3.1-1.1,4.5-0.4c1.3,0.7,1.2,2-0.2,3s-3.7,1.2-5.4,0.3c-2.5-1.4-2.5-3.6-0.9-5.1l1,0.2
-  c-1,1.1-1.3,2.4-0.2,3.6C867.2,313.1,867.6,312.5,868.3,312z M871.8,314.2c1-0.7,0.9-1.5,0.1-1.9c-0.9-0.5-2.1-0.3-3,0.3
-  c-0.8,0.6-0.9,1.2-0.7,1.8h0.1C869.3,315,870.9,314.9,871.8,314.2"
+				c-1,1.1-1.3,2.4-0.2,3.6C867.2,313.1,867.6,312.5,868.3,312z M871.8,314.2c1-0.7,0.9-1.5,0.1-1.9c-0.9-0.5-2.1-0.3-3,0.3
+				c-0.8,0.6-0.9,1.2-0.7,1.8h0.1C869.3,315,870.9,314.9,871.8,314.2"
             ></path>
           </svg>
           <svg>
@@ -3922,17 +3922,17 @@ c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C
           <svg>
             <path
               d="M855.5,317.6c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.1,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-  c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C854.2,319.3,854.3,318.4,855.5,317.6z"
+				c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C854.2,319.3,854.3,318.4,855.5,317.6z"
             ></path>
           </svg>
         </svg>
-        <svg enable-background="new    ">
+        <svg>
           <svg>
             <path
               d="M867,237.6c1.1-0.4,2.3-0.5,3.3,0.1c1.2,0.7,0.9,1.9-0.5,2.9c-1.5,1.1-3.4,1.3-4.6,0.7c-1-0.5-1-1.3-0.5-2
-  c-0.7,0.2-1.8,0.3-2.6-0.1c-1.1-0.6-0.9-1.7,0.4-2.5c1.3-0.9,2.9-1.2,4-0.6C867.3,236.5,867.4,237.2,867,237.6z M869,240.1
-  c1-0.7,1-1.5,0.3-1.9c-0.8-0.4-2-0.3-3,0.4s-1.1,1.5-0.3,1.9C866.8,241,868.1,240.8,869,240.1 M863.1,238.6
-  c0.7,0.4,1.6,0.2,2.4-0.4c0.8-0.6,0.9-1.2,0.3-1.5c-0.7-0.4-1.7-0.2-2.5,0.3C862.5,237.6,862.5,238.3,863.1,238.6"
+				c-0.7,0.2-1.8,0.3-2.6-0.1c-1.1-0.6-0.9-1.7,0.4-2.5c1.3-0.9,2.9-1.2,4-0.6C867.3,236.5,867.4,237.2,867,237.6z M869,240.1
+				c1-0.7,1-1.5,0.3-1.9c-0.8-0.4-2-0.3-3,0.4s-1.1,1.5-0.3,1.9C866.8,241,868.1,240.8,869,240.1 M863.1,238.6
+				c0.7,0.4,1.6,0.2,2.4-0.4c0.8-0.6,0.9-1.2,0.3-1.5c-0.7-0.4-1.7-0.2-2.5,0.3C862.5,237.6,862.5,238.3,863.1,238.6"
             ></path>
           </svg>
           <svg>
@@ -3941,21 +3941,21 @@ c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C
           <svg>
             <path
               d="M852.8,243.5c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.1,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-  c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C851.5,245.1,851.7,244.3,852.8,243.5z"
+				c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C851.5,245.1,851.7,244.3,852.8,243.5z"
             ></path>
           </svg>
         </svg>
         <svg>
           <path
             d="M820.8,221.5c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.2,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C819.5,223.1,819.6,222.3,820.8,221.5z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C819.5,223.1,819.6,222.3,820.8,221.5z"
           ></path>
         </svg>
         <svg>
           <path
             d="M830.5,214.7c1.4-1,3.7-1.2,5.4-0.3c2.6,1.4,2.4,3.7,0.8,5.2l-1-0.2c1-1.1,1.4-2.5,0.3-3.6c-0.1,0.6-0.5,1.1-1.2,1.7
-c-1.3,0.9-3.1,1.1-4.5,0.3C829,217,829.1,215.7,830.5,214.7z M835,215L835,215c-1.2-0.7-2.7-0.6-3.6,0.1c-1,0.7-1,1.5-0.1,2
-s2,0.4,3-0.3C834.9,216.3,835.2,215.6,835,215"
+			c-1.3,0.9-3.1,1.1-4.5,0.3C829,217,829.1,215.7,830.5,214.7z M835,215L835,215c-1.2-0.7-2.7-0.6-3.6,0.1c-1,0.7-1,1.5-0.1,2
+			s2,0.4,3-0.3C834.9,216.3,835.2,215.6,835,215"
           ></path>
         </svg>
         <svg>
@@ -3964,105 +3964,105 @@ s2,0.4,3-0.3C834.9,216.3,835.2,215.6,835,215"
         <svg>
           <path
             d="M781.1,199.5c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.1,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.4-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C779.8,201.1,779.9,200.3,781.1,199.5z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.4-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C779.8,201.1,779.9,200.3,781.1,199.5z"
           ></path>
         </svg>
         <svg>
           <path
             d="M792.6,191.4c1.6-1.1,4-1.2,6.4,0.1c2.1,1.1,2.6,2.7,0.9,3.9c-1.6,1.1-4,1.2-6.4,0C791.4,194.2,790.9,192.6,792.6,191.4z
- M799.1,194.9c1.2-0.8,0.7-1.9-1-2.8c-1.8-1-3.6-1-4.7-0.3c-1.2,0.8-0.7,1.9,1,2.8C796.2,195.6,798,195.7,799.1,194.9"
+			 M799.1,194.9c1.2-0.8,0.7-1.9-1-2.8c-1.8-1-3.6-1-4.7-0.3c-1.2,0.8-0.7,1.9,1,2.8C796.2,195.6,798,195.7,799.1,194.9"
           ></path>
         </svg>
         <svg>
           <path
             d="M786.5,195.7c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.1,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.4-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C785.2,197.3,785.4,196.5,786.5,195.7z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.4-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C785.2,197.3,785.4,196.5,786.5,195.7z"
           ></path>
         </svg>
         <svg>
           <path
             d="M703.9,151.4c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.1,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.4-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C702.6,153,702.7,152.2,703.9,151.4z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.4-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C702.6,153,702.7,152.2,703.9,151.4z"
           ></path>
         </svg>
         <svg>
           <path
             d="M698.4,155.3c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.2,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.4-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C697.1,156.9,697.3,156.1,698.4,155.3z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.4-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C697.1,156.9,697.3,156.1,698.4,155.3z"
           ></path>
         </svg>
         <svg>
           <path
             d="M709.3,147.6c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.1,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.4-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C708,149.2,708.2,148.4,709.3,147.6z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.4-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C708,149.2,708.2,148.4,709.3,147.6z"
           ></path>
         </svg>
         <svg>
           <path
             d="M661.6,135.3c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.2,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.4-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C660.3,136.9,660.4,136.1,661.6,135.3z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.4-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C660.3,136.9,660.4,136.1,661.6,135.3z"
           ></path>
         </svg>
         <svg>
           <path
             d="M667,131.5c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.1,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.4-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C665.7,133.1,665.9,132.3,667,131.5z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.4-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C665.7,133.1,665.9,132.3,667,131.5z"
           ></path>
         </svg>
         <svg>
           <path
             d="M672.5,127.6c1.2-0.9,2.9-1.2,4.1-0.6c0.7,0.4,0.9,1,0.5,1.6l0,0c1.1-0.4,2.2-0.4,3.1,0.1c1.2,0.6,1,1.8-0.4,2.7
-c-1.2,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.7-0.1,2.6-0.6c0.8-0.6,1-1.3,0.2-1.8c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.7-0.4
-l0.7-0.5c0.9-0.7,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C671.2,129.2,671.5,128.4,672.5,127.6z"
+			c-1.2,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.7-0.1,2.6-0.6c0.8-0.6,1-1.3,0.2-1.8c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.7-0.4
+			l0.7-0.5c0.9-0.7,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C671.2,129.2,671.5,128.4,672.5,127.6z"
           ></path>
         </svg>
         <svg>
           <path
             d="M625.1,109.3c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.1,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.4-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C623.8,110.9,623.9,110,625.1,109.3z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.4-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C623.8,110.9,623.9,110,625.1,109.3z"
           ></path>
         </svg>
         <svg>
           <path
             d="M619.6,113.1c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.1,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.4-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C618.3,114.7,618.5,113.9,619.6,113.1z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.4-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C618.3,114.7,618.5,113.9,619.6,113.1z"
           ></path>
         </svg>
         <svg>
           <path
             d="M637.6,106.9l1.1-0.7l0.8,0.4l-1.1,0.7l1.3,0.7l-0.9,0.6l-1.3-0.7l-3.4,2.4l-0.6-0.3l-1.7-5.3l0.8-0.5L637.6,106.9z
- M636.8,107.5l-3.6-2l1.3,3.6L636.8,107.5"
+			 M636.8,107.5l-3.6-2l1.3,3.6L636.8,107.5"
           ></path>
         </svg>
         <svg>
           <path
             d="M504.5,120.8c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.1,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.4-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C503.2,122.4,503.4,121.6,504.5,120.8z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.4-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C503.2,122.4,503.4,121.6,504.5,120.8z"
           ></path>
         </svg>
         <svg>
           <path
             d="M499,124.6c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.1,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.4-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C497.7,126.2,497.9,125.4,499,124.6z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.4-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C497.7,126.2,497.9,125.4,499,124.6z"
           ></path>
         </svg>
         <svg>
           <path
             d="M513.4,117.9c1.3-0.9,3.1-1.1,4.5-0.4c1.3,0.7,1.2,2-0.2,3s-3.7,1.2-5.4,0.3c-2.5-1.4-2.5-3.6-0.9-5.1l1,0.2
-c-1,1.1-1.3,2.4-0.2,3.6C512.3,119,512.7,118.4,513.4,117.9z M516.9,120.1c1-0.7,0.9-1.5,0.1-1.9c-0.9-0.5-2.1-0.4-3,0.3
-c-0.8,0.6-0.9,1.2-0.7,1.8h0.1C514.4,120.9,515.9,120.8,516.9,120.1"
+			c-1,1.1-1.3,2.4-0.2,3.6C512.3,119,512.7,118.4,513.4,117.9z M516.9,120.1c1-0.7,0.9-1.5,0.1-1.9c-0.9-0.5-2.1-0.4-3,0.3
+			c-0.8,0.6-0.9,1.2-0.7,1.8h0.1C514.4,120.9,515.9,120.8,516.9,120.1"
           ></path>
         </svg>
         <svg>
           <path
             d="M461.4,141.2c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.2,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C460,142.8,460.2,142,461.4,141.2z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C460,142.8,460.2,142,461.4,141.2z"
           ></path>
         </svg>
         <svg>
           <path
             d="M455.9,145c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.2,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3V147
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C454.6,146.6,454.7,145.8,455.9,145z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C454.6,146.6,454.7,145.8,455.9,145z"
           ></path>
         </svg>
         <svg>
@@ -4071,245 +4071,245 @@ c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C
         <svg>
           <path
             d="M434.9,165c1.1-0.4,2.3-0.5,3.3,0.1c1.2,0.7,0.9,1.9-0.5,2.9c-1.5,1.1-3.4,1.3-4.6,0.7c-1-0.5-1-1.3-0.5-2
-c-0.7,0.2-1.8,0.3-2.6-0.1c-1.1-0.6-0.9-1.7,0.4-2.5c1.3-0.9,2.9-1.2,4-0.6C435.2,163.9,435.2,164.6,434.9,165z M436.8,167.5
-c1-0.7,1-1.5,0.3-1.9c-0.8-0.4-2-0.3-3,0.4s-1.1,1.4-0.3,1.9S435.9,168.2,436.8,167.5 M430.9,166c0.7,0.4,1.6,0.2,2.4-0.4
-s0.9-1.2,0.3-1.5c-0.7-0.4-1.7-0.2-2.5,0.3C430.3,165,430.3,165.7,430.9,166"
+			c-0.7,0.2-1.8,0.3-2.6-0.1c-1.1-0.6-0.9-1.7,0.4-2.5c1.3-0.9,2.9-1.2,4-0.6C435.2,163.9,435.2,164.6,434.9,165z M436.8,167.5
+			c1-0.7,1-1.5,0.3-1.9c-0.8-0.4-2-0.3-3,0.4s-1.1,1.4-0.3,1.9S435.9,168.2,436.8,167.5 M430.9,166c0.7,0.4,1.6,0.2,2.4-0.4
+			s0.9-1.2,0.3-1.5c-0.7-0.4-1.7-0.2-2.5,0.3C430.3,165,430.3,165.7,430.9,166"
           ></path>
         </svg>
         <svg>
           <path
             d="M424.6,168.1c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.2,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C423.3,169.7,423.4,168.9,424.6,168.1z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C423.3,169.7,423.4,168.9,424.6,168.1z"
           ></path>
         </svg>
         <svg>
           <path
             d="M419.1,171.9c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.2,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C417.8,173.6,418,172.7,419.1,171.9z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C417.8,173.6,418,172.7,419.1,171.9z"
           ></path>
         </svg>
         <svg>
           <path
             d="M390.3,192.1c1.4-1,3.7-1.2,5.4-0.3c2.6,1.4,2.4,3.7,0.8,5.2l-1-0.2c1-1.1,1.4-2.5,0.3-3.6c-0.1,0.5-0.5,1.1-1.2,1.6
-c-1.3,0.9-3.1,1.1-4.5,0.3C388.7,194.4,388.8,193.1,390.3,192.1z M394.8,192.4L394.8,192.4c-1.2-0.7-2.7-0.6-3.6,0.1
-c-1,0.7-1,1.5-0.1,2s2,0.4,3-0.3C394.7,193.7,395,193,394.8,192.4"
+			c-1.3,0.9-3.1,1.1-4.5,0.3C388.7,194.4,388.8,193.1,390.3,192.1z M394.8,192.4L394.8,192.4c-1.2-0.7-2.7-0.6-3.6,0.1
+			c-1,0.7-1,1.5-0.1,2s2,0.4,3-0.3C394.7,193.7,395,193,394.8,192.4"
           ></path>
         </svg>
         <svg>
           <path
             d="M384.5,196.2c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.2,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C383.2,197.8,383.3,197,384.5,196.2z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C383.2,197.8,383.3,197,384.5,196.2z"
           ></path>
         </svg>
         <svg>
           <path
             d="M379,200c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.2,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3V202
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C377.7,201.6,377.8,200.8,379,200z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C377.7,201.6,377.8,200.8,379,200z"
           ></path>
         </svg>
         <svg>
           <path
             d="M302.8,199.9c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.2,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2L307,205v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C301.5,201.5,301.7,200.7,302.8,199.9z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C301.5,201.5,301.7,200.7,302.8,199.9z"
           ></path>
         </svg>
         <svg>
           <path
             d="M308.3,196.1c1.2-0.9,2.9-1.2,4.1-0.6c0.7,0.4,0.9,1,0.5,1.6l0,0c1.1-0.4,2.2-0.4,3.1,0.1c1.2,0.6,1,1.8-0.4,2.7
-c-1.2,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.7-0.1,2.6-0.6c0.8-0.6,1-1.3,0.2-1.8c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.8-0.4
-l0.7-0.5c0.9-0.7,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C307,197.6,307.3,196.8,308.3,196.1z"
+			c-1.2,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.7-0.1,2.6-0.6c0.8-0.6,1-1.3,0.2-1.8c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.8-0.4
+			l0.7-0.5c0.9-0.7,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C307,197.6,307.3,196.8,308.3,196.1z"
           ></path>
         </svg>
         <svg>
           <path
             d="M314.6,191.7c1.6-1.1,4-1.2,6.4,0.1c2.1,1.1,2.6,2.7,0.9,3.9c-1.6,1.1-4,1.2-6.4-0.1C313.4,194.4,312.9,192.9,314.6,191.7
-z M321,195.2c1.2-0.8,0.7-1.9-1-2.8c-1.8-1-3.6-1-4.7-0.3c-1.2,0.8-0.7,1.9,1,2.8C318.2,195.9,320,195.9,321,195.2"
+			z M321,195.2c1.2-0.8,0.7-1.9-1-2.8c-1.8-1-3.6-1-4.7-0.3c-1.2,0.8-0.7,1.9,1,2.8C318.2,195.9,320,195.9,321,195.2"
           ></path>
         </svg>
         <svg>
           <path
             d="M205.6,266.8c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.2,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C204.3,268.4,204.5,267.6,205.6,266.8z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C204.3,268.4,204.5,267.6,205.6,266.8z"
           ></path>
         </svg>
         <svg>
           <path
             d="M216.7,259c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.2,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3V261
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C215.4,260.7,215.6,259.8,216.7,259z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C215.4,260.7,215.6,259.8,216.7,259z"
           ></path>
         </svg>
         <svg>
           <path
             d="M211.1,263c1.2-0.9,2.9-1.2,4.1-0.6c0.7,0.4,0.9,1,0.5,1.6l0,0c1.1-0.4,2.2-0.4,3.1,0.1c1.2,0.6,1,1.8-0.4,2.7
-c-1.2,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.7-0.1,2.6-0.6c0.8-0.6,1-1.3,0.2-1.8c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.8-0.4
-l0.7-0.5c0.9-0.7,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C209.8,264.5,210.1,263.7,211.1,263z"
+			c-1.2,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.7-0.1,2.6-0.6c0.8-0.6,1-1.3,0.2-1.8c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.8-0.4
+			l0.7-0.5c0.9-0.7,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C209.8,264.5,210.1,263.7,211.1,263z"
           ></path>
         </svg>
         <svg>
           <path
             d="M218.4,312.5c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.2,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C217.1,314.1,217.3,313.3,218.4,312.5z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C217.1,314.1,217.3,313.3,218.4,312.5z"
           ></path>
         </svg>
         <svg>
           <path
             d="M229.6,304.6c1.2-0.9,2.9-1.2,4.1-0.6c0.7,0.4,0.9,1,0.5,1.6l0,0c1.1-0.4,2.2-0.4,3.1,0.1c1.2,0.6,1,1.8-0.4,2.7
-c-1.2,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.7-0.1,2.6-0.6c0.8-0.6,1-1.3,0.2-1.8c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.8-0.4
-l0.7-0.5c0.9-0.7,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C228.2,306.2,228.5,305.4,229.6,304.6z"
+			c-1.2,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.7-0.1,2.6-0.6c0.8-0.6,1-1.3,0.2-1.8c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.8-0.4
+			l0.7-0.5c0.9-0.7,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C228.2,306.2,228.5,305.4,229.6,304.6z"
           ></path>
         </svg>
         <svg>
           <path
             d="M223.9,308.6c1.2-0.9,2.9-1.2,4.1-0.6c0.7,0.4,0.9,1,0.5,1.6l0,0c1.1-0.4,2.2-0.4,3.1,0.1c1.2,0.6,1,1.8-0.4,2.7
-c-1.2,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.7-0.1,2.6-0.6c0.8-0.6,1-1.3,0.2-1.8c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.8-0.4
-l0.7-0.5c0.9-0.7,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C222.6,310.1,222.9,309.3,223.9,308.6z"
+			c-1.2,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.7-0.1,2.6-0.6c0.8-0.6,1-1.3,0.2-1.8c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.8-0.4
+			l0.7-0.5c0.9-0.7,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C222.6,310.1,222.9,309.3,223.9,308.6z"
           ></path>
         </svg>
         <svg>
           <polygon points="308,248 315.2,251.8 314.3,252.5 308.2,249.2 307.8,250.8 306.7,250.7 307.3,248.5 		"></polygon>
         </svg>
-        <svg enable-background="new    ">
+        <svg>
           <svg>
             <path
               d="M302,252.1c1.2-0.9,2.9-1.2,4.1-0.6c0.7,0.4,0.9,1,0.5,1.6l0,0c1.1-0.4,2.2-0.4,3,0.1c1.2,0.6,1,1.8-0.4,2.7
-  c-1.2,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.8-0.1,2.6-0.6c0.8-0.6,1-1.3,0.2-1.8c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.8-0.4
-  l0.7-0.5c0.9-0.7,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C300.7,253.6,301,252.9,302,252.1z"
+				c-1.2,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.8-0.1,2.6-0.6c0.8-0.6,1-1.3,0.2-1.8c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.8-0.4
+				l0.7-0.5c0.9-0.7,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C300.7,253.6,301,252.9,302,252.1z"
             ></path>
           </svg>
           <svg>
             <path
               d="M296.5,256c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.1,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3V258
-  c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C295.2,257.6,295.4,256.8,296.5,256z"
+				c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C295.2,257.6,295.4,256.8,296.5,256z"
             ></path>
           </svg>
         </svg>
         <svg>
           <path
             d="M305.6,154.5c1.2-0.8,3.1-1.2,4.4-0.4c0.8,0.4,1.2,1.1,1.2,2.2v2.4l0,0l3.3-2.3l0.8,0.4l-4.7,3.3l-0.6-0.3v-3.2
-c0-0.8-0.1-1.5-0.8-1.9c-0.8-0.4-2-0.4-2.8,0.2c-0.7,0.5-0.9,1.1-0.6,1.7l-1.1,0.2C304.2,156.1,304.4,155.3,305.6,154.5z"
+			c0-0.8-0.1-1.5-0.8-1.9c-0.8-0.4-2-0.4-2.8,0.2c-0.7,0.5-0.9,1.1-0.6,1.7l-1.1,0.2C304.2,156.1,304.4,155.3,305.6,154.5z"
           ></path>
         </svg>
         <svg>
           <path
             d="M299.8,158.5c1.3-0.9,3-1.2,4.2-0.6c0.7,0.4,0.9,1,0.5,1.7l0,0c1.1-0.4,2.3-0.4,3.1,0.1c1.2,0.7,1,1.8-0.4,2.8
-c-1.3,0.9-2.8,1.2-4,1l0.4-0.8c0.8,0.1,1.8,0,2.7-0.7c0.9-0.6,1-1.4,0.2-1.8c-0.7-0.4-1.9-0.3-3,0.4l-0.6,0.4l-0.8-0.4l0.7-0.5
-c1-0.7,0.8-1.3,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.9,1-0.7,1.4l-1.1,0.3C298.4,160.1,298.7,159.3,299.8,158.5z"
+			c-1.3,0.9-2.8,1.2-4,1l0.4-0.8c0.8,0.1,1.8,0,2.7-0.7c0.9-0.6,1-1.4,0.2-1.8c-0.7-0.4-1.9-0.3-3,0.4l-0.6,0.4l-0.8-0.4l0.7-0.5
+			c1-0.7,0.8-1.3,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.9,1-0.7,1.4l-1.1,0.3C298.4,160.1,298.7,159.3,299.8,158.5z"
           ></path>
         </svg>
         <svg>
           <path
             d="M311.5,150.3c1.5-1,3.8-1.2,5.5-0.3c2.7,1.4,2.5,3.8,0.9,5.3l-1-0.2c1-1.1,1.5-2.5,0.3-3.7c-0.1,0.6-0.5,1.2-1.2,1.7
-c-1.3,0.9-3.2,1.1-4.6,0.4C309.9,152.7,310,151.3,311.5,150.3z M316.1,150.6L316.1,150.6c-1.3-0.7-2.8-0.6-3.7,0.1
-c-1,0.7-1,1.6-0.1,2c0.9,0.5,2.1,0.4,3.1-0.3C316.1,151.9,316.3,151.2,316.1,150.6"
+			c-1.3,0.9-3.2,1.1-4.6,0.4C309.9,152.7,310,151.3,311.5,150.3z M316.1,150.6L316.1,150.6c-1.3-0.7-2.8-0.6-3.7,0.1
+			c-1,0.7-1,1.6-0.1,2c0.9,0.5,2.1,0.4,3.1-0.3C316.1,151.9,316.3,151.2,316.1,150.6"
           ></path>
         </svg>
         <svg>
           <path
             d="M260.6,186c1.3-0.9,3-1.2,4.2-0.6c0.7,0.4,1,1,0.5,1.7l0,0c1.1-0.4,2.3-0.4,3.1,0.1c1.2,0.7,1,1.8-0.4,2.8
-c-1.3,0.9-2.8,1.2-4,1l0.4-0.8c0.8,0.1,1.8,0,2.7-0.7c0.9-0.6,1-1.4,0.2-1.8c-0.7-0.4-1.9-0.3-3,0.4l-0.6,0.4l-0.8-0.4l0.7-0.5
-c1-0.7,0.8-1.3,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.9,1-0.7,1.4l-1.1,0.3C259.2,187.5,259.5,186.7,260.6,186z"
+			c-1.3,0.9-2.8,1.2-4,1l0.4-0.8c0.8,0.1,1.8,0,2.7-0.7c0.9-0.6,1-1.4,0.2-1.8c-0.7-0.4-1.9-0.3-3,0.4l-0.6,0.4l-0.8-0.4l0.7-0.5
+			c1-0.7,0.8-1.3,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.9,1-0.7,1.4l-1.1,0.3C259.2,187.5,259.5,186.7,260.6,186z"
           ></path>
         </svg>
         <svg>
           <path
             d="M272.8,177.4c1.6-1.1,4.1-1.2,6.5,0.1c2.2,1.2,2.7,2.7,0.9,4c-1.6,1.1-4.1,1.2-6.5-0.1C271.5,180.2,271,178.7,272.8,177.4
-z M279.4,181c1.2-0.8,0.7-1.9-1-2.9c-1.9-1-3.7-1-4.8-0.3c-1.2,0.8-0.7,1.9,1,2.9C276.5,181.8,278.3,181.8,279.4,181"
+			z M279.4,181c1.2-0.8,0.7-1.9-1-2.9c-1.9-1-3.7-1-4.8-0.3c-1.2,0.8-0.7,1.9,1,2.9C276.5,181.8,278.3,181.8,279.4,181"
           ></path>
         </svg>
         <svg>
           <path
             d="M266.4,181.9c1.3-0.9,3-1.2,4.2-0.6c0.7,0.4,0.9,1,0.5,1.7l0,0c1.1-0.4,2.3-0.4,3.1,0.1c1.2,0.7,1,1.8-0.4,2.8
-c-1.3,0.9-2.8,1.2-4,1l0.4-0.7c0.8,0.1,1.8-0.1,2.7-0.7c0.9-0.6,1-1.4,0.2-1.8c-0.7-0.4-1.9-0.3-3,0.4l-0.6,0.4l-0.8-0.4l0.7-0.5
-c1-0.7,0.8-1.3,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.9,1-0.7,1.4l-1.1,0.3C265,183.5,265.3,182.7,266.4,181.9z"
+			c-1.3,0.9-2.8,1.2-4,1l0.4-0.7c0.8,0.1,1.8-0.1,2.7-0.7c0.9-0.6,1-1.4,0.2-1.8c-0.7-0.4-1.9-0.3-3,0.4l-0.6,0.4l-0.8-0.4l0.7-0.5
+			c1-0.7,0.8-1.3,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.9,1-0.7,1.4l-1.1,0.3C265,183.5,265.3,182.7,266.4,181.9z"
           ></path>
         </svg>
         <svg>
           <polygon points="231.3,206.5 238.7,210.5 237.8,211.1 231.5,207.8 231.1,209.4 230,209.3 230.6,207.1 		"></polygon>
         </svg>
-        <svg enable-background="new    ">
+        <svg>
           <svg>
             <path
               d="M225.2,210.8c1.3-0.9,3-1.2,4.2-0.6c0.7,0.4,1,1,0.5,1.7l0,0c1.1-0.4,2.3-0.4,3.1,0.1c1.2,0.7,1,1.8-0.4,2.8
-  c-1.3,0.9-2.8,1.2-4,1l0.4-0.7c0.8,0.1,1.8-0.1,2.7-0.7s1-1.4,0.2-1.8c-0.7-0.4-1.9-0.3-3,0.4l-0.6,0.4l-0.8-0.4l0.7-0.5
-  c1-0.7,0.8-1.3,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.9,1-0.7,1.4l-1.1,0.3C223.8,212.3,224.1,211.5,225.2,210.8z"
+				c-1.3,0.9-2.8,1.2-4,1l0.4-0.7c0.8,0.1,1.8-0.1,2.7-0.7s1-1.4,0.2-1.8c-0.7-0.4-1.9-0.3-3,0.4l-0.6,0.4l-0.8-0.4l0.7-0.5
+				c1-0.7,0.8-1.3,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.9,1-0.7,1.4l-1.1,0.3C223.8,212.3,224.1,211.5,225.2,210.8z"
             ></path>
           </svg>
           <svg>
             <path
               d="M219.4,214.8c1.3-0.9,3-1.2,4.2-0.6c0.7,0.4,0.9,1,0.5,1.7l0,0c1.1-0.4,2.3-0.4,3.1,0.1c1.2,0.7,1,1.8-0.4,2.8
-  c-1.3,0.9-2.8,1.2-4,1l0.4-0.8c0.8,0.1,1.8,0,2.7-0.7c0.9-0.6,1-1.4,0.2-1.8c-0.7-0.4-1.9-0.3-3,0.4l-0.6,0.4l-0.8-0.4l0.7-0.5
-  c1-0.7,0.8-1.3,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.9,1-0.7,1.4l-1.1,0.3C218,216.4,218.3,215.6,219.4,214.8z"
+				c-1.3,0.9-2.8,1.2-4,1l0.4-0.8c0.8,0.1,1.8,0,2.7-0.7c0.9-0.6,1-1.4,0.2-1.8c-0.7-0.4-1.9-0.3-3,0.4l-0.6,0.4l-0.8-0.4l0.7-0.5
+				c1-0.7,0.8-1.3,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.9,1-0.7,1.4l-1.1,0.3C218,216.4,218.3,215.6,219.4,214.8z"
             ></path>
           </svg>
         </svg>
-        <svg enable-background="new    ">
+        <svg>
           <svg>
             <path
               d="M182.9,239.1c1.3-0.9,3-1.2,4.2-0.6c0.7,0.4,0.9,1,0.5,1.7l0,0c1.1-0.4,2.3-0.4,3.1,0.1c1.2,0.7,1,1.8-0.4,2.8
-  c-1.3,0.9-2.8,1.2-4,1l0.4-0.7c0.8,0.1,1.8-0.1,2.7-0.7s1-1.4,0.2-1.8c-0.7-0.4-1.9-0.3-3,0.4l-0.6,0.4l-0.8-0.4l0.7-0.5
-  c1-0.7,0.8-1.3,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.9,1-0.7,1.4l-1.1,0.3C181.5,240.6,181.8,239.8,182.9,239.1z"
+				c-1.3,0.9-2.8,1.2-4,1l0.4-0.7c0.8,0.1,1.8-0.1,2.7-0.7s1-1.4,0.2-1.8c-0.7-0.4-1.9-0.3-3,0.4l-0.6,0.4l-0.8-0.4l0.7-0.5
+				c1-0.7,0.8-1.3,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.9,1-0.7,1.4l-1.1,0.3C181.5,240.6,181.8,239.8,182.9,239.1z"
             ></path>
           </svg>
           <svg>
             <path
               d="M177.1,243.1c1.3-0.9,3-1.2,4.2-0.6c0.7,0.4,1,1,0.5,1.7l0,0c1.1-0.4,2.3-0.4,3.1,0.1c1.2,0.7,1,1.8-0.4,2.8
-  c-1.3,0.9-2.8,1.2-4,1l0.4-0.7c0.8,0.1,1.8-0.1,2.7-0.7s1-1.4,0.2-1.8c-0.7-0.4-1.9-0.3-3,0.4l-0.6,0.4l-0.8-0.4l0.7-0.5
-  c1-0.7,0.8-1.3,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.9,1-0.7,1.4l-1.1,0.3C175.7,244.7,176,243.9,177.1,243.1z"
+				c-1.3,0.9-2.8,1.2-4,1l0.4-0.7c0.8,0.1,1.8-0.1,2.7-0.7s1-1.4,0.2-1.8c-0.7-0.4-1.9-0.3-3,0.4l-0.6,0.4l-0.8-0.4l0.7-0.5
+				c1-0.7,0.8-1.3,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.9,1-0.7,1.4l-1.1,0.3C175.7,244.7,176,243.9,177.1,243.1z"
             ></path>
           </svg>
         </svg>
         <svg>
           <path
             d="M188.7,235c1.2-0.8,3.1-1.2,4.4-0.4c0.8,0.4,1.2,1.1,1.2,2.2v2.4l0,0l3.3-2.3l0.8,0.4l-4.7,3.3l-0.6-0.3v-3.2
-c0-0.8-0.1-1.5-0.8-1.9c-0.8-0.4-2-0.4-2.8,0.2c-0.7,0.5-0.9,1.1-0.6,1.7l-1.1,0.2C187.3,236.7,187.5,235.8,188.7,235z"
+			c0-0.8-0.1-1.5-0.8-1.9c-0.8-0.4-2-0.4-2.8,0.2c-0.7,0.5-0.9,1.1-0.6,1.7l-1.1,0.2C187.3,236.7,187.5,235.8,188.7,235z"
           ></path>
         </svg>
         <svg>
           <path
             d="M138,271.8c1.3-0.9,3-1.2,4.2-0.6c0.7,0.4,0.9,1,0.5,1.7l0,0c1.1-0.4,2.3-0.4,3.1,0.1c1.2,0.7,1,1.8-0.4,2.8
-c-1.3,0.9-2.8,1.2-4,1l0.4-0.7c0.8,0.1,1.8-0.1,2.7-0.7s1-1.4,0.2-1.8c-0.7-0.4-1.9-0.3-3,0.4l-0.6,0.4l-0.8-0.4l0.7-0.5
-c1-0.7,0.8-1.3,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.9,1-0.7,1.4l-1.1,0.3C136.7,273.4,136.9,272.6,138,271.8z"
+			c-1.3,0.9-2.8,1.2-4,1l0.4-0.7c0.8,0.1,1.8-0.1,2.7-0.7s1-1.4,0.2-1.8c-0.7-0.4-1.9-0.3-3,0.4l-0.6,0.4l-0.8-0.4l0.7-0.5
+			c1-0.7,0.8-1.3,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.9,1-0.7,1.4l-1.1,0.3C136.7,273.4,136.9,272.6,138,271.8z"
           ></path>
         </svg>
         <svg>
           <path
             d="M149.6,263.7c1.3-0.9,3-1.2,4.2-0.6c0.7,0.4,1,1,0.5,1.7l0,0c1.1-0.4,2.3-0.4,3.1,0.1c1.2,0.7,1,1.8-0.4,2.8
-c-1.3,0.9-2.8,1.2-4,1l0.4-0.8c0.8,0.1,1.8,0,2.7-0.7c0.9-0.6,1-1.4,0.2-1.8c-0.7-0.4-1.9-0.3-3,0.4l-0.6,0.4l-0.8-0.4l0.7-0.5
-c1-0.7,0.8-1.3,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.9,1-0.7,1.4l-1.1,0.3C148.3,265.2,148.5,264.4,149.6,263.7z"
+			c-1.3,0.9-2.8,1.2-4,1l0.4-0.8c0.8,0.1,1.8,0,2.7-0.7c0.9-0.6,1-1.4,0.2-1.8c-0.7-0.4-1.9-0.3-3,0.4l-0.6,0.4l-0.8-0.4l0.7-0.5
+			c1-0.7,0.8-1.3,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.9,1-0.7,1.4l-1.1,0.3C148.3,265.2,148.5,264.4,149.6,263.7z"
           ></path>
         </svg>
         <svg>
           <path
             d="M143.8,267.7c1.3-0.9,3-1.2,4.2-0.6c0.7,0.4,1,1,0.5,1.7l0,0c1.1-0.4,2.3-0.4,3.1,0.1c1.2,0.7,1,1.8-0.4,2.8
-c-1.3,0.9-2.8,1.2-4,1l0.4-0.7c0.8,0.1,1.8-0.1,2.7-0.7s1-1.4,0.2-1.8c-0.7-0.4-1.9-0.3-3,0.4l-0.6,0.4l-0.8-0.4l0.7-0.5
-c1-0.7,0.8-1.3,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.9,1-0.7,1.4l-1.1,0.3C142.5,269.3,142.7,268.5,143.8,267.7z"
+			c-1.3,0.9-2.8,1.2-4,1l0.4-0.7c0.8,0.1,1.8-0.1,2.7-0.7s1-1.4,0.2-1.8c-0.7-0.4-1.9-0.3-3,0.4l-0.6,0.4l-0.8-0.4l0.7-0.5
+			c1-0.7,0.8-1.3,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.9,1-0.7,1.4l-1.1,0.3C142.5,269.3,142.7,268.5,143.8,267.7z"
           ></path>
         </svg>
         <svg>
           <path
             d="M663.3,551.9c1.2-0.9,2.9-1.2,4.1-0.6c0.7,0.4,0.9,1,0.5,1.6l0,0c1.1-0.4,2.2-0.4,3,0.1c1.2,0.6,1,1.8-0.4,2.7
-c-1.2,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.7-0.1,2.6-0.6c0.8-0.6,1-1.3,0.2-1.7c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.7-0.4
-l0.7-0.5c0.9-0.7,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C662,553.4,662.2,552.7,663.3,551.9z"
+			c-1.2,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.7-0.1,2.6-0.6c0.8-0.6,1-1.3,0.2-1.7c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.7-0.4
+			l0.7-0.5c0.9-0.7,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C662,553.4,662.2,552.7,663.3,551.9z"
           ></path>
         </svg>
         <svg>
           <path
             d="M675.8,543.2c1.4-1,3.6-1.2,5.3-0.3c2.6,1.4,2.4,3.6,0.8,5.1l-1-0.2c1-1.1,1.4-2.5,0.3-3.6c-0.1,0.5-0.5,1.1-1.2,1.6
-c-1.3,0.9-3.1,1.1-4.5,0.4C674.3,545.5,674.4,544.2,675.8,543.2z M680.3,543.5L680.3,543.5c-1.2-0.7-2.7-0.6-3.6,0.1
-c-1,0.7-1,1.5-0.1,2s2,0.4,3-0.3C680.2,544.8,680.5,544.1,680.3,543.5"
+			c-1.3,0.9-3.1,1.1-4.5,0.4C674.3,545.5,674.4,544.2,675.8,543.2z M680.3,543.5L680.3,543.5c-1.2-0.7-2.7-0.6-3.6,0.1
+			c-1,0.7-1,1.5-0.1,2s2,0.4,3-0.3C680.2,544.8,680.5,544.1,680.3,543.5"
           ></path>
         </svg>
         <svg>
           <path
             d="M669.5,547.6c1.6-1.1,4-1.2,6.3,0.1c2.1,1.1,2.6,2.6,0.9,3.9c-1.6,1.1-4,1.2-6.3,0C668.3,550.3,667.8,548.8,669.5,547.6z
- M675.9,551.1c1.2-0.8,0.7-1.9-1-2.8c-1.8-1-3.5-1-4.6-0.3c-1.1,0.8-0.7,1.9,1,2.8C673.1,551.8,674.9,551.8,675.9,551.1"
+			 M675.9,551.1c1.2-0.8,0.7-1.9-1-2.8c-1.8-1-3.5-1-4.6-0.3c-1.1,0.8-0.7,1.9,1,2.8C673.1,551.8,674.9,551.8,675.9,551.1"
           ></path>
         </svg>
         <svg>
           <path
             d="M702.1,524.8c1.2-0.9,2.9-1.2,4.1-0.5c0.7,0.4,0.9,1,0.5,1.6l0,0c1.1-0.4,2.2-0.4,3,0.1c1.2,0.6,1,1.8-0.4,2.7
-c-1.2,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.7-0.1,2.6-0.6c0.8-0.6,1-1.3,0.2-1.7c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.7-0.4
-l0.7-0.5c0.9-0.7,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C700.8,526.3,701.1,525.5,702.1,524.8z"
+			c-1.2,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.7-0.1,2.6-0.6c0.8-0.6,1-1.3,0.2-1.7c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.7-0.4
+			l0.7-0.5c0.9-0.7,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C700.8,526.3,701.1,525.5,702.1,524.8z"
           ></path>
         </svg>
         <svg>
@@ -4318,7 +4318,7 @@ l0.7-0.5c0.9-0.7,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.
         <svg>
           <path
             d="M712.3,517.6c1.6-1.1,4-1.2,6.3,0.1c2.1,1.1,2.6,2.6,0.9,3.9c-1.6,1.1-4,1.2-6.3,0C711,520.4,710.5,518.9,712.3,517.6z
- M718.7,521.1c1.2-0.8,0.7-1.9-1-2.8c-1.8-1-3.5-1-4.6-0.3c-1.1,0.8-0.7,1.9,1,2.8C715.9,521.8,717.6,521.9,718.7,521.1"
+			 M718.7,521.1c1.2-0.8,0.7-1.9-1-2.8c-1.8-1-3.5-1-4.6-0.3c-1.1,0.8-0.7,1.9,1,2.8C715.9,521.8,717.6,521.9,718.7,521.1"
           ></path>
         </svg>
         <svg>
@@ -4330,15 +4330,15 @@ l0.7-0.5c0.9-0.7,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.
         <svg>
           <path
             d="M744.6,496.5c1.2-0.9,2.9-1.2,4.1-0.5c0.7,0.4,0.9,1,0.5,1.6l0,0c1.1-0.4,2.2-0.4,3,0.1c1.2,0.6,1,1.8-0.4,2.7
-c-1.2,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.7-0.1,2.6-0.6c0.8-0.6,1-1.3,0.2-1.7c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.7-0.4
-l0.7-0.5c0.9-0.7,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C743.3,498,743.5,497.3,744.6,496.5z"
+			c-1.2,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.7-0.1,2.6-0.6c0.8-0.6,1-1.3,0.2-1.7c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.7-0.4
+			l0.7-0.5c0.9-0.7,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C743.3,498,743.5,497.3,744.6,496.5z"
           ></path>
         </svg>
-        <svg enable-background="new    ">
+        <svg>
           <svg>
             <path
               d="M793.1,462.5c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.1,1,1.1,2.2v2.3l0,0l3.2-2.2l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-  c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C791.8,464.1,792,463.3,793.1,462.5z"
+				c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C791.8,464.1,792,463.3,793.1,462.5z"
             ></path>
           </svg>
           <svg>
@@ -4347,16 +4347,16 @@ l0.7-0.5c0.9-0.7,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.
           <svg>
             <path
               d="M783.6,469.2c1.2-0.9,2.9-1.2,4.1-0.5c0.7,0.4,0.9,1,0.5,1.6l0,0c1.1-0.4,2.2-0.4,3,0.1c1.2,0.6,1,1.8-0.4,2.7
-  c-1.2,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.7-0.1,2.6-0.6c0.8-0.6,1-1.3,0.2-1.7c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.7-0.4
-  l0.7-0.5c0.9-0.7,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C782.3,470.7,782.5,469.9,783.6,469.2z"
+				c-1.2,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.7-0.1,2.6-0.6c0.8-0.6,1-1.3,0.2-1.7c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.7-0.4
+				l0.7-0.5c0.9-0.7,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C782.3,470.7,782.5,469.9,783.6,469.2z"
             ></path>
           </svg>
         </svg>
         <svg>
           <path
             d="M822.4,442c1.2-0.9,2.9-1.2,4.1-0.5c0.7,0.4,0.9,1,0.5,1.6l0,0c1.1-0.4,2.2-0.4,3,0.1c1.2,0.6,1,1.8-0.4,2.7
-c-1.2,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.7-0.1,2.6-0.6s1-1.3,0.2-1.7c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.7-0.4l0.7-0.5
-c0.9-0.6,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C821.1,443.5,821.4,442.7,822.4,442z"
+			c-1.2,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.7-0.1,2.6-0.6s1-1.3,0.2-1.7c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.7-0.4l0.7-0.5
+			c0.9-0.6,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C821.1,443.5,821.4,442.7,822.4,442z"
           ></path>
         </svg>
         <svg>
@@ -4365,8 +4365,8 @@ c0.9-0.6,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C821.1,
         <svg>
           <path
             d="M832,435.3c1.2-0.9,2.9-1.2,4.1-0.5c0.7,0.4,0.9,1,0.5,1.6l0,0c1.1-0.4,2.2-0.4,3,0.1c1.2,0.6,1,1.8-0.4,2.7
-c-1.2,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.7-0.1,2.6-0.6c0.8-0.6,1-1.3,0.2-1.7c-0.7-0.4-1.8-0.3-2.9,0.4L835,438l-0.7-0.4
-l0.7-0.5c0.9-0.6,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C830.7,436.8,830.9,436.1,832,435.3z"
+			c-1.2,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.7-0.1,2.6-0.6c0.8-0.6,1-1.3,0.2-1.7c-0.7-0.4-1.8-0.3-2.9,0.4L835,438l-0.7-0.4
+			l0.7-0.5c0.9-0.6,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C830.7,436.8,830.9,436.1,832,435.3z"
           ></path>
         </svg>
         <svg>
@@ -4375,7 +4375,7 @@ l0.7-0.5c0.9-0.6,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.
         <svg>
           <path
             d="M882.9,279c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.1,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3V281
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.4-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C881.6,280.7,881.8,279.8,882.9,279z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.4-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C881.6,280.7,881.8,279.8,882.9,279z"
           ></path>
         </svg>
         <svg>
@@ -4384,41 +4384,41 @@ c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.4-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C
         <svg>
           <path
             d="M569.5,94.8l0.8,0.4l-3,2.1l1.9,1.2c0.2-0.3,0.6-0.7,0.9-0.9c1.3-0.9,3.2-1.2,4.6-0.4c1.4,0.7,1.3,2-0.2,3
-c-1,0.7-2.4,1.1-3.6,1.1l0.2-0.7c0.9,0.1,1.8-0.2,2.5-0.7c1-0.7,1.1-1.5,0.2-2c-1-0.5-2.3-0.3-3.2,0.4c-0.5,0.3-0.8,0.7-0.9,1.1
-l-0.7,0.3l-3.4-2.1L569.5,94.8z"
+			c-1,0.7-2.4,1.1-3.6,1.1l0.2-0.7c0.9,0.1,1.8-0.2,2.5-0.7c1-0.7,1.1-1.5,0.2-2c-1-0.5-2.3-0.3-3.2,0.4c-0.5,0.3-0.8,0.7-0.9,1.1
+			l-0.7,0.3l-3.4-2.1L569.5,94.8z"
           ></path>
         </svg>
         <svg>
           <path
             d="M561.6,100.2c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.1,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C560.3,101.8,560.5,101,561.6,100.2z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C560.3,101.8,560.5,101,561.6,100.2z"
           ></path>
         </svg>
         <svg>
           <path
             d="M556.1,104c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.1,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3V106
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C554.8,105.6,555,104.8,556.1,104z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C554.8,105.6,555,104.8,556.1,104z"
           ></path>
         </svg>
         <svg>
           <path
             d="M369.8,133c1.1-0.4,2.4-0.5,3.4,0.1c1.3,0.7,0.9,1.9-0.6,3s-3.5,1.4-4.7,0.7c-1-0.5-1.1-1.3-0.5-2.1
-c-0.7,0.3-1.8,0.3-2.6-0.1c-1.2-0.6-0.9-1.7,0.4-2.6c1.4-0.9,3-1.2,4.1-0.6C370.1,131.8,370.1,132.5,369.8,133z M371.8,135.6
-c1-0.7,1.1-1.5,0.3-1.9c-0.8-0.5-2.1-0.3-3.1,0.4s-1.1,1.5-0.3,1.9C369.6,136.4,370.9,136.2,371.8,135.6 M365.8,134
-c0.7,0.4,1.7,0.2,2.5-0.4s1-1.2,0.3-1.6s-1.7-0.2-2.5,0.4C365.1,133,365.1,133.6,365.8,134"
+			c-0.7,0.3-1.8,0.3-2.6-0.1c-1.2-0.6-0.9-1.7,0.4-2.6c1.4-0.9,3-1.2,4.1-0.6C370.1,131.8,370.1,132.5,369.8,133z M371.8,135.6
+			c1-0.7,1.1-1.5,0.3-1.9c-0.8-0.5-2.1-0.3-3.1,0.4s-1.1,1.5-0.3,1.9C369.6,136.4,370.9,136.2,371.8,135.6 M365.8,134
+			c0.7,0.4,1.7,0.2,2.5-0.4s1-1.2,0.3-1.6s-1.7-0.2-2.5,0.4C365.1,133,365.1,133.6,365.8,134"
           ></path>
         </svg>
         <svg>
           <path
             d="M359.2,136.2c1.2-0.8,3.1-1.2,4.4-0.4c0.8,0.4,1.2,1.1,1.2,2.2v2.4l0,0l3.3-2.3l0.8,0.4l-4.7,3.3l-0.6-0.3v-3.2
-c0-0.8-0.1-1.5-0.8-1.8c-0.8-0.4-2-0.4-2.8,0.2c-0.7,0.5-0.9,1.1-0.6,1.7l-1.1,0.2C357.9,137.8,358.1,137,359.2,136.2z"
+			c0-0.8-0.1-1.5-0.8-1.8c-0.8-0.4-2-0.4-2.8,0.2c-0.7,0.5-0.9,1.1-0.6,1.7l-1.1,0.2C357.9,137.8,358.1,137,359.2,136.2z"
           ></path>
         </svg>
         <svg>
           <path
             d="M353.4,140.2c1.3-0.9,3-1.2,4.2-0.6c0.7,0.4,1,1,0.5,1.7l0,0c1.1-0.4,2.3-0.4,3.1,0.1c1.2,0.7,1,1.8-0.4,2.8
-c-1.3,0.9-2.8,1.2-4,1l0.4-0.7c0.8,0.1,1.8-0.1,2.7-0.7c0.9-0.6,1-1.4,0.2-1.8c-0.7-0.4-1.9-0.3-3,0.4l-0.6,0.4l-0.8-0.4l0.7-0.5
-c1-0.7,0.8-1.3,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.9,1-0.7,1.4l-1.1,0.3C352.1,141.7,352.4,140.9,353.4,140.2z"
+			c-1.3,0.9-2.8,1.2-4,1l0.4-0.7c0.8,0.1,1.8-0.1,2.7-0.7c0.9-0.6,1-1.4,0.2-1.8c-0.7-0.4-1.9-0.3-3,0.4l-0.6,0.4l-0.8-0.4l0.7-0.5
+			c1-0.7,0.8-1.3,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.9,1-0.7,1.4l-1.1,0.3C352.1,141.7,352.4,140.9,353.4,140.2z"
           ></path>
         </svg>
         <svg>
@@ -4427,31 +4427,31 @@ c1-0.7,0.8-1.3,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.9,1-0.7,1.4l-1.1,0.3C
         <svg>
           <path
             d="M934.1,194.9c1.1-0.4,2.4-0.5,3.3,0.1c1.2,0.7,0.9,1.9-0.5,2.9c-1.5,1.1-3.4,1.3-4.6,0.7c-1-0.5-1.1-1.3-0.5-2
-c-0.7,0.2-1.8,0.3-2.6-0.1c-1.2-0.6-0.9-1.7,0.4-2.5c1.3-0.9,3-1.2,4.1-0.6C934.4,193.7,934.5,194.4,934.1,194.9z M936.1,197.4
-c1-0.7,1.1-1.5,0.3-1.9c-0.8-0.5-2.1-0.3-3.1,0.4s-1.1,1.5-0.3,1.9C933.9,198.3,935.2,198.1,936.1,197.4 M930.1,195.9
-c0.7,0.4,1.6,0.2,2.4-0.4c0.8-0.6,0.9-1.2,0.3-1.5c-0.7-0.4-1.7-0.2-2.5,0.3C929.5,194.9,929.5,195.5,930.1,195.9"
+			c-0.7,0.2-1.8,0.3-2.6-0.1c-1.2-0.6-0.9-1.7,0.4-2.5c1.3-0.9,3-1.2,4.1-0.6C934.4,193.7,934.5,194.4,934.1,194.9z M936.1,197.4
+			c1-0.7,1.1-1.5,0.3-1.9c-0.8-0.5-2.1-0.3-3.1,0.4s-1.1,1.5-0.3,1.9C933.9,198.3,935.2,198.1,936.1,197.4 M930.1,195.9
+			c0.7,0.4,1.6,0.2,2.4-0.4c0.8-0.6,0.9-1.2,0.3-1.5c-0.7-0.4-1.7-0.2-2.5,0.3C929.5,194.9,929.5,195.5,930.1,195.9"
           ></path>
         </svg>
         <svg>
           <path
             d="M919.5,200.9c1.3-0.9,3-1.2,4.2-0.6c0.7,0.4,0.9,1,0.5,1.6l0,0c1.1-0.4,2.2-0.4,3.1,0.1c1.2,0.6,1,1.8-0.4,2.7
-c-1.3,0.9-2.8,1.2-3.9,1l0.4-0.7c0.8,0.1,1.8-0.1,2.6-0.7s1-1.3,0.2-1.8c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.8-0.4l0.7-0.5
-c0.9-0.7,0.8-1.2,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.9,1-0.7,1.4l-1.1,0.3C918.2,202.4,918.5,201.6,919.5,200.9z"
+			c-1.3,0.9-2.8,1.2-3.9,1l0.4-0.7c0.8,0.1,1.8-0.1,2.6-0.7s1-1.3,0.2-1.8c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.8-0.4l0.7-0.5
+			c0.9-0.7,0.8-1.2,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.9,1-0.7,1.4l-1.1,0.3C918.2,202.4,918.5,201.6,919.5,200.9z"
           ></path>
         </svg>
         <svg>
           <path
             d="M878.6,178.1c1.3-0.9,3-1.2,4.1-0.6c0.7,0.4,0.9,1,0.5,1.6l0,0c1.1-0.4,2.2-0.4,3.1,0.1c1.2,0.7,1,1.8-0.4,2.7
-c-1.3,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.8-0.1,2.6-0.7c0.9-0.6,1-1.3,0.2-1.8c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.8-0.4
-l0.7-0.5c0.9-0.7,0.8-1.2,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.8,1-0.7,1.4l-1.1,0.3C877.3,179.6,877.6,178.8,878.6,178.1
-z"
+			c-1.3,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.8-0.1,2.6-0.7c0.9-0.6,1-1.3,0.2-1.8c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.8-0.4
+			l0.7-0.5c0.9-0.7,0.8-1.2,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.8,1-0.7,1.4l-1.1,0.3C877.3,179.6,877.6,178.8,878.6,178.1
+			z"
           ></path>
         </svg>
         <svg>
           <path
             d="M888.7,171.1c1.4-1,3.7-1.2,5.4-0.3c2.6,1.4,2.4,3.7,0.9,5.2l-1-0.2c1-1.1,1.4-2.5,0.3-3.7c-0.1,0.6-0.5,1.2-1.2,1.7
-c-1.3,0.9-3.1,1.1-4.5,0.4C887.1,173.4,887.2,172.1,888.7,171.1z M893.2,171.4L893.2,171.4c-1.2-0.7-2.7-0.6-3.7,0.1s-1,1.6-0.1,2
-c0.9,0.5,2.1,0.4,3-0.3C893.1,172.7,893.4,172,893.2,171.4"
+			c-1.3,0.9-3.1,1.1-4.5,0.4C887.1,173.4,887.2,172.1,888.7,171.1z M893.2,171.4L893.2,171.4c-1.2-0.7-2.7-0.6-3.7,0.1s-1,1.6-0.1,2
+			c0.9,0.5,2.1,0.4,3-0.3C893.1,172.7,893.4,172,893.2,171.4"
           ></path>
         </svg>
         <svg>
@@ -4460,87 +4460,87 @@ c0.9,0.5,2.1,0.4,3-0.3C893.1,172.7,893.4,172,893.2,171.4"
         <svg>
           <path
             d="M844.3,154.4c1.2-0.8,3-1.1,4.4-0.4c0.8,0.4,1.2,1.1,1.2,2.2v2.4l0,0l3.3-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-2-0.4-2.8,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C842.9,156,843.1,155.2,844.3,154.4z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-2-0.4-2.8,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C842.9,156,843.1,155.2,844.3,154.4z"
           ></path>
         </svg>
         <svg>
           <path
             d="M838.5,158.4c1.3-0.9,3-1.2,4.2-0.6c0.7,0.4,0.9,1,0.5,1.6l0,0c1.1-0.4,2.2-0.4,3.1,0.1c1.2,0.7,1,1.8-0.4,2.7
-c-1.3,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.8-0.1,2.6-0.7c0.9-0.6,1-1.3,0.2-1.8c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.8-0.4
-l0.7-0.5c0.9-0.7,0.8-1.2,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.8,1-0.7,1.4l-1.1,0.3C837.2,159.9,837.5,159.1,838.5,158.4
-z"
+			c-1.3,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.8-0.1,2.6-0.7c0.9-0.6,1-1.3,0.2-1.8c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.8-0.4
+			l0.7-0.5c0.9-0.7,0.8-1.2,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.8,1-0.7,1.4l-1.1,0.3C837.2,159.9,837.5,159.1,838.5,158.4
+			z"
           ></path>
         </svg>
         <svg>
           <path
             d="M850.4,150.1c1.6-1.1,4.1-1.2,6.4,0.1c2.1,1.2,2.7,2.7,0.9,3.9c-1.6,1.1-4.1,1.2-6.4,0
-C849.2,152.8,848.7,151.3,850.4,150.1z M856.9,153.6c1.2-0.8,0.7-1.9-1-2.8c-1.8-1-3.6-1-4.7-0.3c-1.2,0.8-0.7,1.9,1,2.8
-C854.1,154.3,855.9,154.4,856.9,153.6"
+			C849.2,152.8,848.7,151.3,850.4,150.1z M856.9,153.6c1.2-0.8,0.7-1.9-1-2.8c-1.8-1-3.6-1-4.7-0.3c-1.2,0.8-0.7,1.9,1,2.8
+			C854.1,154.3,855.9,154.4,856.9,153.6"
           ></path>
         </svg>
         <svg>
           <path
             d="M763.2,110.5c1.2-0.8,3-1.2,4.4-0.4c0.8,0.4,1.2,1.1,1.2,2.2v2.4l0,0l3.3-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-2-0.4-2.8,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C761.9,112.2,762.1,111.3,763.2,110.5z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-2-0.4-2.8,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C761.9,112.2,762.1,111.3,763.2,110.5z"
           ></path>
         </svg>
         <svg>
           <path
             d="M757.5,114.5c1.3-0.9,3-1.2,4.2-0.6c0.7,0.4,0.9,1,0.5,1.6l0,0c1.1-0.4,2.2-0.4,3.1,0.1c1.2,0.6,1,1.8-0.4,2.7
-c-1.3,0.9-2.8,1.2-3.9,1l0.4-0.7c0.8,0.1,1.8-0.1,2.6-0.7c0.9-0.6,1-1.3,0.2-1.8c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.8-0.4
-l0.7-0.5c0.9-0.7,0.7-1.2,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.8,1-0.7,1.4l-1.1,0.3C756.2,116,756.5,115.3,757.5,114.5z"
+			c-1.3,0.9-2.8,1.2-3.9,1l0.4-0.7c0.8,0.1,1.8-0.1,2.6-0.7c0.9-0.6,1-1.3,0.2-1.8c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.8-0.4
+			l0.7-0.5c0.9-0.7,0.7-1.2,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.8,1-0.7,1.4l-1.1,0.3C756.2,116,756.5,115.3,757.5,114.5z"
           ></path>
         </svg>
         <svg>
           <path
             d="M768.8,106.7c1.2-0.8,3-1.2,4.4-0.4c0.8,0.4,1.2,1.1,1.2,2.2v2.4l0,0l3.3-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.4-2.8,0.2c-0.7,0.5-0.9,1-0.6,1.6L768,109C767.5,108.3,767.6,107.5,768.8,106.7z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.4-2.8,0.2c-0.7,0.5-0.9,1-0.6,1.6L768,109C767.5,108.3,767.6,107.5,768.8,106.7z"
           ></path>
         </svg>
         <svg>
           <path
             d="M731.6,86.5c1.3-0.9,3-1.2,4.1-0.6c0.7,0.4,0.9,1,0.5,1.6l0,0c1.1-0.4,2.2-0.4,3.1,0.1c1.2,0.7,1,1.8-0.4,2.7
-c-1.3,0.9-2.8,1.2-3.9,1l0.4-0.7c0.8,0.1,1.8-0.1,2.6-0.7c0.9-0.6,1-1.3,0.2-1.8c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.8-0.4
-l0.7-0.5c0.9-0.7,0.8-1.2,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.8,1-0.7,1.4l-1.1,0.3C730.3,88,730.5,87.2,731.6,86.5z"
+			c-1.3,0.9-2.8,1.2-3.9,1l0.4-0.7c0.8,0.1,1.8-0.1,2.6-0.7c0.9-0.6,1-1.3,0.2-1.8c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.8-0.4
+			l0.7-0.5c0.9-0.7,0.8-1.2,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.8,1-0.7,1.4l-1.1,0.3C730.3,88,730.5,87.2,731.6,86.5z"
           ></path>
         </svg>
         <svg>
           <path
             d="M726,90.4c1.2-0.8,3-1.1,4.4-0.4c0.8,0.4,1.2,1.1,1.2,2.2v2.4l0,0l3.3-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-2-0.4-2.8,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C724.7,92,724.9,91.2,726,90.4z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-2-0.4-2.8,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C724.7,92,724.9,91.2,726,90.4z"
           ></path>
         </svg>
         <svg>
           <path
             d="M720.3,94.4c1.3-0.9,3-1.2,4.2-0.6c0.7,0.4,0.9,1,0.5,1.6l0,0c1.1-0.4,2.2-0.4,3.1,0.1c1.2,0.7,1,1.8-0.4,2.7
-c-1.3,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.8-0.1,2.6-0.7c0.9-0.6,1-1.3,0.2-1.8c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.8-0.4
-l0.7-0.5c0.9-0.7,0.8-1.2,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.8,1-0.7,1.4l-1.1,0.3C719,95.9,719.3,95.1,720.3,94.4z"
+			c-1.3,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.8-0.1,2.6-0.7c0.9-0.6,1-1.3,0.2-1.8c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.8-0.4
+			l0.7-0.5c0.9-0.7,0.8-1.2,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.8,1-0.7,1.4l-1.1,0.3C719,95.9,719.3,95.1,720.3,94.4z"
           ></path>
         </svg>
         <svg>
           <path
             d="M679.6,72.3c1.3-0.9,3-1.2,4.2-0.6c0.7,0.4,0.9,1,0.5,1.6l0,0c1.1-0.4,2.2-0.4,3.1,0.1c1.2,0.6,1,1.8-0.4,2.7
-c-1.3,0.9-2.8,1.2-3.9,1l0.4-0.7c0.8,0.1,1.8-0.1,2.6-0.7c0.9-0.6,1-1.3,0.2-1.8c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.8-0.4
-l0.7-0.5c0.9-0.7,0.7-1.2,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.8,1-0.7,1.4l-1.1,0.3C678.2,73.8,678.5,73,679.6,72.3z"
+			c-1.3,0.9-2.8,1.2-3.9,1l0.4-0.7c0.8,0.1,1.8-0.1,2.6-0.7c0.9-0.6,1-1.3,0.2-1.8c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.8-0.4
+			l0.7-0.5c0.9-0.7,0.7-1.2,0.2-1.6c-0.7-0.4-1.8-0.2-2.6,0.3c-0.7,0.5-0.8,1-0.7,1.4l-1.1,0.3C678.2,73.8,678.5,73,679.6,72.3z"
           ></path>
         </svg>
         <svg>
           <path
             d="M697.9,65.9l1.1-0.7l0.8,0.4l-1.1,0.7L700,67l-0.9,0.6l-1.3-0.7l-3.4,2.4l-0.6-0.3l-1.8-5.4l0.8-0.5L697.9,65.9z
- M697.1,66.5l-3.7-2l1.3,3.7L697.1,66.5"
+			 M697.1,66.5l-3.7-2l1.3,3.7L697.1,66.5"
           ></path>
         </svg>
         <svg>
           <path
             d="M685.3,68.3c1.2-0.8,3-1.1,4.4-0.4c0.8,0.4,1.2,1.1,1.2,2.2v2.4l0,0l3.3-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-2-0.4-2.8,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C684,69.9,684.1,69.1,685.3,68.3z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-2-0.4-2.8,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C684,69.9,684.1,69.1,685.3,68.3z"
           ></path>
         </svg>
-        <svg enable-background="new    ">
+        <svg>
           <svg>
             <path
               d="M860.9,403.9l1.1-0.7l0.8,0.4l-1.1,0.7l1.3,0.7l-0.9,0.6l-1.3-0.7l-3.4,2.4l-0.6-0.3l-1.7-5.3l0.7-0.5L860.9,403.9z
-   M860,404.5l-3.6-2l1.2,3.6L860,404.5"
+				 M860,404.5l-3.6-2l1.2,3.6L860,404.5"
             ></path>
           </svg>
           <svg>
@@ -4549,8 +4549,8 @@ c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-2-0.4-2.8,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C68
           <svg>
             <path
               d="M844.3,409.2c1.2-0.9,2.9-1.2,4.1-0.5c0.7,0.4,0.9,1,0.5,1.6l0,0c1.1-0.4,2.2-0.4,3,0.1c1.2,0.6,1,1.8-0.4,2.7
-  c-1.2,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.7,0,2.6-0.6c0.8-0.6,1-1.3,0.2-1.7c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.7-0.4
-  l0.7-0.5c0.9-0.7,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C843,410.7,843.3,409.9,844.3,409.2z"
+				c-1.2,0.9-2.7,1.2-3.9,1l0.4-0.7c0.8,0.1,1.7,0,2.6-0.6c0.8-0.6,1-1.3,0.2-1.7c-0.7-0.4-1.8-0.3-2.9,0.4l-0.6,0.4l-0.7-0.4
+				l0.7-0.5c0.9-0.7,0.7-1.2,0.2-1.5c-0.7-0.4-1.8-0.2-2.5,0.3s-0.8,1-0.7,1.4l-1.1,0.3C843,410.7,843.3,409.9,844.3,409.2z"
             ></path>
           </svg>
         </svg>
@@ -4560,26 +4560,26 @@ c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-2-0.4-2.8,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C68
         <svg>
           <path
             d="M510.5,427.2c1-0.7,2.4-1.2,3.9-1.4l0.2,0.9c-1.3,0.2-2.4,0.6-3.1,1c-0.9,0.6-1.2,1.4-0.3,1.8c0.8,0.5,2,0.1,3.5-0.5
-c2.1-0.7,3.8-1.4,5.5-0.5c1.6,0.9,1,2.4-0.5,3.5c-1.1,0.8-2.7,1.4-4.6,1.5l-0.1-1c1.5,0,2.8-0.5,3.7-1.1c1.1-0.8,1.4-1.6,0.5-2
-c-1-0.5-2.1-0.1-3.7,0.5c-1.8,0.7-3.8,1.3-5.3,0.5C508.7,429.7,508.9,428.3,510.5,427.2z"
+			c2.1-0.7,3.8-1.4,5.5-0.5c1.6,0.9,1,2.4-0.5,3.5c-1.1,0.8-2.7,1.4-4.6,1.5l-0.1-1c1.5,0,2.8-0.5,3.7-1.1c1.1-0.8,1.4-1.6,0.5-2
+			c-1-0.5-2.1-0.1-3.7,0.5c-1.8,0.7-3.8,1.3-5.3,0.5C508.7,429.7,508.9,428.3,510.5,427.2z"
           ></path>
         </svg>
         <svg>
           <path
             d="M526.5,416.1l12.3,2.4l-1.2,0.8l-3-0.6l-4,2.8l1.4,1.7l-1.2,0.8l-5.4-7.2L526.5,416.1z M530,420.7l3.3-2.3l-6.1-1.2l0,0
-L530,420.7"
+			L530,420.7"
           ></path>
         </svg>
         <svg>
           <polygon
             points="538.7,407.5 547.6,412.3 546.5,413.1 534.4,412.9 541.4,416.7 540.3,417.4 531.4,412.6 532.5,411.9 544.7,412.1 
-537.6,408.3 		"
+			537.6,408.3 		"
           ></polygon>
         </svg>
         <svg>
           <polygon
             points="561.1,391.8 569.9,396.7 568.8,397.5 556.7,397.2 563.7,401 562.6,401.8 553.7,397 554.8,396.2 567,396.5 
-559.9,392.6 		"
+			559.9,392.6 		"
           ></polygon>
         </svg>
         <svg>
@@ -4588,50 +4588,50 @@ L530,420.7"
         <svg>
           <path
             d="M543.7,404c2.9-2,6.5-2.3,9.2-0.9c2.6,1.4,2.7,3.6-0.2,5.7l-2.7,1.9l-8.9-4.8L543.7,404z M551.5,408.3
-c2.2-1.5,2.1-3.3,0.1-4.4s-4.9-0.9-7,0.6l-1.6,1.1l6.9,3.7L551.5,408.3"
+			c2.2-1.5,2.1-3.3,0.1-4.4s-4.9-0.9-7,0.6l-1.6,1.1l6.9,3.7L551.5,408.3"
           ></path>
         </svg>
         <svg>
           <path
             d="M567.3,387.4c1.2-0.9,2.9-1.5,4.8-1.7l-0.1,0.9c-1.4,0.1-2.6,0.6-3.7,1.3c-1.9,1.3-1.9,3.1,0.2,4.2c2,1.1,4.8,1,6.9-0.5
-c0.9-0.6,1.5-1.3,1.7-2.1l-1.9-1l-2.6,1.8l-1-0.5l3.7-2.6l3.5,1.9c-0.1,1-1,2.1-2.4,3.1c-2.6,1.8-6.3,2.2-9,0.7
-C564.7,391.5,564.6,389.3,567.3,387.4z"
+			c0.9-0.6,1.5-1.3,1.7-2.1l-1.9-1l-2.6,1.8l-1-0.5l3.7-2.6l3.5,1.9c-0.1,1-1,2.1-2.4,3.1c-2.6,1.8-6.3,2.2-9,0.7
+			C564.7,391.5,564.6,389.3,567.3,387.4z"
           ></path>
         </svg>
         <svg>
           <polygon
             points="559.7,411.4 568.6,416.2 567.5,417 555.4,416.8 562.4,420.6 561.3,421.4 552.4,416.6 553.5,415.8 565.7,416 
-558.6,412.2 		"
+			558.6,412.2 		"
           ></polygon>
         </svg>
         <svg>
           <polygon
             points="550.4,418 551.3,418.5 546.9,421.6 549.9,423.2 553.5,420.7 554.5,421.2 550.9,423.8 553.8,425.4 558.5,422.1 
-559.5,422.6 553.7,426.7 544.8,421.9 		"
+			559.5,422.6 553.7,426.7 544.8,421.9 		"
           ></polygon>
         </svg>
         <svg>
           <path
             d="M540.1,425.1c2.1-1.5,4.2-1.5,5.8-0.6c1.9,1,1.4,2.4-0.5,3.7l-1.9,1.3l3.4,1.8l-1.1,0.8l-8.9-4.8L540.1,425.1z
- M544.4,427.8c1.5-1.1,1.4-1.9,0.4-2.5c-1.1-0.6-2.5-0.4-3.7,0.4l-1.9,1.4l3.5,1.9L544.4,427.8"
+			 M544.4,427.8c1.5-1.1,1.4-1.9,0.4-2.5c-1.1-0.6-2.5-0.4-3.7,0.4l-1.9,1.4l3.5,1.9L544.4,427.8"
           ></path>
         </svg>
         <svg>
           <path
             d="M569.2,404.8l12.3,2.4l-1.2,0.8l-3-0.6l-4,2.8l1.4,1.7l-1.2,0.8l-5.4-7.2L569.2,404.8z M572.7,409.5l3.3-2.3l-6.1-1.2l0,0
-L572.7,409.5"
+			L572.7,409.5"
           ></path>
         </svg>
         <svg>
           <polygon
             points="379.7,318.4 388.6,323.2 387.4,324 375.4,323.8 382.3,327.6 381.2,328.3 372.3,323.5 373.4,322.8 385.6,323 
-378.6,319.2 		"
+			378.6,319.2 		"
           ></polygon>
         </svg>
         <svg>
           <path
             d="M367.5,327l12.3,2.4l-1.2,0.8l-3-0.6l-4,2.8l1.4,1.7l-1.2,0.8l-5.5-7.2L367.5,327z M371,331.6l3.3-2.3l-6.1-1.2l0,0
-L371,331.6"
+			L371,331.6"
           ></path>
         </svg>
         <svg>
@@ -4640,14 +4640,14 @@ L371,331.6"
         <svg>
           <path
             d="M351.4,338.1c1-0.7,2.4-1.2,3.9-1.4l0.2,0.9c-1.3,0.2-2.4,0.6-3.1,1c-0.9,0.6-1.2,1.4-0.3,1.8c0.8,0.5,2,0.1,3.5-0.5
-c2.1-0.7,3.8-1.4,5.5-0.5c1.6,0.9,1.1,2.4-0.5,3.5c-1.1,0.8-2.7,1.4-4.6,1.5l-0.1-1c1.5,0,2.8-0.5,3.7-1.1c1.1-0.8,1.4-1.6,0.5-2
-c-1-0.5-2.1-0.1-3.7,0.5c-1.8,0.7-3.8,1.3-5.3,0.5C349.7,340.6,349.9,339.2,351.4,338.1z"
+			c2.1-0.7,3.8-1.4,5.5-0.5c1.6,0.9,1.1,2.4-0.5,3.5c-1.1,0.8-2.7,1.4-4.6,1.5l-0.1-1c1.5,0,2.8-0.5,3.7-1.1c1.1-0.8,1.4-1.6,0.5-2
+			c-1-0.5-2.1-0.1-3.7,0.5c-1.8,0.7-3.8,1.3-5.3,0.5C349.7,340.6,349.9,339.2,351.4,338.1z"
           ></path>
         </svg>
         <svg>
           <polygon
             points="402,302.7 410.9,307.6 409.8,308.4 397.7,308.1 404.7,311.9 403.6,312.7 394.7,307.9 395.8,307.1 408,307.4 
-400.9,303.5 		"
+			400.9,303.5 		"
           ></polygon>
         </svg>
         <svg>
@@ -4656,51 +4656,51 @@ c-1-0.5-2.1-0.1-3.7,0.5c-1.8,0.7-3.8,1.3-5.3,0.5C349.7,340.6,349.9,339.2,351.4,3
         <svg>
           <path
             d="M384.6,314.9c2.9-2,6.5-2.3,9.2-0.9c2.6,1.4,2.7,3.6-0.2,5.7l-2.7,1.9l-8.9-4.8L384.6,314.9z M392.5,319.2
-c2.2-1.5,2.1-3.3,0.1-4.4s-4.9-0.9-7,0.6l-1.6,1.1l6.9,3.7L392.5,319.2"
+			c2.2-1.5,2.1-3.3,0.1-4.4s-4.9-0.9-7,0.6l-1.6,1.1l6.9,3.7L392.5,319.2"
           ></path>
         </svg>
         <svg>
           <path
             d="M408.3,298.2c1.2-0.9,2.9-1.5,4.8-1.7l-0.1,0.9c-1.4,0.1-2.6,0.6-3.7,1.3c-1.9,1.3-1.9,3.1,0.2,4.2c2,1.1,4.8,1,6.9-0.5
-c0.9-0.6,1.5-1.3,1.7-2.1l-1.9-1l-2.6,1.8l-1-0.5l3.7-2.6l3.5,1.9c-0.1,1-1,2.1-2.4,3.1c-2.6,1.8-6.3,2.2-9,0.7
-C405.7,302.4,405.6,300.2,408.3,298.2z"
+			c0.9-0.6,1.5-1.3,1.7-2.1l-1.9-1l-2.6,1.8l-1-0.5l3.7-2.6l3.5,1.9c-0.1,1-1,2.1-2.4,3.1c-2.6,1.8-6.3,2.2-9,0.7
+			C405.7,302.4,405.6,300.2,408.3,298.2z"
           ></path>
         </svg>
         <svg>
           <path
             d="M415.3,317.3c1.3-0.6,2.9-0.8,4.1-0.1c1.4,0.8,1.5,2-0.6,3.4l-3.3,2.3l-8.9-4.8l3-2.1c1.8-1.2,3.6-1.7,5.1-0.9
-C415.6,315.7,416,316.4,415.3,317.3L415.3,317.3z M417.8,320.2c1.2-0.8,1.5-1.6,0.4-2.2c-1-0.5-2.3-0.4-3.7,0.6l-1.9,1.4l3.1,1.7
-L417.8,320.2 M408.8,317.9l2.8,1.5l1.9-1.3c0.9-0.7,1.4-1.4,0.3-2c-0.9-0.5-2-0.4-3.3,0.6L408.8,317.9"
+			C415.6,315.7,416,316.4,415.3,317.3L415.3,317.3z M417.8,320.2c1.2-0.8,1.5-1.6,0.4-2.2c-1-0.5-2.3-0.4-3.7,0.6l-1.9,1.4l3.1,1.7
+			L417.8,320.2 M408.8,317.9l2.8,1.5l1.9-1.3c0.9-0.7,1.4-1.4,0.3-2c-0.9-0.5-2-0.4-3.3,0.6L408.8,317.9"
           ></path>
         </svg>
         <svg>
           <polygon
             points="401,322.1 409.8,327 408.7,327.8 396.6,327.5 403.6,331.3 402.5,332.1 393.6,327.3 394.7,326.5 406.9,326.8 
-399.8,322.9 		"
+			399.8,322.9 		"
           ></polygon>
         </svg>
         <svg>
           <polygon
             points="391.6,328.7 392.6,329.2 388.1,332.3 391.1,334 394.8,331.4 395.7,331.9 392.1,334.5 395.1,336.1 399.8,332.8 
-400.8,333.3 394.9,337.4 386,332.6 		"
+			400.8,333.3 394.9,337.4 386,332.6 		"
           ></polygon>
         </svg>
         <svg>
           <path
             d="M381.4,335.8c2.1-1.5,4.2-1.5,5.8-0.6c1.9,1,1.4,2.4-0.5,3.7l-1.9,1.3l3.4,1.8l-1.1,0.8l-8.9-4.8L381.4,335.8z
- M385.6,338.5c1.5-1.1,1.4-1.9,0.4-2.5c-1.1-0.6-2.5-0.4-3.7,0.4l-1.9,1.4l3.5,1.9L385.6,338.5"
+			 M385.6,338.5c1.5-1.1,1.4-1.9,0.4-2.5c-1.1-0.6-2.5-0.4-3.7,0.4l-1.9,1.4l3.5,1.9L385.6,338.5"
           ></path>
         </svg>
         <svg>
           <polygon
             points="507.1,232.4 516,237.3 514.9,238 502.8,237.8 509.8,241.6 508.6,242.4 499.8,237.6 500.8,236.8 513,237.1 
-506,233.2 		"
+			506,233.2 		"
           ></polygon>
         </svg>
         <svg>
           <path
             d="M494.9,241l12.3,2.4l-1.2,0.8l-3-0.6l-4.1,2.8l1.4,1.7l-1.2,0.8l-5.5-7.2L494.9,241z M498.4,245.7l3.4-2.3l-6.1-1.2l0,0
-L498.4,245.7"
+			L498.4,245.7"
           ></path>
         </svg>
         <svg>
@@ -4709,69 +4709,69 @@ L498.4,245.7"
         <svg>
           <path
             d="M478.8,252.1c1-0.7,2.4-1.2,3.9-1.4l0.2,0.9c-1.3,0.2-2.4,0.6-3.1,1c-0.9,0.6-1.2,1.4-0.3,1.8c0.8,0.5,2,0.1,3.5-0.5
-c2.1-0.7,3.8-1.4,5.5-0.5c1.6,0.9,1.1,2.4-0.5,3.5c-1.1,0.8-2.7,1.4-4.6,1.5l-0.1-1c1.5,0,2.8-0.5,3.7-1.1c1.1-0.8,1.4-1.6,0.5-2
-c-1-0.5-2.1-0.1-3.7,0.5c-1.8,0.7-3.8,1.3-5.3,0.5C477.1,254.6,477.3,253.2,478.8,252.1z"
+			c2.1-0.7,3.8-1.4,5.5-0.5c1.6,0.9,1.1,2.4-0.5,3.5c-1.1,0.8-2.7,1.4-4.6,1.5l-0.1-1c1.5,0,2.8-0.5,3.7-1.1c1.1-0.8,1.4-1.6,0.5-2
+			c-1-0.5-2.1-0.1-3.7,0.5c-1.8,0.7-3.8,1.3-5.3,0.5C477.1,254.6,477.3,253.2,478.8,252.1z"
           ></path>
         </svg>
         <svg>
           <polygon points="519.8,223.6 528.7,228.4 527.6,229.1 518.7,224.3 		"></polygon>
         </svg>
-        <svg enable-background="new    ">
+        <svg>
           <svg>
             <polygon
               points="529.4,216.8 538.3,221.6 537.2,222.4 525.1,222.2 532.1,226 531,226.7 522.1,221.9 523.2,221.2 535.4,221.4 
-  528.3,217.6 			"
+				528.3,217.6 			"
             ></polygon>
           </svg>
           <svg>
             <path
               d="M512,229c2.9-2,6.5-2.3,9.2-0.9c2.6,1.4,2.7,3.6-0.2,5.7l-2.7,1.9l-8.9-4.8L512,229z M519.9,233.3
-  c2.2-1.6,2.2-3.3,0.2-4.4s-4.9-0.9-7,0.6l-1.6,1.1l6.9,3.7L519.9,233.3"
+				c2.2-1.6,2.2-3.3,0.2-4.4s-4.9-0.9-7,0.6l-1.6,1.1l6.9,3.7L519.9,233.3"
             ></path>
           </svg>
         </svg>
         <svg>
           <path
             d="M535.7,212.3c1.2-0.9,2.9-1.5,4.8-1.7l-0.1,0.9c-1.4,0.1-2.6,0.6-3.7,1.3c-1.9,1.3-1.9,3.1,0.2,4.2c2,1.1,4.8,1,6.9-0.5
-c0.9-0.6,1.5-1.3,1.7-2.1l-1.9-1l-2.6,1.8l-1-0.5l3.7-2.6l3.5,1.9c-0.1,1-1,2.1-2.4,3.1c-2.6,1.8-6.3,2.2-9,0.7
-C533.1,216.5,533,214.2,535.7,212.3z"
+			c0.9-0.6,1.5-1.3,1.7-2.1l-1.9-1l-2.6,1.8l-1-0.5l3.7-2.6l3.5,1.9c-0.1,1-1,2.1-2.4,3.1c-2.6,1.8-6.3,2.2-9,0.7
+			C533.1,216.5,533,214.2,535.7,212.3z"
           ></path>
         </svg>
         <svg>
           <polygon
             points="527.8,236.6 536.7,241.4 535.5,242.2 523.5,242 530.4,245.8 529.3,246.6 520.4,241.7 521.5,241 533.7,241.2 
-526.7,237.4 		"
+			526.7,237.4 		"
           ></polygon>
         </svg>
         <svg>
           <polygon
             points="518.4,243.2 519.4,243.7 515,246.8 517.9,248.4 521.6,245.9 522.6,246.4 518.9,249 521.9,250.5 526.6,247.2 
-527.6,247.8 521.8,251.9 512.9,247 		"
+			527.6,247.8 521.8,251.9 512.9,247 		"
           ></polygon>
         </svg>
         <svg>
           <path
             d="M508.2,250.3c2.1-1.5,4.2-1.5,5.8-0.6c1.9,1,1.4,2.4-0.5,3.7l-1.9,1.3l3.4,1.8l-1.1,0.8l-8.9-4.8L508.2,250.3z M512.4,253
-c1.5-1.1,1.4-1.9,0.4-2.5c-1.1-0.6-2.5-0.4-3.7,0.4l-1.9,1.4l3.5,1.9L512.4,253"
+			c1.5-1.1,1.4-1.9,0.4-2.5c-1.1-0.6-2.5-0.4-3.7,0.4l-1.9,1.4l3.5,1.9L512.4,253"
           ></path>
         </svg>
         <svg>
           <path
             d="M536.2,230.7c2.9-2,6.5-2.3,9.2-0.9c2.6,1.4,2.7,3.6-0.2,5.7l-2.7,1.9l-8.9-4.8L536.2,230.7z M544.1,235
-c2.2-1.5,2.2-3.3,0.2-4.4s-4.9-0.9-7,0.6l-1.6,1.1l6.9,3.7L544.1,235"
+			c2.2-1.5,2.2-3.3,0.2-4.4s-4.9-0.9-7,0.6l-1.6,1.1l6.9,3.7L544.1,235"
           ></path>
         </svg>
         <svg>
           <path
             d="M629.7,334.4c1-0.7,2.4-1.2,3.9-1.4l0.2,0.9c-1.3,0.2-2.4,0.6-3.1,1c-0.9,0.6-1.2,1.4-0.3,1.8c0.8,0.5,2,0.1,3.5-0.5
-c2.1-0.7,3.8-1.4,5.5-0.5c1.6,0.9,1.1,2.4-0.5,3.5c-1.1,0.8-2.7,1.4-4.6,1.5l-0.1-1c1.5,0,2.8-0.5,3.7-1.1c1.1-0.8,1.4-1.6,0.5-2
-c-1-0.5-2.1-0.1-3.7,0.5c-1.8,0.7-3.8,1.3-5.3,0.5C627.9,336.9,628.1,335.5,629.7,334.4z"
+			c2.1-0.7,3.8-1.4,5.5-0.5c1.6,0.9,1.1,2.4-0.5,3.5c-1.1,0.8-2.7,1.4-4.6,1.5l-0.1-1c1.5,0,2.8-0.5,3.7-1.1c1.1-0.8,1.4-1.6,0.5-2
+			c-1-0.5-2.1-0.1-3.7,0.5c-1.8,0.7-3.8,1.3-5.3,0.5C627.9,336.9,628.1,335.5,629.7,334.4z"
           ></path>
         </svg>
         <svg>
           <path
             d="M645.7,323.3l12.3,2.4l-1.2,0.8l-3-0.6l-4,2.8l1.4,1.7l-1.2,0.8l-5.5-7.2L645.7,323.3z M649.2,328l3.3-2.3l-6.1-1.2l0,0
-L649.2,328"
+			L649.2,328"
           ></path>
         </svg>
         <svg>
@@ -4780,7 +4780,7 @@ L649.2,328"
         <svg>
           <polygon
             points="657.9,314.7 666.8,319.5 665.7,320.3 653.6,320.1 660.6,323.9 659.5,324.7 650.6,319.9 651.7,319.1 663.9,319.3 
-656.8,315.5 		"
+			656.8,315.5 		"
           ></polygon>
         </svg>
         <svg>
@@ -4789,65 +4789,65 @@ L649.2,328"
         <svg>
           <path
             d="M686.5,294.6c1.2-0.9,2.9-1.5,4.8-1.7l-0.1,0.9c-1.4,0.1-2.6,0.6-3.7,1.3c-1.9,1.3-1.9,3.1,0.2,4.2c2,1.1,4.8,1,6.9-0.5
-c0.9-0.6,1.5-1.3,1.7-2.1l-1.9-1l-2.6,1.8l-1-0.5l3.7-2.6l3.5,1.9c-0.1,1-1,2.1-2.4,3.1c-2.6,1.8-6.3,2.2-9,0.7
-C683.9,298.8,683.8,296.5,686.5,294.6z"
+			c0.9-0.6,1.5-1.3,1.7-2.1l-1.9-1l-2.6,1.8l-1-0.5l3.7-2.6l3.5,1.9c-0.1,1-1,2.1-2.4,3.1c-2.6,1.8-6.3,2.2-9,0.7
+			C683.9,298.8,683.8,296.5,686.5,294.6z"
           ></path>
         </svg>
         <svg>
           <polygon
             points="680.3,299.1 689.2,303.9 688,304.7 676,304.4 682.9,308.2 681.8,309 672.9,304.2 674,303.4 686.2,303.7 
-679.2,299.8 		"
+			679.2,299.8 		"
           ></polygon>
         </svg>
         <svg>
           <path
             d="M662.9,311.2c2.9-2,6.5-2.3,9.2-0.9c2.6,1.4,2.7,3.6-0.2,5.7l-2.7,1.9l-8.9-4.8L662.9,311.2z M670.8,315.5
-c2.2-1.5,2.1-3.3,0.1-4.4s-4.9-0.9-7,0.6l-1.6,1.1l6.9,3.7L670.8,315.5"
+			c2.2-1.5,2.1-3.3,0.1-4.4s-4.9-0.9-7,0.6l-1.6,1.1l6.9,3.7L670.8,315.5"
           ></path>
         </svg>
         <svg>
           <polygon
             points="669.3,325.4 670.3,326 665.8,329.1 668.8,330.7 672.4,328.1 673.4,328.7 669.8,331.2 672.7,332.8 677.4,329.5 
-678.4,330.1 672.6,334.1 663.7,329.3 		"
+			678.4,330.1 672.6,334.1 663.7,329.3 		"
           ></polygon>
         </svg>
         <svg>
           <path
             d="M659,332.6c2.1-1.5,4.2-1.5,5.8-0.6c1.9,1,1.4,2.4-0.5,3.7l-1.9,1.3l3.4,1.8l-1.1,0.8l-8.9-4.8L659,332.6z M663.3,335.2
-c1.5-1.1,1.4-1.9,0.4-2.5c-1.1-0.6-2.5-0.4-3.7,0.4l-1.9,1.4l3.5,1.9L663.3,335.2"
+			c1.5-1.1,1.4-1.9,0.4-2.5c-1.1-0.6-2.5-0.4-3.7,0.4l-1.9,1.4l3.5,1.9L663.3,335.2"
           ></path>
         </svg>
         <svg>
           <polygon
             points="678.6,318.9 687.5,323.7 686.4,324.5 674.3,324.2 681.3,328 680.2,328.8 671.3,324 672.4,323.2 684.6,323.5 
-677.5,319.6 		"
+			677.5,319.6 		"
           ></polygon>
         </svg>
         <svg>
           <path
             d="M688.4,311.9c1.3-0.9,3.1-1.5,5.2-1.6l-0.2,0.9c-1.7,0-3,0.5-4,1.2c-2.1,1.4-1.9,3.1,0.2,4.2c2.1,1.2,4.9,0.9,6.8-0.5
-c1.2-0.8,1.5-1.7,1.4-2.6l1.5-0.2c0.2,1.1-0.3,2.3-1.9,3.4c-2.5,1.7-6.1,2.3-9,0.7C685.9,316.2,685.5,314,688.4,311.9z"
+			c1.2-0.8,1.5-1.7,1.4-2.6l1.5-0.2c0.2,1.1-0.3,2.3-1.9,3.4c-2.5,1.7-6.1,2.3-9,0.7C685.9,316.2,685.5,314,688.4,311.9z"
           ></path>
         </svg>
         <svg>
           <polygon
             fill="#D6D6D6"
             points="663.5,229.6 671.4,233.9 670.4,234.5 667,232.8 662.8,235.7 666.2,237.5 665.2,238.2 657.3,233.9 
-658.2,233.2 662,235.2 666.2,232.3 662.5,230.3 		"
+			658.2,233.2 662,235.2 666.2,232.3 662.5,230.3 		"
           ></polygon>
         </svg>
         <svg>
           <path
             fill="#D6D6D6"
             d="M651.5,237.8c2.3-1.6,5.6-1.9,8-0.6s2.3,3.4,0,5s-5.7,1.9-8.1,0.7C649.2,241.6,649.2,239.5,651.5,237.8z
- M658.7,241.7c1.7-1.2,1.7-2.8-0.1-3.8s-4.4-0.8-6.1,0.4c-1.7,1.2-1.7,2.8,0.1,3.8C654.3,243.1,656.9,242.9,658.7,241.7"
+			 M658.7,241.7c1.7-1.2,1.7-2.8-0.1-3.8s-4.4-0.8-6.1,0.4c-1.7,1.2-1.7,2.8,0.1,3.8C654.3,243.1,656.9,242.9,658.7,241.7"
           ></path>
         </svg>
         <svg>
           <polygon
             fill="#D6D6D6"
             points="646.5,241.5 647.4,241.9 643.2,244.9 646,246.4 649.5,243.9 650.4,244.4 646.9,246.8 650.2,248.7 
-649.2,249.3 641.3,245.1 		"
+			649.2,249.3 641.3,245.1 		"
           ></polygon>
         </svg>
         <svg>
@@ -4856,18 +4856,18 @@ c1.2-0.8,1.5-1.7,1.4-2.6l1.5-0.2c0.2,1.1-0.3,2.3-1.9,3.4c-2.5,1.7-6.1,2.3-9,0.7C
         <svg>
           <path
             d="M743.8,173.1c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.1,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.4-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C742.5,174.7,742.7,173.8,743.8,173.1z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.4-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C742.5,174.7,742.7,173.8,743.8,173.1z"
           ></path>
         </svg>
         <svg>
           <path
             d="M738.3,176.9c1.2-0.8,3-1.1,4.3-0.4c0.8,0.4,1.2,1.1,1.1,2.2v2.3l0,0l3.2-2.3l0.8,0.4l-4.6,3.2l-0.6-0.3v-3.1
-c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C737,178.5,737.2,177.7,738.3,176.9z"
+			c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C737,178.5,737.2,177.7,738.3,176.9z"
           ></path>
         </svg>
       </svg>
       <svg>
-        <svg enable-background="new    ">
+        <svg>
           <svg>
             <polygon
               fill="#211D1E"
@@ -4956,15 +4956,15 @@ c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C
             <path
               fill="#221E1F"
               d="M466.5,318.5l81.4-7l-0.8,50.6l-62.3,5.3l-76.2,53.4l100.8,54.6l-75.3,52.7L212.9,408.3l75.3-52.7
-  l101.3,54.9l76.4-53.5L466.5,318.5z M484.4,366.9l61.8-5.3l0.8-49.4l-79.5,6.8l-0.6,38.2l-77.4,54.2l-101.3-54.9l-73.9,51.7
-  l219.8,119l73.8-51.7l-100.8-54.6L484.4,366.9"
+				l101.3,54.9l76.4-53.5L466.5,318.5z M484.4,366.9l61.8-5.3l0.8-49.4l-79.5,6.8l-0.6,38.2l-77.4,54.2l-101.3-54.9l-73.9,51.7
+				l219.8,119l73.8-51.7l-100.8-54.6L484.4,366.9"
             ></path>
           </svg>
           <svg>
             <polygon
               fill="#F7F7F7"
               points="288.2,356.5 389.5,411.4 466.9,357.2 467.5,319 547,312.2 546.2,361.6 484.4,366.9 407.2,421 
-  508,475.6 434.2,527.3 214.4,408.2 			"
+				508,475.6 434.2,527.3 214.4,408.2 			"
             ></polygon>
           </svg>
           <svg>
@@ -4985,27 +4985,27 @@ c0-0.8-0.1-1.4-0.8-1.8c-0.8-0.4-1.9-0.3-2.7,0.2c-0.7,0.5-0.9,1-0.6,1.6l-1.1,0.2C
         <svg>
           <path
             d="M311.9,425.7l3.5-0.5c-0.4,2,0.8,3.8,2.7,4.9c2.4,1.3,5.2,1.4,7.2,0c2.2-1.6,1.1-2.9-0.6-5.1c-1.8-2.4-3.5-4.9,0-7.3
-c3-2.1,8-2.3,11.4-0.5c2.2,1.2,3.5,2.9,3.9,5l-3.4,0.6c-0.3-1.8-1.2-3.2-2.7-4c-1.9-1-4.5-1.2-6.5,0.2c-1.9,1.4-0.9,2.8,0.6,4.8
-c2,2.7,3.9,4.9,0.1,7.5c-3.7,2.6-8.8,2.3-12.3,0.4C313.3,430.3,311.8,428.3,311.9,425.7z"
+			c3-2.1,8-2.3,11.4-0.5c2.2,1.2,3.5,2.9,3.9,5l-3.4,0.6c-0.3-1.8-1.2-3.2-2.7-4c-1.9-1-4.5-1.2-6.5,0.2c-1.9,1.4-0.9,2.8,0.6,4.8
+			c2,2.7,3.9,4.9,0.1,7.5c-3.7,2.6-8.8,2.3-12.3,0.4C313.3,430.3,311.8,428.3,311.9,425.7z"
           ></path>
         </svg>
         <svg>
           <polygon
             points="402.4,453.3 414.5,459.9 412.2,461.5 402.5,456.2 395.8,460.9 403.7,465.2 401.5,466.8 393.5,462.5 386.9,467.2 
-397.1,472.7 394.9,474.3 382.2,467.4 		"
+			397.1,472.7 394.9,474.3 382.2,467.4 		"
           ></polygon>
         </svg>
         <svg>
           <path
             d="M370.3,448.5c6-4.2,14.1-5.1,20.1-1.9c2.7,1.5,4.5,3.6,4.4,6.3l-3.2,0.2c0-1.9-1.2-3.5-3.5-4.8
-c-4.1-2.2-10.3-1.7-15.2,1.6c-4.6,3.2-5,7.1-0.6,9.5c2,1.1,4.3,1.7,6.9,1.7l4.3-3l-5.7-3.1l2.2-1.6l8.1,4.4l-8,5.6
-c-3.4,0.1-7.2-0.7-10.2-2.4C364.3,457.9,364.1,452.9,370.3,448.5z"
+			c-4.1-2.2-10.3-1.7-15.2,1.6c-4.6,3.2-5,7.1-0.6,9.5c2,1.1,4.3,1.7,6.9,1.7l4.3-3l-5.7-3.1l2.2-1.6l8.1,4.4l-8,5.6
+			c-3.4,0.1-7.2-0.7-10.2-2.4C364.3,457.9,364.1,452.9,370.3,448.5z"
           ></path>
         </svg>
         <svg>
           <path
             d="M340.6,444.9l27.6-10.1l2.4,1.3L358,454.3l-2.5-1.4l3.1-4.4l-8.8-4.8l-6.7,2.5L340.6,444.9z M366.4,437.6L366.4,437.6
-l-13.7,5.1l7.3,3.9L366.4,437.6"
+			l-13.7,5.1l7.3,3.9L366.4,437.6"
           ></path>
         </svg>
         <svg>
@@ -5014,6 +5014,9 @@ l-13.7,5.1l7.3,3.9L366.4,437.6"
       </svg>
     </svg>
   );
+
 };
+
+
 
 export default seatmap;
