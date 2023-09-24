@@ -32,8 +32,8 @@ export async function POST(req: Request) {
             metadata: {
                 user: user.sub
             },
-            success_url: '',
-            cancel_url: '',
+            success_url: 'http://localhost:3000/payment-successful',
+            cancel_url: 'http://localhost:3000/cancel',
         })
 
         return NextResponse.json({ sessionId: stripeSession.id }, { status: 200 })

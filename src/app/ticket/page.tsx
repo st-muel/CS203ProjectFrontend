@@ -13,9 +13,9 @@ import Legend from "../components/Legend";
 import styles from "../styles";
 
 interface Props {
-  id: number;
+  searchParams: any;
 }
-export default function Home() {
+export default function Home({searchParams}: Props) {
   const [section, setSection] = useState("");
 
   useEffect(() => {
@@ -31,17 +31,17 @@ export default function Home() {
             className={`${styles.innerWidth} mx-auto flex md:flex-row flex-col gap-4 justify-center`}
           >
             <img
-              src="/taylor-swift.jpg"
+              src={searchParams.imgUrl}
               alt="concert"
               className="md:w-[270px] w-full h-[150px] rounded-[32px] object-cover"
             />
             <div className="w-full flex justify-between items-center">
               <div className="flex-1 md:ml-[62px] flex flex-col max-w-[650px]">
                 <h4 className="font-normal lg:text-[40px] text-[26px] text-black">
-                  Taylor Swift: The Eras Tour 2024
+                  {searchParams.title}
                 </h4>
                 <p className="mt-[16px] font-normal lg:text-[20px] text-[14px] text-secondary-white">
-                  Singapore National Stadium - March 2 2024 (Sun. 05:00pm)
+                  {searchParams.loc} - {new Date(searchParams.startDate).toDateString() }
                 </p>
               </div>
             </div>

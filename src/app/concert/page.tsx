@@ -5,21 +5,68 @@ import { Carousel } from "../components/Carousel";
 import ConcertDetails from "../sections/ConcertDetails";
 import Policy from "../sections/Policy";
 import Pricing from "../sections/Pricing";
+import axios from "axios";
 
-export default function Home() {
+interface Props {
+  searchParams: any;
+}
+
+
+export interface PricingDetail {
+  imgUrl: string;
+  title: string;
+  subtitle: string[]; 
+}
+
+interface SectionPricing {
+  section: {
+    id: number;
+    name: string;
+  },
+  price: number;
+}
+
+async function getSectionsPricing(concertId: number) {
+  return await axios.get("http://localhost:8080/api/concerts/" + concertId + "/prices");
+}
+
+
+export default async function Home(
+  {searchParams}: Props
+) {
+  const sectionPricing = await getSectionsPricing(searchParams.id).then(res => res.data as SectionPricing[]);
+  
+  const sectionsPricingDetails: PricingDetail[] = [
+    {
+      imgUrl: "/date.svg",
+      title: "Start Date",
+      subtitle: [new Date(searchParams.startDate).toDateString()],
+    },
+    {
+      imgUrl: "/ticket.svg",
+      title: "Standard",
+      subtitle: sectionPricing.map(sectionPricing => sectionPricing.section.name + ": $" + sectionPricing.price),
+    },
+    {
+      imgUrl: "/note.svg",
+      title: "Note",
+      subtitle: ["Limited to 4 tickets per transaction."],
+    },
+  ];
+
   return (
     <main>
       <div className="bg-primary-black overflow-hidden">
         <Navbar />
         <div>
-          <Carousel />
+          <Carousel imgUrl={searchParams.imgUrl}/>
           <div className="gradient-03 z-0" />
           {/* <Navbar /> */}
         </div>
         <div className="relative">
-          <ConcertDetails />
+          <ConcertDetails {...searchParams} />
           <div className="gradient-04 z-0" />
-          <Pricing />
+          <Pricing sectionPricingDetails={sectionsPricingDetails}/>
         </div>
         <div className="relative">
           <Policy />

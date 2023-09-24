@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['static.ticketmaster.sg'],
+        domains: ['static.ticketmaster.sg', 'localhost'],
     }
 }
 

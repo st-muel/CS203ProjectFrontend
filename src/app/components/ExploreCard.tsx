@@ -2,25 +2,68 @@
 import { motion } from "framer-motion";
 import styles from "../styles";
 import { fadeIn } from "../utils/motion";
+import Link from "next/link";
 
-const ExploreCard = ({ key, id, imgUrl, title, loc, index, date }) => (
-  <motion.div
-    variants={fadeIn("right", "spring", index * 0.5, 1.75)}
-    className="flex md:flex-row flex-col gap-2"
+interface Props {
+  key: string;
+  id: number;
+  imgUrl: any;
+  title: any;
+  loc: any;
+  index: any;
+  startDate: string;
+  endDate: string;
+  description: string;
+}
+
+const ExploreCard = ({
+  key,
+  id,
+  imgUrl,
+  title,
+  loc,
+  index,
+  startDate,
+  endDate,
+  description,
+}: Props) => (
+  <Link
+    href={{
+      pathname: "/concert",
+      query: {
+        id: id,
+        imgUrl: imgUrl,
+        title: title,
+        loc: loc,
+        description: description,
+        startDate: startDate,
+        endDate: endDate,
+      },
+    }}
   >
-    <div className="rounded overflow-hidden shadow-lg">
-      <img
-        className="object-contain h-48 w-96 md:object-scale-down bg-stone-600"
-        src={imgUrl}
-        alt=""
-      ></img>
-      <div className="px-6 py-4 bg-stone-900/50">
-        <div class="font-bold text-xl mb-2">{title}</div>
-        <p class="text-gray-500 text-base">{loc}</p>
-        <p class="text-gray-500 text-base">{date}</p>
+    <motion.div
+      variants={fadeIn("right", "spring", index * 0.5, 1.75)}
+      className="flex md:flex-row flex-col gap-2"
+    >
+      <div className="rounded overflow-hidden shadow-lg">
+        <img
+          className="object-contain h-48 w-96 md:object-scale-down bg-stone-600"
+          src={imgUrl}
+          alt=""
+        ></img>
+
+        <div className="px-6 py-4 bg-stone-900/50">
+          <div className="font-bold text-xl mb-2">{title}</div>
+          <p className="text-gray-500 text-base">{loc}</p>
+          <p className="text-gray-500 text-base">
+            {new Date(startDate).toDateString() +
+              " - " +
+              new Date(endDate).toDateString()}
+          </p>
+        </div>
       </div>
-    </div>
-  </motion.div>
+    </motion.div>
+  </Link>
 );
 
 export default ExploreCard;
