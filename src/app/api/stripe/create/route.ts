@@ -8,15 +8,20 @@ export async function POST(req: Request) {
         const jwtToken = req.headers.get('authorization')?.replace('Bearer ', '')
         const user = jwt.decode(jwtToken, process.env.JWT_SECRET_KEY)
 
-        const body = await req.json()
-        const seats = body.seats as string[]
+        if (!user || !user.sub) {
+            return NextResponse.json({message: 'Unauthorized'}, { status: 401 })
+        }
 
-        const line_items = seats.map((seat: string) => {
+        const body = await req.json()
+        const section = body.section
+        const quantity = body.quantity
+
+        const line_items = Array(quantity).fill(0).map((seat: string) => {
             return {
                 price_data: {
                     currency: 'sgd',
                     product_data: {
-                        name: 'G-IDLE Concert Ticket Seat ' + seat,
+                        name: 'G-IDLE Concert Ticket Section ' + section,
                         images: ['https://static.ticketmaster.sg/images/activity/23_gidle_0f639bdb7563bc59155de00cafd8a431.jpg']
                     },
                     unit_amount: 20000
@@ -30,10 +35,11 @@ export async function POST(req: Request) {
             line_items: line_items,
             mode: 'payment',
             metadata: {
-                user: user.sub
+                userId: user.sub,
+                sectionId: section,
             },
-            success_url: 'http://localhost:3000/payment-successful',
-            cancel_url: 'http://localhost:3000/cancel',
+            success_url: 'https://localhost:3000/payment-successful',
+            cancel_url: 'https://localhost:3000/cancel',
         })
 
         return NextResponse.json({ sessionId: stripeSession.id }, { status: 200 })

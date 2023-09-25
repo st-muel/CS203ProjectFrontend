@@ -1,31 +1,21 @@
-'use client'
 
-interface props{
-    numSeats:number
+interface props {
+    quantity: number;
+    setQuantity: (quantity: number) => void;
 }
 
-// function generateOptions(numSeats : number): string {
-//     let options = '';
-//     for (let i = 0 ; i < numSeats ; i++) {
-//       options += `<option>${i}</option>`;
-//     }
-//     console.log(options)
-//     return options;
-// }
-
-export const TableDropDown = (props:props) => {
-    // const seatsOption = generateOptions(props.numSeats)
-    
+export const TableDropDown = (props: props) => {
     return(
-    <main>
-        <select id = "QuantitySelector" className = "w100 form-select">
-            <option>Please select</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            {/* {seatsOption} */}
-        </select>
-    </main>
+        <main>
+            <select 
+                className = "w-1/2 form-select text-black text-center"
+                onSelect={(e) => props.setQuantity(parseInt(e.currentTarget.value))}
+            >
+                { Array(5).fill(0).map((_, i) => {
+                    if (props.quantity == i + 1) return <option selected>{i + 1}</option>
+                    else return <option>{i + 1}</option>
+                }) }
+            </select>
+        </main>
     )
 }
