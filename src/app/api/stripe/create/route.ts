@@ -35,8 +35,8 @@ export async function POST(req: Request) {
             line_items: line_items,
             mode: 'payment',
             metadata: {
-                user: user.sub,
-                section: section,
+                userId: user.sub,
+                sectionId: section,
             },
             success_url: 'https://localhost:3000/payment-successful',
             cancel_url: 'https://localhost:3000/cancel',

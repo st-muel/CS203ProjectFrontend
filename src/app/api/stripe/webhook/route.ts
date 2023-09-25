@@ -17,7 +17,9 @@ export async function POST(req: Request) {
             
             const res = await axios.post(process.env.BACKEND_URL + '/api/payment-completed', {
                 ...metadata,
-                quantity: lineItems.data.length,
+                ticketsBought: lineItems.data.length,
+                concertSessionId: 1,
+                amountPaid: 300,
             })
             
             return NextResponse.json({ }, { status: 200 })
