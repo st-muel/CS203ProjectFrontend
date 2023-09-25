@@ -38,8 +38,8 @@ export async function POST(req: Request) {
                 userId: user.sub,
                 sectionId: section,
             },
-            success_url: 'https://localhost:3000/payment-successful',
-            cancel_url: 'https://localhost:3000/cancel',
+            success_url: `${process.env.PRODUCTION_URL}/payment-successful`,
+            cancel_url: `${process.env.PRODUCTION_URL}/cancel`,
         })
 
         return NextResponse.json({ sessionId: stripeSession.id }, { status: 200 })

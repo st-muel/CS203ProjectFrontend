@@ -1,6 +1,6 @@
 "use client";
 
-export const PaymentSuccessful = () => {
+export default function PaymentSuccessful() {
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-neutral-900">
       <div className="flex flex-col items-center gap-4">
@@ -16,4 +16,3 @@ export const PaymentSuccessful = () => {
   );
 };
 
-export default PaymentSuccessful;

@@ -16,12 +16,16 @@ export interface EventCatalogue {
 }
 
 async function getEventCatalogues() {
-  return await axios.get("http://localhost:8080/api/concerts");
+  try {
+    return (await axios.get("http://localhost:8080/api/concerts")).data;
+  } catch (e) {
+    return []
+  }
 }
 
 export default async function Home(){
-  const eventCataloguesData: EventCatalogue[] = await getEventCatalogues().then(res => res.data as EventCatalogue[]);
-
+  const eventCataloguesData: EventCatalogue[] = await getEventCatalogues();
+  
   return (
     <main>
       <div className="bg-primary-black overflow-hidden">
