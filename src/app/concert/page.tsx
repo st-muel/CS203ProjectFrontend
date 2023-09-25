@@ -27,7 +27,7 @@ interface SectionPricing {
 }
 
 async function getSectionsPricing(concertId: number) {
-  return await axios.get("http://localhost:8080/api/concerts/" + concertId + "/prices");
+  return await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/concerts/${concertId}/prices`);
 }
 
 
