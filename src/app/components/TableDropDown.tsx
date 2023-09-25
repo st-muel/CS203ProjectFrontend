@@ -2,6 +2,7 @@
 
 interface props{
     numSeats:number
+    setNumSeats: (numSeats:number) => void
 }
 
 // function generateOptions(numSeats : number): string {
@@ -18,7 +19,7 @@ export const TableDropDown = (props:props) => {
     
     return(
     <main>
-        <select id = "QuantitySelector" className = "w100 form-select">
+        <select id = "QuantitySelector" className = "w100 form-select" onChange={(e) => props.setNumSeats(e.currentTarget.options.selectedIndex)}> 
             <option>Please select</option>
             <option>1</option>
             <option>2</option>

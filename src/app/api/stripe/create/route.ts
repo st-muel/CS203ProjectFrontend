@@ -9,21 +9,21 @@ export async function POST(req: Request) {
         const user = jwt.decode(jwtToken, process.env.JWT_SECRET_KEY)
 
         const body = await req.json()
-        const seats = body.seats as string[]
+        // const seats = body.seats as string[]
 
-        const line_items = seats.map((seat: string) => {
+        const line_items = (seat: string, numSeats: number) => {
             return {
                 price_data: {
                     currency: 'sgd',
                     product_data: {
-                        name: 'G-IDLE Concert Ticket Seat ' + seat,
+                        name: 'G-IDLE Concert Ticket Seat ' + seat + " x " + numSeats,
                         images: ['https://static.ticketmaster.sg/images/activity/23_gidle_0f639bdb7563bc59155de00cafd8a431.jpg']
                     },
                     unit_amount: 20000
                 },
                 quantity: 1
             }
-        })
+        }
 
         const stripeSession = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],

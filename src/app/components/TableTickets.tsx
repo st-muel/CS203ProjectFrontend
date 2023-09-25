@@ -1,12 +1,53 @@
 "use client";
 import { TableDropDown } from "./TableDropDown";
 import styles from "../styles";
+import { Stripe, loadStripe } from "@stripe/stripe-js";
+import { notification } from "antd";
+import axios from "axios";
+import { useState } from "react";
+import { useAtomValue } from "jotai";
+import { jwtTokenAtom } from "../jotai";
 
 interface props {
   section: string;
+  
 }
 
 export const TableTickets = (props: props) => {
+  const[numSeats, setNumSeats] = useState(0)
+  const [loading, setLoading] = useState(false);
+	const jwtToken = useAtomValue(jwtTokenAtom)
+  const processStripeCheckout = async (selectedSeats: string, numSeats: number) => {
+      try {
+          setLoading(true)
+
+          const stripe = (await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string)) as Stripe
+          const res = await axios.post(
+      '/api/stripe/create', 
+      {
+        seats: selectedSeats,
+        numSeats: numSeats
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${jwtToken}`
+        }
+      }
+    )
+          const sessionId = res.data.sessionId
+          stripe.redirectToCheckout({
+              sessionId: sessionId,
+          })
+      } catch (err) {
+          notification.error({
+              message: 'Error',
+              description: 'Something went wrong. Please try again later.',
+          })
+      } finally {
+          setLoading(false)
+      }
+  }
+
   return (
     <div className={`${styles.innerWidth} mx-auto`}>
       <div className="bg-white py-6 sm:py-8 lg:py-12">
@@ -67,7 +108,9 @@ export const TableTickets = (props: props) => {
                 scope="row"
                 className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
               >
-                <TableDropDown numSeats={3} />
+                <TableDropDown 
+                numSeats={3}
+                setNumSeats={setNumSeats} />
               </th>
               <th
                 scope="row"
@@ -77,7 +120,9 @@ export const TableTickets = (props: props) => {
           </tbody>
         </table>
         <div className="mt-8 mb-12">
-          <button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+          <button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+            onClick={() => processStripeCheckout(props.section,numSeats)}
+          >
             Checkout
           </button>
         </div>
