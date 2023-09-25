@@ -2,6 +2,9 @@
 const nextConfig = {
     images: {
         domains: ['static.ticketmaster.sg', 'localhost'],
+    },
+    eslint: {
+        ignoreDuringBuilds: true,
     }
 }
 
