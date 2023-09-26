@@ -28,10 +28,6 @@ const navItems = [
 		path: "/login",
 		name: "Venues",
 	},
-	{
-		path: "/concert",
-		name: "Concert",
-	},
 ]
 
 const Navbar = () => {
