@@ -28,7 +28,7 @@ export async function POST(req: Request) {
                     },
                     unit_amount: 20000
                 },
-                quantity: quantity
+                quantity: 1
             }
         })
 

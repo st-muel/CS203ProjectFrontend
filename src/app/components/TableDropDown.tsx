@@ -9,7 +9,7 @@ export const TableDropDown = (props: props) => {
         <main>
             <select 
                 className = "w-1/2 form-select text-black text-center"
-                onSelect={(e) => props.setQuantity(parseInt(e.currentTarget.value))}
+                onChange={(e) => props.setQuantity(parseInt(e.currentTarget.value))}
             >
                 { Array(5).fill(0).map((_, i) => {
                     if (props.quantity == i + 1) return <option selected>{i + 1}</option>
