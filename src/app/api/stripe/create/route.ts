@@ -16,13 +16,14 @@ export async function POST(req: Request) {
         const section = body.section
         const quantity = body.quantity
         const concertId = body.concertId
+        const concertTitle = body.concertTitle
 
         const line_items = Array(quantity).fill(0).map((seat: string) => {
             return {
                 price_data: {
                     currency: 'sgd',
                     product_data: {
-                        name: 'G-IDLE Concert Ticket Section ' + section,
+                        name: `${concertTitle} Ticket Section ${section}`,
                         images: ['https://static.ticketmaster.sg/images/activity/23_gidle_0f639bdb7563bc59155de00cafd8a431.jpg']
                     },
                     unit_amount: 20000
@@ -38,7 +39,7 @@ export async function POST(req: Request) {
             metadata: {
                 userId: user.sub,
                 sectionId: section,
-                concertSessionId: concertId
+                concertSessionId: concertId,
             },
             success_url: `${process.env.NEXT_PUBLIC_PRODUCTION_URL}/payment-successful`,
             cancel_url: `${process.env.NEXT_PUBLIC_PRODUCTION_URL}/cancel`,

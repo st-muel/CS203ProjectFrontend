@@ -13,6 +13,7 @@ import { SectionPricing } from "../concert/page";
 interface props {
 	section: string;
 	concertId: number;
+	concertTitle: string;
 }
 
 export const TableTickets = (props: props) => {
@@ -30,7 +31,8 @@ export const TableTickets = (props: props) => {
 				{
 					section: section,
 					concertId: props.concertId,
-					quantity: quantity
+					quantity: quantity,
+					concertTitle: props.concertTitle,
 				},
 				{
 					headers: {

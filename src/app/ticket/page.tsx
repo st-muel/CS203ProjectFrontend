@@ -89,6 +89,7 @@ export default function Ticket({searchParams}: Props) {
               <TableTickets 
                 section={section.split("_")[1]}
                 concertId={searchParams.id}
+                concertTitle={searchParams.title}
               />
             </div>
           )}
