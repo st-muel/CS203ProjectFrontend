@@ -3,7 +3,7 @@ import axios from "axios"
 import { headers } from "next/headers"
 import { NextResponse } from "next/server"
 
-export async function GET(req: Request) {
+export async function POST(req: Request) {
     const body = await req.text()
     const sig = headers().get('stripe-signature') ?? ""
 
