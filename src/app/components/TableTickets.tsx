@@ -8,9 +8,11 @@ import { jwtTokenAtom, userAtom } from "../jotai";
 import { useAtomValue } from "jotai";
 import { notification } from "antd";
 import { FaSpinner } from "react-icons/fa";
+import { SectionPricing } from "../concert/page";
 
 interface props {
 	section: string;
+	concertId: number;
 }
 
 export const TableTickets = (props: props) => {
@@ -27,6 +29,7 @@ export const TableTickets = (props: props) => {
 				'/api/stripe/create', 
 				{
 					section: section,
+					concertId: props.concertId,
 					quantity: quantity
 				},
 				{
@@ -104,7 +107,7 @@ export const TableTickets = (props: props) => {
 								scope="row"
 								className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
 							>
-								$55
+								$200
 							</th>
 							<th
 								scope="row"

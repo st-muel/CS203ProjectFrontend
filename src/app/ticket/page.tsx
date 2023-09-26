@@ -11,11 +11,14 @@ import { useEffect, useState } from "react";
 import { TableTickets } from "../components/TableTickets";
 import Legend from "../components/Legend";
 import styles from "../styles";
+import axios from "axios";
+import { SectionPricing } from "../concert/page";
 
 interface Props {
   searchParams: any;
 }
-export default function Home({searchParams}: Props) {
+
+export default async function Ticket({searchParams}: Props) {
   const [section, setSection] = useState("");
 
   useEffect(() => {
@@ -79,7 +82,10 @@ export default function Home({searchParams}: Props) {
           {section && (
             <div className="bg-white" id="ticketsection">
               {" "}
-              <TableTickets section={section.split("_")[1]} />
+              <TableTickets 
+                section={section.split("_")[1]}
+                concertId={searchParams.id}
+              />
             </div>
           )}
         </div>

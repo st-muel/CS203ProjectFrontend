@@ -11,14 +11,13 @@ interface Props {
   searchParams: any;
 }
 
-
 export interface PricingDetail {
   imgUrl: string;
   title: string;
   subtitle: string[]; 
 }
 
-interface SectionPricing {
+export interface SectionPricing {
   section: {
     id: number;
     name: string;
@@ -30,8 +29,7 @@ async function getSectionsPricing(concertId: number) {
   return await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/concerts/${concertId}/prices`);
 }
 
-
-export default async function Home(
+export default async function Concert(
   {searchParams}: Props
 ) {
   const sectionPricing = await getSectionsPricing(searchParams.id).then(res => res.data as SectionPricing[]);

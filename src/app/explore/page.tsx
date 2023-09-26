@@ -32,7 +32,7 @@ export default async function Home(){
         <Navbar />
         <div>
           <Events eventCatalogues={eventCataloguesData} />
-          <div className="gradient-03 z-0" />
+          <div className="gradient-03 z-0 pointer-events-none" />
           {/* <Navbar /> */}
         </div>
         <div className="relative">

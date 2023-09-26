@@ -25,12 +25,8 @@ const navItems = [
 		name: "Explore",
 	},
 	{
-		path: "/login",
+		path: "/#",
 		name: "Venues",
-	},
-	{
-		path: "/concert",
-		name: "Concert",
 	},
 ]
 

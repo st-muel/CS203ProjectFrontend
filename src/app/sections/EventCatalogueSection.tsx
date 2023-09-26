@@ -24,7 +24,7 @@ export default function EventCatalogueSection({eventCatalogues}: Props) {
         <div className="mx-auto flex justify-items-center flex lg:flex-row flex-col grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 pt-20 pb-10 lg:pt-40 lg:pb-20">
           {eventCatalogues.map((eventCatalogue, index) => (
             <ExploreCard
-              key={eventCatalogue.title}
+              key={`event-card-${eventCatalogue.title}`}
               id={eventCatalogue.id}
               index={index}
               imgUrl={

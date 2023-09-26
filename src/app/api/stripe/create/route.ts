@@ -15,6 +15,7 @@ export async function POST(req: Request) {
         const body = await req.json()
         const section = body.section
         const quantity = body.quantity
+        const concertId = body.concertId
 
         const line_items = Array(quantity).fill(0).map((seat: string) => {
             return {
@@ -37,6 +38,7 @@ export async function POST(req: Request) {
             metadata: {
                 userId: user.sub,
                 sectionId: section,
+                concertSessionId: concertId
             },
             success_url: `${process.env.NEXT_PUBLIC_PRODUCTION_URL}/payment-successful`,
             cancel_url: `${process.env.NEXT_PUBLIC_PRODUCTION_URL}/cancel`,
