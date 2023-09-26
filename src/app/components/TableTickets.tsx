@@ -7,6 +7,7 @@ import { useState } from "react";
 import { jwtTokenAtom, userAtom } from "../jotai";
 import { useAtomValue } from "jotai";
 import { notification } from "antd";
+import { FaSpinner } from "react-icons/fa";
 
 interface props {
 	section: string;
@@ -120,10 +121,15 @@ export const TableTickets = (props: props) => {
 				</table>
 				<div className="mt-8 mb-12">
 					<button 
-						className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+						className="flex justify-center items-center w-[150px] h-[50px] bg-blue-500 hover:bg-blue-400 disabled:bg-neutral-500 disabled:hover:bg-neutral-500 disabled:cursor-default disabled:border-neutral-700 disabled:hover:border-neutral-700 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
 						onClick={() => processStripeCheckout(props.section)}
+						disabled={loading}
 					>
-						Checkout
+						{ loading ? (
+							<FaSpinner />
+						) : (
+							<div>Checkout</div>
+						)}
 					</button>
 				</div>
 			</div>

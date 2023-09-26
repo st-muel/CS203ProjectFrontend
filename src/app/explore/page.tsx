@@ -17,7 +17,7 @@ export interface EventCatalogue {
 
 async function getEventCatalogues() {
   try {
-    return (await axios.get("http://localhost:8080/api/concerts")).data;
+    return (await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/concerts`)).data;
   } catch (e) {
     return []
   }

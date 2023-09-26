@@ -22,7 +22,7 @@ const SigninForm = (props: props) => {
 	const onSubmit = async () => {
 		try {
 			const res = await axios.post(
-				"http://localhost:8080/api/auth/signin",
+				`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/signin`,
 				{ 
 					username,
 					password
