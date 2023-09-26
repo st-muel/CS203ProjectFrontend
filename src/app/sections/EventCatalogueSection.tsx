@@ -11,7 +11,6 @@ interface Props {
 }
 
 export default function EventCatalogueSection({eventCatalogues}: Props) {
-    const BASE_URL = "http://localhost:8080/api";
     return (
         <motion.div
         variants={staggerContainer}
@@ -29,7 +28,8 @@ export default function EventCatalogueSection({eventCatalogues}: Props) {
               id={eventCatalogue.id}
               index={index}
               imgUrl={
-                BASE_URL +
+                process.env.NEXT_PUBLIC_BACKEND_URL +
+                "/api" +
                 "/concerts/" +
                 eventCatalogue.id +
                 "/images/" +
