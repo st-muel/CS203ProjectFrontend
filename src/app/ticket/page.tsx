@@ -18,7 +18,7 @@ interface Props {
   searchParams: any;
 }
 
-export default async function Ticket({searchParams}: Props) {
+export default function Ticket({searchParams}: Props) {
   const [section, setSection] = useState("");
 
   useEffect(() => {
