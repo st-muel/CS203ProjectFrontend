@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import styles from "../styles";
 import { fadeIn } from "../utils/motion";
 import Link from "next/link";
+import Image from "next/image";
 
 interface Props {
   key: string;
@@ -46,11 +47,15 @@ const ExploreCard = ({
       className="flex md:flex-row flex-col gap-2"
     >
       <div className="rounded overflow-hidden shadow-lg">
-        <img
-          className="object-contain h-48 w-96 md:object-scale-down bg-stone-600"
-          src={imgUrl}
-          alt=""
-        ></img>
+        <div className="relative h-48 w-96 bg-stone-600">
+          <Image
+            className="md:object-scale-down"
+            src={imgUrl}
+            alt=""
+            objectFit="contain"
+            fill
+          />
+        </div>
 
         <div className="px-6 py-4 bg-stone-900/50">
           <div className="font-bold text-xl mb-2">{title}</div>

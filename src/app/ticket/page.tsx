@@ -33,11 +33,15 @@ export default async function Ticket({searchParams}: Props) {
           <div
             className={`${styles.innerWidth} mx-auto flex md:flex-row flex-col gap-4 justify-center`}
           >
-            <img
-              src={searchParams.imgUrl}
-              alt="concert"
-              className="md:w-[270px] w-full h-[150px] rounded-[32px] object-cover"
-            />
+            <div className="relative md:w-[270px] w-full h-[150px]">
+              <Image
+                className="rounded-[32px]"
+                src={searchParams.imgUrl}
+                alt="concert"
+                objectFit="cover"
+                fill
+              />
+            </div>
             <div className="w-full flex justify-between items-center">
               <div className="flex-1 md:ml-[62px] flex flex-col max-w-[650px]">
                 <h4 className="font-normal lg:text-[40px] text-[26px] text-black">
