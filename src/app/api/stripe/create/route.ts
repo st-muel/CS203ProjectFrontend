@@ -37,7 +37,7 @@ export async function POST(req: Request) {
             line_items: line_items,
             mode: 'payment',
             metadata: {
-                userId: user.sub,
+                userId: user.id,
                 sectionId: section,
                 concertSessionId: concertId,
             },
