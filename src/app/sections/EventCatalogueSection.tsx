@@ -29,7 +29,6 @@ export default function EventCatalogueSection({eventCatalogues}: Props) {
               index={index}
               imgUrl={
                 process.env.NEXT_PUBLIC_BACKEND_URL +
-                "/api" +
                 "/concerts/" +
                 eventCatalogue.id +
                 "/images/" +

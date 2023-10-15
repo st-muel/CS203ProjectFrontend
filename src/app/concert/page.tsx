@@ -26,7 +26,7 @@ export interface SectionPricing {
 }
 
 async function getSectionsPricing(concertId: number) {
-  return await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/concerts/${concertId}/prices`);
+  return await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${concertId}/prices`);
 }
 
 export default async function Concert(

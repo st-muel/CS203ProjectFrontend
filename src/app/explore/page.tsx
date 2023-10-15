@@ -3,6 +3,8 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Events from "../sections/Events";
 import axios from "axios";
+import { useAtom } from "jotai";
+import { jwtTokenAtom } from "../jotai";
 
 export interface EventCatalogue {
   id: number;
@@ -17,7 +19,7 @@ export interface EventCatalogue {
 
 async function getEventCatalogues() {
   try {
-    return (await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/concerts`)).data;
+    return (await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts`)).data;
   } catch (e) {
     return []
   }
