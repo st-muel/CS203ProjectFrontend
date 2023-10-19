@@ -1,7 +1,7 @@
 'use client';
 
 import { Modal } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface props {
   open: boolean;
@@ -22,15 +22,21 @@ const CreateConcertModal = (props: props) => {
             return [
                 ...prev,
                 {
-                title: "Taylor Swift ERAS Concert",
-                image:
-                    "https://static.ticketmaster.sg/images/activity/23_vibes2023_7838b3ee8f09a88967c31166a4c6c907.png",
+                title: title,
+                image: image,
                 },
             ];
         })
 
         props.setOpen(false);
     }
+
+    useEffect(() => {
+        if (!props.open) {
+            setTitle("");
+            setImage("");
+        }
+    }, [props.open])
 
     return (
         <>

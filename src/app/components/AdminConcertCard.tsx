@@ -19,7 +19,7 @@ const AdminConcertCard = (props: props) => {
             </div>
             <div className="flex justify-between w-2/3 p-12">
                 <div>
-                    <div className="text-gray-800 text-2xl tracking-tight font-semibold">Taylor Swift ERAS Concert</div>
+                    <div className="text-gray-800 text-2xl tracking-tight font-semibold">{ props.concert.title }</div>
                     <div className="text-gray-500 text-lg">Starts 1 September 2023</div>
                 </div>
                 <div className="flex gap-2 items-center">
