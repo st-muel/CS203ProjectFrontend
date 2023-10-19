@@ -15,6 +15,12 @@ export default function Admin() {
     const [concerts, setConcerts] = useState<Concert[]>([]);
     const [search, setSearch] = useState("");
 
+    const deleteConcert = (idx: number) => {
+        setConcerts((prev) => {
+            return prev.filter((_, index) => index !== idx);
+        });
+    }
+
     return (
         <div className="min-h-screen bg-white">
             <CreateConcertModal 
@@ -52,6 +58,7 @@ export default function Admin() {
                                 <AdminConcertCard 
                                     key={ `concert-card-${idx}` }
                                     concert={concert}
+                                    deleteConcert={() => deleteConcert(idx)}
                                 />
                             )
                         }) }

@@ -3,6 +3,7 @@ import { Concert } from "../admin/page";
 
 interface props {
     concert: Concert;
+    deleteConcert: () => void;
 }
 
 const AdminConcertCard = (props: props) => {
@@ -23,7 +24,12 @@ const AdminConcertCard = (props: props) => {
                 </div>
                 <div className="flex gap-2 items-center">
                     <button className="text-white text-sm bg-indigo-600 rounded-md h-12 px-6 transition hover:bg-indigo-500">Edit</button>
-                    <button className="text-white text-sm bg-red-600 rounded-md h-12 px-6 transition hover:bg-red-500">Delete</button>
+                    <button 
+                        className="text-white text-sm bg-red-600 rounded-md h-12 px-6 transition hover:bg-red-500"
+                        onClick={props.deleteConcert}
+                    >
+                        Delete
+                    </button>
                 </div>
             </div>
         </div>
