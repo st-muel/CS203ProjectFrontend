@@ -8,26 +8,26 @@ import { Concert, Venue } from "../admin/page";
 interface props {
   open: boolean;
   setOpen: (open: boolean) => void;
-  setConcerts: (concerts: any) => void;
+  concert: Concert
 }
 
-const CreateConcertModal = (props: props) => {
+const EditConcertModal = (props: props) => {
     const [venues, setVenues] = useState<Venue[]>([]);
-    const [title, setTitle] = useState("");
-    const [image, setImage] = useState("");
-    const [description, setDescription] = useState("");
-    const [artist, setArtist] = useState("");
-    const [venue, setVenue] = useState(-1);
-    const [ballotStart, setBallotStart] = useState("");
-    const [ballotEnd, setBallotEnd] = useState("");
+    const [title, setTitle] = useState(props.concert.title);
+    const [image, setImage] = useState(props.concert.image);
+    const [description, setDescription] = useState(props.concert.description);
+    const [artist, setArtist] = useState(props.concert.artist);
+    const [venue, setVenue] = useState(props.concert.venue);
+    const [ballotStart, setBallotStart] = useState(props.concert.ballotStart);
+    const [ballotEnd, setBallotEnd] = useState(props.concert.ballotEnd);
 
     const handleCancel = () => {
         props.setOpen(false);
     };
 
-    const createConcert = async () => {
+    const updateConcert = async () => {
         try {
-            const res = await axios.post<Concert>(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/concerts`, {
+            const res = await axios.put<Concert>(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/concerts/${props.concert.id}`, {
                 title: title,
                 image: image,
                 description: description,
@@ -35,25 +35,9 @@ const CreateConcertModal = (props: props) => {
                 venue: venue,
             });
 
-            props.setConcerts((prev: any) => {
-                return [
-                    ...prev,
-                    {
-                        id: res.data.id,
-                        title: title,
-                        image: image,
-                        description: description,
-                        artist: artist,
-                        venue: venue,
-                        ballotStart: ballotStart,
-                        ballotEnd: ballotEnd,
-                    },
-                ];
-            })
-
             notification.success({
                 message: "Success",
-                description: "Concert created successfully."
+                description: "Concert edited successfully."
             });
             props.setOpen(false);
         } catch (err) {
@@ -63,18 +47,6 @@ const CreateConcertModal = (props: props) => {
             });
         }
     }
-
-    useEffect(() => {
-        if (!props.open) {
-            setTitle("");
-            setImage("");
-            setDescription("");
-            setArtist("");
-            setVenue(-1);
-            setBallotStart("");
-            setBallotEnd("");
-        }
-    }, [props.open])
 
     useEffect(() => {
         const getVenues = async () => {
@@ -103,7 +75,7 @@ const CreateConcertModal = (props: props) => {
             >
                 <div className="relative flex flex-col items-center justify-center">
                     <div className="w-full p-6 bg-white rounded-md lg:max-w-xl">
-                        <h1 className="text-3xl font-bold text-center text-gray-700">Create Concert</h1>
+                        <h1 className="text-3xl font-bold text-center text-gray-700">Edit Concert</h1>
                         <form className="flex flex-col gap-4 mt-6">
                             <div>
                                 <label
@@ -205,9 +177,9 @@ const CreateConcertModal = (props: props) => {
                     <div className="relative flex items-center justify-center w-full mt-4 mb-3">
                         <button 
                             className="absolute px-5 px-3 py-2 bg-indigo-600 text-white rounded-md transition hover:bg-indigo-500"
-                            onClick={createConcert}
+                            onClick={updateConcert}
                         >
-                            Create
+                            Edit
                         </button>
                     </div>
                 </div>
@@ -216,4 +188,4 @@ const CreateConcertModal = (props: props) => {
     );
 };
 
-export default CreateConcertModal;
+export default EditConcertModal;

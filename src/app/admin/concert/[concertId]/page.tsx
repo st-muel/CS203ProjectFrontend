@@ -1,14 +1,44 @@
 'use client';
 
 import BallotGraph from "@/app/components/BallotGraph";
+import EditConcertModal from "@/app/components/EditConcertModal";
 import Image from "next/image";
 import Link from "next/link";
 import { FaEdit, FaLocationArrow, FaPauseCircle, FaStopCircle, FaUser } from "react-icons/fa";
+import { Concert } from "../../page";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { notification } from "antd";
 
-export default function Concert() {
+export default function Concert({ concertId }: { concertId: string  }) {
+    const [concert, setConcert] = useState<Concert>();
+    const [editModalOpen, setEditModalOpen] = useState(false);
+
+    useEffect(() => {
+        const getConcert = async () => {
+            try {
+                const res = await axios.get<Concert>(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/concerts/${concertId}`);
+                setConcert(res.data);
+            } catch (err) {
+                notification.error({
+                    message: "Error",
+                    description: "An error has occurred. Please try again later."
+                });
+            }
+        }
+
+        getConcert();
+    })
 
     return (
         <div className="min-h-screen bg-white">
+            { concert && (
+                <EditConcertModal 
+                    open={editModalOpen}
+                    setOpen={setEditModalOpen}
+                    concert={concert}
+                />
+            )}
             <header className="bg-white shadow">
                 <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
                     <Link href="/admin">

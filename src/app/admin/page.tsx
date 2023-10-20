@@ -1,12 +1,15 @@
 'use client';
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AdminConcertCard from "../components/AdminConcertCard";
 import CreateConcertModal from "../components/CreateConcertModal";
 import { FaPlusCircle } from "react-icons/fa";
 import Link from "next/link";
+import axios from "axios";
+import { notification } from "antd";
 
 export interface Concert {
+    id: number;
     title: string;
     image: string;
     description: string;
@@ -16,10 +19,31 @@ export interface Concert {
     ballotEnd: string;
 }
 
+export interface Venue {
+    id: number;
+    name: string;
+}
+
 export default function Admin() {
     const [open, setOpen] = useState(false);
     const [concerts, setConcerts] = useState<Concert[]>([]);
     const [search, setSearch] = useState("");
+
+    useEffect(() => {
+        const getConcerts = async () => {
+            try {
+                const res = await axios.get<Concert[]>(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/concerts`);
+                setConcerts(res.data);
+            } catch (err) {
+                notification.error({
+                    message: "Error",
+                    description: "An error has occurred. Please try again later."
+                });
+            }
+        }
+
+        getConcerts();
+    }, [])
 
     const deleteConcert = (idx: number) => {
         setConcerts((prev) => {
