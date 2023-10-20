@@ -22,10 +22,10 @@ const AdminConcertCard = (props: props) => {
                     />
                 </div>
                 <div className="flex justify-between w-2/3 p-12">
-                    <div className="flex flex-col">
+                    <div className="flex flex-col w-1/2">
                         <div className="text-gray-800 text-2xl tracking-tight font-semibold">{ props.concert.title }</div>
                         <div className="text-gray-500 text-sm">{ props.concert.artist }</div>
-                        <div className="text-gray-600 text-lg pt-4">{ props.concert.description }</div>
+                        <div className="text-gray-600 text-md pt-4">{ props.concert.description }</div>
                     </div>
                     <div className="flex gap-2 items-center">
                         <button className="flex gap-2 justify-between items-center px-3 py-2 rounded-md bg-indigo-600 text-white transition hover:bg-indigo-500">

@@ -4,6 +4,8 @@ import { Modal, notification } from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Concert, Venue } from "../admin/page";
+import { jwtTokenAtom } from "../jotai";
+import { useAtomValue } from "jotai";
 
 interface props {
   open: boolean;
@@ -12,6 +14,8 @@ interface props {
 }
 
 const CreateConcertModal = (props: props) => {
+    const jwtToken = useAtomValue(jwtTokenAtom);
+
     const [venues, setVenues] = useState<Venue[]>([]);
     const [title, setTitle] = useState("");
     const [image, setImage] = useState("");
@@ -27,7 +31,7 @@ const CreateConcertModal = (props: props) => {
 
     const createConcert = async () => {
         try {
-            const res = await axios.post<Concert>(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/concerts`, {
+            const res = await axios.post<Concert>(`${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/concerts`, {
                 title: title,
                 image: image,
                 description: description,
@@ -79,7 +83,7 @@ const CreateConcertModal = (props: props) => {
     useEffect(() => {
         const getVenues = async () => {
             try {
-                const res = await axios.get<Venue[]>(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/venues`);
+                const res = await axios.get<Venue[]>(`${process.env.NEXT_PUBLIC_BACKEND_URL}/venues`,);
                 setVenues(res.data);
             } catch (err) {
                 notification.error({

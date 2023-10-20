@@ -11,6 +11,7 @@ interface Props {
 }
 
 export default function EventCatalogueSection({eventCatalogues}: Props) {
+    console.log(eventCatalogues)
     return (
         <motion.div
         variants={staggerContainer}
@@ -28,19 +29,16 @@ export default function EventCatalogueSection({eventCatalogues}: Props) {
               id={eventCatalogue.id}
               index={index}
               imgUrl={
-                process.env.NEXT_PUBLIC_BACKEND_URL +
-                "/api" +
-                "/concerts/" +
-                eventCatalogue.id +
-                "/images/" +
-                eventCatalogue.concertImages[0].id
+                eventCatalogue.concertImages.length > 0 ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/concerts/${eventCatalogue.id}/images/${eventCatalogue.concertImages[0].id}` : ""
               }
               title={eventCatalogue.title}
               loc={eventCatalogue.venue.name}
               startDate={
-                eventCatalogue.earliestSession.datetime
+                eventCatalogue.earliestSession ? eventCatalogue.earliestSession.datetime : ""
               }
-              endDate={eventCatalogue.latestSession.datetime}
+              endDate={
+                eventCatalogue.latestSession ? eventCatalogue.latestSession.datetime : ""
+              }
               description={eventCatalogue.description}
             />
           ))}

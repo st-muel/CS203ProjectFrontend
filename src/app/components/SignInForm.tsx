@@ -7,7 +7,7 @@ import axios from "axios";
 import Link from "next/link";
 import { useSetAtom } from "jotai";
 import { notification } from "antd";
-import { jwtTokenAtom } from "../jotai";
+import { jwtTokenAtom, userAtom } from "../jotai";
 
 interface props {
 	setOpen: (open: boolean) => void;
@@ -15,6 +15,7 @@ interface props {
 
 const SigninForm = (props: props) => {
 	const setJwtToken = useSetAtom(jwtTokenAtom)
+	const setUser = useSetAtom(userAtom)
 
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
@@ -22,20 +23,15 @@ const SigninForm = (props: props) => {
 	const onSubmit = async () => {
 		try {
 			const res = await axios.post(
-				`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/signin`,
+				`${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/auth/signin`,
 				{ 
 					username,
 					password
 				},
-				{
-					headers: {
-						"Content-Type": "application/json",
-						Accept: "application/json",
-					},
-				}
 			)
 
 			setJwtToken(res.data.token)
+			setUser(res.data)
 			props.setOpen(false)
 		} catch (e) {
 			setUsername("")
@@ -90,7 +86,7 @@ const SigninForm = (props: props) => {
 					>
 						Forget Password?
 					</Link>
-					<div className="mt-2">
+					<div className="mt-2 cursor-pointer">
 						<div
 							className={rc(
 								buttonVariants({ variant: "default", size: "autosize" })

@@ -32,7 +32,7 @@ export default function Admin() {
     useEffect(() => {
         const getConcerts = async () => {
             try {
-                const res = await axios.get<Concert[]>(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/concerts`);
+                const res = await axios.get<Concert[]>(`${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/concerts`);
                 setConcerts(res.data);
             } catch (err) {
                 notification.error({
