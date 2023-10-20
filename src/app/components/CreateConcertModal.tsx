@@ -12,6 +12,11 @@ interface props {
 const CreateConcertModal = (props: props) => {
     const [title, setTitle] = useState("");
     const [image, setImage] = useState("");
+    const [description, setDescription] = useState("");
+    const [artist, setArtist] = useState("");
+    const [venue, setVenue] = useState(-1);
+    const [ballotStart, setBallotStart] = useState("");
+    const [ballotEnd, setBallotEnd] = useState("");
 
     const handleCancel = () => {
         props.setOpen(false);
@@ -22,8 +27,13 @@ const CreateConcertModal = (props: props) => {
             return [
                 ...prev,
                 {
-                title: title,
-                image: image,
+                    title: title,
+                    image: image,
+                    description: description,
+                    artist: artist,
+                    venue: venue,
+                    ballotStart: ballotStart,
+                    ballotEnd: ballotEnd,
                 },
             ];
         })
@@ -81,11 +91,51 @@ const CreateConcertModal = (props: props) => {
                                 <label
                                     className="block text-sm font-semibold text-gray-800"
                                 >
+                                    Description
+                                </label>
+                                <textarea
+                                    className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md focus:border-gray-400 focus:ring-gray-300 focus:outline-none focus:ring focus:ring-opacity-40 resize-none"
+                                    value={description}
+                                    onChange={(e) => setDescription(e.target.value)}
+                                />
+                            </div>
+                            <div>
+                                <label
+                                    className="block text-sm font-semibold text-gray-800"
+                                >
+                                    Artist
+                                </label>
+                                <input
+                                    className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md focus:border-gray-400 focus:ring-gray-300 focus:outline-none focus:ring focus:ring-opacity-40 resize-none"
+                                    value={artist}
+                                    onChange={(e) => setArtist(e.target.value)}
+                                />
+                            </div>
+                            <div>
+                                <label
+                                    className="block text-sm font-semibold text-gray-800"
+                                >
+                                    Venue
+                                </label>
+                                <select
+                                    className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md focus:border-gray-400 focus:ring-gray-300 focus:outline-none focus:ring focus:ring-opacity-40 resize-none"
+                                    value={venue}
+                                    onChange={(e) => setVenue(parseInt(e.target.value))}
+                                >
+                                    <option value={0}>Singapore Stadium</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label
+                                    className="block text-sm font-semibold text-gray-800"
+                                >
                                     Ballot Start
                                 </label>
                                 <input
                                     type="datetime-local"
                                     className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md focus:border-gray-400 focus:ring-gray-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                    value={ballotStart}
+                                    onChange={(e) => setBallotStart(e.target.value)}
                                 />
                             </div>
                             <div>
@@ -97,6 +147,8 @@ const CreateConcertModal = (props: props) => {
                                 <input
                                     type="datetime-local"
                                     className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md focus:border-gray-400 focus:ring-gray-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                                    value={ballotEnd}
+                                    onChange={(e) => setBallotEnd(e.target.value)}
                                 />
                             </div>
                         </form>

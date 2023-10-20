@@ -4,10 +4,16 @@ import { useState } from "react";
 import AdminConcertCard from "../components/AdminConcertCard";
 import CreateConcertModal from "../components/CreateConcertModal";
 import { FaPlusCircle } from "react-icons/fa";
+import Link from "next/link";
 
 export interface Concert {
     title: string;
     image: string;
+    description: string;
+    artist: string;
+    venue: number;
+    ballotStart: string;
+    ballotEnd: string;
 }
 
 export default function Admin() {
@@ -30,7 +36,9 @@ export default function Admin() {
             />
             <header className="bg-white shadow">
                 <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                    <h1 className="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
+                    <Link href="/admin">
+                        <h1 className="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
+                    </Link>
                 </div>
             </header>
             <main>
