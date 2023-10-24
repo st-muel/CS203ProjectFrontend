@@ -14,6 +14,7 @@ import Link from "next/link";
 import { useAtom, useAtomValue } from "jotai";
 import { notification } from "antd";
 import { jwtTokenAtom, userAtom } from "../jotai";
+import SignUpModal from "./SignUpModal";
 
 const navItems = [
   {
@@ -34,6 +35,7 @@ const Navbar = () => {
   const [jwtToken, setJwtToken] = useAtom(jwtTokenAtom);
   const user = useAtomValue(userAtom);
   const [open, setOpen] = useState(false);
+  const [openSignup, setSignupOpen] = useState(false);
 
   let pathname = usePathname() || "/";
   const [hoveredPath, setHoveredPath] = useState(pathname);
@@ -52,6 +54,7 @@ const Navbar = () => {
   return (
     <div>
       <SignInModal open={open} setOpen={setOpen} />
+      <SignUpModal openSignup={openSignup} setSignupOpen={setSignupOpen}/>
       <motion.nav
         variants={navVariants}
         initial="hidden"
@@ -132,7 +135,7 @@ const Navbar = () => {
               ) : (
                 <div className="flex space-x-[15px]">
                   <a
-                    href="/login"
+                    onClick={() => setSignupOpen(true)}
                     className="relative inline-flex items-center justify-start px-6 py-2 overflow-hidden font-medium transition-all bg-stone-900/50 rounded hover:bg-white group"
                   >
                     <span className="w-48 h-48 rounded rotate-[-40deg] bg-purple-500 absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-24 group-hover:translate-x-0"></span>
