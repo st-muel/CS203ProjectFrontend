@@ -32,8 +32,8 @@ export default function EventCatalogueSection({ eventCatalogues }: Props) {
                 imgUrl="https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
                 title={eventCatalogue.title}
                 loc={eventCatalogue.venue.name}
-                startDate={eventCatalogue.earliestSession.datetime}
-                endDate={eventCatalogue.latestSession.datetime}
+                startDate={eventCatalogue.earliestSession == null ? "" : eventCatalogue.earliestSession.datetime}
+                endDate={eventCatalogue.latestSession == null ? "" : eventCatalogue.latestSession.datetime}
                 description={eventCatalogue.description}
               />
             );

@@ -3,16 +3,11 @@
 import Image from "next/image";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Carousel } from "../components/Carousel";
-import { ChooseSections } from "../components/ChooseSections";
-import SeatSelector from "../components/SeatSelector";
 import Seatmap from "../components/Seatmap";
 import { useEffect, useState } from "react";
 import { TableTickets } from "../components/TableTickets";
 import Legend from "../components/Legend";
 import styles from "../styles";
-import axios from "axios";
-import { SectionPricing } from "../concert/page";
 
 interface Props {
   searchParams: any;
@@ -59,7 +54,7 @@ export default function Ticket({searchParams}: Props) {
               <div className="mx-auto max-w-screen-2xl">
                 <div className="rounded-lg bg-gray-100 py-3 md:py-5 lg:py-7">
                   <h2 className="text-center text-2xl font-bold text-indigo-500 lg:text-3xl">
-                    Choose Your Section
+                    Choose Your Category
                   </h2>
                 </div>
               </div>

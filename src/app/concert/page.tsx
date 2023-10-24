@@ -18,9 +18,13 @@ export interface PricingDetail {
 }
 
 export interface SectionPricing {
-  section: {
+  category: {
     id: number;
     name: string;
+    venue: {
+      id: string;
+      name: string;
+    };
   },
   price: number;
 }
@@ -43,7 +47,7 @@ export default async function Concert(
     {
       imgUrl: "/ticket.svg",
       title: "Standard",
-      subtitle: sectionPricing.map(sectionPricing => sectionPricing.section.name + ": $" + sectionPricing.price),
+      subtitle: sectionPricing.map(sectionPricing => sectionPricing.category.name + ": $" + sectionPricing.price),
     },
     {
       imgUrl: "/note.svg",

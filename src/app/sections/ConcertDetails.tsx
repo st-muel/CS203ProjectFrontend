@@ -57,9 +57,10 @@ const ConcertDetails = (
               className="relative mt-[30px] justify-end"
             >
               <div className="flex flex-col gap-10">
+                //TODO link to balloting
                 <Link
                   href={{
-                    pathname: "/ticket",
+                    pathname: "/ballot",
                     query: {
                       id: id,
                       imgUrl: imgUrl,
