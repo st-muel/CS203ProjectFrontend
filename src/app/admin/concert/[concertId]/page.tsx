@@ -9,15 +9,19 @@ import { Concert } from "../../page";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { notification } from "antd";
+import { useRouter } from "next/router";
+import { useSearchParams } from "next/navigation";
 
-export default function Concert({ concertId }: { concertId: string  }) {
+export default function Concert({ params }: { params: { concertId: string }  }) {
+    const searchParams = useSearchParams();
+
     const [concert, setConcert] = useState<Concert>();
     const [editModalOpen, setEditModalOpen] = useState(false);
 
     useEffect(() => {
         const getConcert = async () => {
             try {
-                const res = await axios.get<Concert>(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/concerts/${concertId}`);
+                const res = await axios.get<Concert>(`${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/concerts/${params.concertId}`);
                 setConcert(res.data);
             } catch (err) {
                 notification.error({
@@ -28,7 +32,13 @@ export default function Concert({ concertId }: { concertId: string  }) {
         }
 
         getConcert();
-    })
+    }, [])
+
+    if (!concert) return (
+        <div className="min-h-screen w-full flex justify-center items-center bg-white">
+            <div className="animate-spin rounded-full h-10 w-10 border-b border-gray-800" />
+        </div>
+    )
 
     return (
         <div className="min-h-screen bg-white">
@@ -49,7 +59,7 @@ export default function Concert({ concertId }: { concertId: string  }) {
             <main>
                 <div className="flex flex-col items-center gap-8 mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
                    <div className="flex w-full justify-between items-center">
-                        <div className="text-2xl font-semibold text-gray-800">Taylor Swift Eras Tour</div>
+                        <div className="text-2xl font-semibold text-gray-800">{ concert.title }</div>
                         <div className="flex gap-2">
                             <button className="flex gap-2 justify-between items-center px-3 py-2 rounded-md bg-gray-600 text-white transition hover:bg-gray-500">
                                 <FaEdit /> Edit
@@ -64,7 +74,7 @@ export default function Concert({ concertId }: { concertId: string  }) {
                     </div>
                     <div className="relative w-full h-[200px]">
                         <Image
-                            src="https://static.ticketmaster.sg/images/activity/23_vibes2023_7838b3ee8f09a88967c31166a4c6c907.png"
+                            src={ `${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/concerts/${params.concertId}/images/1}` }
                             alt=""
                             className="object-cover rounded-md"
                             fill 
@@ -74,15 +84,17 @@ export default function Concert({ concertId }: { concertId: string  }) {
                         <BallotGraph />
                     </div>
                     <div className="flex gap-16 w-10/12 mb-20">
-                        <div className="w-2/3 text-gray-600 text-medium font-medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                        <div className="w-2/3 text-gray-600 text-medium font-medium">{ concert.description }</div>
                         <div className="flex flex-col gap-3 w-1/3">
                             <div className="flex text-gray-800 items-center gap-2 ">
                                 <FaUser />
-                                <div>Taylor Swift</div>
+                                <div>{ concert.artist }</div>
                             </div>
                             <div className="flex text-gray-800 items-center gap-2">
                                 <FaLocationArrow />
-                                <div>Singapore Stadium</div>
+                                { concert && (
+                                    <div>{ concert.venue.name }</div>
+                                )}
                             </div>
                         </div>
                     </div>

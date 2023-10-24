@@ -9,10 +9,11 @@ interface props {
 }
 
 const AdminConcertCard = (props: props) => {
+    console.log(props.concert)
     return (
-        <Link href="/admin/concert/1" className="w-full">
+        <Link href={ `/admin/concert/${props.concert.id}` }  className="w-full">
             <div className="relative flex items-center w-full border rounded-md h-[200px] cursor-pointer">
-                <div className="absolute top-0 right-0 text-gray-500 tracking-wide p-2 text-md">Singapore Stadium</div>
+                <div className="absolute top-0 right-0 text-gray-500 tracking-wide p-2 text-md">{ props.concert.venue.name }</div>
                 <div className="relative w-1/3 h-full">
                     <Image
                         src="https://static.ticketmaster.sg/images/activity/23_vibes2023_7838b3ee8f09a88967c31166a4c6c907.png"

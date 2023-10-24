@@ -14,7 +14,7 @@ export interface Concert {
     image: string;
     description: string;
     artist: string;
-    venue: number;
+    venue: Venue;
     ballotStart: string;
     ballotEnd: string;
 }
