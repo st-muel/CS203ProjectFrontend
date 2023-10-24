@@ -9,6 +9,7 @@ import { CategoryTable } from "../components/CategoryTable";
 import Legend from "../components/Legend";
 import styles from "../styles";
 import axios from "axios";
+import { get } from "http";
 
 interface Props {
   searchParams: any;
@@ -38,8 +39,6 @@ async function getCategoryPricing(concertId: number) {
   }
 }
 
-function getPriceByCategoryId(categoryId: string) {}
-
 export default function Ballot({ searchParams }: Props) {
   const [categoryId, setCategoryId] = useState("");
   const [catPricing, setCatPricing] = useState<CategoryPricing[]>([]);
@@ -58,6 +57,17 @@ export default function Ballot({ searchParams }: Props) {
   useEffect(() => {
     console.log(categoryId);
   }, [categoryId]);
+
+  const getPriceByCategoryId = () => {
+    let price = 0.0;
+    catPricing.forEach((pricing) => {
+      if (pricing.category.id + "" == categoryId) {
+        price = pricing.price;
+      }
+    });
+    return price;
+  }
+
 
   return (
     <main>
@@ -113,15 +123,8 @@ export default function Ballot({ searchParams }: Props) {
               {" "}
               <CategoryTable
                 category={categoryId}
-                price={() => {
-                  let price = 0.0;
-                  catPricing.forEach((pricing) => {
-                    if (pricing.category.id + "" == categoryId) {
-                      price = pricing.price;
-                    }
-                  });
-                  return price;
-                }}
+                price={getPriceByCategoryId()}
+                concertId={searchParams.id}
               />
             </div>
           )}
