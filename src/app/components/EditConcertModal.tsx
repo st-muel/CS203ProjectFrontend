@@ -4,6 +4,8 @@ import { Modal, notification } from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Concert, Venue } from "../admin/page";
+import { useAtomValue } from "jotai";
+import { jwtTokenAtom } from "../jotai";
 
 interface props {
   open: boolean;
@@ -12,6 +14,8 @@ interface props {
 }
 
 const EditConcertModal = (props: props) => {
+    const jwtToken = useAtomValue(jwtTokenAtom);
+
     const [venues, setVenues] = useState<Venue[]>([]);
     const [title, setTitle] = useState(props.concert.title);
     const [image, setImage] = useState(props.concert.image);
@@ -51,7 +55,14 @@ const EditConcertModal = (props: props) => {
     useEffect(() => {
         const getVenues = async () => {
             try {
-                const res = await axios.get<Venue[]>(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/venues`);
+                const res = await axios.get<Venue[]>(
+                    `${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/venues`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${jwtToken}`,
+                        }
+                    }
+                );
                 setVenues(res.data);
             } catch (err) {
                 notification.error({
