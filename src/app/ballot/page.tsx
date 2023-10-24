@@ -5,20 +5,59 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Seatmap from "../components/Seatmap";
 import { useEffect, useState } from "react";
-import { TableTickets } from "../components/TableTickets";
+import { CategoryTable } from "../components/CategoryTable";
 import Legend from "../components/Legend";
 import styles from "../styles";
+import axios from "axios";
 
 interface Props {
   searchParams: any;
+  catPricing: CategoryPricing[]; // Pass the fetched data as a prop
 }
 
-export default function Ticket({searchParams}: Props) {
-  const [section, setSection] = useState("");
+export interface CategoryPricing {
+  category: {
+    id: number;
+    name: string;
+    venue: {
+      id: number;
+      name: string;
+    };
+  };
+  price: number;
+}
+
+async function getCategoryPricing(concertId: number) {
+  try {
+    return await axios.get(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${concertId}/prices`
+    );
+  } catch (e) {
+    console.log(e);
+    return [];
+  }
+}
+
+function getPriceByCategoryId(categoryId: string) {}
+
+export default function Ballot({ searchParams }: Props) {
+  const [categoryId, setCategoryId] = useState("");
+  const [catPricing, setCatPricing] = useState<CategoryPricing[]>([]);
 
   useEffect(() => {
-    console.log(section);
-  }, [section]);
+    // Fetch data when the component mounts
+    async function fetchData() {
+      const data = await getCategoryPricing(searchParams.id).then(
+        (res) => res.data as CategoryPricing[]
+      );
+      setCatPricing(data);
+    }
+    fetchData();
+  }, [searchParams.id]); // Add the dependencies that trigger data fetching
+
+  useEffect(() => {
+    console.log(categoryId);
+  }, [categoryId]);
 
   return (
     <main>
@@ -43,7 +82,8 @@ export default function Ticket({searchParams}: Props) {
                   {searchParams.title}
                 </h4>
                 <p className="mt-[16px] font-normal lg:text-[20px] text-[14px] text-secondary-white">
-                  {searchParams.loc} - {new Date(searchParams.startDate).toDateString() }
+                  {searchParams.loc} -{" "}
+                  {new Date(searchParams.startDate).toDateString()}
                 </p>
               </div>
             </div>
@@ -62,19 +102,26 @@ export default function Ticket({searchParams}: Props) {
           </div>
 
           <div className="flex flex-row justify-center items-center">
-            <a href="#ticketsection">
-              <Seatmap setSection={setSection} />
+            <a href="#categorysection">
+              <Seatmap setSection={setCategoryId} />
             </a>
             <Legend />
           </div>
 
-          {section && (
-            <div className="bg-white" id="ticketsection">
+          {categoryId && (
+            <div className="bg-white" id="categorysection">
               {" "}
-              <TableTickets 
-                section={section.split("_")[1]}
-                concertId={searchParams.id}
-                concertTitle={searchParams.title}
+              <CategoryTable
+                category={categoryId}
+                price={() => {
+                  let price = 0.0;
+                  catPricing.forEach((pricing) => {
+                    if (pricing.category.id + "" == categoryId) {
+                      price = pricing.price;
+                    }
+                  });
+                  return price;
+                }}
               />
             </div>
           )}

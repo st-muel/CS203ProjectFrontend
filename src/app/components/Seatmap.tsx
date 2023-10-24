@@ -118,7 +118,7 @@ const seatmap = (props: props) => {
         </svg>
       </svg>
       <svg id="sections">
-        <svg className="group" id="4">
+        <svg className="group" id="4" onClick={(e) => props.setSection(e.currentTarget.id)}>
           <svg
             id="field_318"
             className="group-hover:brightness-110"
@@ -1496,7 +1496,7 @@ const seatmap = (props: props) => {
             </svg>
           </svg>
         </svg>
-        <svg className="group" id="2">
+        <svg className="group" id="1">
           <svg
             id="field_224"
             className="group-hover:brightness-110"
