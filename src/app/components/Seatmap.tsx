@@ -1496,120 +1496,52 @@ const seatmap = (props: props) => {
             </svg>
           </svg>
         </svg>
-        <svg
-          id="field_224"
-          className="hover:brightness-110"
-          onClick={(e) => props.setSection(e.currentTarget.id)}
-        >
-          <svg>
-            <polygon
-              fill="#97d0e9"
-              points="583.7,149.7 617.1,76 669.7,104.5 595.8,156.2 			"
-            ></polygon>
+        <svg className="group" id="2">
+          <svg
+            id="field_224"
+            className="group-hover:brightness-110"
+            onClick={(e) => props.setSection(e.currentTarget.id)}
+          >
+            <svg>
+              <polygon
+                fill="#97d0e9"
+                points="583.7,149.7 617.1,76 669.7,104.5 595.8,156.2 			"
+              ></polygon>
+            </svg>
+            <svg>
+              <polygon
+                fill="#97d0e9"
+                points="617.2,76.4 669.2,104.5 595.8,155.9 584.1,149.6 			"
+              ></polygon>
+            </svg>
+            <svg>
+              <polygon
+                fill="#97cfe8"
+                points="595.5,155.8 669.4,104 670.7,112.4 596.7,164.2 			"
+              ></polygon>
+            </svg>
+            <svg>
+              <polygon
+                fill="#97cfe8"
+                points="669.2,104.5 670.4,112.3 596.9,163.7 595.8,155.9 			"
+              ></polygon>
+            </svg>
+            <svg>
+              <polygon
+                fill="#96cae2"
+                points="584.9,157.6 583.7,149.1 596.1,155.7 597.3,164.2 			"
+              ></polygon>
+            </svg>
+            <svg>
+              <polygon
+                fill="#96cae2"
+                points="595.8,155.9 596.9,163.7 585.2,157.4 584.1,149.6 			"
+              ></polygon>
+            </svg>
           </svg>
-          <svg>
-            <polygon
-              fill="#97d0e9"
-              points="617.2,76.4 669.2,104.5 595.8,155.9 584.1,149.6 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#97cfe8"
-              points="595.5,155.8 669.4,104 670.7,112.4 596.7,164.2 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#97cfe8"
-              points="669.2,104.5 670.4,112.3 596.9,163.7 595.8,155.9 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="584.9,157.6 583.7,149.1 596.1,155.7 597.3,164.2 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="595.8,155.9 596.9,163.7 585.2,157.4 584.1,149.6 			"
-            ></polygon>
-          </svg>
-        </svg>
-        <svg
-          id="field_227"
-          className="hover:brightness-110"
-          onClick={(e) => props.setSection(e.currentTarget.id)}
-        >
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="413.7,142.3 412.5,133.8 425.5,140.7 426.7,149.3 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="425.2,140.9 426.3,148.8 414,142.1 412.9,134.3 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="426,149 424.8,140.4 455.3,156.9 456.6,165.4 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="455,157.1 456.2,164.9 426.3,148.8 425.2,140.9 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="455.9,165.1 454.6,156.6 493.7,177.7 495,186.2 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="493.4,177.9 494.6,185.7 456.2,164.9 455,157.1 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#97cfe8"
-              points="493.1,177.8 508.9,166.7 510.1,175.1 494.4,186.2 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#97cfe8"
-              points="508.7,167.2 509.8,175 494.6,185.7 493.4,177.9 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#97d0e9"
-              points="454.9,157.3 425.1,141.1 412.4,134.3 451.3,106.9 460.3,116.3 481.5,138.5 509.1,167.2 
-				493.4,178.2 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#97d0e9"
-              points="451.3,107.3 460.1,116.5 481.3,138.7 508.7,167.2 493.4,177.9 455,157.1 425.2,140.9 
-				412.9,134.3 			"
-            ></polygon>
-          </svg>
-        </svg>
-
-        <svg
+          <svg
           id="field_223"
-          className="hover:brightness-110"
+          className="group-hover:brightness-110"
           onClick={(e) => props.setSection(e.currentTarget.id)}
         >
           <svg>
@@ -1674,10 +1606,10 @@ const seatmap = (props: props) => {
 				"
             ></polygon>
           </svg>
-        </svg>
-        <svg
+          </svg>
+          <svg
           id="field_222"
-          className="hover:brightness-110"
+          className="group-hover:brightness-110"
           onClick={(e) => props.setSection(e.currentTarget.id)}
         >
           <svg>
@@ -1742,10 +1674,10 @@ const seatmap = (props: props) => {
 				681.7,151.1 			"
             ></polygon>
           </svg>
-        </svg>
-        <svg
+          </svg>
+          <svg
           id="field_221"
-          className="hover:brightness-110"
+          className="group-hover:brightness-110"
           onClick={(e) => props.setSection(e.currentTarget.id)}
         >
           <svg>
@@ -1810,10 +1742,10 @@ const seatmap = (props: props) => {
 				721.2,172.5 			"
             ></polygon>
           </svg>
-        </svg>
-        <svg
+          </svg>
+          <svg
           id="field_220"
-          className="hover:brightness-110"
+          className="group-hover:brightness-110"
           onClick={(e) => props.setSection(e.currentTarget.id)}
         >
           <svg>
@@ -1878,10 +1810,10 @@ const seatmap = (props: props) => {
 				761.1,194.3 			"
             ></polygon>
           </svg>
-        </svg>
-        <svg
+          </svg>
+          <svg
           id="field_219"
-          className="hover:brightness-110"
+          className="group-hover:brightness-110"
           onClick={(e) => props.setSection(e.currentTarget.id)}
         >
           <svg>
@@ -1958,823 +1890,10 @@ const seatmap = (props: props) => {
 				783.6,226.7 799.9,215.3 			"
             ></polygon>
           </svg>
-        </svg>
-        <svg
-          id="field_228"
-          className="hover:brightness-110"
-          onClick={(e) => props.setSection(e.currentTarget.id)}
-        >
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="374.6,169.7 373.4,161.2 386.4,168.1 387.6,176.6 			"
-            ></polygon>
           </svg>
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="386.1,168.3 387.2,176.1 374.9,169.5 373.8,161.7 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="386.9,176.3 385.7,167.8 428.9,191.2 430.2,199.7 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="428.6,191.4 429.8,199.2 387.2,176.1 386.1,168.3 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="429.5,199.4 428.2,190.9 454.6,205.1 455.9,213.6 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="454.3,205.3 455.5,213.1 429.8,199.2 428.6,191.4 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#97cfe8"
-              points="454,205.2 489.6,180.2 490.9,188.6 455.3,213.6 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#97cfe8"
-              points="489.4,180.7 490.6,188.5 455.5,213.1 454.3,205.3 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#97d0e9"
-              points="428.5,191.6 386,168.5 373.3,161.7 408.9,136.8 421.3,143.5 463.9,166.6 489.9,180.7 
-				454.3,205.6 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#97d0e9"
-              points="408.9,137.1 421.2,143.7 463.8,166.8 489.4,180.7 454.3,205.3 428.6,191.4 386.1,168.3 
-				373.8,161.7 			"
-            ></polygon>
-          </svg>
-        </svg>
-        <svg
-          id="field_229"
-          className="hover:brightness-110"
-          onClick={(e) => props.setSection(e.currentTarget.id)}
-        >
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="335.1,197.2 333.8,188.7 346.9,195.6 348.1,204.2 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="346.6,195.8 347.7,203.7 335.4,197 334.2,189.2 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="347.4,203.9 346.2,195.3 387.2,217.5 388.5,226 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="386.9,217.7 388.1,225.5 347.7,203.7 346.6,195.8 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="387.8,225.7 386.5,217.2 389.4,218.7 390.7,227.2 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="389.1,218.9 390.3,226.7 388.1,225.5 386.9,217.7 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="390,226.9 388.7,218.4 415.2,232.7 416.5,241.2 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="414.9,232.9 416.1,240.7 390.3,226.7 389.1,218.9 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#97cfe8"
-              points="414.6,232.8 448.8,208.8 450.1,217.2 415.9,241.2 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#97cfe8"
-              points="448.6,209.3 449.8,217.1 416.1,240.7 414.9,232.9 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#97d0e9"
-              points="389,219.1 346.5,196 333.7,189.2 367.9,165.3 380.3,172 420.7,193.9 422.9,195.1 449.1,209.3 
-				414.9,233.2 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#97d0e9"
-              points="367.9,165.6 380.2,172.2 420.6,194.1 422.8,195.3 448.6,209.3 414.9,232.9 389.1,218.9 
-				386.9,217.7 346.6,195.8 334.2,189.2 			"
-            ></polygon>
-          </svg>
-        </svg>
-        <svg
-          id="field_230"
-          className="hover:brightness-110"
-          onClick={(e) => props.setSection(e.currentTarget.id)}
-        >
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="310.9,213.5 309.6,205 323.2,212.2 324.4,220.7 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="322.9,212.4 324,220.2 311.2,213.3 310,205.5 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="323.7,220.4 322.5,211.9 339,220.7 340.2,229.2 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="338.7,220.9 339.8,228.7 324,220.2 322.9,212.4 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="339.5,228.9 338.3,220.4 363,233.7 364.3,242.2 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="362.7,233.9 363.9,241.7 339.8,228.7 338.7,220.9 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="363.6,241.9 362.3,233.4 365.8,235.2 367.1,243.7 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="365.5,235.4 366.7,243.2 363.9,241.7 362.7,233.9 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="366.4,243.4 365.1,234.9 391.5,249.1 392.8,257.6 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#96cae2"
-              points="391.2,249.3 392.4,257.1 366.7,243.2 365.5,235.4 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#97cfe8"
-              points="390.9,249.2 406.2,238.4 407.5,246.8 392.2,257.6 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#97cfe8"
-              points="406,238.9 407.2,246.7 392.4,257.1 391.2,249.3 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#97d0e9"
-              points="365.4,235.6 362.6,234.1 338.6,221.1 322.8,212.6 309.5,205.5 324.8,194.9 337.7,201.9 
-				353.6,210.4 377.6,223.3 380.4,224.9 406.5,238.9 391.2,249.6 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#97d0e9"
-              points="324.8,195.2 337.6,202.1 353.5,210.6 377.5,223.5 380.3,225.1 406,238.9 391.2,249.3 
-				365.5,235.4 362.7,233.9 338.7,220.9 322.9,212.4 310,205.5 			"
-            ></polygon>
-          </svg>
-        </svg>
-        <svg
-          id="field_PEND"
-          style={{ cursor: "pointer" }}
-          className="hover:brightness-110"
-        >
-          <svg>
-            <path
-              fill="#E1DC3C"
-              d="M582.5,235.7l-1.3-8.4l0.1-0.1c13.2-9.2,25.3-17.7,37-25.9l0.4-0.3l1.3,8.4l-0.1,0.1
-				c-6.1,4.3-12.3,8.6-18.5,12.9c-6.2,4.3-12.4,8.7-18.5,13L582.5,235.7z M581.8,227.5l1.1,7.2c6-4.2,12.1-8.5,18.1-12.7
-				c6.1-4.3,12.3-8.6,18.4-12.8l-1.1-7.2C606.8,210.1,594.9,218.5,581.8,227.5z"
-            ></path>
-          </svg>
-          <svg>
-            <path
-              fill="#E1DC3C"
-              d="M618.5,201.5l1.2,7.8c-12.3,8.6-24.7,17.3-37,25.9l-1.2-7.8C593.9,218.8,606.2,210.2,618.5,201.5"
-            ></path>
-          </svg>
-          <svg>
-            <polygon
-              fill="#E3DE3C"
-              points="604,259.5 620.5,247.9 621.7,256.4 605.3,267.9 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#E3DE3C"
-              points="620.3,248.4 621.4,256.3 605.5,267.4 604.3,259.6 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#D6D139"
-              points="480.3,216.3 479,207.8 591.5,268.6 592.7,277.1 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#D6D139"
-              points="591.2,268.8 592.3,276.6 480.6,216.1 479.4,208.3 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#E3DE3C"
-              points="590.9,268.7 604.5,259.1 605.8,267.5 592.1,277.1 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#E3DE3C"
-              points="604.3,259.6 605.5,267.4 592.3,276.6 591.2,268.8 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <path
-              fill="#E5E13D"
-              d="M479,208.3l13.6-9.6c5.2-3.6,10.5-7.3,15.8-11.1c7.8-5.4,15.7-11,23.4-16.3c4.5-3.2,9.1-6.4,13.6-9.6
-				l0.1-0.1l73.6,39.8l-0.4,0.3c-6.1,4.3-12.3,8.6-18.5,12.9c-6,4.2-12.1,8.5-18.1,12.7c12.6,6.8,25.5,13.9,38.4,20.8l0.4,0.2
-				l-16.3,11.5l-13.2,9.3L479,208.3z"
-            ></path>
-          </svg>
-          <svg>
-            <path
-              fill="#E5E13D"
-              d="M545.5,162l73,39.5c-12.3,8.6-24.7,17.3-37,25.9c12.9,7,25.8,14,38.8,21l-15.9,11.2l-13.1,9.2
-				l-111.8-60.5l13.1-9.2c5.3-3.7,10.6-7.4,15.9-11.2C520.9,179.3,533.2,170.6,545.5,162z"
-            ></path>
-          </svg>
-        </svg>
-        <svg
-          id="field_PEND_NEVERLAND"
-          className="hover:brightness-110"
-          onClick={(e) => props.setSection(e.currentTarget.id)}
-        >
-          <svg>
-            <polygon
-              fill="#eec590"
-              points="581.2,275.5 591.4,268.3 592.6,276.7 582.5,283.9 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#eec590"
-              points="591.2,268.8 592.3,276.6 582.7,283.4 581.5,275.6 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#eec590"
-              points="576.7,278.6 581.7,275.1 583,283.5 577.9,287.1 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#eec590"
-              points="581.5,275.6 582.7,283.4 578.1,286.6 577,278.7 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#eec590"
-              points="565.4,286.5 577.2,278.2 578.4,286.7 566.7,294.9 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#eec590"
-              points="577,278.7 578.1,286.6 566.9,294.4 565.7,286.6 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#f0c590"
-              points="453.7,225.9 465,218 469.6,214.8 479.4,208 591.7,268.8 581.7,275.8 577.2,278.9 565.7,286.9 			
-				"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#f0c590"
-              points="479.4,208.3 591.2,268.8 581.5,275.6 577,278.7 565.7,286.6 454.2,225.9 465.2,218.2 469.8,215 
-							"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#e8c18f"
-              points="455.1,234 453.8,225.4 566,286.4 567.3,294.9 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#e8c18f"
-              points="565.7,286.6 566.9,294.4 455.4,233.8 454.2,225.9 			"
-            ></polygon>
-          </svg>
-        </svg>
-        <svg
-          id="field_PEND_LOVE"
-          className="hover:brightness-110"
-          onClick={(e) => props.setSection(e.currentTarget.id)}
-        >
-          <svg>
-            <polygon
-              fill="#c2e1ee"
-              points="530.2,298.6 541.3,297.7 542.6,306.1 531.4,307 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#c2e1ee"
-              points="541.1,298 542.3,305.8 531.6,306.7 530.5,298.9 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#c2e1ee"
-              points="540.8,297.8 542.9,297.5 544.2,306 542.1,306.1 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#c2e1ee"
-              points="542.7,297.8 543.9,305.7 542.3,305.8 541.1,298 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#c2e1ee"
-              points="542.4,297.5 549.8,296.9 551.1,305.4 543.7,306 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#c2e1ee"
-              points="549.6,297.2 550.8,305.1 543.9,305.7 542.7,297.8 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#c3e3f1"
-              points="550.4,297 565.9,286.1 567.2,294.5 551.7,305.5 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#c3e3f1"
-              points="565.7,286.6 566.9,294.4 551.9,305 550.7,297.1 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#c2e1ee"
-              points="549.3,296.9 550.9,296.8 552.2,305.3 550.6,305.4 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#c2e1ee"
-              points="550.7,297.1 551.9,305 550.8,305.1 549.6,297.2 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#c4e4f2"
-              points="428,243.9 433.7,240 434.7,239.3 438.2,236.8 454.2,225.6 566.2,286.6 550.8,297.4 549.6,297.5 
-				542.7,298.1 541.1,298.3 530.4,299.2 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#c4e4f2"
-              points="454.2,225.9 565.7,286.6 550.7,297.1 549.6,297.2 542.7,297.8 541.1,298 530.5,298.9 
-				428.5,243.9 433.9,240.2 434.9,239.5 438.4,237 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#bfddea"
-              points="429.4,252 428.1,243.4 530.8,298.7 532,307.2 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#bfddea"
-              points="530.5,298.9 531.6,306.7 429.7,251.8 428.5,243.9 			"
-            ></polygon>
-          </svg>
-        </svg>
-        <svg
-          id="field_PEND_QUEEN"
-          className="hover:brightness-110"
-          onClick={(e) => props.setSection(e.currentTarget.id)}
-        >
-          <svg>
-            <polygon
-              fill="#ec7ff2"
-              points="404.5,269.4 403.2,260.9 467.9,295.8 469.2,304.4 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#ec7ff2"
-              points="467.6,296 468.8,303.9 404.8,269.2 403.6,261.4 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#ec7ff2"
-              points="468.5,304.1 467.2,295.5 476.9,300.7 478.2,309.2 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#ec7ff2"
-              points="476.6,300.9 477.8,308.7 468.8,303.9 467.6,296 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#ec7ff2"
-              points="477.5,308.9 476.2,300.4 481.2,303 482.4,311.5 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#ec7ff2"
-              points="480.9,303.2 482,311 477.8,308.7 476.6,300.9 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#f07ff7"
-              points="480.6,302.9 530.7,298.6 531.9,307 481.8,311.3 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#f07ff7"
-              points="530.5,298.9 531.6,306.7 482,311 480.9,303.2 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#f47ffb"
-              points="476.5,301.1 467.5,296.2 403.1,261.4 428.5,243.6 531.5,299.1 480.8,303.5 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#f47ffb"
-              points="428.5,243.9 530.5,298.9 480.9,303.2 476.6,300.9 467.6,296 403.6,261.4 			"
-            ></polygon>
-          </svg>
-        </svg>
-        <svg
-          id="field_PENC"
-          style={{ cursor: "pointer" }}
-          className="hover:brightness-110"
-        >
-          <svg>
-            <path
-              fill="#f0ed9d"
-              d="M739.9,339.7l-1.3-8.4l0.1-0.1c5.2-3.6,10.6-7.4,15.9-11.2c4.6-3.2,9.1-6.4,13.7-9.6
-				c7.6-5.4,15.5-10.9,23.3-16.3l0.4-0.3l1.3,8.4l-0.1,0.1c-6.1,4.3-12.3,8.6-18.5,12.9s-12.4,8.6-18.5,13l-0.1,0.1
-				c-5.2,3.6-10.5,7.4-15.8,11.1L739.9,339.7z M739.2,331.5l1.1,7.2c5.2-3.7,10.4-7.3,15.5-10.9l0.1-0.1c6.1-4.3,12.3-8.6,18.5-12.9
-				c6.1-4.3,12.3-8.6,18.4-12.8l-1.1-7.2c-7.7,5.3-15.5,10.8-23,16.1c-4.6,3.2-9.1,6.4-13.7,9.6
-				C749.7,324.2,744.4,327.9,739.2,331.5z"
-            ></path>
-          </svg>
-          <svg>
-            <path
-              fill="#f0ed9d"
-              d="M791.8,294.3l1.2,7.8c-12.3,8.6-24.7,17.3-37,25.9c-5.3,3.7-10.6,7.4-15.9,11.2l-1.2-7.8
-				c5.3-3.7,10.6-7.4,15.9-11.2C767.1,311.6,779.4,302.9,791.8,294.3"
-            ></path>
-          </svg>
-          <svg>
-            <polygon
-              fill="#f1ee9d"
-              points="725.4,340.5 739,330.9 740.3,339.3 726.6,348.9 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#f1ee9d"
-              points="738.8,331.4 740,339.2 726.8,348.4 725.7,340.6 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <path
-              fill="#f2f09e"
-              d="M613.5,280.1l13.5-9.5l16-11.3l0.5,0.3c12.5,6.8,25.4,13.8,38.3,20.7c6.1-4.3,12.2-8.6,18.4-12.9
-				s12.3-8.6,18.5-12.9l0.1-0.1l73.6,39.8l-0.4,0.3c-6.1,4.3-12.3,8.6-18.5,12.9s-12.4,8.7-18.5,13c-5.2,3.6-10.6,7.4-15.9,11.2
-				l-13.2,9.3L613.5,280.1z"
-            ></path>
-          </svg>
-          <svg>
-            <path
-              fill="#f2f09e"
-              d="M643,259.7c12.9,7,25.8,14,38.8,21c12.3-8.6,24.7-17.3,37-25.9l73,39.5c-12.3,8.6-24.7,17.3-37,25.9
-				c-5.3,3.7-10.6,7.4-15.9,11.2l-13.1,9.2L614,280.1l13.1-9.2L643,259.7z"
-            ></path>
-          </svg>
-          <svg>
-            <polygon
-              fill="#eae89c"
-              points="614.8,288.1 613.5,279.6 726,340.4 727.2,348.9 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#eae89c"
-              points="725.7,340.6 726.8,348.4 615.1,287.9 613.9,280.1 			"
-            ></polygon>
-          </svg>
-        </svg>
-        <svg
-          id="field_PENC_NEVERLAND"
-          className="hover:brightness-110"
-          onClick={(e) => props.setSection(e.currentTarget.id)}
-        >
-          <svg>
-            <polygon
-              fill="#eec590"
-              points="715.7,347.3 725.9,340.1 727.1,348.5 717,355.7 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#eec590"
-              points="725.7,340.6 726.8,348.4 717.2,355.2 716,347.4 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#eec590"
-              points="711.2,350.4 716.2,346.9 717.5,355.3 712.4,358.9 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#eec590"
-              points="716,347.4 717.2,355.2 712.6,358.4 711.5,350.5 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#eec590"
-              points="700.2,358.1 711.7,350 712.9,358.5 701.4,366.6 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#eec590"
-              points="711.5,350.5 712.6,358.4 701.6,366.1 700.5,358.2 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#e8c18f"
-              points="589.3,305.9 588.1,297.4 700.8,358 702,366.6 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#e8c18f"
-              points="700.5,358.2 701.6,366.1 589.6,305.7 588.5,297.9 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#f0c590"
-              points="588,297.9 599.5,289.8 604.1,286.6 613.9,279.8 726.2,340.6 716.2,347.6 711.7,350.7 
-				700.5,358.5 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#f0c590"
-              points="613.9,280.1 725.7,340.6 716,347.4 711.5,350.5 700.5,358.2 588.5,297.9 599.7,290 604.3,286.8 
-							"
-            ></polygon>
-          </svg>
-        </svg>
-        <svg
-          id="field_PENC_LOVE"
-          className="hover:brightness-110"
-          onClick={(e) => props.setSection(e.currentTarget.id)}
-        >
-          <svg>
-            <polygon
-              fill="#c3e3f1"
-              points="684.3,369.2 700.7,357.7 701.9,366.2 685.6,377.6 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#c3e3f1"
-              points="700.5,358.2 701.6,366.1 685.8,377.1 684.6,369.3 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#c3e3f1"
-              points="680.8,371.7 684.8,368.8 686.1,377.2 682.1,380.1 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#c3e3f1"
-              points="684.6,369.3 685.8,377.1 682.3,379.6 681.1,371.8 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#c3e3f1"
-              points="679.8,372.4 681.3,371.3 682.6,379.7 681.1,380.8 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#c3e3f1"
-              points="681.1,371.8 682.3,379.6 681.3,380.3 680.1,372.5 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#c3e3f1"
-              points="674.4,376.1 680.3,372 681.6,380.4 675.7,384.6 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#c3e3f1"
-              points="680.1,372.5 681.3,380.3 675.9,384.1 674.7,376.2 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#bfddea"
-              points="574,329 572.8,320.5 675,376 676.3,384.6 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#bfddea"
-              points="674.7,376.2 675.9,384.1 574.3,328.8 573.2,321 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#c4e4f2"
-              points="572.9,321.2 573,314.4 573,313.4 573.1,309.1 573.1,308.3 588.5,297.6 701,358.2 684.8,369.5 
-				681.3,372 680.3,372.7 674.7,376.5 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#c4e4f2"
-              points="588.5,297.9 700.5,358.2 684.6,369.3 681.1,371.8 680.1,372.5 674.7,376.2 573.2,321 
-				573.3,314.4 573.3,313.4 573.4,309.1 573.4,308.4 			"
-            ></polygon>
-          </svg>
-        </svg>
-        <svg
-          id="field_PENC_QUEEN"
-          className="hover:brightness-110"
-          onClick={(e) => props.setSection(e.currentTarget.id)}
-        >
-          <svg>
-            <polygon
-              fill="#ec7ff2"
-              points="573.4,359.9 572.2,351.4 577.1,354 578.4,362.5 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#ec7ff2"
-              points="576.8,354.2 578,362 573.7,359.7 572.6,351.9 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#ec7ff2"
-              points="577.7,362.2 576.4,353.7 586.1,358.8 587.4,367.3 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#ec7ff2"
-              points="585.8,359 587,366.8 578,362 576.8,354.2 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#f37ffa"
-              points="649.5,393.6 674.9,375.7 676.2,384.2 650.8,402 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#f37ffa"
-              points="674.7,376.2 675.9,384.1 651,401.5 649.8,393.7 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#ec7ff2"
-              points="586.7,367 585.4,358.5 650.1,393.5 651.4,402 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#ec7ff2"
-              points="649.8,393.7 651,401.5 587,366.8 585.8,359 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#f47ffb"
-              points="585.7,359.2 576.7,354.5 572.3,352.1 572.9,320.5 675.2,376.2 649.8,394 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#f47ffb"
-              points="573.2,321 674.7,376.2 649.8,393.7 585.8,359 576.8,354.2 572.6,351.9 			"
-            ></polygon>
-          </svg>
-        </svg>
-        <svg
+          <svg
           id="field_218"
-          className="hover:brightness-110"
+          className="group-hover:brightness-110"
           onClick={(e) => props.setSection(e.currentTarget.id)}
         >
           <svg>
@@ -2839,10 +1958,10 @@ const seatmap = (props: props) => {
 				839,236.6 852.4,227.1 			"
             ></polygon>
           </svg>
-        </svg>
-        <svg
+          </svg>
+          <svg
           id="field_215"
-          className="hover:brightness-110"
+          className="group-hover:brightness-110"
           onClick={(e) => props.setSection(e.currentTarget.id)}
         >
           <svg>
@@ -2906,10 +2025,10 @@ const seatmap = (props: props) => {
               points="814.8,350.9 815.9,358.7 776.3,337.3 775.1,329.4 			"
             ></polygon>
           </svg>
-        </svg>
-        <svg
+          </svg>
+          <svg
           id="field_214"
-          className="hover:brightness-110"
+          className="group-hover:brightness-110"
           onClick={(e) => props.setSection(e.currentTarget.id)}
         >
           <svg>
@@ -2973,10 +2092,10 @@ const seatmap = (props: props) => {
 							"
             ></polygon>
           </svg>
-        </svg>
-        <svg
+          </svg>
+          <svg
           id="field_213"
-          className="hover:brightness-110"
+          className="group-hover:brightness-110"
           onClick={(e) => props.setSection(e.currentTarget.id)}
         >
           <svg>
@@ -3041,10 +2160,10 @@ const seatmap = (props: props) => {
 				695.2,385.3 			"
             ></polygon>
           </svg>
-        </svg>
-        <svg
+          </svg>
+          <svg
           id="field_212"
-          className="hover:brightness-110"
+          className="group-hover:brightness-110"
           onClick={(e) => props.setSection(e.currentTarget.id)}
         >
           <svg>
@@ -3133,78 +2252,10 @@ const seatmap = (props: props) => {
 				724.9,450.8 709.9,442.6 679.8,426.3 676.3,424.4 655.4,413.1 			"
             ></polygon>
           </svg>
-        </svg>
-        <svg
-          id="field_PENA"
-          className="hover:brightness-110"
-          onClick={(e) => props.setSection(e.currentTarget.id)}
-        >
-          <svg>
-            <polygon
-              fill="#f1ee9d"
-              points="611,419.2 631.8,404.6 633,413 612.3,427.6 			"
-            ></polygon>
           </svg>
-          <svg>
-            <polygon
-              fill="#f1ee9d"
-              points="631.6,405.1 632.7,412.9 612.5,427.1 611.3,419.3 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#f1ee9d"
-              points="604.3,423.9 611.5,418.8 612.8,427.2 605.5,432.3 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#f1ee9d"
-              points="611.3,419.3 612.5,427.1 605.7,431.8 604.6,424 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#f1ee9d"
-              points="598.8,427.8 604.8,423.5 606,431.9 600,436.2 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#f1ee9d"
-              points="604.6,424 605.7,431.8 600.2,435.7 599.1,427.9 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#eae89c"
-              points="505.2,384.6 504,376.1 599.4,427.7 600.6,436.2 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#eae89c"
-              points="599.1,427.9 600.2,435.7 505.5,384.4 504.4,376.6 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#f2f09e"
-              points="503.5,376.4 515,375.2 528.2,373.9 567.5,370 632.1,405.1 611.5,419.5 604.8,424.2 599.1,428.2 
-							"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#f2f09e"
-              points="504.4,376.6 515,375.5 528.2,374.2 567.4,370.3 631.6,405.1 611.3,419.3 604.6,424 599.1,427.9 
-							"
-            ></polygon>
-          </svg>
-        </svg>
-        <svg
+          <svg
           id="field_211"
-          className="hover:brightness-110"
+          className="group-hover:brightness-110"
           onClick={(e) => props.setSection(e.currentTarget.id)}
         >
           <svg>
@@ -3293,200 +2344,10 @@ const seatmap = (props: props) => {
 				684.1,479.3 669.1,471.2 639.1,455 635.5,453.1 614.7,441.8 			"
             ></polygon>
           </svg>
-        </svg>
-        <svg
-          id="field_PENA_NEVERLAND"
-          className="hover:brightness-110"
-          onClick={(e) => props.setSection(e.currentTarget.id)}
-        >
-          <svg>
-            <polygon
-              fill="#eec590"
-              points="591.9,432.5 599.3,427.4 600.5,435.8 593.2,441 			"
-            ></polygon>
           </svg>
-          <svg>
-            <polygon
-              fill="#eec590"
-              points="599.1,427.9 600.2,435.7 593.4,440.5 592.2,432.6 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#eec590"
-              points="589.1,434.5 592.4,432.1 593.7,440.6 590.4,442.9 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#eec590"
-              points="592.2,432.6 593.4,440.5 590.6,442.4 589.4,434.6 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#eec590"
-              points="583.9,438.2 589.6,434.1 590.9,442.5 585.2,446.6 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#eec590"
-              points="589.4,434.6 590.6,442.4 585.4,446.1 584.2,438.3 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#e8c18f"
-              points="490.2,394.9 488.9,386.4 584.5,438.1 585.8,446.6 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#e8c18f"
-              points="584.2,438.3 585.4,446.1 490.5,394.7 489.3,386.9 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#f0c590"
-              points="488.8,386.9 494.3,383 497.1,381.1 503.9,376.3 504.5,376.3 599.6,427.9 592.4,432.8 
-				589.6,434.8 584.2,438.6 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#f0c590"
-              points="504,376.6 504.4,376.6 599.1,427.9 592.2,432.6 589.4,434.6 584.2,438.3 489.3,386.9 
-				494.5,383.2 497.3,381.3 			"
-            ></polygon>
-          </svg>
-        </svg>
-        <svg
-          id="field_PENA_LOVE"
-          className="hover:brightness-110"
-          onClick={(e) => props.setSection(e.currentTarget.id)}
-        >
-          <svg>
-            <polygon
-              fill="#c3e3f1"
-              points="578.7,441.9 584.4,437.8 585.7,446.2 579.9,450.3 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#c3e3f1"
-              points="584.2,438.3 585.4,446.1 580.1,449.8 579,442 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#c3e3f1"
-              points="574.4,444.8 579.2,441.5 580.4,449.9 575.6,453.3 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#c3e3f1"
-              points="579,442 580.1,449.8 575.8,452.8 574.7,444.9 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#c3e3f1"
-              points="572.4,446.2 574.9,444.4 576.1,452.9 573.7,454.6 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#c3e3f1"
-              points="574.7,444.9 575.8,452.8 573.9,454.1 572.7,446.3 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#bfddea"
-              points="474.7,405.7 473.4,397.2 569.2,448.8 570.5,457.3 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#bfddea"
-              points="568.9,449 570.1,456.8 475,405.5 473.8,397.7 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#c4e4f2"
-              points="473.3,397.7 477.5,394.8 479.6,393.4 483.7,390.5 489.3,386.6 584.7,438.3 579.2,442.2 
-				574.9,445.1 572.9,446.5 568.9,449.3 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#c4e4f2"
-              points="489.3,386.9 584.2,438.3 579,442 574.7,444.9 572.7,446.3 568.9,449 473.8,397.7 477.7,395 
-				479.8,393.6 483.9,390.7 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#c3e3f1"
-              points="568.6,448.9 572.9,445.8 574.2,454.2 569.9,457.3 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#c3e3f1"
-              points="572.7,446.3 573.9,454.1 570.1,456.8 568.9,449 			"
-            ></polygon>
-          </svg>
-        </svg>
-        <svg
-          id="field_PENA_QUEEN"
-          className="hover:brightness-110"
-          onClick={(e) => props.setSection(e.currentTarget.id)}
-        >
-          <svg>
-            <polygon
-              fill="#f37ffa"
-              points="554.7,458.7 569.1,448.5 570.4,456.9 555.9,467.1 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#f37ffa"
-              points="568.9,449 570.1,456.8 556.1,466.6 555,458.8 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#f47ffb"
-              points="459.6,407.4 473.8,397.4 569.4,449 555,459.1 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#f47ffb"
-              points="473.8,397.7 568.9,449 555,458.8 460.1,407.4 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#ec7ff2"
-              points="460.9,415.4 459.7,406.9 555.3,458.6 556.5,467.1 			"
-            ></polygon>
-          </svg>
-          <svg>
-            <polygon
-              fill="#ec7ff2"
-              points="555,458.8 556.1,466.6 461.2,415.2 460.1,407.4 			"
-            ></polygon>
-          </svg>
-        </svg>
-        <svg
+          <svg
           id="field_210"
-          className="hover:brightness-110"
+          className="group-hover:brightness-110"
           onClick={(e) => props.setSection(e.currentTarget.id)}
         >
           <svg>
@@ -3575,10 +2436,318 @@ const seatmap = (props: props) => {
 				628.6,499.7 598.7,483.5 594.7,481.3 574,470.1 			"
             ></polygon>
           </svg>
-        </svg>
-        <svg
+          </svg>
+          <svg
+          id="field_227"
+          className="group-hover:brightness-110"
+          onClick={(e) => props.setSection(e.currentTarget.id)}
+        >
+          <svg>
+            <polygon
+              fill="#96cae2"
+              points="413.7,142.3 412.5,133.8 425.5,140.7 426.7,149.3 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#96cae2"
+              points="425.2,140.9 426.3,148.8 414,142.1 412.9,134.3 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#96cae2"
+              points="426,149 424.8,140.4 455.3,156.9 456.6,165.4 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#96cae2"
+              points="455,157.1 456.2,164.9 426.3,148.8 425.2,140.9 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#96cae2"
+              points="455.9,165.1 454.6,156.6 493.7,177.7 495,186.2 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#96cae2"
+              points="493.4,177.9 494.6,185.7 456.2,164.9 455,157.1 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#97cfe8"
+              points="493.1,177.8 508.9,166.7 510.1,175.1 494.4,186.2 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#97cfe8"
+              points="508.7,167.2 509.8,175 494.6,185.7 493.4,177.9 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#97d0e9"
+              points="454.9,157.3 425.1,141.1 412.4,134.3 451.3,106.9 460.3,116.3 481.5,138.5 509.1,167.2 
+				493.4,178.2 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#97d0e9"
+              points="451.3,107.3 460.1,116.5 481.3,138.7 508.7,167.2 493.4,177.9 455,157.1 425.2,140.9 
+				412.9,134.3 			"
+            ></polygon>
+          </svg>
+          </svg>
+          <svg
+          id="field_228"
+          className="group-hover:brightness-110"
+          onClick={(e) => props.setSection(e.currentTarget.id)}
+        >
+          <svg>
+            <polygon
+              fill="#96cae2"
+              points="374.6,169.7 373.4,161.2 386.4,168.1 387.6,176.6 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#96cae2"
+              points="386.1,168.3 387.2,176.1 374.9,169.5 373.8,161.7 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#96cae2"
+              points="386.9,176.3 385.7,167.8 428.9,191.2 430.2,199.7 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#96cae2"
+              points="428.6,191.4 429.8,199.2 387.2,176.1 386.1,168.3 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#96cae2"
+              points="429.5,199.4 428.2,190.9 454.6,205.1 455.9,213.6 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#96cae2"
+              points="454.3,205.3 455.5,213.1 429.8,199.2 428.6,191.4 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#97cfe8"
+              points="454,205.2 489.6,180.2 490.9,188.6 455.3,213.6 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#97cfe8"
+              points="489.4,180.7 490.6,188.5 455.5,213.1 454.3,205.3 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#97d0e9"
+              points="428.5,191.6 386,168.5 373.3,161.7 408.9,136.8 421.3,143.5 463.9,166.6 489.9,180.7 
+				454.3,205.6 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#97d0e9"
+              points="408.9,137.1 421.2,143.7 463.8,166.8 489.4,180.7 454.3,205.3 428.6,191.4 386.1,168.3 
+				373.8,161.7 			"
+            ></polygon>
+          </svg>
+          </svg>
+          <svg
+          id="field_229"
+          className="group-hover:brightness-110"
+          onClick={(e) => props.setSection(e.currentTarget.id)}
+        >
+          <svg>
+            <polygon
+              fill="#96cae2"
+              points="335.1,197.2 333.8,188.7 346.9,195.6 348.1,204.2 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#96cae2"
+              points="346.6,195.8 347.7,203.7 335.4,197 334.2,189.2 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#96cae2"
+              points="347.4,203.9 346.2,195.3 387.2,217.5 388.5,226 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#96cae2"
+              points="386.9,217.7 388.1,225.5 347.7,203.7 346.6,195.8 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#96cae2"
+              points="387.8,225.7 386.5,217.2 389.4,218.7 390.7,227.2 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#96cae2"
+              points="389.1,218.9 390.3,226.7 388.1,225.5 386.9,217.7 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#96cae2"
+              points="390,226.9 388.7,218.4 415.2,232.7 416.5,241.2 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#96cae2"
+              points="414.9,232.9 416.1,240.7 390.3,226.7 389.1,218.9 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#97cfe8"
+              points="414.6,232.8 448.8,208.8 450.1,217.2 415.9,241.2 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#97cfe8"
+              points="448.6,209.3 449.8,217.1 416.1,240.7 414.9,232.9 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#97d0e9"
+              points="389,219.1 346.5,196 333.7,189.2 367.9,165.3 380.3,172 420.7,193.9 422.9,195.1 449.1,209.3 
+				414.9,233.2 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#97d0e9"
+              points="367.9,165.6 380.2,172.2 420.6,194.1 422.8,195.3 448.6,209.3 414.9,232.9 389.1,218.9 
+				386.9,217.7 346.6,195.8 334.2,189.2 			"
+            ></polygon>
+          </svg>
+          </svg>
+          <svg
+          id="field_230"
+          className="group-hover:brightness-110"
+          onClick={(e) => props.setSection(e.currentTarget.id)}
+        >
+          <svg>
+            <polygon
+              fill="#96cae2"
+              points="310.9,213.5 309.6,205 323.2,212.2 324.4,220.7 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#96cae2"
+              points="322.9,212.4 324,220.2 311.2,213.3 310,205.5 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#96cae2"
+              points="323.7,220.4 322.5,211.9 339,220.7 340.2,229.2 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#96cae2"
+              points="338.7,220.9 339.8,228.7 324,220.2 322.9,212.4 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#96cae2"
+              points="339.5,228.9 338.3,220.4 363,233.7 364.3,242.2 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#96cae2"
+              points="362.7,233.9 363.9,241.7 339.8,228.7 338.7,220.9 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#96cae2"
+              points="363.6,241.9 362.3,233.4 365.8,235.2 367.1,243.7 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#96cae2"
+              points="365.5,235.4 366.7,243.2 363.9,241.7 362.7,233.9 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#96cae2"
+              points="366.4,243.4 365.1,234.9 391.5,249.1 392.8,257.6 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#96cae2"
+              points="391.2,249.3 392.4,257.1 366.7,243.2 365.5,235.4 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#97cfe8"
+              points="390.9,249.2 406.2,238.4 407.5,246.8 392.2,257.6 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#97cfe8"
+              points="406,238.9 407.2,246.7 392.4,257.1 391.2,249.3 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#97d0e9"
+              points="365.4,235.6 362.6,234.1 338.6,221.1 322.8,212.6 309.5,205.5 324.8,194.9 337.7,201.9 
+				353.6,210.4 377.6,223.3 380.4,224.9 406.5,238.9 391.2,249.6 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#97d0e9"
+              points="324.8,195.2 337.6,202.1 353.5,210.6 377.5,223.5 380.3,225.1 406,238.9 391.2,249.3 
+				365.5,235.4 362.7,233.9 338.7,220.9 322.9,212.4 310,205.5 			"
+            ></polygon>
+          </svg>
+          </svg>
+          <svg
           id="field_231"
-          className="hover:brightness-110"
+          className="group-hover:brightness-110"
           onClick={(e) => props.setSection(e.currentTarget.id)}
         >
           <svg>
@@ -3667,10 +2836,10 @@ const seatmap = (props: props) => {
 				287.1,290.4 284.5,289 260.1,275.7 244.5,267.3 231.7,260.3 			"
             ></polygon>
           </svg>
-        </svg>
-        <svg
+          </svg>
+          <svg
           id="field_232"
-          className="hover:brightness-110"
+          className="group-hover:brightness-110"
           onClick={(e) => props.setSection(e.currentTarget.id)}
         >
           <svg>
@@ -3759,10 +2928,12 @@ const seatmap = (props: props) => {
 				265.1,302.8 240.5,289.6 224.9,281.1 212.7,274.5 			"
             ></polygon>
           </svg>
+          </svg>
         </svg>
-        <svg
+        <svg className="group" id="P">
+          <svg
           id="field_PENB"
-          className="hover:brightness-110"
+          className="group-hover:brightness-110"
           onClick={(e) => props.setSection(e.currentTarget.id)}
         >
           <svg>
@@ -3827,10 +2998,417 @@ const seatmap = (props: props) => {
 							"
             ></polygon>
           </svg>
+          </svg>
+          <svg
+          id="field_PEND"
+          style={{ cursor: "pointer" }}
+          className="group-hover:brightness-110"
+        >
+          <svg>
+            <path
+              fill="#E1DC3C"
+              d="M582.5,235.7l-1.3-8.4l0.1-0.1c13.2-9.2,25.3-17.7,37-25.9l0.4-0.3l1.3,8.4l-0.1,0.1
+				c-6.1,4.3-12.3,8.6-18.5,12.9c-6.2,4.3-12.4,8.7-18.5,13L582.5,235.7z M581.8,227.5l1.1,7.2c6-4.2,12.1-8.5,18.1-12.7
+				c6.1-4.3,12.3-8.6,18.4-12.8l-1.1-7.2C606.8,210.1,594.9,218.5,581.8,227.5z"
+            ></path>
+          </svg>
+          <svg>
+            <path
+              fill="#E1DC3C"
+              d="M618.5,201.5l1.2,7.8c-12.3,8.6-24.7,17.3-37,25.9l-1.2-7.8C593.9,218.8,606.2,210.2,618.5,201.5"
+            ></path>
+          </svg>
+          <svg>
+            <polygon
+              fill="#E3DE3C"
+              points="604,259.5 620.5,247.9 621.7,256.4 605.3,267.9 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#E3DE3C"
+              points="620.3,248.4 621.4,256.3 605.5,267.4 604.3,259.6 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#D6D139"
+              points="480.3,216.3 479,207.8 591.5,268.6 592.7,277.1 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#D6D139"
+              points="591.2,268.8 592.3,276.6 480.6,216.1 479.4,208.3 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#E3DE3C"
+              points="590.9,268.7 604.5,259.1 605.8,267.5 592.1,277.1 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#E3DE3C"
+              points="604.3,259.6 605.5,267.4 592.3,276.6 591.2,268.8 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <path
+              fill="#E5E13D"
+              d="M479,208.3l13.6-9.6c5.2-3.6,10.5-7.3,15.8-11.1c7.8-5.4,15.7-11,23.4-16.3c4.5-3.2,9.1-6.4,13.6-9.6
+				l0.1-0.1l73.6,39.8l-0.4,0.3c-6.1,4.3-12.3,8.6-18.5,12.9c-6,4.2-12.1,8.5-18.1,12.7c12.6,6.8,25.5,13.9,38.4,20.8l0.4,0.2
+				l-16.3,11.5l-13.2,9.3L479,208.3z"
+            ></path>
+          </svg>
+          <svg>
+            <path
+              fill="#E5E13D"
+              d="M545.5,162l73,39.5c-12.3,8.6-24.7,17.3-37,25.9c12.9,7,25.8,14,38.8,21l-15.9,11.2l-13.1,9.2
+				l-111.8-60.5l13.1-9.2c5.3-3.7,10.6-7.4,15.9-11.2C520.9,179.3,533.2,170.6,545.5,162z"
+            ></path>
+          </svg>
+          </svg>
+          <svg
+          id="field_PENC"
+          style={{ cursor: "pointer" }}
+          className="group-hover:brightness-110"
+        >
+          <svg>
+            <path
+              fill="#f0ed9d"
+              d="M739.9,339.7l-1.3-8.4l0.1-0.1c5.2-3.6,10.6-7.4,15.9-11.2c4.6-3.2,9.1-6.4,13.7-9.6
+				c7.6-5.4,15.5-10.9,23.3-16.3l0.4-0.3l1.3,8.4l-0.1,0.1c-6.1,4.3-12.3,8.6-18.5,12.9s-12.4,8.6-18.5,13l-0.1,0.1
+				c-5.2,3.6-10.5,7.4-15.8,11.1L739.9,339.7z M739.2,331.5l1.1,7.2c5.2-3.7,10.4-7.3,15.5-10.9l0.1-0.1c6.1-4.3,12.3-8.6,18.5-12.9
+				c6.1-4.3,12.3-8.6,18.4-12.8l-1.1-7.2c-7.7,5.3-15.5,10.8-23,16.1c-4.6,3.2-9.1,6.4-13.7,9.6
+				C749.7,324.2,744.4,327.9,739.2,331.5z"
+            ></path>
+          </svg>
+          <svg>
+            <path
+              fill="#f0ed9d"
+              d="M791.8,294.3l1.2,7.8c-12.3,8.6-24.7,17.3-37,25.9c-5.3,3.7-10.6,7.4-15.9,11.2l-1.2-7.8
+				c5.3-3.7,10.6-7.4,15.9-11.2C767.1,311.6,779.4,302.9,791.8,294.3"
+            ></path>
+          </svg>
+          <svg>
+            <polygon
+              fill="#f1ee9d"
+              points="725.4,340.5 739,330.9 740.3,339.3 726.6,348.9 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#f1ee9d"
+              points="738.8,331.4 740,339.2 726.8,348.4 725.7,340.6 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <path
+              fill="#f2f09e"
+              d="M613.5,280.1l13.5-9.5l16-11.3l0.5,0.3c12.5,6.8,25.4,13.8,38.3,20.7c6.1-4.3,12.2-8.6,18.4-12.9
+				s12.3-8.6,18.5-12.9l0.1-0.1l73.6,39.8l-0.4,0.3c-6.1,4.3-12.3,8.6-18.5,12.9s-12.4,8.7-18.5,13c-5.2,3.6-10.6,7.4-15.9,11.2
+				l-13.2,9.3L613.5,280.1z"
+            ></path>
+          </svg>
+          <svg>
+            <path
+              fill="#f2f09e"
+              d="M643,259.7c12.9,7,25.8,14,38.8,21c12.3-8.6,24.7-17.3,37-25.9l73,39.5c-12.3,8.6-24.7,17.3-37,25.9
+				c-5.3,3.7-10.6,7.4-15.9,11.2l-13.1,9.2L614,280.1l13.1-9.2L643,259.7z"
+            ></path>
+          </svg>
+          <svg>
+            <polygon
+              fill="#eae89c"
+              points="614.8,288.1 613.5,279.6 726,340.4 727.2,348.9 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#eae89c"
+              points="725.7,340.6 726.8,348.4 615.1,287.9 613.9,280.1 			"
+            ></polygon>
+          </svg>
+          </svg>
+          <svg
+          id="field_PENA"
+          className="group-hover:brightness-110"
+          onClick={(e) => props.setSection(e.currentTarget.id)}
+        >
+          <svg>
+            <polygon
+              fill="#f1ee9d"
+              points="611,419.2 631.8,404.6 633,413 612.3,427.6 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#f1ee9d"
+              points="631.6,405.1 632.7,412.9 612.5,427.1 611.3,419.3 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#f1ee9d"
+              points="604.3,423.9 611.5,418.8 612.8,427.2 605.5,432.3 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#f1ee9d"
+              points="611.3,419.3 612.5,427.1 605.7,431.8 604.6,424 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#f1ee9d"
+              points="598.8,427.8 604.8,423.5 606,431.9 600,436.2 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#f1ee9d"
+              points="604.6,424 605.7,431.8 600.2,435.7 599.1,427.9 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#eae89c"
+              points="505.2,384.6 504,376.1 599.4,427.7 600.6,436.2 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#eae89c"
+              points="599.1,427.9 600.2,435.7 505.5,384.4 504.4,376.6 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#f2f09e"
+              points="503.5,376.4 515,375.2 528.2,373.9 567.5,370 632.1,405.1 611.5,419.5 604.8,424.2 599.1,428.2 
+							"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#f2f09e"
+              points="504.4,376.6 515,375.5 528.2,374.2 567.4,370.3 631.6,405.1 611.3,419.3 604.6,424 599.1,427.9 
+							"
+            ></polygon>
+          </svg>
+          </svg>          
         </svg>
-        <svg
+        <svg className="group" id="N">
+          <svg
+          id="field_PEND_NEVERLAND"
+          className="group-hover:brightness-110"
+          onClick={(e) => props.setSection(e.currentTarget.id)}
+        >
+          <svg>
+            <polygon
+              fill="#eec590"
+              points="581.2,275.5 591.4,268.3 592.6,276.7 582.5,283.9 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#eec590"
+              points="591.2,268.8 592.3,276.6 582.7,283.4 581.5,275.6 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#eec590"
+              points="576.7,278.6 581.7,275.1 583,283.5 577.9,287.1 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#eec590"
+              points="581.5,275.6 582.7,283.4 578.1,286.6 577,278.7 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#eec590"
+              points="565.4,286.5 577.2,278.2 578.4,286.7 566.7,294.9 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#eec590"
+              points="577,278.7 578.1,286.6 566.9,294.4 565.7,286.6 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#f0c590"
+              points="453.7,225.9 465,218 469.6,214.8 479.4,208 591.7,268.8 581.7,275.8 577.2,278.9 565.7,286.9 			
+				"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#f0c590"
+              points="479.4,208.3 591.2,268.8 581.5,275.6 577,278.7 565.7,286.6 454.2,225.9 465.2,218.2 469.8,215 
+							"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#e8c18f"
+              points="455.1,234 453.8,225.4 566,286.4 567.3,294.9 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#e8c18f"
+              points="565.7,286.6 566.9,294.4 455.4,233.8 454.2,225.9 			"
+            ></polygon>
+          </svg>
+          </svg>
+          <svg
+          id="field_PENC_NEVERLAND"
+          className="group-hover:brightness-110"
+          onClick={(e) => props.setSection(e.currentTarget.id)}
+        >
+          <svg>
+            <polygon
+              fill="#eec590"
+              points="715.7,347.3 725.9,340.1 727.1,348.5 717,355.7 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#eec590"
+              points="725.7,340.6 726.8,348.4 717.2,355.2 716,347.4 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#eec590"
+              points="711.2,350.4 716.2,346.9 717.5,355.3 712.4,358.9 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#eec590"
+              points="716,347.4 717.2,355.2 712.6,358.4 711.5,350.5 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#eec590"
+              points="700.2,358.1 711.7,350 712.9,358.5 701.4,366.6 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#eec590"
+              points="711.5,350.5 712.6,358.4 701.6,366.1 700.5,358.2 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#e8c18f"
+              points="589.3,305.9 588.1,297.4 700.8,358 702,366.6 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#e8c18f"
+              points="700.5,358.2 701.6,366.1 589.6,305.7 588.5,297.9 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#f0c590"
+              points="588,297.9 599.5,289.8 604.1,286.6 613.9,279.8 726.2,340.6 716.2,347.6 711.7,350.7 
+				700.5,358.5 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#f0c590"
+              points="613.9,280.1 725.7,340.6 716,347.4 711.5,350.5 700.5,358.2 588.5,297.9 599.7,290 604.3,286.8 
+							"
+            ></polygon>
+          </svg>
+          </svg>
+          <svg
+          id="field_PENA_NEVERLAND"
+          className="group-hover:brightness-110"
+          onClick={(e) => props.setSection(e.currentTarget.id)}
+        >
+          <svg>
+            <polygon
+              fill="#eec590"
+              points="591.9,432.5 599.3,427.4 600.5,435.8 593.2,441 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#eec590"
+              points="599.1,427.9 600.2,435.7 593.4,440.5 592.2,432.6 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#eec590"
+              points="589.1,434.5 592.4,432.1 593.7,440.6 590.4,442.9 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#eec590"
+              points="592.2,432.6 593.4,440.5 590.6,442.4 589.4,434.6 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#eec590"
+              points="583.9,438.2 589.6,434.1 590.9,442.5 585.2,446.6 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#eec590"
+              points="589.4,434.6 590.6,442.4 585.4,446.1 584.2,438.3 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#e8c18f"
+              points="490.2,394.9 488.9,386.4 584.5,438.1 585.8,446.6 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#e8c18f"
+              points="584.2,438.3 585.4,446.1 490.5,394.7 489.3,386.9 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#f0c590"
+              points="488.8,386.9 494.3,383 497.1,381.1 503.9,376.3 504.5,376.3 599.6,427.9 592.4,432.8 
+				589.6,434.8 584.2,438.6 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#f0c590"
+              points="504,376.6 504.4,376.6 599.1,427.9 592.2,432.6 589.4,434.6 584.2,438.3 489.3,386.9 
+				494.5,383.2 497.3,381.3 			"
+            ></polygon>
+          </svg>
+          </svg>
+          <svg
           id="field_PENB_NEVERLAND"
-          className="hover:brightness-110"
+          className="group-hover:brightness-110"
           onClick={(e) => props.setSection(e.currentTarget.id)}
         >
           <svg>
@@ -3907,10 +3485,172 @@ const seatmap = (props: props) => {
 				345.4,303.5 348.2,301.5 			"
             ></polygon>
           </svg>
+          </svg>
         </svg>
-        <svg
+        <svg className="group" id="L">
+          <svg
+          id="field_PENC_LOVE"
+          className="group-hover:brightness-110"
+          onClick={(e) => props.setSection(e.currentTarget.id)}
+        >
+          <svg>
+            <polygon
+              fill="#c3e3f1"
+              points="684.3,369.2 700.7,357.7 701.9,366.2 685.6,377.6 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#c3e3f1"
+              points="700.5,358.2 701.6,366.1 685.8,377.1 684.6,369.3 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#c3e3f1"
+              points="680.8,371.7 684.8,368.8 686.1,377.2 682.1,380.1 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#c3e3f1"
+              points="684.6,369.3 685.8,377.1 682.3,379.6 681.1,371.8 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#c3e3f1"
+              points="679.8,372.4 681.3,371.3 682.6,379.7 681.1,380.8 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#c3e3f1"
+              points="681.1,371.8 682.3,379.6 681.3,380.3 680.1,372.5 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#c3e3f1"
+              points="674.4,376.1 680.3,372 681.6,380.4 675.7,384.6 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#c3e3f1"
+              points="680.1,372.5 681.3,380.3 675.9,384.1 674.7,376.2 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#bfddea"
+              points="574,329 572.8,320.5 675,376 676.3,384.6 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#bfddea"
+              points="674.7,376.2 675.9,384.1 574.3,328.8 573.2,321 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#c4e4f2"
+              points="572.9,321.2 573,314.4 573,313.4 573.1,309.1 573.1,308.3 588.5,297.6 701,358.2 684.8,369.5 
+				681.3,372 680.3,372.7 674.7,376.5 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#c4e4f2"
+              points="588.5,297.9 700.5,358.2 684.6,369.3 681.1,371.8 680.1,372.5 674.7,376.2 573.2,321 
+				573.3,314.4 573.3,313.4 573.4,309.1 573.4,308.4 			"
+            ></polygon>
+          </svg>
+          </svg>
+          <svg
+          id="field_PENA_LOVE"
+          className="group-hover:brightness-110"
+          onClick={(e) => props.setSection(e.currentTarget.id)}
+        >
+          <svg>
+            <polygon
+              fill="#c3e3f1"
+              points="578.7,441.9 584.4,437.8 585.7,446.2 579.9,450.3 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#c3e3f1"
+              points="584.2,438.3 585.4,446.1 580.1,449.8 579,442 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#c3e3f1"
+              points="574.4,444.8 579.2,441.5 580.4,449.9 575.6,453.3 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#c3e3f1"
+              points="579,442 580.1,449.8 575.8,452.8 574.7,444.9 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#c3e3f1"
+              points="572.4,446.2 574.9,444.4 576.1,452.9 573.7,454.6 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#c3e3f1"
+              points="574.7,444.9 575.8,452.8 573.9,454.1 572.7,446.3 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#bfddea"
+              points="474.7,405.7 473.4,397.2 569.2,448.8 570.5,457.3 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#bfddea"
+              points="568.9,449 570.1,456.8 475,405.5 473.8,397.7 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#c4e4f2"
+              points="473.3,397.7 477.5,394.8 479.6,393.4 483.7,390.5 489.3,386.6 584.7,438.3 579.2,442.2 
+				574.9,445.1 572.9,446.5 568.9,449.3 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#c4e4f2"
+              points="489.3,386.9 584.2,438.3 579,442 574.7,444.9 572.7,446.3 568.9,449 473.8,397.7 477.7,395 
+				479.8,393.6 483.9,390.7 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#c3e3f1"
+              points="568.6,448.9 572.9,445.8 574.2,454.2 569.9,457.3 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#c3e3f1"
+              points="572.7,446.3 573.9,454.1 570.1,456.8 568.9,449 			"
+            ></polygon>
+          </svg>
+          </svg>
+          <svg
           id="field_PENB_LOVE"
-          className="hover:brightness-110"
+          className="group-hover:brightness-110"
           onClick={(e) => props.setSection(e.currentTarget.id)}
         >
           <svg>
@@ -3987,10 +3727,277 @@ const seatmap = (props: props) => {
               points="423.4,366.7 424.6,374.5 420.8,377.2 419.6,369.4 			"
             ></polygon>
           </svg>
+          </svg>
+          <svg 
+          id="field_PEND_LOVE" 
+          className="group-hover:brightness-110" 
+          onClick = {(e) => props.setSection(e.currentTarget.id)}>
+          <svg>
+            <polygon
+              fill="#c2e1ee"
+              points="530.2,298.6 541.3,297.7 542.6,306.1 531.4,307 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#c2e1ee"
+              points="541.1,298 542.3,305.8 531.6,306.7 530.5,298.9 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#c2e1ee"
+              points="540.8,297.8 542.9,297.5 544.2,306 542.1,306.1 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#c2e1ee"
+              points="542.7,297.8 543.9,305.7 542.3,305.8 541.1,298 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#c2e1ee"
+              points="542.4,297.5 549.8,296.9 551.1,305.4 543.7,306 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#c2e1ee"
+              points="549.6,297.2 550.8,305.1 543.9,305.7 542.7,297.8 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#c3e3f1"
+              points="550.4,297 565.9,286.1 567.2,294.5 551.7,305.5 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#c3e3f1"
+              points="565.7,286.6 566.9,294.4 551.9,305 550.7,297.1 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#c2e1ee"
+              points="549.3,296.9 550.9,296.8 552.2,305.3 550.6,305.4 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#c2e1ee"
+              points="550.7,297.1 551.9,305 550.8,305.1 549.6,297.2 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#c4e4f2"
+              points="428,243.9 433.7,240 434.7,239.3 438.2,236.8 454.2,225.6 566.2,286.6 550.8,297.4 549.6,297.5 
+				542.7,298.1 541.1,298.3 530.4,299.2 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#c4e4f2"
+              points="454.2,225.9 565.7,286.6 550.7,297.1 549.6,297.2 542.7,297.8 541.1,298 530.5,298.9 
+				428.5,243.9 433.9,240.2 434.9,239.5 438.4,237 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#bfddea"
+              points="429.4,252 428.1,243.4 530.8,298.7 532,307.2 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#bfddea"
+              points="530.5,298.9 531.6,306.7 429.7,251.8 428.5,243.9 			"
+            ></polygon>
+          </svg>
+          </svg>
         </svg>
-        <svg
+        <svg className="group" id="Q">
+          <svg
+          id="field_PEND_QUEEN"
+          className="group-hover:brightness-110"
+          onClick={(e) => props.setSection(e.currentTarget.id)}
+        >
+          <svg>
+            <polygon
+              fill="#ec7ff2"
+              points="404.5,269.4 403.2,260.9 467.9,295.8 469.2,304.4 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#ec7ff2"
+              points="467.6,296 468.8,303.9 404.8,269.2 403.6,261.4 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#ec7ff2"
+              points="468.5,304.1 467.2,295.5 476.9,300.7 478.2,309.2 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#ec7ff2"
+              points="476.6,300.9 477.8,308.7 468.8,303.9 467.6,296 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#ec7ff2"
+              points="477.5,308.9 476.2,300.4 481.2,303 482.4,311.5 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#ec7ff2"
+              points="480.9,303.2 482,311 477.8,308.7 476.6,300.9 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#f07ff7"
+              points="480.6,302.9 530.7,298.6 531.9,307 481.8,311.3 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#f07ff7"
+              points="530.5,298.9 531.6,306.7 482,311 480.9,303.2 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#f47ffb"
+              points="476.5,301.1 467.5,296.2 403.1,261.4 428.5,243.6 531.5,299.1 480.8,303.5 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#f47ffb"
+              points="428.5,243.9 530.5,298.9 480.9,303.2 476.6,300.9 467.6,296 403.6,261.4 			"
+            ></polygon>
+          </svg>
+          </svg>
+          <svg
+          id="field_PENC_QUEEN"
+          className="group-hover:brightness-110"
+          onClick={(e) => props.setSection(e.currentTarget.id)}
+        >
+          <svg>
+            <polygon
+              fill="#ec7ff2"
+              points="573.4,359.9 572.2,351.4 577.1,354 578.4,362.5 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#ec7ff2"
+              points="576.8,354.2 578,362 573.7,359.7 572.6,351.9 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#ec7ff2"
+              points="577.7,362.2 576.4,353.7 586.1,358.8 587.4,367.3 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#ec7ff2"
+              points="585.8,359 587,366.8 578,362 576.8,354.2 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#f37ffa"
+              points="649.5,393.6 674.9,375.7 676.2,384.2 650.8,402 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#f37ffa"
+              points="674.7,376.2 675.9,384.1 651,401.5 649.8,393.7 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#ec7ff2"
+              points="586.7,367 585.4,358.5 650.1,393.5 651.4,402 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#ec7ff2"
+              points="649.8,393.7 651,401.5 587,366.8 585.8,359 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#f47ffb"
+              points="585.7,359.2 576.7,354.5 572.3,352.1 572.9,320.5 675.2,376.2 649.8,394 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#f47ffb"
+              points="573.2,321 674.7,376.2 649.8,393.7 585.8,359 576.8,354.2 572.6,351.9 			"
+            ></polygon>
+          </svg>
+          </svg>
+          <svg
+          id="field_PENA_QUEEN"
+          className="group-hover:brightness-110"
+          onClick={(e) => props.setSection(e.currentTarget.id)}
+        >
+          <svg>
+            <polygon
+              fill="#f37ffa"
+              points="554.7,458.7 569.1,448.5 570.4,456.9 555.9,467.1 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#f37ffa"
+              points="568.9,449 570.1,456.8 556.1,466.6 555,458.8 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#f47ffb"
+              points="459.6,407.4 473.8,397.4 569.4,449 555,459.1 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#f47ffb"
+              points="473.8,397.7 568.9,449 555,458.8 460.1,407.4 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#ec7ff2"
+              points="460.9,415.4 459.7,406.9 555.3,458.6 556.5,467.1 			"
+            ></polygon>
+          </svg>
+          <svg>
+            <polygon
+              fill="#ec7ff2"
+              points="555,458.8 556.1,466.6 461.2,415.2 460.1,407.4 			"
+            ></polygon>
+          </svg>
+          </svg>
+          <svg
           id="field_PENB_QUEEN"
-          className="hover:brightness-110"
+          className="group-hover:brightness-110"
           onClick={(e) => props.setSection(e.currentTarget.id)}
         >
           <svg>
@@ -4029,9 +4036,9 @@ const seatmap = (props: props) => {
               points="405.8,379 407,386.8 312.1,335.5 310.9,327.6 			"
             ></polygon>
           </svg>
+          </svg>
+          
         </svg>
-      </svg>
-      <svg>
         <svg>
           <path
             d="M604.2,505.9c1.4-1,3.7-1.2,5.4-0.3c2.6,1.4,2.4,3.7,0.8,5.2l-1-0.2c1-1.1,1.4-2.5,0.3-3.6c-0.1,0.5-0.5,1.1-1.2,1.6
