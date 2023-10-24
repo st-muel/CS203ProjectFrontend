@@ -83,7 +83,14 @@ const CreateConcertModal = (props: props) => {
     useEffect(() => {
         const getVenues = async () => {
             try {
-                const res = await axios.get<Venue[]>(`${process.env.NEXT_PUBLIC_BACKEND_URL}/venues`,);
+                const res = await axios.get<Venue[]>(
+                    `${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/venues`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${jwtToken}`,
+                        }
+                    }
+                );
                 setVenues(res.data);
             } catch (err) {
                 notification.error({

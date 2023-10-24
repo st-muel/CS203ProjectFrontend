@@ -7,6 +7,8 @@ import { FaPlusCircle } from "react-icons/fa";
 import Link from "next/link";
 import axios from "axios";
 import { notification } from "antd";
+import { useAtomValue } from "jotai";
+import { jwtTokenAtom } from "../jotai";
 
 export interface Concert {
     id: number;
@@ -28,11 +30,19 @@ export default function Admin() {
     const [open, setOpen] = useState(false);
     const [concerts, setConcerts] = useState<Concert[]>([]);
     const [search, setSearch] = useState("");
+    const jwtToken = useAtomValue(jwtTokenAtom);
 
     useEffect(() => {
         const getConcerts = async () => {
             try {
-                const res = await axios.get<Concert[]>(`${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/concerts`);
+                const res = await axios.get<Concert[]>(
+                    `${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/concerts?showAll=true`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${jwtToken}`,
+                        }
+                    }
+                );
                 setConcerts(res.data);
             } catch (err) {
                 notification.error({

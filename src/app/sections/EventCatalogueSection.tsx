@@ -11,7 +11,6 @@ interface Props {
 }
 
 export default function EventCatalogueSection({eventCatalogues}: Props) {
-    console.log(eventCatalogues)
     return (
         <motion.div
         variants={staggerContainer}

@@ -9,7 +9,6 @@ interface props {
 }
 
 const AdminConcertCard = (props: props) => {
-    console.log(props.concert)
     return (
         <Link href={ `/admin/concert/${props.concert.id}` }  className="w-full">
             <div className="relative flex items-center w-full border rounded-md h-[200px] cursor-pointer">
