@@ -55,7 +55,7 @@ export default function Ballot({ searchParams }: Props) {
   }, [searchParams.id]); // Add the dependencies that trigger data fetching
 
   useEffect(() => {
-    console.log(categoryId);
+    console.log(categoryId); // TO BE REMOVED
   }, [categoryId]);
 
   const getPriceByCategoryId = () => {

@@ -2,13 +2,12 @@
 import { TableDropDown } from "./TableDropDown";
 import styles from "../styles";
 import axios from "axios";
-import { Stripe, loadStripe } from "@stripe/stripe-js";
 import { useState } from "react";
 import { jwtTokenAtom, userAtom } from "../jotai";
 import { useAtomValue } from "jotai";
 import { notification } from "antd";
 import { FaSpinner } from "react-icons/fa";
-import { CategoryPricing } from "../ballot/page";
+import { useRouter } from "next/navigation";
 
 interface props {
   category: string;
@@ -27,6 +26,36 @@ export const CategoryTable = (props: props) => {
   const [loading, setLoading] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const jwtToken = useAtomValue(jwtTokenAtom);
+  const { push } = useRouter();
+
+  const processBallotCheckout = async (category: string) => {
+    try {
+      setLoading(true);
+
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${props.concertId}/categories/${props.category}/ballots`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${jwtToken}`,
+          },
+        }
+      );
+      if (res.status === 201) {
+        // Redirect to the confirmation page
+        setLoading(false);
+        push("/ballot-successful");
+      }
+    } catch (e) {
+      console.log(e);
+      notification.error({
+        message: "Error",
+        description: "Something went wrong. Please try again later.",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className={`${styles.innerWidth} mx-auto`}>
@@ -93,7 +122,7 @@ export const CategoryTable = (props: props) => {
         <div className="mt-8 mb-12">
           <button
             className="flex justify-center items-center w-[150px] h-[50px] bg-blue-500 hover:bg-blue-400 disabled:bg-neutral-500 disabled:hover:bg-neutral-500 disabled:cursor-default disabled:border-neutral-700 disabled:hover:border-neutral-700 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
-            // onClick={() => processStripeCheckout(props.section)}
+            onClick={() => processBallotCheckout(props.category)}
             disabled={loading}
           >
             {loading ? <FaSpinner /> : <div>Checkout</div>}

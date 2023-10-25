@@ -51,7 +51,7 @@ const SignupForm = (props: props) => {
 					password,
 					email,
 					dob,
-					country,
+					"countryOfResidences": country,
 					phone
 				},
 				{
@@ -72,6 +72,8 @@ const SignupForm = (props: props) => {
 			setPhone("")
 			setPassword("")
 			setDupPassword("")
+
+			console.log(e);
 
 			notification.error({
 				message: "Error",
