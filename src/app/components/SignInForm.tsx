@@ -36,6 +36,7 @@ const SigninForm = (props: props) => {
 			)
 
 			setJwtToken(res.data.token)
+			console.log(res.data.token)
 			props.setOpen(false)
 		} catch (e) {
 			setUsername("")

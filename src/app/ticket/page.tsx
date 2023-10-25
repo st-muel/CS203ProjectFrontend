@@ -1,29 +1,39 @@
 "use client";
 
+import { useAtom, useAtomValue } from "jotai";
 import Image from "next/image";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import { Carousel } from "../components/Carousel";
-import { ChooseSections } from "../components/ChooseSections";
-import SeatSelector from "../components/SeatSelector";
-import Seatmap from "../components/Seatmap";
+import { RedirectType, redirect } from "next/navigation";
 import { useEffect, useState } from "react";
-import { TableTickets } from "../components/TableTickets";
+import Footer from "../components/Footer";
 import Legend from "../components/Legend";
+import Navbar from "../components/Navbar";
+import Seatmap from "../components/Seatmap";
+import { TableTickets } from "../components/TableTickets";
+import { jwtTokenAtom } from "../jotai";
 import styles from "../styles";
-import axios from "axios";
-import { SectionPricing } from "../concert/page";
+const jwt = require("jsonwebtoken");
 
 interface Props {
   searchParams: any;
 }
 
-export default function Ticket({searchParams}: Props) {
+export default function Ticket({ searchParams }: Props) {
   const [section, setSection] = useState("");
+  const jwtToken = useAtomValue(jwtTokenAtom);
 
   useEffect(() => {
     console.log(section);
   }, [section]);
+
+  useEffect(() => {
+    console.log("From Ticket" + jwtToken);
+    if (jwtToken === '') {
+      redirect(`/signIn?redirectUrl=/ticket&userId=${searchParams.userId}&concertId=${searchParams.concertId}&category=${searchParams.category}`, RedirectType.replace);
+    } else {
+      const payload = jwt.decode(jwtToken, process.env.JWT_SECRET);
+      console.log(payload);
+    }
+  }, [jwtToken]);
 
   return (
     <main>
@@ -48,7 +58,8 @@ export default function Ticket({searchParams}: Props) {
                   {searchParams.title}
                 </h4>
                 <p className="mt-[16px] font-normal lg:text-[20px] text-[14px] text-secondary-white">
-                  {searchParams.loc} - {new Date(searchParams.startDate).toDateString() }
+                  {searchParams.loc} -{" "}
+                  {new Date(searchParams.startDate).toDateString()}
                 </p>
               </div>
             </div>
@@ -76,7 +87,7 @@ export default function Ticket({searchParams}: Props) {
           {section && (
             <div className="bg-white" id="ticketsection">
               {" "}
-              <TableTickets 
+              <TableTickets
                 section={section.split("_")[1]}
                 concertId={searchParams.id}
                 concertTitle={searchParams.title}

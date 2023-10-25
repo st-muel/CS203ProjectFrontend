@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken')
 export async function POST(req: Request) {
     try {
         const jwtToken = req.headers.get('authorization')?.replace('Bearer ', '')
-        const user = jwt.decode(jwtToken, process.env.JWT_SECRET_KEY)
+        const user = jwt.decode(jwtToken, process.env.JWT_SECRET)
 
         if (!user || !user.sub) {
             return NextResponse.json({message: 'Unauthorized'}, { status: 401 })
