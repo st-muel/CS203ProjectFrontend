@@ -7,7 +7,8 @@ import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import Legend from "../components/Legend";
 import Navbar from "../components/Navbar";
-import Seatmap from "../components/Seatmap";
+import SeatMap from "../components/Seatmap";
+import SectionSelectionMap from "../components/SectionSelectionMap";
 import { TableTickets } from "../components/TableTickets";
 import { jwtTokenAtom } from "../jotai";
 import styles from "../styles";
@@ -28,7 +29,7 @@ export default function Ticket({ searchParams }: Props) {
   useEffect(() => {
     console.log("From Ticket" + jwtToken);
     if (jwtToken === '') {
-      redirect(`/signIn?redirectUrl=/ticket&userId=${searchParams.userId}&concertId=${searchParams.concertId}&category=${searchParams.category}`, RedirectType.replace);
+      redirect(`/signIn?redirectUrl=/ticket&userId=${searchParams.userId}&concertId=${searchParams.concertId}&category=${searchParams.category}&`, RedirectType.replace);
     } else {
       const payload = jwt.decode(jwtToken, process.env.JWT_SECRET);
       console.log(payload);
@@ -79,7 +80,8 @@ export default function Ticket({ searchParams }: Props) {
 
           <div className="flex flex-row justify-center items-center">
             <a href="#ticketsection">
-              <Seatmap setSection={setSection} />
+              <SectionSelectionMap setSection={setSection} category="4" />
+              {/* <SeatMap setSection={setSection}/> */}
             </a>
             <Legend />
           </div>
