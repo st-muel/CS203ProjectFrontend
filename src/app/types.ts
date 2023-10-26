@@ -1,5 +1,9 @@
 
 interface User {
-    id: string
-    username: string
+    token: string;
+    type: string;
+    id: string;
+    username: string;
+    email: string;
+    roles: string[];
 }
