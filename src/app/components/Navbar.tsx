@@ -1,14 +1,10 @@
 "use client";
 
-import { FaCalendar, FaSearch } from "react-icons/fa";
 import SignInModal from "./SignInModal";
 import { useState } from "react";
-import { buttonVariants, Button } from "./ui/button";
-import { rc } from "../lib/utils";
 import { motion } from "framer-motion";
 import styles from "../styles";
 import { navVariants } from "../utils/motion";
-
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useAtom, useAtomValue } from "jotai";
@@ -50,11 +46,16 @@ const Navbar = () => {
       });
     }
   };
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <div>
       <SignInModal open={open} setOpen={setOpen} />
-      <SignUpModal openSignup={openSignup} setSignupOpen={setSignupOpen}/>
+      <SignUpModal openSignup={openSignup} setSignupOpen={setSignupOpen} />
       <motion.nav
         variants={navVariants}
         initial="hidden"
@@ -65,16 +66,10 @@ const Navbar = () => {
         <div
           className={`${styles.innerWidth} mx-auto flex justify-between gap-8 items-center`}
         >
-          {/* <img
-						src="/search.svg"
-						alt="search"
-						className="w-[24px] h-[24px] object-contain"
-					/> */}
           <div className="p-[0.4rem] rounded-lg sticky top-4 z-[100] bg-stone-900/50 backdrop-blur-md">
             <nav className="flex gap-2 relative justify-start w-full z-[100] rounded-lg">
               {navItems.map((item, index) => {
                 const isActive = item.path === pathname;
-
                 return (
                   <Link
                     key={item.path}
@@ -109,28 +104,73 @@ const Navbar = () => {
               })}
             </nav>
           </div>
-
           <div className="align-middle">
             <div>
               {user ? (
                 <div className="flex space-x-[15px]">
-                  <p>{user.sub}</p>
-                  {/* <button
-                    className={rc(buttonVariants({ variant: "default" }))}
-                    onClick={() => signOut()}
-                  >
-                    Logout
-                  </button> */}
-
-                  <a
-                    onClick={() => signOut()}
-                    className="relative inline-flex items-center justify-start px-6 py-2 overflow-hidden font-medium transition-all bg-stone-900/50 rounded hover:bg-white group"
-                  >
-                    <span className="w-48 h-48 rounded rotate-[-40deg] bg-purple-500 absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-24 group-hover:translate-x-0"></span>
-                    <span className="relative w-full text-left text-white transition-colors duration-300 ease-in-out group-hover:text-white">
-                      Logout
-                    </span>
-                  </a>
+                  <div className="flex flex-col">
+                    <div>
+                      <button
+                        onMouseEnter={toggleMenu}
+                        // onMouseLeave={toggleMenu}
+                        // className="inline-flex w-full justify-center rounded-md bg-black/20 px-4 py-2 text-sm font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
+                        className="text-white bg-black/20 hover:bg-black/30 focus:ring-4 focus:outline-none focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
+                      >
+                        {user.sub}
+                        <svg
+                          className="w-2.5 h-2.5 ml-2.5"
+                          // className="w-2.5 h-2.5 ml-2.5 text-violet-200 hover:text-violet-100"
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 10 6"
+                        >
+                          <path
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="m1 1 4 4 4-4"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                    <div>
+                      {isMenuOpen && (
+                        <div className="origin-top-right mt-2 w-44 rounded-lg shadow-lg divide-y divide-gray-100 dark:bg-gray-700 absolute">
+                          <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
+                            <li>
+                              <a
+                                href="#"
+                                // className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                                className="mx-2 rounded-lg block px-4 py-2 hover:bg-violet-500 text-white"
+                              >
+                                Account Settings
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="/user-tickets"
+                                // className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                                className="mx-2 rounded-lg block px-4 py-2 hover:bg-violet-500 text-white"
+                              >
+                                View My Tickets
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                onClick={() => signOut()}
+                                // className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                                className="mx-2 rounded-lg block px-4 py-2 hover:bg-violet-500 text-white"
+                              >
+                                Sign Out
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
               ) : (
                 <div className="flex space-x-[15px]">

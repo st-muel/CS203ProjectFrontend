@@ -39,6 +39,7 @@ const SigninForm = (props: props) => {
 			console.log(res.data.token)
 			props.setOpen(false)
 		} catch (e) {
+			console.log(e)
 			setUsername("")
 			setPassword("")
 
