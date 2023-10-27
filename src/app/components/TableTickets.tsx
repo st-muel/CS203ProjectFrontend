@@ -11,8 +11,8 @@ import { FaSpinner } from "react-icons/fa";
 import { SectionPricing } from "../concert/page";
 
 interface props {
-	section: string;
-	concertId: number;
+	section: number;
+	concertSessionId: number;
 	concertTitle: string;
 	categoryPrice: number;
 }
@@ -22,7 +22,7 @@ export const TableTickets = (props: props) => {
 	const [quantity, setQuantity] = useState(1);
 	const jwtToken = useAtomValue(jwtTokenAtom);
 	
-	const processStripeCheckout = async (section: string) => {
+	const processStripeCheckout = async (section: number) => {
 		try {
 			setLoading(true)
 
@@ -31,7 +31,7 @@ export const TableTickets = (props: props) => {
 				'/api/stripe/create', 
 				{
 					section: section,
-					concertId: props.concertId,
+					concertSessionId: props.concertSessionId,
 					quantity: quantity,
 					concertTitle: props.concertTitle,
 				},

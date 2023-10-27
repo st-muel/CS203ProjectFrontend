@@ -13,16 +13,38 @@ import { TableTickets } from "../components/TableTickets";
 import { jwtTokenAtom } from "../jotai";
 import styles from "../styles";
 import axios from "axios";
+import { notification } from "antd";
 const jwt = require("jsonwebtoken");
 
 interface Props {
   searchParams: any;
 }
 
+interface Section {
+  id: number;
+  name: string;
+  category: {
+    id: number;
+    name: string;
+    venue: {
+      id: number;
+      name: string;
+    };
+  };
+  availableSeats: number;
+}
+
+
+// TODO: Add Concert attributes, change searchParams to concert
+interface Concert {}
+
+// userId=%ld&concert=%ld&concertSession=%ld&category=%ld&venue=%ld
 export default function Ticket({ searchParams }: Props) {
   const [section, setSection] = useState("");
   const jwtToken = useAtomValue(jwtTokenAtom);
   const [categoryPrice, setCategoryPrice] = useState(0.0);
+  const [sections, setSections] = useState<Section[]>([]);
+  const [concert, setConcert] = useState<Concert>();  
 
   useEffect(() => {
     console.log(section);
@@ -31,9 +53,19 @@ export default function Ticket({ searchParams }: Props) {
   useEffect(() => {
 
     const fetchCategoryPrice = async () => {
-      const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${searchParams.concertId}/categories/${searchParams.categoryId}/prices`);
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${searchParams.concert}/categories/${searchParams.category}/prices`);
       
       setCategoryPrice(res.data.price);
+    }
+
+    const fetchSections = async () => {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/venues/${searchParams.venue}/sections`);
+      setSections(res.data);
+    }
+
+    const fetchConcert = async () => {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/concerts/${searchParams.concert}`);
+      setConcert(res.data);
     }
 
     // console.log("From Ticket" + jwtToken);
@@ -46,9 +78,22 @@ export default function Ticket({ searchParams }: Props) {
     //   }
     // }
     if (jwtToken) {
-      fetchCategoryPrice();
+      const payload = jwt.decode(jwtToken, process.env.JWT_SECRET);
+      if (payload.userId == searchParams.userId) {
+        fetchCategoryPrice();
+        fetchSections();
+        fetchConcert();
+      } else {
+        notification.error({
+          message: "Error",
+          description: "You are not authorized to view this page.",
+        });
+      }
     }
   }, [jwtToken]);
+
+  const getSectionIdByName = (sectionName: string) => sections.find((section) => section.name === sectionName)?.id!;
+  
 
   return (
     <main>
@@ -94,7 +139,7 @@ export default function Ticket({ searchParams }: Props) {
 
           <div className="flex flex-row justify-center items-center">
             <a href="#ticketsection">
-              <SectionSelectionMap setSection={setSection} category={searchParams.categoryId} />
+              <SectionSelectionMap setSection={setSection} category={searchParams.category} />
               {/* <SeatMap setSection={setSection}/> */}
             </a>
             <Legend />
@@ -104,8 +149,8 @@ export default function Ticket({ searchParams }: Props) {
             <div className="bg-white" id="ticketsection">
               {" "}
               <TableTickets
-                section={section.split("_")[1]}
-                concertId={searchParams.id}
+                section={getSectionIdByName(section)}
+                concertSessionId={searchParams.concertSessionId}
                 concertTitle={searchParams.title}
                 categoryPrice={categoryPrice}
               />
