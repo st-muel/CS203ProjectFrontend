@@ -14,6 +14,7 @@ interface props {
 	section: string;
 	concertId: number;
 	concertTitle: string;
+	categoryPrice: number;
 }
 
 export const TableTickets = (props: props) => {
@@ -109,7 +110,7 @@ export const TableTickets = (props: props) => {
 								scope="row"
 								className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
 							>
-								$200
+								${props.categoryPrice}
 							</th>
 							<th
 								scope="row"

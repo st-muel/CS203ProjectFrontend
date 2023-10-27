@@ -12,6 +12,7 @@ import SectionSelectionMap from "../components/SectionSelectionMap";
 import { TableTickets } from "../components/TableTickets";
 import { jwtTokenAtom } from "../jotai";
 import styles from "../styles";
+import axios from "axios";
 const jwt = require("jsonwebtoken");
 
 interface Props {
@@ -21,18 +22,31 @@ interface Props {
 export default function Ticket({ searchParams }: Props) {
   const [section, setSection] = useState("");
   const jwtToken = useAtomValue(jwtTokenAtom);
+  const [categoryPrice, setCategoryPrice] = useState(0.0);
 
   useEffect(() => {
     console.log(section);
   }, [section]);
 
   useEffect(() => {
-    console.log("From Ticket" + jwtToken);
-    if (jwtToken === '') {
-      redirect(`/signIn?redirectUrl=/ticket&userId=${searchParams.userId}&concertId=${searchParams.concertId}&category=${searchParams.category}&`, RedirectType.replace);
-    } else {
-      const payload = jwt.decode(jwtToken, process.env.JWT_SECRET);
-      console.log(payload);
+
+    const fetchCategoryPrice = async () => {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${searchParams.concertId}/categories/${searchParams.categoryId}/prices`);
+      
+      setCategoryPrice(res.data.price);
+    }
+
+    // console.log("From Ticket" + jwtToken);
+    // if (jwtToken === '') {
+    //   redirect(`/signIn?redirectUrl=/ticket&userId=${searchParams.userId}&concertId=${searchParams.concertId}&category=${searchParams.category}&`, RedirectType.replace);
+    // } else {
+    //   const payload = jwt.decode(jwtToken, process.env.JWT_SECRET);
+    //   if (payload.userId == searchParams.userId) {
+    //     fetchCategoryPrice();
+    //   }
+    // }
+    if (jwtToken) {
+      fetchCategoryPrice();
     }
   }, [jwtToken]);
 
@@ -80,7 +94,7 @@ export default function Ticket({ searchParams }: Props) {
 
           <div className="flex flex-row justify-center items-center">
             <a href="#ticketsection">
-              <SectionSelectionMap setSection={setSection} category="4" />
+              <SectionSelectionMap setSection={setSection} category={searchParams.categoryId} />
               {/* <SeatMap setSection={setSection}/> */}
             </a>
             <Legend />
@@ -93,6 +107,7 @@ export default function Ticket({ searchParams }: Props) {
                 section={section.split("_")[1]}
                 concertId={searchParams.id}
                 concertTitle={searchParams.title}
+                categoryPrice={categoryPrice}
               />
             </div>
           )}
