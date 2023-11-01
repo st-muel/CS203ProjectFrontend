@@ -13,6 +13,7 @@ interface props {
   category: string;
   price: number;
   concertId: number;
+  sessionId: number | undefined;
 }
 
 // async function getSectionsPricing(concertId: number) {
@@ -31,9 +32,14 @@ export const CategoryTable = (props: props) => {
   const processBallotCheckout = async (category: string) => {
     try {
       setLoading(true);
+      console.log(props.sessionId);
+
+      if (!props.sessionId) {
+        throw new Error("Session ID is undefined");
+      }
 
       const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${props.concertId}/categories/${props.category}/ballots`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/sessions/${props.sessionId}/categories/${props.category}/ballots`,
         {},
         {
           headers: {
@@ -47,7 +53,9 @@ export const CategoryTable = (props: props) => {
         push("/ballot-successful");
       }
     } catch (e) {
-      console.log(e);
+      // console.log(e);
+      // console.log(props.concertId);
+      // console.log(props.category);
       notification.error({
         message: "Error",
         description: "Something went wrong. Please try again later.",

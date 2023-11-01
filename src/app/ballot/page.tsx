@@ -10,6 +10,7 @@ import Legend from "../components/Legend";
 import styles from "../styles";
 import axios from "axios";
 import { get } from "http";
+import { SessionDropDown } from "../components/SessionDropDown";
 
 interface Props {
   searchParams: any;
@@ -28,6 +29,22 @@ export interface CategoryPricing {
   price: number;
 }
 
+export interface session {
+  id: number;
+  datetime: string;
+  concert: {
+    id: number;
+    title: string;
+    description: string;
+    artist: string;
+    venue: {
+      id: number;
+      name: string;
+    };
+    concertImages: [];
+  };
+}
+
 async function getCategoryPricing(concertId: number) {
   try {
     return await axios.get(
@@ -39,9 +56,17 @@ async function getCategoryPricing(concertId: number) {
   }
 }
 
+async function getSession(id: number) {
+  return await axios.get(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${id}/sessions`
+  );
+}
+
 export default function Ballot({ searchParams }: Props) {
   const [categoryId, setCategoryId] = useState("");
   const [catPricing, setCatPricing] = useState<CategoryPricing[]>([]);
+  const [sessions, setSessions] = useState<session[]>([]);
+  const [currentSession, setCurrentSession] = useState<session | null>(null);
 
   useEffect(() => {
     // Fetch data when the component mounts
@@ -51,7 +76,14 @@ export default function Ballot({ searchParams }: Props) {
       );
       setCatPricing(data);
     }
+    async function fetchSession() {
+      const sessions = await getSession(searchParams.id).then(
+        (res) => res.data as session[]
+      );
+      setSessions(sessions);
+    }
     fetchData();
+    fetchSession();
   }, [searchParams.id]); // Add the dependencies that trigger data fetching
 
   useEffect(() => {
@@ -66,8 +98,7 @@ export default function Ballot({ searchParams }: Props) {
       }
     });
     return price;
-  }
-
+  };
 
   return (
     <main>
@@ -100,6 +131,13 @@ export default function Ballot({ searchParams }: Props) {
           </div>
 
           <div className={`${styles.innerWidth} mx-auto`}>
+            <SessionDropDown
+              sessions={sessions}
+              setCurrentSession={setCurrentSession}
+            />
+          </div>
+
+          <div className={`${styles.innerWidth} mx-auto`}>
             <div className="bg-white py-6 sm:py-8 lg:py-12">
               <div className="mx-auto max-w-screen-2xl">
                 <div className="rounded-lg bg-gray-100 py-3 md:py-5 lg:py-7">
@@ -125,6 +163,7 @@ export default function Ballot({ searchParams }: Props) {
                 category={categoryId}
                 price={getPriceByCategoryId()}
                 concertId={searchParams.id}
+                sessionId={currentSession?.id}
               />
             </div>
           )}
