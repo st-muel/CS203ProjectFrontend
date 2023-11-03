@@ -3,27 +3,31 @@
 import { Modal, notification } from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Concert, Venue } from "../admin/page";
-import { useAtomValue } from "jotai";
-import { jwtTokenAtom } from "../jotai";
+import { Venue } from "../admin/page";
+import { getJwt } from "../lib/utils";
+
+export interface Concert {
+    id: number;
+    title: string;
+    description: string;
+    artist: string;
+    venue: Venue;
+}
 
 interface props {
   open: boolean;
   setOpen: (open: boolean) => void;
   concert: Concert
+  setConcert: (concert: any) => void;
 }
 
 const EditConcertModal = (props: props) => {
-    const jwtToken = useAtomValue(jwtTokenAtom);
-
+    const jwtToken = getJwt();
     const [venues, setVenues] = useState<Venue[]>([]);
     const [title, setTitle] = useState(props.concert.title);
-    const [image, setImage] = useState(props.concert.image);
     const [description, setDescription] = useState(props.concert.description);
     const [artist, setArtist] = useState(props.concert.artist);
-    const [venue, setVenue] = useState(props.concert.venue);
-    const [ballotStart, setBallotStart] = useState(props.concert.ballotStart);
-    const [ballotEnd, setBallotEnd] = useState(props.concert.ballotEnd);
+    const [venue, setVenue] = useState(props.concert.venue.id);
 
     const handleCancel = () => {
         props.setOpen(false);
@@ -31,13 +35,24 @@ const EditConcertModal = (props: props) => {
 
     const updateConcert = async () => {
         try {
-            const res = await axios.put<Concert>(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/concerts/${props.concert.id}`, {
+            const res = await axios.put<Concert>(`${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/concerts/${props.concert.id}`, {
                 title: title,
-                image: image,
                 description: description,
                 artist: artist,
-                venue: venue,
+                venueId: venue,
+            },
+            {
+                headers: {
+                    Authorization: `Bearer ${jwtToken}`,
+                }
             });
+
+            props.concert.artist = res.data.artist;
+            props.concert.description = res.data.description;
+            props.concert.title = res.data.title;
+            props.concert.venue = res.data.venue;
+
+            props.setConcert(props.concert);
 
             notification.success({
                 message: "Success",
@@ -105,19 +120,6 @@ const EditConcertModal = (props: props) => {
                                 <label
                                     className="block text-sm font-semibold text-gray-800"
                                 >
-                                    Concert Image URL
-                                </label>
-                                <input
-                                    type="text"
-                                    className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md focus:border-gray-400 focus:ring-gray-300 focus:outline-none focus:ring focus:ring-opacity-40"
-                                    value={image}
-                                    onChange={(e) => setImage(e.target.value)}
-                                />
-                            </div>
-                            <div>
-                                <label
-                                    className="block text-sm font-semibold text-gray-800"
-                                >
                                     Description
                                 </label>
                                 <textarea
@@ -155,32 +157,6 @@ const EditConcertModal = (props: props) => {
                                         )
                                     }) }
                                 </select>
-                            </div>
-                            <div>
-                                <label
-                                    className="block text-sm font-semibold text-gray-800"
-                                >
-                                    Ballot Start
-                                </label>
-                                <input
-                                    type="datetime-local"
-                                    className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md focus:border-gray-400 focus:ring-gray-300 focus:outline-none focus:ring focus:ring-opacity-40"
-                                    value={ballotStart}
-                                    onChange={(e) => setBallotStart(e.target.value)}
-                                />
-                            </div>
-                            <div>
-                                <label
-                                    className="block text-sm font-semibold text-gray-800"
-                                >
-                                    Ballot End
-                                </label>
-                                <input
-                                    type="datetime-local"
-                                    className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md focus:border-gray-400 focus:ring-gray-300 focus:outline-none focus:ring focus:ring-opacity-40"
-                                    value={ballotEnd}
-                                    onChange={(e) => setBallotEnd(e.target.value)}
-                                />
                             </div>
                         </form>
                     </div>

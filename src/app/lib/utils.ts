@@ -13,3 +13,15 @@ export function formatDate(date: Date) {
     day: "numeric",
   });
 }
+
+export function getJwt() {
+  return localStorage.getItem("jwt");
+}
+
+export function setJwt(jwt: string) {
+  localStorage.setItem("jwt", jwt);
+}
+
+export function removeJwt() {
+  localStorage.removeItem("jwt");
+}

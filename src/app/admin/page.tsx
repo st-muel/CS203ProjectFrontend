@@ -7,19 +7,9 @@ import { FaPlusCircle } from "react-icons/fa";
 import Link from "next/link";
 import axios from "axios";
 import { notification } from "antd";
-import { useAtomValue } from "jotai";
-import { jwtTokenAtom } from "../jotai";
-
-export interface Concert {
-    id: number;
-    title: string;
-    image: string;
-    description: string;
-    artist: string;
-    venue: Venue;
-    ballotStart: string;
-    ballotEnd: string;
-}
+import { EventCatalogue } from "../explore/page";
+import { getJwt } from "../lib/utils";
+import { useRouter } from "next/navigation";
 
 export interface Venue {
     id: number;
@@ -27,15 +17,20 @@ export interface Venue {
 }
 
 export default function Admin() {
+    const router = useRouter();
     const [open, setOpen] = useState(false);
-    const [concerts, setConcerts] = useState<Concert[]>([]);
+    const [concerts, setConcerts] = useState<EventCatalogue[]>([]);
     const [search, setSearch] = useState("");
-    const jwtToken = useAtomValue(jwtTokenAtom);
+    const jwtToken = getJwt();
+
+    if (!jwtToken) {
+        router.push("/");
+    }
 
     useEffect(() => {
         const getConcerts = async () => {
             try {
-                const res = await axios.get<Concert[]>(
+                const res = await axios.get<EventCatalogue[]>(
                     `${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/concerts?showAll=true`,
                     {
                         headers: {
