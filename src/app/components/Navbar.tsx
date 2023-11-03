@@ -4,7 +4,7 @@ import { FaCalendar, FaSearch } from "react-icons/fa"
 import SignInModal from "./SignInModal"
 import { useState } from "react"
 import { buttonVariants, Button } from "./ui/button"
-import { rc } from "../lib/utils"
+import { getJwt, rc, removeJwt } from "../lib/utils"
 import { motion } from "framer-motion"
 import styles from "../styles"
 import { navVariants } from "../utils/motion"
@@ -13,7 +13,7 @@ import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { useAtom, useAtomValue } from "jotai"
 import { notification } from "antd"
-import { jwtTokenAtom, userAtom } from "../jotai"
+import { userAtom } from "../jotai"
 
 const navItems = [
 	{
@@ -31,7 +31,7 @@ const navItems = [
 ]
 
 const Navbar = () => {
-	const [jwtToken, setJwtToken] = useAtom(jwtTokenAtom)
+	const jwtToken = getJwt();
 	const [user, setUser] = useAtom(userAtom)
 	const [open, setOpen] = useState(false)
 
@@ -40,7 +40,7 @@ const Navbar = () => {
 
 	const signOut = async () => {
 		try {
-			setJwtToken("")
+			removeJwt();
 			setUser(null)
 		} catch (e) {
 			notification.error({
