@@ -128,21 +128,21 @@ export const pricingDetails = [
 export const insights = [
   {
     imgUrl: "/coldplay.jpeg",
-    title: "some event 1",
+    title: "Coldplay Live in Singapore",
     subtitle:
-      "Magna etiam tempor orci eu lobortis elementum nibh tellus molestie. Diam maecenas sed enim ut sem viverra alique.",
+      "Experience the magic of Coldplay live in concert! Join us for an unforgettable night filled with their iconic hits and electrifying performances. Don't miss this opportunity to be part of the Coldplay adventure – get your tickets now and let the music carry you away.",
   },
   {
     imgUrl: "/iu.jpeg",
-    title: "some event 2",
+    title: "IU Love, Poem Tour in Singapore",
     subtitle:
-      "Vitae congue eu consequat ac felis donec. Et magnis dis parturient montes nascetur ridiculus mus. Convallis tellus id interdum",
+      "Join us for a mesmerizing evening with IU! Her enchanting voice and captivating stage presence will transport you to a world of music and emotion. Secure your tickets today and immerse yourself in the enchanting melodies of IU's live performance.",
   },
   {
     imgUrl: "/dean-lewis.jpg",
-    title: "some event 3",
+    title: "Dean Lewis Live in Singapore",
     subtitle:
-      "Quam quisque id diam vel quam elementum. Viverra nam libero justo laoreet sit amet cursus sit. Mauris in aliquam sem",
+      "Be part of an extraordinary musical journey with Deann Lewis! His unique sound and soulful performances promise an unforgettable experience. Don't miss the chance to witness Deann Lewis in action – grab your tickets and be ready for a night of pure musical delight.",
   },
 ];
 

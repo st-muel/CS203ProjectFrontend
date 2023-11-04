@@ -35,8 +35,23 @@ interface Section {
 }
 
 
-// TODO: Add Concert attributes, change searchParams to concert
-interface Concert {}
+export interface Concert {
+  id: number;
+  title: string;
+  concertImages: {
+    id: number;
+    name: string;
+    filePath: string;
+  }[];
+  description: string;
+  artist: string;
+  venue: {
+    id: number;
+    name: string;
+  };
+  ballotStart: string;
+  ballotEnd: string;
+}
 
 // userId=%ld&concert=%ld&concertSession=%ld&category=%ld&venue=%ld
 export default function Ticket({ searchParams }: Props) {
@@ -59,16 +74,20 @@ export default function Ticket({ searchParams }: Props) {
     }
 
     const fetchSections = async () => {
-      const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/venues/${searchParams.venue}/sections`);
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/venues/${searchParams.venue}/sections`, {
+        headers: {
+          Authorization: `Bearer ${jwtToken}`,
+        },
+      });
       setSections(res.data);
     }
 
     const fetchConcert = async () => {
-      const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/concerts/${searchParams.concert}`);
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${searchParams.concert}`);
       setConcert(res.data);
     }
 
-    // console.log("From Ticket" + jwtToken);
+    console.log("From Ticket" + jwtToken);
     // if (jwtToken === '') {
     //   redirect(`/signIn?redirectUrl=/ticket&userId=${searchParams.userId}&concertId=${searchParams.concertId}&category=${searchParams.category}&`, RedirectType.replace);
     // } else {
@@ -79,15 +98,12 @@ export default function Ticket({ searchParams }: Props) {
     // }
     if (jwtToken) {
       const payload = jwt.decode(jwtToken, process.env.JWT_SECRET);
-      if (payload.userId == searchParams.userId) {
+      console.log(payload)
+      if (payload.id == searchParams.userId) {
+        console.log("Fetching data")
         fetchCategoryPrice();
         fetchSections();
         fetchConcert();
-      } else {
-        notification.error({
-          message: "Error",
-          description: "You are not authorized to view this page.",
-        });
       }
     }
   }, [jwtToken]);
@@ -106,7 +122,7 @@ export default function Ticket({ searchParams }: Props) {
             <div className="relative md:w-[270px] w-full h-[150px]">
               <Image
                 className="rounded-[32px]"
-                src={searchParams.imgUrl}
+                src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${searchParams.concert}/images/${concert?.concertImages[0].id}`}
                 alt="concert"
                 objectFit="cover"
                 fill
@@ -115,7 +131,7 @@ export default function Ticket({ searchParams }: Props) {
             <div className="w-full flex justify-between items-center">
               <div className="flex-1 md:ml-[62px] flex flex-col max-w-[650px]">
                 <h4 className="font-normal lg:text-[40px] text-[26px] text-black">
-                  {searchParams.title}
+                  {concert?.title}
                 </h4>
                 <p className="mt-[16px] font-normal lg:text-[20px] text-[14px] text-secondary-white">
                   {searchParams.loc} -{" "}
@@ -151,8 +167,9 @@ export default function Ticket({ searchParams }: Props) {
               <TableTickets
                 section={getSectionIdByName(section)}
                 concertSessionId={searchParams.concertSessionId}
-                concertTitle={searchParams.title}
+                concertTitle={concert!!.title}
                 categoryPrice={categoryPrice}
+                imageUrl={`${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${searchParams.concert}/images/${concert?.concertImages[0].id}`}
               />
             </div>
           )}

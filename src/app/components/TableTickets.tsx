@@ -15,6 +15,7 @@ interface props {
 	concertSessionId: number;
 	concertTitle: string;
 	categoryPrice: number;
+	imageUrl: string;
 }
 
 export const TableTickets = (props: props) => {
@@ -34,6 +35,8 @@ export const TableTickets = (props: props) => {
 					concertSessionId: props.concertSessionId,
 					quantity: quantity,
 					concertTitle: props.concertTitle,
+					price: props.categoryPrice,
+					imageUrl: props.imageUrl
 				},
 				{
 					headers: {
@@ -110,7 +113,7 @@ export const TableTickets = (props: props) => {
 								scope="row"
 								className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
 							>
-								${props.categoryPrice}
+								${props.categoryPrice * quantity}
 							</th>
 							<th
 								scope="row"

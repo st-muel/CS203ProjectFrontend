@@ -24,9 +24,9 @@ export async function POST(req: Request) {
                     currency: 'sgd',
                     product_data: {
                         name: `${concertTitle} Ticket Section ${section}`,
-                        images: ['https://static.ticketmaster.sg/images/activity/23_gidle_0f639bdb7563bc59155de00cafd8a431.jpg']
+                        images: [body.imageUrl]
                     },
-                    unit_amount: 20000
+                    unit_amount: body.price * 100
                 },
                 quantity: 1
             }
