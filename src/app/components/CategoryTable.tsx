@@ -10,7 +10,8 @@ import { FaSpinner } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 
 interface props {
-  category: string;
+  categoryId: string;
+  categoryName: string;
   price: number;
   concertId: number;
   sessionId: number | undefined;
@@ -29,17 +30,17 @@ export const CategoryTable = (props: props) => {
   const jwtToken = useAtomValue(jwtTokenAtom);
   const { push } = useRouter();
 
-  const processBallotCheckout = async (category: string) => {
+  const processBallotCheckout = async () => {
     try {
       setLoading(true);
       console.log(props.sessionId);
 
-      if (!props.sessionId) {
+      if (props.sessionId === undefined) {
         throw new Error("Session ID is undefined");
       }
 
       const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/sessions/${props.sessionId}/categories/${props.category}/ballots`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/sessions/${props.sessionId}/categories/${props.categoryId}/ballots`,
         {},
         {
           headers: {
@@ -56,10 +57,28 @@ export const CategoryTable = (props: props) => {
       // console.log(e);
       // console.log(props.concertId);
       // console.log(props.category);
-      notification.error({
-        message: "Error",
-        description: "Something went wrong. Please try again later.",
-      });
+
+      if (e.response.status === 409) {
+        notification.error({
+          message: "Error",
+          description: "User is already in the ballot.",
+        });
+      } else if (e.response.status === 401) {
+        notification.error({
+          message: "Error",
+          description: "Please login before joining ballot.",
+        });
+      } else if (e.response.status === 404) {
+        notification.error({
+          message: "Error",
+          description: "You can't ballot for this category.",
+        });
+      } else {
+        notification.error({
+          message: "Error",
+          description: "Unexpected error occurred.",
+        });
+      }
     } finally {
       setLoading(false);
     }
@@ -74,7 +93,7 @@ export const CategoryTable = (props: props) => {
               Choose Your Category
             </h2> */}
             <p className="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">
-              The category that you have selected is {props.category}
+              The category that you have selected is {props.categoryName}
             </p>
           </div>
         </div>
@@ -130,7 +149,7 @@ export const CategoryTable = (props: props) => {
         <div className="mt-8 mb-12">
           <button
             className="flex justify-center items-center w-[150px] h-[50px] bg-blue-500 hover:bg-blue-400 disabled:bg-neutral-500 disabled:hover:bg-neutral-500 disabled:cursor-default disabled:border-neutral-700 disabled:hover:border-neutral-700 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
-            onClick={() => processBallotCheckout(props.category)}
+            onClick={() => processBallotCheckout()}
             disabled={loading}
           >
             {loading ? <FaSpinner /> : <div>Checkout</div>}

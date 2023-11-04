@@ -81,6 +81,7 @@ export default function Ballot({ searchParams }: Props) {
         (res) => res.data as session[]
       );
       setSessions(sessions);
+      setCurrentSession(sessions[0]);
     }
     fetchData();
     fetchSession();
@@ -93,12 +94,22 @@ export default function Ballot({ searchParams }: Props) {
   const getPriceByCategoryId = () => {
     let price = 0.0;
     catPricing.forEach((pricing) => {
-      if (pricing.category.id + "" == categoryId) {
+      if (pricing.category.id +"" == categoryId) {
         price = pricing.price;
       }
     });
     return price;
   };
+
+  const getCategoryNameByCategoryId = (id: string) => {
+    let name = "";
+    catPricing.forEach((pricing) => {
+      if (pricing.category.id +"" == id) {
+        name = pricing.category.name;
+      }
+    });
+    return name;
+  }
 
   return (
     <main>
@@ -160,7 +171,8 @@ export default function Ballot({ searchParams }: Props) {
             <div className="bg-white" id="categorysection">
               {" "}
               <CategoryTable
-                category={categoryId}
+                categoryId={categoryId}
+                categoryName={getCategoryNameByCategoryId(categoryId)}
                 price={getPriceByCategoryId()}
                 concertId={searchParams.id}
                 sessionId={currentSession?.id}
