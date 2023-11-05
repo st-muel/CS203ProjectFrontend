@@ -1,12 +1,7 @@
 'use client';
 
-import { Modal, notification } from "antd";
-import axios from "axios";
+import { Modal } from "antd";
 import { useEffect, useState } from "react";
-import { Venue } from "../admin/page";
-import { useAtomValue } from "jotai";
-import { getJwt } from "../lib/utils";
-import { Concert } from "./EditConcertModal";
 
 interface props {
   open: boolean;

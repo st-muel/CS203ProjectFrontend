@@ -1,17 +1,17 @@
 "use client";
 
-import SignInModal from "./SignInModal";
-import { useState } from "react";
+import { notification } from "antd";
 import { motion } from "framer-motion";
+import { useAtom } from "jotai";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { userAtom } from "../jotai";
+import { getJwt, removeJwt } from "../lib/utils";
 import styles from "../styles";
 import { navVariants } from "../utils/motion";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
-import { useAtom, useAtomValue } from "jotai";
-import { notification } from "antd";
-import { userAtom } from "../jotai";
+import SignInModal from "./SignInModal";
 import SignUpModal from "./SignUpModal";
-import { getJwt, removeJwt } from "../lib/utils";
 
 const navItems = [
   {
@@ -32,7 +32,6 @@ const Navbar = () => {
 	const jwtToken = getJwt();
 	const [user, setUser] = useAtom(userAtom)
 	// const [open, setOpen] = useState(false)
-  // const [jwtToken, setJwtToken] = useAtom(jwtTokenAtom);
   // const user = useAtomValue(userAtom);
 
   const [open, setOpen] = useState(false);
