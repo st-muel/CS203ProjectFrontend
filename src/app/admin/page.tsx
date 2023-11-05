@@ -28,29 +28,38 @@ export default function Admin() {
     }
 
     useEffect(() => {
-        const getConcerts = async () => {
-            try {
-                const res = await axios.get<EventCatalogue[]>(
-                    `${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/concerts?showAll=true`,
-                    {
-                        headers: {
-                            Authorization: `Bearer ${jwtToken}`,
-                        }
-                    }
-                );
-                setConcerts(res.data);
-            } catch (err) {
-                notification.error({
-                    message: "Error",
-                    description: "An error has occurred. Please try again later."
-                });
-            }
-        }
-
         getConcerts();
     }, [])
 
-    const deleteConcert = (idx: number) => {
+    const getConcerts = async () => {
+        try {
+            const res = await axios.get<EventCatalogue[]>(
+                `${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/concerts?showAll=true`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${jwtToken}`,
+                    }
+                }
+            );
+            setConcerts(res.data);
+        } catch (err) {
+            notification.error({
+                message: "Error",
+                description: "An error has occurred. Please try again later."
+            });
+        }
+    }
+    
+
+    const deleteConcert = async (idx: number) => {
+        const res = await axios.delete<EventCatalogue[]>(
+            `${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/concerts/${idx}`,
+            {
+                headers: {
+                    Authorization: `Bearer ${jwtToken}`,
+                }
+            }
+        );
         setConcerts((prev) => {
             return prev.filter((_, index) => index !== idx);
         });
@@ -62,6 +71,7 @@ export default function Admin() {
                 open={open}
                 setOpen={setOpen}
                 setConcerts={setConcerts}
+                getConcerts={getConcerts}
             />
             <header className="bg-white shadow">
                 <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">

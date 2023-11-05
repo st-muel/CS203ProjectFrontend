@@ -12,6 +12,7 @@ interface props {
   open: boolean;
   setOpen: (open: boolean) => void;
   setConcerts: (concerts: any) => void;
+  getConcerts: () => void;
 }
 
 const CreateConcertModal = (props: props) => {
@@ -38,8 +39,9 @@ const CreateConcertModal = (props: props) => {
 
   const createConcert = async () => {
     try {
+      console.log(jwtToken);
       const res = await axios.post<Concert>(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/concerts `,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/concerts`,
         {
           title: title,
           // image: image,
@@ -66,25 +68,28 @@ const CreateConcertModal = (props: props) => {
         }
       );
 
-      const imageId = resImage.headers.location.split("/").pop();
+      console.log(resImage);
+      // const imageId = resImage.headers.Location.split("/").pop();
       
-      props.setConcerts((prev: any) => {
-        return [
-          ...prev,
-          {
-            id: res.data.id,
-            title: title,
-            concertImages: [{
-              id: imageId,
-              name: "",
-              filePath: "",
-            }],
-            description: description,
-            artist: artist,
-            venue: res.data.venue,
-          },
-        ];
-      });
+      // props.setConcerts((prev: any) => {
+      //   return [
+      //     ...prev,
+      //     {
+      //       id: res.data.id,
+      //       title: title,
+      //       concertImages: [{
+      //         // id: imageId,
+      //         name: "",
+      //         filePath: "",
+      //       }],
+      //       description: description,
+      //       artist: artist,
+      //       venue: res.data.venue,
+      //     },
+      //   ];
+      // });
+
+      props.getConcerts();
 
       notification.success({
         message: "Success",
@@ -92,6 +97,7 @@ const CreateConcertModal = (props: props) => {
       });
       props.setOpen(false);
     } catch (err) {
+      console.log(err)
       notification.error({
         message: "Error",
         description: "An error has occurred. Please try again later.",
@@ -108,6 +114,11 @@ const CreateConcertModal = (props: props) => {
       setVenue(-1);
       setBallotStart("");
       setBallotEnd("");
+    } else {
+      if (venues.length > 0) {
+        setVenue(venues[0].id);
+        console.log("Venue set as " + venues[0].id)
+      }
     }
   }, [props.open]);
 
@@ -124,6 +135,7 @@ const CreateConcertModal = (props: props) => {
         );
         setVenues(res.data);
         if (res.data.length > 0) {
+          console.log("Venue " + res.data[0].id);
           setVenue(res.data[0].id);
         }
       } catch (err) {
