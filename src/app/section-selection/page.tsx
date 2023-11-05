@@ -7,9 +7,6 @@ import Policy from "../sections/Policy";
 import Pricing from "../sections/Pricing";
 import axios from "axios";
 
-import { notification } from "antd";
-
-
 interface Props {
   searchParams: any;
 }
@@ -36,15 +33,10 @@ async function getSectionsPricing(concertId: number) {
   return await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${concertId}/prices`);
 }
 
-// async function getSessions(concertId: number) {
-//   return await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${concertId}/sessions`);
-// }
-
 export default async function Concert(
   {searchParams}: Props
 ) {
   const sectionPricing = await getSectionsPricing(searchParams.id).then(res => res.data as SectionPricing[]);
-  // const sessions = await getSessions(searchParams.id).then(res => res.data as session[]);
   
   const sectionsPricingDetails: PricingDetail[] = [
     {

@@ -30,12 +30,13 @@ const CategoryCard = (props: props) => {
             </div>
             <div className="flex gap-2">
                 { isActive ? (
-                    <button 
-                        className="flex gap-2 justify-between items-center px-3 py-2 rounded-md bg-red-600 text-white transition hover:bg-red-500"
-                        onClick={() => props.endBallot(props.category.id)}
-                    >
-                        <FaStopCircle /> End Ballot
-                    </button>
+                    // <button 
+                    //     className="flex gap-2 justify-between items-center px-3 py-2 rounded-md bg-red-600 text-white transition hover:bg-red-500"
+                    //     onClick={() => props.endBallot(props.category.id)}
+                    // >
+                    //     <FaStopCircle /> End Ballot
+                    // </button>
+                    <></>
                 ) : (
                     <button 
                         className="flex gap-2 justify-between items-center px-3 py-2 rounded-md bg-indigo-600 text-white transition hover:bg-indigo-500"

@@ -25,9 +25,15 @@ interface Props {
   description: string;
 }
 
-const ConcertDetails = (
-  { id, imgUrl, title, loc, startDate, endDate, description }: Props
-) => {
+const ConcertDetails = ({
+  id,
+  imgUrl,
+  title,
+  loc,
+  startDate,
+  endDate,
+  description,
+}: Props) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -59,7 +65,8 @@ const ConcertDetails = (
               <div className="flex flex-col gap-10">
                 <Link
                   href={{
-                    pathname: "/ticket",
+                    pathname: "/ballot",
+                    // pathname: "/ticket",
                     query: {
                       id: id,
                       imgUrl: imgUrl,
@@ -67,7 +74,7 @@ const ConcertDetails = (
                       startDate: startDate,
                       endDate: endDate,
                       loc: loc,
-                    }
+                    },
                   }}
                   className="relative inline-flex items-center justify-start px-6 py-2 overflow-hidden font-medium transition-all bg-white rounded hover:bg-white group"
                 >
