@@ -52,17 +52,30 @@ export default function Admin() {
     
 
     const deleteConcert = async (idx: number) => {
-        const res = await axios.delete<{}>(
-            `${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${idx}`,
-            {
-                headers: {
-                    Authorization: `Bearer ${jwtToken}`,
+        try {
+            const res = await axios.delete<{}>(
+                `${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${idx}`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${jwtToken}`,
+                    }
                 }
-            }
-        );
-        setConcerts((prev) => {
-            return prev.filter((_, index) => index !== idx);
-        });
+            );
+
+            setConcerts((prev) => {
+                return prev.filter((_, index) => index !== idx);
+            });
+
+            notification.success({
+                message: "Success",
+                description: "Concert has been deleted."
+            });
+        } catch (err) {
+            notification.error({
+                message: "Error",
+                description: "An error has occurred. Please try again later."
+            });
+        }
     }
 
     return (
