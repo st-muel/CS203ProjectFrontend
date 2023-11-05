@@ -48,7 +48,7 @@ export default function Concert({ params }: { params: { concertId: string }  }) 
 
         try {
             const res = await axios.post(
-                `${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/concerts/${concert.id}/sessions`,
+                `${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${concert.id}/sessions`,
                 {
                     datetime: datetime
                 },
@@ -83,7 +83,7 @@ export default function Concert({ params }: { params: { concertId: string }  }) 
 
         try {
             const res = await axios.delete(
-                `${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/concerts/${concert.id}/sessions/${sessionId}`,
+                `${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${concert.id}/sessions/${sessionId}`,
                 {
                     headers: {
                         Authorization: `Bearer ${jwtToken}`,
@@ -112,9 +112,9 @@ export default function Concert({ params }: { params: { concertId: string }  }) 
 
         try {
             const res = await axios.post(
-                `${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/concerts/${concert.id}/categories/${categoryId}/activeBallots`,
+                `${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${concert.id}/categories/${categoryId}/activeBallots`,
                 {
-                    secondsBeforeClosure: 60
+                    secondsBeforeClosure: seconds
                 },
                 {
                     headers: {
@@ -144,7 +144,7 @@ export default function Concert({ params }: { params: { concertId: string }  }) 
 
         try {
             const res = await axios.delete(
-                `${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/concerts/${concert.id}/categories/${categoryId}/activeBallots`,
+                `${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${concert.id}/categories/${categoryId}/activeBallots`,
                 {
                     headers: {
                         Authorization: `Bearer ${jwtToken}`,
@@ -171,7 +171,7 @@ export default function Concert({ params }: { params: { concertId: string }  }) 
     useEffect(() => {
         const getConcert = async () => {
             try {
-                const res = await axios.get<EventCatalogue>(`${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/concerts/${params.concertId}`);
+                const res = await axios.get<EventCatalogue>(`${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${params.concertId}`);
                 setConcert(res.data);
             } catch (err) {
                 notification.error({
@@ -190,7 +190,7 @@ export default function Concert({ params }: { params: { concertId: string }  }) 
 
             try {
                 const res = await axios.get<Category[]>(
-                    `${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/venues/${concert.venue.id}/categories`,
+                    `${process.env.NEXT_PUBLIC_BACKEND_URL}/venues/${concert.venue.id}/categories`,
                     {
                         headers: {
                             Authorization: `Bearer ${jwtToken}`,
@@ -215,7 +215,7 @@ export default function Concert({ params }: { params: { concertId: string }  }) 
 
             try {
                 const res = await axios.get<any[]>(
-                    `${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/activeBallots`,
+                    `${process.env.NEXT_PUBLIC_BACKEND_URL}/activeBallots`,
                     {
                         headers: {
                             Authorization: `Bearer ${jwtToken}`,
@@ -242,7 +242,7 @@ export default function Concert({ params }: { params: { concertId: string }  }) 
 
             try {
                 const res = await axios.get<ConcertSession[]>(
-                    `${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/concerts/${concert.id}/sessions`,
+                    `${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${concert.id}/sessions`,
                     {
                         headers: {
                             Authorization: `Bearer ${jwtToken}`,
@@ -306,15 +306,15 @@ export default function Concert({ params }: { params: { concertId: string }  }) 
                     </div>
                     <div className="relative w-full h-[200px]">
                         <Image
-                            src={ concert.concertImages.length > 0 ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/concerts/${concert.id}/images/${concert.concertImages[0].id}` : "" }
+                            src={ concert.concertImages.length > 0 ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${concert.id}/images/${concert.concertImages[0].id}` : "" }
                             alt=""
                             className="object-cover rounded-md"
                             fill 
                         />
                     </div>
-                    <div className="flex justify-center w-full">
+                    {/* <div className="flex justify-center w-full">
                         <BallotGraph />
-                    </div>
+                    </div> */}
                     <div className="flex gap-16 w-10/12">
                         <div className="w-2/3 text-gray-600 text-medium font-medium">{ concert.description }</div>
                         <div className="flex flex-col gap-3 w-1/3">

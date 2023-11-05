@@ -41,7 +41,7 @@ const CreateConcertModal = (props: props) => {
     try {
       console.log(jwtToken);
       const res = await axios.post<Concert>(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/concerts`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts`,
         {
           title: title,
           // image: image,
@@ -59,7 +59,7 @@ const CreateConcertModal = (props: props) => {
       const imageFormData = new FormData();
       imageFormData.append("file", image!!);
       const resImage = await axios.post<{}>(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/concerts/${res.data.id}/images`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${res.data.id}/images`,
         imageFormData,
         {
           headers: {
@@ -126,7 +126,7 @@ const CreateConcertModal = (props: props) => {
     const getVenues = async () => {
       try {
         const res = await axios.get<Venue[]>(
-          `${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/venues`,
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/venues`,
           {
             headers: {
               Authorization: `Bearer ${jwtToken}`,

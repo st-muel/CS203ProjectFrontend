@@ -15,7 +15,7 @@ const AdminConcertCard = (props: props) => {
                 <div className="absolute top-0 right-0 text-gray-500 tracking-wide p-2 text-md">{ props.concert.venue.name }</div>
                 <div className="relative w-1/3 h-full">
                     <Image
-                        src={ props.concert.concertImages.length > 0 ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/concerts/${props.concert.id}/images/${props.concert.concertImages[0].id}` : "" }
+                        src={ props.concert.concertImages.length > 0 ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${props.concert.id}/images/${props.concert.concertImages[0].id}` : "" }
                         alt=""
                         className="object-cover rounded-l-md"
                         fill

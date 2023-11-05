@@ -108,6 +108,35 @@ const Navbar = () => {
                   </Link>
                 );
               })}
+              { user && user.roles.includes("ROLE_ADMIN") && (
+								<Link
+									key="/admin"
+									className={`px-4 py-2 rounded-md text-sm lg:text-base relative no-underline duration-300 ease-in text-zinc-400` }
+									data-active={false}
+									href="/admin"
+									onMouseOver={() => setHoveredPath("/admin")}
+									onMouseLeave={() => setHoveredPath(pathname)}
+								>
+									<span>Admin</span>
+									{"/admin" === hoveredPath && (
+										<motion.div
+											className="absolute bottom-0 left-0 h-full bg-stone-900/60 rounded-md -z-10"
+											layoutId="navbar"
+											aria-hidden="true"
+											style={{
+												width: "100%",
+											}}
+											transition={{
+												type: "spring",
+												bounce: 0.05,
+												stiffness: 130,
+												damping: 20,
+												duration: 0.1,
+											}}
+										/>
+									)}
+								</Link>	
+							)}
             </nav>
           </div>
           <div className="align-middle">
