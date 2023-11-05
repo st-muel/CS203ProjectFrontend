@@ -22,7 +22,7 @@ const SigninForm = (props: props) => {
 	const onSubmit = async () => {
 		try {
 			const res = await axios.post(
-				`${process.env.NEXT_PUBLIC_BACKEND_URL}/v1/auth/signin`,
+				`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/signin`,
 				{ 
 					username,
 					password
@@ -33,6 +33,7 @@ const SigninForm = (props: props) => {
 			setUser(res.data)
 			props.setOpen(false)
 		} catch (e) {
+			console.log(e)
 			setUsername("")
 			setPassword("")
 

@@ -11,9 +11,11 @@ import { FaSpinner } from "react-icons/fa";
 import { SectionPricing } from "../concert/page";
 
 interface props {
-	section: string;
-	concertId: number;
+	section: number;
+	concertSessionId: number;
 	concertTitle: string;
+	categoryPrice: number;
+	imageUrl: string;
 }
 
 export const TableTickets = (props: props) => {
@@ -21,7 +23,7 @@ export const TableTickets = (props: props) => {
 	const [quantity, setQuantity] = useState(1);
 	const jwtToken = useAtomValue(jwtTokenAtom);
 	
-	const processStripeCheckout = async (section: string) => {
+	const processStripeCheckout = async (section: number) => {
 		try {
 			setLoading(true)
 
@@ -30,9 +32,11 @@ export const TableTickets = (props: props) => {
 				'/api/stripe/create', 
 				{
 					section: section,
-					concertId: props.concertId,
+					concertSessionId: props.concertSessionId,
 					quantity: quantity,
 					concertTitle: props.concertTitle,
+					price: props.categoryPrice,
+					imageUrl: props.imageUrl
 				},
 				{
 					headers: {
@@ -109,7 +113,7 @@ export const TableTickets = (props: props) => {
 								scope="row"
 								className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
 							>
-								$200
+								${props.categoryPrice * quantity}
 							</th>
 							<th
 								scope="row"

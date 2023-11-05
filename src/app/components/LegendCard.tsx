@@ -20,17 +20,17 @@ const LegendCard = ({ key, id, name, price, color }: Props) => (
     viewport={{ once: false, amount: 0.25 }}
     className="mx-auto flex flex-col"
   >
-    <div className="grid grid-cols-2 gap-5">
+    {/* <div className="grid grid-cols-2 gap-5"> */}
       <div className="">
         <span
           className={`w-2 h-2 inline-block rounded-full mr-2 ${color}`}
         ></span>
         <span className="text-gray-600">{name}</span>
       </div>
-      <div className="">
+      {/* <div className="">
         <span className="text-gray-600">{price}</span>
-      </div>
-    </div>
+      </div> */}
+    {/* </div> */}
   </motion.div>
 );
 
