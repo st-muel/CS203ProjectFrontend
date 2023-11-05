@@ -1,7 +1,7 @@
 "use client";
+
 import axios from "axios";
 import { useAtom, useAtomValue } from "jotai";
-import { jwtTokenAtom } from "../jotai";
 import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 import { notification } from "antd";
@@ -12,6 +12,7 @@ import { TitleText, TypingText } from "../components/CustomText";
 import { staggerContainer } from "../utils/motion";
 import styles from "../styles";
 import Image from "next/image";
+import { getJwt } from "../lib/utils";
 
 export interface Ticket {
   id: string;
@@ -59,7 +60,7 @@ export interface Ticket {
 }
 
 export default function UserTickets() {
-  const jwtToken = useAtomValue(jwtTokenAtom);
+  const jwtToken = getJwt();
   const [tickets, setTickets] = useState<Ticket[]>([]);
   useEffect(() => {
     const fetchData = async () => {

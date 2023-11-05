@@ -15,7 +15,9 @@ export function formatDate(date: Date) {
 }
 
 export function getJwt() {
-  return localStorage.getItem("jwt");
+  return (typeof window !== 'undefined') ? localStorage.getItem("jwt") : "";
+   
+  
 }
 
 export function setJwt(jwt: string) {

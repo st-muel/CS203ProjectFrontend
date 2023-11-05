@@ -4,17 +4,16 @@ import { useAtom, useAtomValue } from "jotai";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import SigninForm from "../components/SignInForm";
-import { jwtTokenAtom } from "../jotai";
 import { useEffect, useState } from "react";
 import { RedirectType, redirect } from "next/navigation";
+import { getJwt } from "../lib/utils";
 
 interface props {
     searchParams: any;
 }
 
 export default function RedirectSignIn({ searchParams }: props) {
-
-    const jwtToken = useAtomValue(jwtTokenAtom);
+    const jwtToken = getJwt();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {

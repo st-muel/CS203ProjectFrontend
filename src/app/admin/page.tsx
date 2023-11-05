@@ -23,9 +23,11 @@ export default function Admin() {
     const [search, setSearch] = useState("");
     const jwtToken = getJwt();
 
-    if (!jwtToken) {
-        router.push("/");
-    }
+    useEffect(() => {
+        if (!jwtToken && router) {
+            router.push("/");
+        }
+    }, [jwtToken, router])
 
     useEffect(() => {
         getConcerts();

@@ -10,10 +10,10 @@ import Navbar from "../components/Navbar";
 import SeatMap from "../components/Seatmap";
 import SectionSelectionMap from "../components/SectionSelectionMap";
 import { TableTickets } from "../components/TableTickets";
-import { jwtTokenAtom } from "../jotai";
 import styles from "../styles";
 import axios from "axios";
 import { notification } from "antd";
+import { getJwt } from "../lib/utils";
 const jwt = require("jsonwebtoken");
 
 interface Props {
@@ -56,7 +56,7 @@ export interface Concert {
 // userId=%ld&concert=%ld&concertSession=%ld&category=%ld&venue=%ld
 export default function Ticket({ searchParams }: Props) {
   const [section, setSection] = useState("");
-  const jwtToken = useAtomValue(jwtTokenAtom);
+  const jwtToken = getJwt();
   const [categoryPrice, setCategoryPrice] = useState(0.0);
   const [sections, setSections] = useState<Section[]>([]);
   const [concert, setConcert] = useState<Concert>();  
