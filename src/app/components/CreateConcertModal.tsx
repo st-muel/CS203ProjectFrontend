@@ -43,7 +43,6 @@ const CreateConcertModal = (props: props) => {
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts`,
         {
           title: title,
-          // image: image,
           description: description,
           artist: artist,
           venueId: venue,
@@ -67,7 +66,6 @@ const CreateConcertModal = (props: props) => {
         }
       );
 
-      console.log(resImage);
       // const imageId = resImage.headers.Location.split("/").pop();
       
       // props.setConcerts((prev: any) => {

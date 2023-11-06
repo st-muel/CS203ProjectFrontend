@@ -35,7 +35,7 @@ export default function Concert({ params }: { params: { concertId: string }  }) 
     const [concert, setConcert] = useState<EventCatalogue>();
     const [editModalOpen, setEditModalOpen] = useState(false);
     const [categories, setCategories] = useState<Category[]>([]);
-    const [activeBallots, setActiveBallots] = useState<number[]>([]);
+    const [activeBallots, setActiveBallots] = useState<any[]>([]);
     const [sessions, setSessions] = useState<ConcertSession[]>([]);
     const [open, setOpen] = useState(false);
 
@@ -124,12 +124,12 @@ export default function Concert({ params }: { params: { concertId: string }  }) 
             );
 
             setActiveBallots((prev) => {
-                return [...prev, categoryId];
+                return [...prev, res.data];
             });
 
             notification.success({
                 message: "Success",
-                description: "Ballot started successfully."
+                description: "Ballot overridden successfully."
             });
         } catch (err) {
             notification.error({
@@ -151,14 +151,17 @@ export default function Concert({ params }: { params: { concertId: string }  }) 
                     }
                 }
             );
-
+            
             setActiveBallots((prev) => {
-                return prev.filter((id) => id !== categoryId);
+                const idx = prev.findIndex((ballot) => ballot.id == categoryId);
+                const newBallots = [...prev];
+                newBallots[idx].status = "AWAITING_FIRST_PURCHASE_WINDOW";
+                return newBallots;
             });
 
             notification.success({
                 message: "Success",
-                description: "Ballot ended successfully."
+                description: "Ballot overridden successfully."
             });
         } catch (err) {
             notification.error({
@@ -223,7 +226,7 @@ export default function Concert({ params }: { params: { concertId: string }  }) 
                     }
                 );
                 
-                setActiveBallots(res.data.filter((ballot) => ballot.concert.id == concert.id).map((ballot) => ballot.category.id));
+                setActiveBallots(res.data.filter((ballot) => ballot.concert.id == concert.id));
 
             } catch (err) {
                 notification.error({

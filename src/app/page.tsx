@@ -5,29 +5,6 @@ import Hero from "./sections/Hero";
 import Insights from "./sections/Insights";
 import TopPicks from "./sections/TopPicks";
 
-const concerts = [
-  {
-    title: "The Weeknd After Hours Tour",
-    description:
-      "Come join us for a night of fun and music with The Weeknd! Come join us for a night of fun and music with The Weeknd! Come join us for a night of fun and music with The Weeknd! Come join us for a night of fun and music with The Weeknd!",
-  },
-  {
-    title: "The Weeknd After Hours Tour",
-    description:
-      "Come join us for a night of fun and music with The Weeknd! Come join us for a night of fun and music with The Weeknd! Come join us for a night of fun and music with The Weeknd! Come join us for a night of fun and music with The Weeknd!",
-  },
-  {
-    title: "The Weeknd After Hours Tour",
-    description:
-      "Come join us for a night of fun and music with The Weeknd! Come join us for a night of fun and music with The Weeknd! Come join us for a night of fun and music with The Weeknd! Come join us for a night of fun and music with The Weeknd!",
-  },
-  {
-    title: "The Weeknd After Hours Tour",
-    description:
-      "Come join us for a night of fun and music with The Weeknd! Come join us for a night of fun and music with The Weeknd! Come join us for a night of fun and music with The Weeknd! Come join us for a night of fun and music with The Weeknd!",
-  },
-];
-
 export default function Home() {
   return (
     <main>

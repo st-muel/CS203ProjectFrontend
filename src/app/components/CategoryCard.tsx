@@ -5,13 +5,28 @@ import { FaPlayCircle, FaStopCircle } from "react-icons/fa";
 
 interface props {
     category: Category;
-    activeBallots: number[];
+    activeBallots: any[];
     startBallot: (categoryId: number, seconds: number) => Promise<void>;
     endBallot: (categoryId: number) => Promise<void>;
 }
 
+const activeBallotsNames = {
+    ACTIVE: "Active",
+    AWAITING_FIRST_PURCHASE_WINDOW: "Awaiting first purchase window",
+    RUNNING_PURCHASE_WINDOW: "Running purchase window",
+    COMPLETED: "Completed",
+}
+
+const activeBallotsColors = {
+    ACTIVE: "text-green-500",
+    AWAITING_FIRST_PURCHASE_WINDOW: "text-violet-500",
+    RUNNING_PURCHASE_WINDOW: "text-rose-500",
+    COMPLETED: "text-gray-800",
+}
+
 const CategoryCard = (props: props) => {
-    const isActive = props.activeBallots.includes(props.category.id);
+    const activeBallot = props.activeBallots.find((ballot) => ballot.category.id === props.category.id);
+    const isActive = activeBallot !== undefined;
     const [open, setOpen] = useState(false);
 
     return (
@@ -22,29 +37,31 @@ const CategoryCard = (props: props) => {
                 categoryId={props.category.id}
                 startBallot={props.startBallot}
             />
-            <div className="flex gap-2">
+            <div className="flex gap-2 p-3">
                 { props.category.name }
                 { isActive && (
-                    <span className="text-green-500 font-bold">(Active)</span>        
+                    <span className={ 
+                        `${activeBallotsColors[activeBallot.status as keyof typeof activeBallotsColors]}` }>
+                            ({ activeBallotsNames[activeBallot.status as keyof typeof activeBallotsNames] })
+                    </span>        
                 )}
             </div>
             <div className="flex gap-2">
-                { isActive ? (
-                    // <button 
-                    //     className="flex gap-2 justify-between items-center px-3 py-2 rounded-md bg-red-600 text-white transition hover:bg-red-500"
-                    //     onClick={() => props.endBallot(props.category.id)}
-                    // >
-                    //     <FaStopCircle /> End Ballot
-                    // </button>
-                    <></>
-                ) : (
+                { (isActive && activeBallot.status == "ACTIVE") ? (
+                    <button 
+                        className="flex gap-2 justify-between items-center px-3 py-2 rounded-md bg-red-600 text-white transition hover:bg-red-500"
+                        onClick={() => props.endBallot(props.category.id)}
+                    >
+                        <FaStopCircle /> Override
+                    </button>
+                ) : (!isActive) ? (
                     <button 
                         className="flex gap-2 justify-between items-center px-3 py-2 rounded-md bg-indigo-600 text-white transition hover:bg-indigo-500"
                         onClick={() => setOpen(true)}
                     >
                         <FaPlayCircle /> Start Ballot
                     </button>
-                )}
+                ) : <></>}
             </div>
         </div>
     )
