@@ -7,10 +7,11 @@ interface props {
   open: boolean;
   setOpen: (open: boolean) => void;
   categoryId: number;
-  startBallot: (categoryId: number, seconds: number) => void;
+  status: string;
+  overrideBallot: (categoryId: number, seconds: number, currentStatus: string) => void;
 }
 
-const StartBallotModal = (props: props) => {
+const OverrideBallotModal = (props: props) => {
     const [seconds, setSeconds] = useState(60);
 
     const handleCancel = () => {
@@ -28,13 +29,13 @@ const StartBallotModal = (props: props) => {
             >
                 <div className="relative flex flex-col items-center justify-center">
                     <div className="w-full p-6 bg-white rounded-md lg:max-w-xl">
-                        <h1 className="text-3xl font-bold text-center text-gray-700">Start Ballot</h1>
+                        <h1 className="text-3xl font-bold text-center text-gray-700">Modify</h1>
                         <form className="flex flex-col gap-4 mt-6">
                             <div>
                                 <label
                                     className="block text-sm font-semibold text-gray-800"
                                 >
-                                    Seconds to Ballot Close
+                                    Seconds to End
                                 </label>
                                 <input
                                     type="number"
@@ -51,11 +52,11 @@ const StartBallotModal = (props: props) => {
                         <button 
                             className="absolute px-5 px-3 py-2 bg-indigo-600 text-white rounded-md transition hover:bg-indigo-500"
                             onClick={() => {
-                                props.startBallot(props.categoryId, seconds)
+                                props.overrideBallot(props.categoryId, seconds, props.status)
                                 props.setOpen(false)
                             }}
                         >
-                            Start
+                            Modify
                         </button>
                     </div>
                 </div>
@@ -64,4 +65,4 @@ const StartBallotModal = (props: props) => {
     );
 };
 
-export default StartBallotModal;
+export default OverrideBallotModal;

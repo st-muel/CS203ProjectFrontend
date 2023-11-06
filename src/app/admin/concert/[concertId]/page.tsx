@@ -35,7 +35,7 @@ export default function Concert({ params }: { params: { concertId: string }  }) 
     const [concert, setConcert] = useState<EventCatalogue>();
     const [editModalOpen, setEditModalOpen] = useState(false);
     const [categories, setCategories] = useState<Category[]>([]);
-    const [activeBallots, setActiveBallots] = useState<number[]>([]);
+    const [activeBallots, setActiveBallots] = useState<any[]>([]);
     const [sessions, setSessions] = useState<ConcertSession[]>([]);
     const [open, setOpen] = useState(false);
 
@@ -122,9 +122,11 @@ export default function Concert({ params }: { params: { concertId: string }  }) 
                     }
                 }
             );
+            
+            res.data.timeToNextStatus = seconds;
 
             setActiveBallots((prev) => {
-                return [...prev, categoryId];
+                return [...prev, res.data];
             });
 
             notification.success({
@@ -151,14 +153,55 @@ export default function Concert({ params }: { params: { concertId: string }  }) 
                     }
                 }
             );
-
+            
             setActiveBallots((prev) => {
-                return prev.filter((id) => id !== categoryId);
+                const idx = prev.findIndex((ballot) => ballot.category.id == categoryId);
+                const newBallots = [...prev];
+                newBallots[idx].status = "AWAITING_FIRST_PURCHASE_WINDOW";
+                return newBallots;
             });
 
             notification.success({
                 message: "Success",
-                description: "Ballot ended successfully."
+                description: "Ballot overridden successfully."
+            });
+        } catch (err) {
+            notification.error({
+                message: "Error",
+                description: "An error has occurred. Please try again later."
+            });
+        }
+    }
+    
+    const overrideBallot = async (categoryId: number, seconds: number, currentStatus: string) => {
+        if (!concert) return;
+
+        try {
+            const apiUrl = currentStatus == "ACTIVE" ? "activeBallots" : "firstPurchaseWindow";
+
+            const res = await axios.put(
+                `${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${concert.id}/categories/${categoryId}/${apiUrl}`,
+                {
+                    secondsBeforeClosure: seconds,
+                    secondsBeforeOpening: seconds
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${jwtToken}`,
+                    }
+                }
+            );
+            
+            setActiveBallots((prev) => {
+                const idx = prev.findIndex((ballot) => ballot.category.id == categoryId);
+                const newBallots = [...prev];
+                newBallots[idx].timeToNextStatus = seconds;
+                return newBallots;
+            });
+
+            notification.success({
+                message: "Success",
+                description: "Ballot overridden successfully."
             });
         } catch (err) {
             notification.error({
@@ -209,30 +252,30 @@ export default function Concert({ params }: { params: { concertId: string }  }) 
         if (concert) getCategories();
     }, [concert])
 
-    useEffect(() => {
-        const getActiveBallots = async () => {
-            if (!concert) return;
+    const getActiveBallots = async () => {
+        if (!concert) return;
 
-            try {
-                const res = await axios.get<any[]>(
-                    `${process.env.NEXT_PUBLIC_BACKEND_URL}/activeBallots`,
-                    {
-                        headers: {
-                            Authorization: `Bearer ${jwtToken}`,
-                        }
+        try {
+            const res = await axios.get<any[]>(
+                `${process.env.NEXT_PUBLIC_BACKEND_URL}/activeBallots`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${jwtToken}`,
                     }
-                );
-                
-                setActiveBallots(res.data.filter((ballot) => ballot.concert.id == concert.id).map((ballot) => ballot.category.id));
+                }
+            );
+            
+            setActiveBallots(res.data.filter((ballot) => ballot.concert.id == concert.id));
 
-            } catch (err) {
-                notification.error({
-                    message: "Error",
-                    description: "An error has occurred. Please try again later."
-                });
-            }
+        } catch (err) {
+            notification.error({
+                message: "Error",
+                description: "An error has occurred. Please try again later."
+            });
         }
+    }
 
+    useEffect(() => {
         if (concert) getActiveBallots();
     }, [concert])
 
@@ -340,6 +383,8 @@ export default function Concert({ params }: { params: { concertId: string }  }) 
                                     startBallot={startBallot}
                                     endBallot={endBallot}
                                     activeBallots={activeBallots}
+                                    overrideBallot={overrideBallot}
+                                    refreshBallots={getActiveBallots}
                                 />
                             )
                         }) }

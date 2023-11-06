@@ -30,8 +30,8 @@ export default function Admin() {
     }, [jwtToken, router])
 
     useEffect(() => {
-        getConcerts();
-    }, [])
+        if (jwtToken) getConcerts();
+    }, [jwtToken])
 
     const getConcerts = async () => {
         try {
@@ -63,7 +63,6 @@ export default function Admin() {
                     }
                 }
             );
-            console.log(idx);
 
             setConcerts((prev) => {
                 return prev.filter((concert) => concert.id !== idx);
