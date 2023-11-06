@@ -15,7 +15,7 @@ const AdminConcertCard = (props: props) => {
             <div className="relative w-1/3 h-full">
                 <Link href={ `/admin/concert/${props.concert.id}` }  className="w-full">
                     <Image
-                        src={ props.concert.concertImages.length > 0 ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${props.concert.id}/images/${props.concert.concertImages[0].id}` : "" }
+                        src={ props.concert.concertImages.length > 0 ? `/v1/concerts/${props.concert.id}/images/${props.concert.concertImages[0].id}` : "" }
                         alt=""
                         className="object-cover rounded-l-md"
                         fill

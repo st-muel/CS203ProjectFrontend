@@ -64,7 +64,7 @@ export default function UserTickets() {
       console.log(jwtToken);
       try {
         const res = await axios.get(
-          `${process.env.NEXT_PUBLIC_BACKEND_URL}/user/tickets`,
+          `/v1/user/tickets`,
           {
             headers: {
               Authorization: `Bearer ${jwtToken}`,
@@ -145,7 +145,7 @@ export default function UserTickets() {
                         width={140}
                         height={140}
                         className="md:object-scale-down"
-                        src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${ticket.concertSession.concert.id}/images/${ticket.concertSession.concert.concertImages[0].id}`}
+                        src={`/v1/concerts/${ticket.concertSession.concert.id}/images/${ticket.concertSession.concert.concertImages[0].id}`}
                         alt=""
                         objectFit="contain"
                       />

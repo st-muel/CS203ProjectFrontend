@@ -35,7 +35,7 @@ const EditConcertModal = (props: props) => {
 
     const updateConcert = async () => {
         try {
-            const res = await axios.put<Concert>(`${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${props.concert.id}`, {
+            const res = await axios.put<Concert>(`/v1/concerts/${props.concert.id}`, {
                 title: title,
                 description: description,
                 artist: artist,
@@ -71,7 +71,7 @@ const EditConcertModal = (props: props) => {
         const getVenues = async () => {
             try {
                 const res = await axios.get<Venue[]>(
-                    `${process.env.NEXT_PUBLIC_BACKEND_URL}/venues`,
+                    `/v1/venues`,
                     {
                         headers: {
                             Authorization: `Bearer ${jwtToken}`,

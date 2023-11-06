@@ -42,7 +42,7 @@ const SignupForm = (props: props) => {
 		try {
 			const res = await axios.post(
 
-				`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/signup`,
+				`/v1/auth/signup`,
 				{ 
 					username,
 					password,

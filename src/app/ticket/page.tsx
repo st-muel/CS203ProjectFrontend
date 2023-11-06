@@ -64,13 +64,13 @@ export default function Ticket({ searchParams }: Props) {
 
   useEffect(() => {
     const fetchCategoryPrice = async () => {
-      const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${searchParams.concert}/categories/${searchParams.category}/prices`);
+      const res = await axios.get(`/v1/concerts/${searchParams.concert}/categories/${searchParams.category}/prices`);
       
       setCategoryPrice(res.data.price);
     }
 
     const fetchSections = async () => {
-      const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/venues/${searchParams.venue}/sections`, {
+      const res = await axios.get(`/v1/venues/${searchParams.venue}/sections`, {
         headers: {
           Authorization: `Bearer ${jwtToken}`,
         },
@@ -80,7 +80,7 @@ export default function Ticket({ searchParams }: Props) {
 
     const fetchIsPurchaseAllowed = async () => {
       try{
-        const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/sessions/${searchParams.concertSession}/categories/${searchParams.category}/ballots/user`, 
+        const res = await axios.get(`/v1/sessions/${searchParams.concertSession}/categories/${searchParams.category}/ballots/user`, 
         {
           headers: {
             Authorization: `Bearer ${jwtToken}`,
@@ -94,12 +94,12 @@ export default function Ticket({ searchParams }: Props) {
     }
 
     const fetchConcert = async () => {
-      const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${searchParams.concert}`);
+      const res = await axios.get(`/v1/concerts/${searchParams.concert}`);
       setConcert(res.data);
     }
 
     const fetchSession = async () => {
-      const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${searchParams.concert}/sessions/${searchParams.concertSession}`);
+      const res = await axios.get(`/v1/concerts/${searchParams.concert}/sessions/${searchParams.concertSession}`);
       setSession(res.data);
     }
 
@@ -140,7 +140,7 @@ export default function Ticket({ searchParams }: Props) {
             <div className="relative md:w-[270px] w-full h-[150px]">
               <Image
                 className="rounded-[32px]"
-                src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${searchParams.concert}/images/${concert?.concertImages[0].id}`}
+                src={`/v1/concerts/${searchParams.concert}/images/${concert?.concertImages[0].id}`}
                 alt="concert"
                 objectFit="cover"
                 fill
@@ -186,7 +186,7 @@ export default function Ticket({ searchParams }: Props) {
                 concertSessionId={searchParams.concertSessionId}
                 concertTitle={concert!!.title}
                 categoryPrice={categoryPrice}
-                imageUrl={`${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${searchParams.concert}/images/${concert!!.concertImages[0].id}`}
+                imageUrl={`/v1/concerts/${searchParams.concert}/images/${concert!!.concertImages[0].id}`}
               />
             </div>
           )}

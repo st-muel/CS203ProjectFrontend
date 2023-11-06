@@ -45,7 +45,7 @@ export default function EventCatalogueSection({ eventCatalogues }: Props) {
               id={eventCatalogue.id}
               index={index}
               imgUrl={
-                eventCatalogue.concertImages.length > 0 ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${eventCatalogue.id}/images/${eventCatalogue.concertImages[0].id}` : ""
+                eventCatalogue.concertImages.length > 0 ? `/v1/concerts/${eventCatalogue.id}/images/${eventCatalogue.concertImages[0].id}` : ""
               }
               title={eventCatalogue.title}
               loc={eventCatalogue.venue.name}

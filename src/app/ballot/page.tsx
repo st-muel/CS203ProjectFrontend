@@ -48,7 +48,7 @@ export interface Session {
 async function getCategoryPricing(concertId: number) {
   try {
     return await axios.get(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${concertId}/prices`
+      `/v1/concerts/${concertId}/prices`
     );
   } catch (e) {
     console.log(e);
@@ -58,7 +58,7 @@ async function getCategoryPricing(concertId: number) {
 
 async function getSession(id: number) {
   return await axios.get(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${id}/sessions`
+    `/v1/concerts/${id}/sessions`
   );
 }
 

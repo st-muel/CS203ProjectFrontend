@@ -19,7 +19,7 @@ interface props {
 // async function getSectionsPricing(concertId: number) {
 async function getSectionsPricing(concertId: number) {
   return await axios.get(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${concertId}/prices`
+    `/v1/concerts/${concertId}/prices`
   );
 }
 
@@ -39,7 +39,7 @@ export const CategoryTable = (props: props) => {
       }
 
       const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/sessions/${props.sessionId}/categories/${props.categoryId}/ballots`,
+        `/v1/sessions/${props.sessionId}/categories/${props.categoryId}/ballots`,
         {},
         {
           headers: {

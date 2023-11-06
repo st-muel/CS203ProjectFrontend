@@ -36,7 +36,7 @@ export default function Admin() {
     const getConcerts = async () => {
         try {
             const res = await axios.get<EventCatalogue[]>(
-                `${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts?showAll=true`,
+                `/v1/concerts?showAll=true`,
                 {
                     headers: {
                         Authorization: `Bearer ${jwtToken}`,
@@ -56,7 +56,7 @@ export default function Admin() {
     const deleteConcert = async (idx: number) => {
         try {
             const res = await axios.delete<{}>(
-                `${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${idx}`,
+                `/v1/concerts/${idx}`,
                 {
                     headers: {
                         Authorization: `Bearer ${jwtToken}`,
