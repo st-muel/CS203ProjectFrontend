@@ -94,7 +94,7 @@ export default function Ballot({ searchParams }: Props) {
   const getPriceByCategoryId = () => {
     let price = 0.0;
     catPricing.forEach((pricing) => {
-      if (pricing.category.id +"" == categoryId) {
+      if (pricing.category.id + "" == categoryId) {
         price = pricing.price;
       }
     });
@@ -104,12 +104,12 @@ export default function Ballot({ searchParams }: Props) {
   const getCategoryNameByCategoryId = (id: string) => {
     let name = "";
     catPricing.forEach((pricing) => {
-      if (pricing.category.id +"" == id) {
+      if (pricing.category.id + "" == id) {
         name = pricing.category.name;
       }
     });
     return name;
-  }
+  };
 
   return (
     <main>
@@ -136,17 +136,15 @@ export default function Ballot({ searchParams }: Props) {
                 <p className="mt-[16px] font-normal lg:text-[20px] text-[14px] text-secondary-white">
                   {searchParams.loc} -{" "}
                   <div className={`${styles.innerWidth} mx-auto`}>
-            <SessionDropDown
-              sessions={sessions}
-              setCurrentSession={setCurrentSession}
-            />
-          </div>
+                    <SessionDropDown
+                      sessions={sessions}
+                      setCurrentSession={setCurrentSession}
+                    />
+                  </div>
                 </p>
               </div>
             </div>
           </div>
-
-          
 
           <div className={`${styles.innerWidth} mx-auto`}>
             <div className="bg-white py-6 sm:py-8 lg:py-12">
