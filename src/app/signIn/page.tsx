@@ -1,6 +1,6 @@
 "use client";
 
-import { useAtom, useAtomValue } from "jotai";
+
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import SigninForm from "../components/SignInForm";

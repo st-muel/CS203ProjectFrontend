@@ -29,7 +29,7 @@ export interface CategoryPricing {
   price: number;
 }
 
-export interface session {
+export interface Session {
   id: number;
   datetime: string;
   concert: {
@@ -65,8 +65,8 @@ async function getSession(id: number) {
 export default function Ballot({ searchParams }: Props) {
   const [categoryId, setCategoryId] = useState("");
   const [catPricing, setCatPricing] = useState<CategoryPricing[]>([]);
-  const [sessions, setSessions] = useState<session[]>([]);
-  const [currentSession, setCurrentSession] = useState<session | null>(null);
+  const [sessions, setSessions] = useState<Session[]>([]);
+  const [currentSession, setCurrentSession] = useState<Session | null>(null);
 
   useEffect(() => {
     // Fetch data when the component mounts
@@ -78,7 +78,7 @@ export default function Ballot({ searchParams }: Props) {
     }
     async function fetchSession() {
       const sessions = await getSession(searchParams.id).then(
-        (res) => res.data as session[]
+        (res) => res.data as Session[]
       );
       setSessions(sessions);
       setCurrentSession(sessions[0]);
@@ -135,18 +135,18 @@ export default function Ballot({ searchParams }: Props) {
                 </h4>
                 <p className="mt-[16px] font-normal lg:text-[20px] text-[14px] text-secondary-white">
                   {searchParams.loc} -{" "}
-                  {new Date(searchParams.startDate).toDateString()}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className={`${styles.innerWidth} mx-auto`}>
+                  <div className={`${styles.innerWidth} mx-auto`}>
             <SessionDropDown
               sessions={sessions}
               setCurrentSession={setCurrentSession}
             />
           </div>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          
 
           <div className={`${styles.innerWidth} mx-auto`}>
             <div className="bg-white py-6 sm:py-8 lg:py-12">

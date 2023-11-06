@@ -14,6 +14,7 @@ import styles from "../styles";
 import axios from "axios";
 import { notification } from "antd";
 import { getJwt } from "../lib/utils";
+import { Session } from "../ballot/page";
 const jwt = require("jsonwebtoken");
 
 interface Props {
@@ -49,8 +50,6 @@ export interface Concert {
     id: number;
     name: string;
   };
-  ballotStart: string;
-  ballotEnd: string;
 }
 
 // userId=%ld&concert=%ld&concertSession=%ld&category=%ld&venue=%ld
@@ -60,13 +59,10 @@ export default function Ticket({ searchParams }: Props) {
   const [categoryPrice, setCategoryPrice] = useState(0.0);
   const [sections, setSections] = useState<Section[]>([]);
   const [concert, setConcert] = useState<Concert>();  
+  const [isPurchaseAllowed, setIsPurchaseAllowed] = useState(false);
+  const [session, setSession] = useState<Session>();
 
   useEffect(() => {
-    console.log(section);
-  }, [section]);
-
-  useEffect(() => {
-
     const fetchCategoryPrice = async () => {
       const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${searchParams.concert}/categories/${searchParams.category}/prices`);
       
@@ -82,9 +78,24 @@ export default function Ticket({ searchParams }: Props) {
       setSections(res.data);
     }
 
+    const fetchIsPurchaseAllowed = async () => {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/sessions/${searchParams.concertSession}/categories/${searchParams.category}/ballots/user`, 
+      {
+        headers: {
+          Authorization: `Bearer ${jwtToken}`,
+        },
+      });
+      setIsPurchaseAllowed(res.data);
+    }
+
     const fetchConcert = async () => {
       const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${searchParams.concert}`);
       setConcert(res.data);
+    }
+
+    const fetchSession = async () => {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${searchParams.concert}/sessions/${searchParams.concertSession}`);
+      setSession(res.data);
     }
 
     console.log("From Ticket" + jwtToken);
@@ -104,6 +115,8 @@ export default function Ticket({ searchParams }: Props) {
         fetchCategoryPrice();
         fetchSections();
         fetchConcert();
+        fetchSession();
+        fetchIsPurchaseAllowed();
       }
     }
   }, [jwtToken]);
@@ -111,7 +124,7 @@ export default function Ticket({ searchParams }: Props) {
   const getSectionIdByName = (sectionName: string) => sections.find((section) => section.name === sectionName)?.id!;
   
 
-  return (
+  return ( isPurchaseAllowed &&
     <main>
       <div className="bg-primary-black overflow-hidden">
         <Navbar />
@@ -134,8 +147,7 @@ export default function Ticket({ searchParams }: Props) {
                   {concert?.title}
                 </h4>
                 <p className="mt-[16px] font-normal lg:text-[20px] text-[14px] text-secondary-white">
-                  {searchParams.loc} -{" "}
-                  {new Date(searchParams.startDate).toDateString()}
+                  {concert?.venue.name} -{" "} - {new Date(session!!.datetime).toString()}
                 </p>
               </div>
             </div>
@@ -169,7 +181,7 @@ export default function Ticket({ searchParams }: Props) {
                 concertSessionId={searchParams.concertSessionId}
                 concertTitle={concert!!.title}
                 categoryPrice={categoryPrice}
-                imageUrl={`${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${searchParams.concert}/images/${concert?.concertImages[0].id}`}
+                imageUrl={`${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${searchParams.concert}/images/${concert!!.concertImages[0].id}`}
               />
             </div>
           )}

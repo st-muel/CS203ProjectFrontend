@@ -1,18 +1,15 @@
 "use client";
-
-import axios from "axios";
-import { useAtom, useAtomValue } from "jotai";
-import { redirect } from "next/navigation";
-import { useEffect, useState } from "react";
 import { notification } from "antd";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import axios from "axios";
 import { motion } from "framer-motion";
-import { TitleText, TypingText } from "../components/CustomText";
-import { staggerContainer } from "../utils/motion";
-import styles from "../styles";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { TitleText, TypingText } from "../components/CustomText";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 import { getJwt } from "../lib/utils";
+import styles from "../styles";
+import { staggerContainer } from "../utils/motion";
 
 export interface Ticket {
   id: string;
@@ -148,11 +145,7 @@ export default function UserTickets() {
                         width={140}
                         height={140}
                         className="md:object-scale-down"
-                        src={
-                          "/" +
-                          ticket.concertSession.concert.concertImages[0]
-                            .filePath
-                        }
+                        src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${ticket.concertSession.concert.id}/images/${ticket.concertSession.concert.concertImages[0].id}`}
                         alt=""
                         objectFit="contain"
                       />

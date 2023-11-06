@@ -1,14 +1,12 @@
 "use client";
-import { TableDropDown } from "./TableDropDown";
-import styles from "../styles";
-import axios from "axios";
 import { Stripe, loadStripe } from "@stripe/stripe-js";
-import { useState } from "react";
-import { jwtTokenAtom, userAtom } from "../jotai";
-import { useAtomValue } from "jotai";
 import { notification } from "antd";
+import axios from "axios";
+import { useState } from "react";
 import { FaSpinner } from "react-icons/fa";
-import { SectionPricing } from "../concert/page";
+import { getJwt } from "../lib/utils";
+import styles from "../styles";
+import { TableDropDown } from "./TableDropDown";
 
 interface props {
 	section: number;
@@ -21,7 +19,7 @@ interface props {
 export const TableTickets = (props: props) => {
 	const [loading, setLoading] = useState(false);
 	const [quantity, setQuantity] = useState(1);
-	const jwtToken = useAtomValue(jwtTokenAtom);
+	const jwtToken = getJwt();
 	
 	const processStripeCheckout = async (section: number) => {
 		try {

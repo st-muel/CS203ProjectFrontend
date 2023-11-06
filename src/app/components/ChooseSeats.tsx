@@ -6,13 +6,12 @@ import axios from "axios";
 import { useState } from "react";
 import { SeatPicker } from "../components/SeatPicker/SeatPicker";
 import "./Seats.css";
-import { useAtomValue } from "jotai";
-import { jwtTokenAtom } from "../jotai";
+import { getJwt } from "../lib/utils";
 
 const ChooseSeats = () => {
 	const [selected, setSelected] = useState([]);
 	const [loading, setLoading] = useState(false);
-	const jwtToken = useAtomValue(jwtTokenAtom)
+	const jwtToken = getJwt();
 
 	const processStripeCheckout = async (selectedSeats: string[]) => {
         try {

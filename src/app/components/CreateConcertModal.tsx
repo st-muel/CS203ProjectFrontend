@@ -4,7 +4,6 @@ import { Modal, notification } from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Venue } from "../admin/page";
-import { useAtomValue } from "jotai";
 import { getJwt } from "../lib/utils";
 import { Concert } from "./EditConcertModal";
 

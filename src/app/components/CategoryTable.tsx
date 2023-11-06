@@ -1,13 +1,12 @@
 "use client";
-import { TableDropDown } from "./TableDropDown";
-import styles from "../styles";
-import axios from "axios";
-import { useState } from "react";
-import { jwtTokenAtom, userAtom } from "../jotai";
-import { useAtomValue } from "jotai";
 import { notification } from "antd";
-import { FaSpinner } from "react-icons/fa";
+import axios from "axios";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { FaSpinner } from "react-icons/fa";
+import { getJwt } from "../lib/utils";
+import styles from "../styles";
+import { TableDropDown } from "./TableDropDown";
 
 interface props {
   categoryId: string;
@@ -27,7 +26,7 @@ async function getSectionsPricing(concertId: number) {
 export const CategoryTable = (props: props) => {
   const [loading, setLoading] = useState(false);
   const [quantity, setQuantity] = useState(1);
-  const jwtToken = useAtomValue(jwtTokenAtom);
+  const jwtToken = getJwt();
   const { push } = useRouter();
 
   const processBallotCheckout = async () => {
