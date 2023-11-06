@@ -79,13 +79,18 @@ export default function Ticket({ searchParams }: Props) {
     }
 
     const fetchIsPurchaseAllowed = async () => {
-      const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/sessions/${searchParams.concertSession}/categories/${searchParams.category}/ballots/user`, 
-      {
-        headers: {
-          Authorization: `Bearer ${jwtToken}`,
-        },
-      });
-      setIsPurchaseAllowed(res.data);
+      try{
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/sessions/${searchParams.concertSession}/categories/${searchParams.category}/ballots/user`, 
+        {
+          headers: {
+            Authorization: `Bearer ${jwtToken}`,
+          },
+        });
+        setIsPurchaseAllowed(res.data);
+      } catch (err) {
+        notification.error({ message: "User is not permitted to buy tickets" });
+        setIsPurchaseAllowed(false);
+      }
     }
 
     const fetchConcert = async () => {
