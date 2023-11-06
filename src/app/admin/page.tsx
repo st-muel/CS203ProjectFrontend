@@ -80,6 +80,12 @@ export default function Admin() {
         }
     }
 
+    if (!jwtToken) return (
+        <div className="min-h-screen w-full flex justify-center items-center bg-white">
+            <div className="animate-spin rounded-full h-10 w-10 border-b border-gray-800" />
+        </div>
+    )
+
     return (
         <div className="min-h-screen bg-white">
             <CreateConcertModal 
