@@ -145,11 +145,7 @@ export default function UserTickets() {
                         width={140}
                         height={140}
                         className="md:object-scale-down"
-                        src={
-                          "/" +
-                          ticket.concertSession.concert.concertImages[0]
-                            .filePath
-                        }
+                        src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${ticket.concertSession.concert.id}/images/${ticket.concertSession.concert.concertImages[0].id}`}
                         alt=""
                         objectFit="contain"
                       />

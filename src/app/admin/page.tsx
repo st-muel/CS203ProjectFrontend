@@ -61,9 +61,10 @@ export default function Admin() {
                     }
                 }
             );
+            console.log(idx);
 
             setConcerts((prev) => {
-                return prev.filter((_, index) => index !== idx);
+                return prev.filter((concert) => concert.id !== idx);
             });
 
             notification.success({
@@ -113,12 +114,12 @@ export default function Admin() {
                         </button>
                     </div>
                     <div className="flex flex-col gap-2 w-full mt-4">
-                        { concerts.filter((concert) => concert.title.toLowerCase().includes(search)).map((concert, idx) => {
+                        { concerts.filter((concert) => concert.title.toLowerCase().includes(search)).map((concert) => {
                             return (
                                 <AdminConcertCard 
-                                    key={ `concert-card-${idx}` }
+                                    key={ `concert-card-${concert.id}` }
                                     concert={concert}
-                                    deleteConcert={() => deleteConcert(idx)}
+                                    deleteConcert={() => deleteConcert(concert.id)}
                                 />
                             )
                         }) }
