@@ -61,7 +61,7 @@ export default function Ticket({ searchParams }: Props) {
   const [concert, setConcert] = useState<Concert>();  
   const [isPurchaseAllowed, setIsPurchaseAllowed] = useState(false);
   const [session, setSession] = useState<Session>();
-  
+
   useEffect(() => {
     const fetchCategoryPrice = async () => {
       const res = await axios.get(`/v1/concerts/${searchParams.concert}/categories/${searchParams.category}/prices`);
@@ -130,10 +130,16 @@ export default function Ticket({ searchParams }: Props) {
 
   const getSectionIdByName = (sectionName: string) => sections.find((section) => section.name === sectionName)?.id!;
   
+  if (!jwtToken) return (
+    <div className="min-h-screen w-full flex justify-center items-center bg-white">
+        <div className="animate-spin rounded-full h-10 w-10 border-b border-gray-800" />
+    </div>
+  )
+
   if (!isPurchaseAllowed) {
     return (
       <div className="flex w-screen h-screen justify-center items-center">
-        <h1>You are not allowed to buy tickets for this session </h1>
+        <h1>You are not allowed to buy tickets for this session</h1>
       </div>
     )
   }
