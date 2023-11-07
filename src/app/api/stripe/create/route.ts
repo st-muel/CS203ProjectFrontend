@@ -28,7 +28,7 @@ export async function POST(req: Request) {
                     },
                     unit_amount: body.price * 100
                 },
-                quantity: 1
+                quantity: quantity
             }
         })
 

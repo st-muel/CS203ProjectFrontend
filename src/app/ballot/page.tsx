@@ -95,6 +95,7 @@ export default function Ballot({ searchParams }: Props) {
 
   const getPriceByCategoryId = () => {
     let price = 0.0;
+    console.log(sessions[0].id);
     catPricing.forEach((pricing) => {
       if (pricing.category.id + "" == categoryId) {
         price = pricing.price;
@@ -162,7 +163,7 @@ export default function Ballot({ searchParams }: Props) {
 
           <div className="flex flex-row justify-center items-center">
             <a href="#categorysection">
-              <Seatmap setSection={setCategoryId} />
+              <Seatmap setSection= {setCategoryId} />
             </a>
             <Legend />
           </div>

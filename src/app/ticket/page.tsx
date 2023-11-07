@@ -202,7 +202,7 @@ export default function Ticket({ searchParams }: Props) {
               {" "}
               <TableTickets
                 section={getSectionIdByName(section)}
-                concertSessionId={searchParams.concertSessionId}
+                concertSessionId={searchParams.concertSession}
                 concertTitle={concert!!.title}
                 categoryPrice={categoryPrice}
                 imageUrl={`${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${searchParams.concert}/images/${concert!!.concertImages[0].id}`}
