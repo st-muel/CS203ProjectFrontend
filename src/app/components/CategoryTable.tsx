@@ -16,13 +16,6 @@ interface props {
   sessionId: number | undefined;
 }
 
-// async function getSectionsPricing(concertId: number) {
-async function getSectionsPricing(concertId: number) {
-  return await axios.get(
-    `/v1/concerts/${concertId}/prices`
-  );
-}
-
 export const CategoryTable = (props: props) => {
   const [loading, setLoading] = useState(false);
   const [quantity, setQuantity] = useState(1);
