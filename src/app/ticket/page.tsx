@@ -130,7 +130,7 @@ export default function Ticket({ searchParams }: Props) {
         fetchIsPurchaseAllowed();
       }
     }
-  }, [jwtToken, searchParams]);
+  }, [jwtToken, searchParams.userId, searchParams.concert, searchParams.category, searchParams.venue, searchParams.concertSession]);
 
   const getSectionIdByName = (sectionName: string) => sections.find((section) => section.name === sectionName)?.id!;
   
