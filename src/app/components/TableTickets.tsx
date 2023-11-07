@@ -24,7 +24,7 @@ export const TableTickets = (props: props) => {
 	const processStripeCheckout = async (section: number) => {
 		try {
 			setLoading(true)
-
+			console.log(props.imageUrl)
 			const stripe = (await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string)) as Stripe
 			const res = await axios.post(
 				'/api/stripe/create', 

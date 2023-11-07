@@ -32,6 +32,8 @@ export async function POST(req: Request) {
             }
         })
 
+        console.log(user.id, section, concertSessionId, quantity)
+
         const stripeSession = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
             line_items: line_items,
@@ -39,7 +41,6 @@ export async function POST(req: Request) {
             metadata: {
                 userId: user.id,
                 sectionId: section,
-                concertSessionId: concertSessionId,
                 ticketsBought: quantity
             },
             success_url: `${process.env.NEXT_PUBLIC_PRODUCTION_URL}/payment-successful`,
@@ -48,6 +49,7 @@ export async function POST(req: Request) {
 
         return NextResponse.json({ sessionId: stripeSession.id }, { status: 200 })
     } catch (e: any) {
+        console.log(e.message)
         return NextResponse.json({message: e.message}, { status: 400 })
     }
 }

@@ -130,7 +130,7 @@ export default function Ticket({ searchParams }: Props) {
         fetchIsPurchaseAllowed();
       }
     }
-  }, [jwtToken]);
+  }, [jwtToken, searchParams]);
 
   const getSectionIdByName = (sectionName: string) => sections.find((section) => section.name === sectionName)?.id!;
   
@@ -205,7 +205,7 @@ export default function Ticket({ searchParams }: Props) {
                 concertSessionId={searchParams.concertSessionId}
                 concertTitle={concert!!.title}
                 categoryPrice={categoryPrice}
-                imageUrl={`/v1/concerts/${searchParams.concert}/images/${concert!!.concertImages[0].id}`}
+                imageUrl={`${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${searchParams.concert}/images/${concert!!.concertImages[0].id}`}
               />
             </div>
           )}
