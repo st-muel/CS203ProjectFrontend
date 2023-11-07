@@ -63,6 +63,7 @@ export default function Ticket({ searchParams }: Props) {
   const [session, setSession] = useState<Session>();
 
   useEffect(() => {
+    console.log(searchParams)
     const fetchCategoryPrice = async () => {
       const res = await axios.get(`/v1/concerts/${searchParams.concert}/categories/${searchParams.category}/prices`);
    
