@@ -115,7 +115,7 @@ export default function Ticket({ searchParams }: Props) {
     // }
     
     if (jwtToken) {
-      const payload = jwt.decode(jwtToken, process.env.JWT_SECRET);
+      const payload = jwt.decode(jwtToken);
       // console.log(payload)
       console.log(payload.id, searchParams.userId)
       if (payload.id == searchParams.userId) {
