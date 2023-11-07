@@ -7,8 +7,7 @@ import Policy from "../sections/Policy";
 import Pricing from "../sections/Pricing";
 import axios from "axios";
 
-import { notification } from "antd";
-
+export const revalidate = 5;
 
 interface Props {
   searchParams: any;

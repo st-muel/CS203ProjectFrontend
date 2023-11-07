@@ -7,6 +7,8 @@ import Policy from "../sections/Policy";
 import Pricing from "../sections/Pricing";
 import axios from "axios";
 
+export const revalidate = 5;
+
 interface Props {
   searchParams: any;
 }

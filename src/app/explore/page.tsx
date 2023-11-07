@@ -4,6 +4,8 @@ import Navbar from "../components/Navbar";
 import Events from "../sections/Events";
 import axios from "axios";
 
+export const revalidate = 5;
+
 export interface EventCatalogue {
   id: number;
   title: string;
