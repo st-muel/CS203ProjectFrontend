@@ -24,7 +24,7 @@ const AdminConcertCard = (props: props) => {
             </div>
             <div className="flex justify-between w-2/3 p-12">
                 <Link href={ `/admin/concert/${props.concert.id}` }  className="w-full">
-                    <div className="flex flex-col w-1/2">
+                    <div className="flex flex-col w-8/12">
                         <div className="text-gray-800 text-xl tracking-tight font-semibold">{ props.concert.title }</div>
                         <div className="text-gray-500 text-sm">{ props.concert.artist }</div>
                         <div className="text-gray-600 text-md pt-4">{ props.concert.description.substring(0, 90) }...</div>
