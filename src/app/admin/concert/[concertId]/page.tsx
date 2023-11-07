@@ -177,7 +177,8 @@ export default function Concert({ params }: { params: { concertId: string }  }) 
         if (!concert) return;
 
         try {
-            const apiUrl = currentStatus == "ACTIVE" ? "activeBallots" : "firstPurchaseWindow";
+            const apiUrl = (currentStatus == "AWAITING_FIRST_PURCHASE_WINDOW" || currentStatus == "RUNNING_PURCHASE_WINDOWS") 
+                ? "nextPurchaseWindow" : "activeBallots";
 
             const res = await axios.put(
                 `/v1/concerts/${concert.id}/categories/${categoryId}/${apiUrl}`,

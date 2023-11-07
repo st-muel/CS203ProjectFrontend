@@ -47,40 +47,34 @@ const CategoryCard = (props: props) => {
         if (!isActive) setTimeLeft(null);
     }, [isActive])
 
+    useEffect(() => {
+        setIsActive(activeBallot !== undefined);
+        setTimeLeft(activeBallot ? activeBallot.timeToNextStatus : null);
+    }, [activeBallot])
+
     useEffect(() => {   
+        const refresh = async () => {
+            await props.refreshBallots();
+        }
+
         if (timeLeft != null) {
             const intervalId = setInterval(() => {
                 setTimeLeft(
                     (prev: any) => {
-                        if (prev > 0) return prev - 1;
+                        prev = Math.max(-2, prev - 1)
 
-                        clearInterval(intervalId);
-                        return 0;
+                        if (prev <= -2) {
+                            refresh();
+                            clearInterval(intervalId);
+                        }
+                        return prev;
                     }
                 );
             }, 1000)
 
             return () => clearInterval(intervalId);
         }
-    }, [isActive])
-
-    useEffect(() => {
-        const refresh = async () => {
-            if (isActive && timeLeft !== null && timeLeft <= 0 && !refreshing) {
-                setRefreshing(true);
-                await props.refreshBallots();
-                setTimeLeft(1000);
-                setRefreshing(false);
-            }
-        }
-        
-        refresh();
-    }, [timeLeft])
-
-    useEffect(() => {
-        setIsActive(activeBallot !== undefined);
-        setTimeLeft(activeBallot ? activeBallot.timeToNextStatus : null);
-    }, [activeBallot])
+    }, [isActive, activeBallot])
 
     return (
         <div className="flex w-full items-center justify-between gap-2 text-gray-500 text-sm p-3 rounded-md border">
@@ -109,7 +103,7 @@ const CategoryCard = (props: props) => {
                         </span>
                         { timeLeft != null &&
                             <span className="font-bold text-md">
-                                { Duration.fromObject( { seconds: refreshing ? 0 : timeLeft } ).toFormat("hh:mm:ss") }
+                                { Duration.fromObject( { seconds: refreshing ? 0 : Math.max(0, timeLeft) } ).toFormat("hh:mm:ss") }
                             </span>
                         }
                     </div>    
