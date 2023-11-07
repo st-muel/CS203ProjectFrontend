@@ -61,8 +61,7 @@ export default function Ticket({ searchParams }: Props) {
   const [concert, setConcert] = useState<Concert>();  
   const [isPurchaseAllowed, setIsPurchaseAllowed] = useState(false);
   const [session, setSession] = useState<Session>();
-
-  console.log(jwtToken)
+  
   useEffect(() => {
     const fetchCategoryPrice = async () => {
       const res = await axios.get(`/v1/concerts/${searchParams.concert}/categories/${searchParams.category}/prices`);
@@ -115,8 +114,6 @@ export default function Ticket({ searchParams }: Props) {
     //   }
     // }
 
-    console.log("From Ticket" + jwtToken)
-
     if (jwtToken) {
       const payload = jwt.decode(jwtToken, process.env.JWT_SECRET);
       // console.log(payload)
@@ -133,7 +130,15 @@ export default function Ticket({ searchParams }: Props) {
 
   const getSectionIdByName = (sectionName: string) => sections.find((section) => section.name === sectionName)?.id!;
   
-  return ( isPurchaseAllowed &&
+  if (!isPurchaseAllowed) {
+    return (
+      <div className="flex w-screen h-screen justify-center items-center">
+        <h1>You are not allowed to buy tickets for this session </h1>
+      </div>
+    )
+  }
+
+  return (
     <main>
       <div className="bg-primary-black overflow-hidden">
         <Navbar />
