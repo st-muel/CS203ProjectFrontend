@@ -79,7 +79,7 @@ export default function Ticket({ searchParams }: Props) {
     }
 
     const fetchIsPurchaseAllowed = async () => {
-      try{
+      try {
         const res = await axios.get(`/v1/sessions/${searchParams.concertSession}/categories/${searchParams.category}/ballots/user`, 
         {
           headers: {
@@ -113,10 +113,11 @@ export default function Ticket({ searchParams }: Props) {
     //     fetchCategoryPrice();
     //   }
     // }
-
+    
     if (jwtToken) {
       const payload = jwt.decode(jwtToken, process.env.JWT_SECRET);
       // console.log(payload)
+      console.log(payload.id, searchParams.userId)
       if (payload.id == searchParams.userId) {
         console.log("Fetching data")
         fetchCategoryPrice();
