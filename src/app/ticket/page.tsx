@@ -63,6 +63,7 @@ export default function Ticket({ searchParams }: Props) {
   const [concert, setConcert] = useState<Concert>();  
   const [isPurchaseAllowed, setIsPurchaseAllowed] = useState(false);
   const [session, setSession] = useState<Session>();
+  const [concertSessionId, setConcertSessionId] = useState(0);
 
   useEffect(() => {
     console.log(searchParams.concert)
@@ -131,6 +132,10 @@ export default function Ticket({ searchParams }: Props) {
       }
     }
   }, [jwtToken, searchParams.userId, searchParams.concert, searchParams.category, searchParams.venue, searchParams.concertSession]);
+
+  useEffect(() => {
+    setConcertSessionId(searchParams.concertSession)
+  }, [searchParams.concertSession])
 
   const getSectionIdByName = (sectionName: string) => sections.find((section) => section.name === sectionName)?.id!;
   
@@ -202,7 +207,7 @@ export default function Ticket({ searchParams }: Props) {
               {" "}
               <TableTickets
                 section={getSectionIdByName(section)}
-                concertSessionId={searchParams.concertSession}
+                concertSessionId={concertSessionId}
                 concertTitle={concert!!.title}
                 categoryPrice={categoryPrice}
                 imageUrl={`${process.env.NEXT_PUBLIC_BACKEND_URL}/concerts/${searchParams.concert}/images/${concert!!.concertImages[0].id}`}
