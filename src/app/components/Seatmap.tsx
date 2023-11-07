@@ -3201,7 +3201,7 @@ const seatmap = (props: props) => {
           </svg>
           </svg>          
         </svg>
-        <svg className="group" id="Q" onClick={(e) => props.setSection(e.currentTarget.id)}>
+        <svg className="group" id="10" onClick={(e) => props.setSection(e.currentTarget.id)}>
           <svg
           id="field_PEND_NEVERLAND"
           className="group-hover:brightness-110"
@@ -3487,7 +3487,7 @@ const seatmap = (props: props) => {
           </svg>
           </svg>
         </svg>
-        <svg className="group" id="N" onClick={(e) => props.setSection(e.currentTarget.id)}>
+        <svg className="group" id="9" onClick={(e) => props.setSection(e.currentTarget.id)}>
           <svg
           id="field_PENC_LOVE"
           className="group-hover:brightness-110"
@@ -3820,7 +3820,7 @@ const seatmap = (props: props) => {
           </svg>
           </svg>
         </svg>
-        <svg className="group" id="L" onClick={(e) => props.setSection(e.currentTarget.id)}>
+        <svg className="group" id="8" onClick={(e) => props.setSection(e.currentTarget.id)}>
           <svg
           id="field_PEND_QUEEN"
           className="group-hover:brightness-110"

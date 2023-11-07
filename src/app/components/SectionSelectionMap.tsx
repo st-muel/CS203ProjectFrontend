@@ -3220,11 +3220,11 @@ const SectionSelectionMap = (props: props) => {
             </svg>
           </svg>
         </svg>
-        <svg className="" id="N">
+        <svg className="" id="10">
           <svg
             id="field_PEND_NEVERLAND"
-            className={props.category === 'N' ? 'hover:brightness-110' : ''}
-            onClick={(e) => handleChildClick(e, 'N')}
+            className={props.category === '10' ? 'hover:brightness-110' : ''}
+            onClick={(e) => handleChildClick(e, '10')}
           >
             <svg>
               <polygon
@@ -3291,8 +3291,8 @@ const SectionSelectionMap = (props: props) => {
           </svg>
           <svg
             id="field_PENC_NEVERLAND"
-            className={props.category === 'N' ? 'hover:brightness-110' : ''}
-            onClick={(e) => handleChildClick(e, 'N')}
+            className={props.category === '10' ? 'hover:brightness-110' : ''}
+            onClick={(e) => handleChildClick(e, '10')}
           >
             <svg>
               <polygon
@@ -3359,8 +3359,8 @@ const SectionSelectionMap = (props: props) => {
           </svg>
           <svg
             id="field_PENA_NEVERLAND"
-            className={props.category === 'N' ? 'hover:brightness-110' : ''}
-            onClick={(e) => handleChildClick(e, 'N')}
+            className={props.category === '10' ? 'hover:brightness-110' : ''}
+            onClick={(e) => handleChildClick(e, '10')}
           >
             <svg>
               <polygon
@@ -3427,8 +3427,8 @@ const SectionSelectionMap = (props: props) => {
           </svg>
           <svg
             id="field_PENB_NEVERLAND"
-            className={props.category === 'N' ? 'hover:brightness-110' : ''}
-            onClick={(e) => handleChildClick(e, 'N')}
+            className={props.category === '10' ? 'hover:brightness-110' : ''}
+            onClick={(e) => handleChildClick(e, '10')}
           >
             <svg>
               <polygon
@@ -3506,11 +3506,11 @@ const SectionSelectionMap = (props: props) => {
             </svg>
           </svg>
         </svg>
-        <svg className="" id="L">
+        <svg className="" id="9">
           <svg
             id="field_PENC_LOVE"
-            className={props.category === 'L' ? 'hover:brightness-110' : ''}
-            onClick={(e) => handleChildClick(e, 'L')}
+            className={props.category === '9' ? 'hover:brightness-110' : ''}
+            onClick={(e) => handleChildClick(e, '9')}
           >
             <svg>
               <polygon
@@ -3589,8 +3589,8 @@ const SectionSelectionMap = (props: props) => {
           </svg>
           <svg
             id="field_PENA_LOVE"
-            className={props.category === 'L' ? 'hover:brightness-110' : ''}
-            onClick={(e) => handleChildClick(e, 'L')}
+            className={props.category === '9' ? 'hover:brightness-110' : ''}
+            onClick={(e) => handleChildClick(e, '9')}
           >
             <svg>
               <polygon
@@ -3669,8 +3669,8 @@ const SectionSelectionMap = (props: props) => {
           </svg>
           <svg
             id="field_PENB_LOVE"
-            className={props.category === 'L' ? 'hover:brightness-110' : ''}
-            onClick={(e) => handleChildClick(e, 'L')}
+            className={props.category === '9' ? 'hover:brightness-110' : ''}
+            onClick={(e) => handleChildClick(e, '9')}
           >
             <svg>
               <polygon
@@ -3749,8 +3749,8 @@ const SectionSelectionMap = (props: props) => {
           </svg>
           <svg
             id="field_PEND_LOVE"
-            className={props.category === 'L' ? 'hover:brightness-110' : ''}
-            onClick={(e) => handleChildClick(e, 'L')}
+            className={props.category === '9' ? 'hover:brightness-110' : ''}
+            onClick={(e) => handleChildClick(e, '9')}
           >
             <svg>
               <polygon
@@ -3840,11 +3840,11 @@ const SectionSelectionMap = (props: props) => {
             </svg>
           </svg>
         </svg>
-        <svg className="" id="Q">
+        <svg className="" id="8">
           <svg
             id="field_PEND_QUEEN"
-            className={props.category === 'Q' ? 'hover:brightness-110' : ''}
-            onClick={(e) => handleChildClick(e, 'Q')}
+            className={props.category === '8' ? 'hover:brightness-110' : ''}
+            onClick={(e) => handleChildClick(e, '8')}
           >
             <svg>
               <polygon
@@ -3909,8 +3909,8 @@ const SectionSelectionMap = (props: props) => {
           </svg>
           <svg
             id="field_PENC_QUEEN"
-            className={props.category === 'Q' ? 'hover:brightness-110' : ''}
-            onClick={(e) => handleChildClick(e, 'Q')}
+            className={props.category === '8' ? 'hover:brightness-110' : ''}
+            onClick={(e) => handleChildClick(e, '8')}
           >
             <svg>
               <polygon
@@ -3975,8 +3975,8 @@ const SectionSelectionMap = (props: props) => {
           </svg>
           <svg
             id="field_PENA_QUEEN"
-            className={props.category === 'Q' ? 'hover:brightness-110' : ''}
-            onClick={(e) => handleChildClick(e, 'Q')}
+            className={props.category === '8' ? 'hover:brightness-110' : ''}
+            onClick={(e) => handleChildClick(e, '8')}
           >
             <svg>
               <polygon
@@ -4017,8 +4017,8 @@ const SectionSelectionMap = (props: props) => {
           </svg>
           <svg
             id="field_PENB_QUEEN"
-            className={props.category === 'Q' ? 'hover:brightness-110' : ''}
-            onClick={(e) => handleChildClick(e, 'Q')}
+            className={props.category === '8' ? 'hover:brightness-110' : ''}
+            onClick={(e) => handleChildClick(e, '8')}
           >
             <svg>
               <polygon
