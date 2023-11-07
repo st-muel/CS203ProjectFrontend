@@ -65,7 +65,7 @@ export default function Ticket({ searchParams }: Props) {
   useEffect(() => {
     const fetchCategoryPrice = async () => {
       const res = await axios.get(`/v1/concerts/${searchParams.concert}/categories/${searchParams.category}/prices`);
-      
+   
       setCategoryPrice(res.data.price);
     }
 
@@ -86,6 +86,7 @@ export default function Ticket({ searchParams }: Props) {
             Authorization: `Bearer ${jwtToken}`,
           },
         });
+      
         setIsPurchaseAllowed(res.data);
       } catch (err) {
         notification.error({ message: "User is not permitted to buy tickets" });
@@ -103,7 +104,7 @@ export default function Ticket({ searchParams }: Props) {
       setSession(res.data);
     }
 
-    console.log("From Ticket" + jwtToken);
+    // console.log("From Ticket" + jwtToken);
     // if (jwtToken === '') {
     //   redirect(`/signIn?redirectUrl=/ticket&userId=${searchParams.userId}&concertId=${searchParams.concertId}&category=${searchParams.category}&`, RedirectType.replace);
     // } else {
@@ -114,7 +115,7 @@ export default function Ticket({ searchParams }: Props) {
     // }
     if (jwtToken) {
       const payload = jwt.decode(jwtToken, process.env.JWT_SECRET);
-      console.log(payload)
+      // console.log(payload)
       if (payload.id == searchParams.userId) {
         console.log("Fetching data")
         fetchCategoryPrice();
@@ -128,7 +129,6 @@ export default function Ticket({ searchParams }: Props) {
 
   const getSectionIdByName = (sectionName: string) => sections.find((section) => section.name === sectionName)?.id!;
   
-
   return ( isPurchaseAllowed &&
     <main>
       <div className="bg-primary-black overflow-hidden">
