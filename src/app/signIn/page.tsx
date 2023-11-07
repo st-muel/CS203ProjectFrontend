@@ -8,6 +8,8 @@ import { useEffect, useState } from "react";
 import { RedirectType, redirect } from "next/navigation";
 import { getJwt } from "../lib/utils";
 
+export const dynamic = 'force-dynamic'
+
 interface props {
     searchParams: any;
 }

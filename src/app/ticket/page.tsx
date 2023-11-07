@@ -17,6 +17,8 @@ import { getJwt } from "../lib/utils";
 import { Session } from "../ballot/page";
 const jwt = require("jsonwebtoken");
 
+export const dynamic = 'force-dynamic'
+
 interface Props {
   searchParams: any;
 }
@@ -63,7 +65,7 @@ export default function Ticket({ searchParams }: Props) {
   const [session, setSession] = useState<Session>();
 
   useEffect(() => {
-    console.log(searchParams)
+    console.log(searchParams.concert)
     const fetchCategoryPrice = async () => {
       const res = await axios.get(`/v1/concerts/${searchParams.concert}/categories/${searchParams.category}/prices`);
    

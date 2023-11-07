@@ -7,7 +7,7 @@ import Policy from "../sections/Policy";
 import Pricing from "../sections/Pricing";
 import axios from "axios";
 
-export const revalidate = 5;
+export const dynamic = 'force-dynamic'
 
 interface Props {
   searchParams: any;

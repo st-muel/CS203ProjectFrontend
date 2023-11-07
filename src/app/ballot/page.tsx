@@ -12,6 +12,8 @@ import axios from "axios";
 import { get } from "http";
 import { SessionDropDown } from "../components/SessionDropDown";
 
+export const dynamic = 'force-dynamic'
+
 interface Props {
   searchParams: any;
   catPricing: CategoryPricing[]; // Pass the fetched data as a prop
