@@ -41,7 +41,8 @@ export async function POST(req: Request) {
             metadata: {
                 userId: user.id,
                 sectionId: section,
-                ticketsBought: quantity
+                ticketsBought: quantity,
+                concertSessionId: concertSessionId
             },
             success_url: `${process.env.NEXT_PUBLIC_PRODUCTION_URL}/payment-successful`,
             cancel_url: `${process.env.NEXT_PUBLIC_PRODUCTION_URL}/cancel`,
