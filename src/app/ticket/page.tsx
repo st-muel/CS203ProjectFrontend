@@ -62,6 +62,7 @@ export default function Ticket({ searchParams }: Props) {
   const [isPurchaseAllowed, setIsPurchaseAllowed] = useState(false);
   const [session, setSession] = useState<Session>();
 
+  console.log(jwtToken)
   useEffect(() => {
     const fetchCategoryPrice = async () => {
       const res = await axios.get(`/v1/concerts/${searchParams.concert}/categories/${searchParams.category}/prices`);
@@ -113,6 +114,9 @@ export default function Ticket({ searchParams }: Props) {
     //     fetchCategoryPrice();
     //   }
     // }
+
+    console.log("From Ticket" + jwtToken)
+
     if (jwtToken) {
       const payload = jwt.decode(jwtToken, process.env.JWT_SECRET);
       // console.log(payload)
